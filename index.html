@@ -60,7 +60,7 @@
             color: #a0f0f0;
             font-size: 1.2rem;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 20px;
         }
         
         .header-image {
@@ -154,40 +154,25 @@
             margin-top: 10px;
         }
         
-        .image-comparison {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            background: rgba(26, 26, 46, 0.7);
+        .key-differences {
+            background: linear-gradient(145deg, var(--card-bg), #161627);
             border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
             border: 1px solid var(--card-border);
+            position: relative;
         }
         
-        .image-comparison h2 {
+        .key-differences h2 {
             color: var(--accent-aqua);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
         
-        .comparison-image {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--accent-aqua-dark);
-            transition: transform 0.3s ease;
-        }
-        
-        .comparison-image:hover {
-            transform: scale(1.02);
-        }
-        
-        .image-caption {
-            margin-top: 15px;
-            color: #a0f0f0;
-            font-style: italic;
+        .key-differences p {
+            line-height: 1.7;
         }
         
         .pyramid-container {
@@ -256,27 +241,6 @@
                 filter: drop-shadow(0 0 8px var(--gold-dark)) 
                        drop-shadow(0 0 16px var(--gold-light));
             }
-        }
-        
-        .key-differences {
-            background: linear-gradient(145deg, var(--card-bg), #161627);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            border: 1px solid var(--card-border);
-            position: relative;
-        }
-        
-        .key-differences h2 {
-            color: var(--accent-aqua);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .key-differences p {
-            line-height: 1.7;
         }
         
         .links {
@@ -450,13 +414,6 @@
                     <li>Once rules are learned, students can reproduce discourse</li>
                 </ul>
             </div>
-        </div>
-        
-        <div class="image-comparison">
-            <h2><i class="fas fa-image"></i> Visual Comparison</h2>
-            <img src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/1e8e44509cc7595fa135c7958f7f60e083f63a04/jpeg%20(5).jpg" 
-                 alt="Academic Literacies Model Visual Representation" class="comparison-image">
-            <p class="image-caption">Visual representation of the Academic Literacies Model for comparison with definitions</p>
         </div>
         
         <div class="key-differences">
