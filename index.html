@@ -11,6 +11,8 @@
             --accent-aqua: #00ffff;
             --accent-aqua-dark: #008b8b;
             --card-bg: #1e1e1e;
+            --gold-light: #FFD700;
+            --gold-dark: #DAA520;
         }
         
         body {
@@ -20,11 +22,13 @@
             line-height: 1.6;
             margin: 0;
             padding: 20px;
+            overflow-x: hidden;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
+            position: relative;
         }
         
         header {
@@ -75,6 +79,13 @@
             padding-bottom: 10px;
         }
         
+        .emphasized {
+            position: relative;
+            z-index: 2;
+            border: 2px solid var(--accent-aqua);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
         .key-points {
             margin-left: 20px;
         }
@@ -106,6 +117,75 @@
             background-color: var(--accent-aqua);
         }
         
+        /* Pyramid styling */
+        .pyramid-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            perspective: 600px;
+            z-index: 1;
+        }
+        
+        .pyramid {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+        
+        .pyramid-face {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 104px solid rgba(255, 215, 0, 0.7);
+            opacity: 0.8;
+            animation: glitter 2s infinite alternate;
+        }
+        
+        .pyramid-face:nth-child(1) {
+            transform: rotateY(0deg) translateZ(30px) rotateX(30deg);
+            border-bottom-color: rgba(255, 215, 0, 0.7);
+        }
+        
+        .pyramid-face:nth-child(2) {
+            transform: rotateY(90deg) translateZ(30px) rotateX(30deg);
+            border-bottom-color: rgba(218, 165, 32, 0.7);
+        }
+        
+        .pyramid-face:nth-child(3) {
+            transform: rotateY(180deg) translateZ(30px) rotateX(30deg);
+            border-bottom-color: rgba(255, 215, 0, 0.7);
+        }
+        
+        .pyramid-face:nth-child(4) {
+            transform: rotateY(270deg) translateZ(30px) rotateX(30deg);
+            border-bottom-color: rgba(218, 165, 32, 0.7);
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+        
+        @keyframes glitter {
+            0% {
+                filter: drop-shadow(0 0 2px var(--gold-light));
+            }
+            100% {
+                filter: drop-shadow(0 0 10px var(--gold-dark)) 
+                       drop-shadow(0 0 20px var(--gold-light));
+            }
+        }
+        
         @media (max-width: 768px) {
             .models-container {
                 flex-direction: column;
@@ -119,6 +199,13 @@
             .link-button {
                 text-align: center;
             }
+            
+            .pyramid-container {
+                position: relative;
+                margin: 20px auto;
+                top: 0;
+                right: 0;
+            }
         }
     </style>
 </head>
@@ -128,6 +215,15 @@
             <h1>Academic Literacy Models</h1>
             <p>Understanding different approaches to literacy in educational contexts</p>
         </header>
+        
+        <div class="pyramid-container">
+            <div class="pyramid">
+                <div class="pyramid-face"></div>
+                <div class="pyramid-face"></div>
+                <div class="pyramid-face"></div>
+                <div class="pyramid-face"></div>
+            </div>
+        </div>
         
         <div class="models-container">
             <div class="model-card">
@@ -141,6 +237,17 @@
                 </ul>
             </div>
             
+            <div class="model-card emphasized">
+                <h3>Academic Literacies Model</h3>
+                <ul class="key-points">
+                    <li>Views literacy as social practices that vary by context</li>
+                    <li>Focuses on meaning-making, identity, power, and authority</li>
+                    <li>Highlights institutional nature of knowledge construction</li>
+                    <li>Emphasizes complexity of acquiring literacy practices</li>
+                    <li>Considers epistemological dimensions of writing</li>
+                </ul>
+            </div>
+            
             <div class="model-card">
                 <h3>Academic Socialization Model</h3>
                 <ul class="key-points">
@@ -149,17 +256,6 @@
                     <li>Assumes disciplinary discourses are relatively stable</li>
                     <li>Associated with constructivism and situated learning</li>
                     <li>Once rules are learned, students can reproduce discourse</li>
-                </ul>
-            </div>
-            
-            <div class="model-card">
-                <h3>Academic Literacies Model</h3>
-                <ul class="key-points">
-                    <li>Views literacy as social practices that vary by context</li>
-                    <li>Focuses on meaning-making, identity, power, and authority</li>
-                    <li>Highlights institutional nature of knowledge construction</li>
-                    <li>Emphasizes complexity of acquiring literacy practices</li>
-                    <li>Considers epistemological dimensions of writing</li>
                 </ul>
             </div>
         </div>
@@ -172,5 +268,18 @@
             <a href="https://oeybers-cpu.github.io/oe_research/" class="link-button">Go to Eybers Articles</a>
         </div>
     </div>
+
+    <script>
+        // Additional JavaScript to enhance the glitter effect randomly
+        document.addEventListener('DOMContentLoaded', function() {
+            const faces = document.querySelectorAll('.pyramid-face');
+            
+            setInterval(() => {
+                faces.forEach(face => {
+                    face.style.animationDelay = `${Math.random() * 2}s`;
+                });
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
