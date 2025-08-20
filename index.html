@@ -63,6 +63,21 @@
             margin: 0 auto;
         }
         
+        .header-image {
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--accent-aqua-dark);
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
         .models-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -307,6 +322,10 @@
                 top: 0;
                 right: 0;
             }
+            
+            .header-image {
+                max-width: 300px;
+            }
         }
         
         @media (max-width: 600px) {
@@ -330,6 +349,10 @@
             .link-button {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .header-image {
+                max-width: 250px;
             }
         }
         
@@ -377,6 +400,12 @@
         <header>
             <h1>Academic Literacy Models</h1>
             <p class="subtitle">Understanding different approaches to literacy in educational contexts</p>
+            
+            <!-- Embedded image near the top -->
+            <div class="header-image">
+                <img src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/1e8e44509cc7595fa135c7958f7f60e083f63a04/jpeg%20(5).jpg" 
+                     alt="Academic Literacy Models Visual Representation">
+            </div>
         </header>
         
         <div class="pyramid-container">
@@ -425,7 +454,7 @@
         
         <div class="image-comparison">
             <h2><i class="fas fa-image"></i> Visual Comparison</h2>
-            <img src="https://github.com/oeybers-cpu/a_lit_models.git" 
+            <img src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/1e8e44509cc7595fa135c7958f7f60e083f63a04/jpeg%20(5).jpg" 
                  alt="Academic Literacies Model Visual Representation" class="comparison-image">
             <p class="image-caption">Visual representation of the Academic Literacies Model for comparison with definitions</p>
         </div>
@@ -444,7 +473,6 @@
             </a>
             <a href="https://oeybers-cpu.github.io/chapters/" class="link-button">
                 <i class="fas fa-file-alt"></i> Eybers Chapters
-            </a>
             </a>
             <a href="https://oeybers-cpu.github.io/basicskills/" class="link-button">
                 <i class="fas fa-file-alt"></i> Basic Skills Model
@@ -491,4 +519,3 @@
     </script>
 </body>
 </html>
-       
