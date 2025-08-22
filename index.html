@@ -308,6 +308,30 @@
             margin-bottom: 8px;
         }
 
+        /* New styles for the image panel */
+        .image-panel {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .image-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            min-height: 200px;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
         .citation {
             background: rgba(0, 255, 255, 0.1);
             color: var(--primary);
@@ -603,30 +627,30 @@
                 
                 <!-- Applications -->
                 <div class="article-card">
-                    <h3><i class="fas fa-cogs"></i> Model Implications</h3>
+                    <h3><i class="fas fa-cogs"></i> Applications & Implications</h3>
                     <div class="article-content">
                         <p><strong>For teaching:</strong></p>
                         <ul>
-                            <li>Move beyond generic study skills</li>
-                            <li>Address discipline-specific practices</li>
-                            <li>Academic literacy and content area teachers connection</li>
-                            <li>Support students' disciplinary needs</li>
+                            <li>Moves beyond generic study skills</li>
+                            <li>Addresses discipline-specific practices</li>
+                            <li>More appealing to content area teachers</li>
+                            <li>Supports wider range of students</li>
                         </ul>
                         
                         <p><strong>For curriculum design:</strong></p>
                         <ul>
-                            <li>Recognise epistemological differences</li>
-                            <li>Address power relations in knowledge</li>
-                            <li>Consider institutional requirements</li>
-                            <li>Foreground identity in writing</li>
+                            <li>Recognizes epistemological differences</li>
+                            <li>Addresses power relations in knowledge</li>
+                            <li>Considers institutional requirements</li>
+                            <li>Foregrounds identity in writing</li>
                         </ul>
                         
                         <p><strong>For student learning:</strong></p>
                         <ul>
-                            <li>Develop disciplinary insider perspectives</li>
-                            <li>Enhance critical engagement with texts</li>
-                            <li>Support advanced interpretation skills</li>
-                            <li>Facilitate deeper conceptual understanding</li>
+                            <li>Develops disciplinary insider perspectives</li>
+                            <li>Enhances critical engagement with texts</li>
+                            <li>Supports advanced interpretation skills</li>
+                            <li>Facilitates deeper conceptual understanding</li>
                         </ul>
                     </div>
                     <div class="article-meta">
@@ -663,6 +687,19 @@
                     <div class="article-meta">
                         <span class="meta-tag">Evidence</span>
                         <span class="meta-tag">Studies</span>
+                    </div>
+                </div>
+                
+                <!-- New Image Panel -->
+                <div class="article-card image-panel">
+                    <h3><i class="fas fa-laptop"></i> Academic Literacies Visualization</h3>
+                    <div class="image-container">
+                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/laptop.png?raw=true" 
+                             alt="Academic Literacies Models Visualization">
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Visualization</span>
+                        <span class="meta-tag new-tag">Model</span>
                     </div>
                 </div>
             </div>
