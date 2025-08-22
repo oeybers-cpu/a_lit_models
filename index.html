@@ -22,7 +22,7 @@
             --light: #f0f0f0;
             --card-bg: rgba(20, 20, 30, 0.7);
             --sidebar-width: 280px;
-            --lighter-blue: #6bd5ff; /* Adjusted to better match the theme */
+            --lighter-blue: #6bd5ff;
         }
 
         body {
@@ -308,7 +308,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            text-shadow: 0 0 8px rgba(107, 213, 255, 0.6); /* Added glow effect */
+            text-shadow: 0 0 8px rgba(107, 213, 255, 0.6);
         }
 
         .article-card h3 i {
@@ -321,7 +321,7 @@
             line-height: 1.6;
             margin-bottom: 15px;
             flex-grow: 1;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2); /* Subtle glow for content */
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
         }
 
         .article-content p {
@@ -399,14 +399,14 @@
             border-radius: 15px;
             font-size: 0.6375rem;
             border: 1px solid rgba(0, 255, 255, 0.2);
-            text-shadow: 0 0 4px rgba(0, 255, 255, 0.3); /* Added glow */
+            text-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
         }
 
         .new-tag {
             background: rgba(157, 78, 221, 0.2);
             color: var(--accent);
             border-color: rgba(157, 78, 221, 0.3);
-            text-shadow: 0 0 4px rgba(157, 78, 221, 0.3); /* Added glow */
+            text-shadow: 0 0 4px rgba(157, 78, 221, 0.3);
         }
 
         .article-link {
@@ -553,7 +553,7 @@
     
     <!-- Back Button -->
     <div class="back-button" id="backButton">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fab fa-google"></i>
     </div>
     
     <!-- Sidebar with links and images -->
@@ -567,11 +567,14 @@
             <a href="https://scholar.google.com/scholar?q=academic+literacies+model" class="sidebar-link" target="_blank">
                 Research on academic literacies
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpernst0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://www.researchgate.net/publication/388951586_Transforming_Academic_Literacy_Centering_Indigenous_Identities_in_Classroom" class="sidebar-link" target="_blank">
                 Academic literacy and indigenous identities
+            </a>
+            <a href="https://health.uct.ac.za/sites/default/files/media/documents/health_uct_ac_za/1534/using-ai-writing-tools-final.pdf" class="sidebar-link" target="_blank">
+                AI and academic writing
             </a>
         </div>
     </div>
@@ -808,8 +811,8 @@
                 if (window.history.length > 1) {
                     window.history.back();
                 } else {
-                    // If no history, redirect to a fallback URL
-                    window.location.href = 'https://www.google.com'; // Change this to your preferred fallback
+                    // If no history, redirect to Google
+                    window.location.href = 'https://www.google.com';
                 }
             });
         });
