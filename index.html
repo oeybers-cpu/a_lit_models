@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Literacies Model | Critical Analysis</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css  ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -22,7 +22,7 @@
             --light: #f0f0f0;
             --card-bg: rgba(20, 20, 30, 0.7);
             --sidebar-width: 280px;
-            --lighter-blue: #87CEFA; /* Added lighter blue shade */
+            --lighter-blue: #6bd5ff; /* Adjusted to better match the theme */
         }
 
         body {
@@ -273,7 +273,7 @@
         }
 
         .article-card h3 {
-            color: var(--lighter-blue); /* Changed to lighter blue */
+            color: var(--lighter-blue);
             font-size: 1.1rem;
             margin-bottom: 11.25px;
             line-height: 1.4;
@@ -281,6 +281,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            text-shadow: 0 0 8px rgba(107, 213, 255, 0.6); /* Added glow effect */
         }
 
         .article-card h3 i {
@@ -293,6 +294,7 @@
             line-height: 1.6;
             margin-bottom: 15px;
             flex-grow: 1;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2); /* Subtle glow for content */
         }
 
         .article-content p {
@@ -324,12 +326,25 @@
             min-height: 200px;
         }
         
+        .image-container a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        
         .image-container img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .image-container img:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            transform: scale(1.02);
         }
 
         .citation {
@@ -357,12 +372,14 @@
             border-radius: 15px;
             font-size: 0.6375rem;
             border: 1px solid rgba(0, 255, 255, 0.2);
+            text-shadow: 0 0 4px rgba(0, 255, 255, 0.3); /* Added glow */
         }
 
         .new-tag {
             background: rgba(157, 78, 221, 0.2);
             color: var(--accent);
             border-color: rgba(157, 78, 221, 0.3);
+            text-shadow: 0 0 4px rgba(157, 78, 221, 0.3); /* Added glow */
         }
 
         .article-link {
@@ -502,7 +519,7 @@
     
     <!-- Sidebar with links and images -->
     <div class="sidebar">
-        <img src="  https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         
         <div class="sidebar-links">
             <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theory_and_Applications" class="sidebar-link" target="_blank">
@@ -514,7 +531,7 @@
             <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388951586_Transforming_Academic_Literacy_Centering_Indigenous_Identities_in_the_Classroom" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388951586_Transforming_Academic_Literacy_Centering_Indigenous_Identities_in_Classroom" class="sidebar-link" target="_blank">
                 Academic literacy and indigenous identities
             </a>
         </div>
@@ -694,8 +711,10 @@
                 <div class="article-card image-panel">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
                     <div class="image-container">
-                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/laptop.png?raw=true" 
-                             alt="Academic Literacies Models Visualization">
+                        <a href="https://oeybers-cpu.github.io/oe_research/" target="_blank">
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/laptop.png?raw=true" 
+                                 alt="Academic Literacies Models Visualization">
+                        </a>
                     </div>
                     <div class="article-meta">
                         <span class="meta-tag">Visualization</span>
