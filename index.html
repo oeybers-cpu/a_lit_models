@@ -66,6 +66,33 @@
             z-index: -1;
         }
 
+        /* Back button styling */
+        .back-button {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1000;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .back-button:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateX(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
         /* Sidebar styling */
         .sidebar {
             width: var(--sidebar-width);
@@ -511,11 +538,23 @@
             .article-card h3 {
                 font-size: 1rem;
             }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="grid-lines"></div>
+    
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">
+        <i class="fas fa-arrow-left"></i>
+    </div>
     
     <!-- Sidebar with links and images -->
     <div class="sidebar">
@@ -528,7 +567,7 @@
             <a href="https://scholar.google.com/scholar?q=academic+literacies+model" class="sidebar-link" target="_blank">
                 Research on academic literacies
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpernst0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://www.researchgate.net/publication/388951586_Transforming_Academic_Literacy_Centering_Indigenous_Identities_in_Classroom" class="sidebar-link" target="_blank">
@@ -761,7 +800,19 @@
                     contactCard.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.1)';
                 }, 1000);
             }, 3000);
+            
+            // Back button functionality
+            const backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                // Check if there's a previous page in history
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    // If no history, redirect to a fallback URL
+                    window.location.href = 'https://www.google.com'; // Change this to your preferred fallback
+                }
+            });
         });
-    </script> <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://literacy.github.io/literacy&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&title=visits&edge_flat=false"/>
+    </script>
 </body>
 </html>
