@@ -817,14 +817,4 @@
             });
         });
     </script>
-const apiKey = 'your_api_key_here';
-const searchTerm = 'excited';
-
-fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=${searchTerm}`)
-  .then(response => response.json())
-  .then(data => {
-    const gifUrl = data.data.images.original.url;
-    console.log(`Excitement GIF: ${gifUrl}`);
-  });
-
 </html>
