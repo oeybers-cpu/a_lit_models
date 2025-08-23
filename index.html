@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Literacies Model | Critical Analysis</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+极:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -59,10 +59,10 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(79, 195, 247, 0.03) 1极, transparent 1px),
+                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
-            pointer极events: none;
+            pointer-events: none;
             z-index: -1;
         }
 
@@ -134,7 +134,7 @@
 
         .sidebar-link:hover {
             background: rgba(79, 195, 247, 0.15);
-            box-shadow: 极 0 15px rgba(79, 195, 247, 0.5);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
             transform: translateY(-2px);
         }
 
@@ -219,14 +219,14 @@
             color: #aaa;
             max-width: 800px;
             margin: 11.25px auto 15px;
-            line极height: 1.6;
+            line-height: 1.6;
         }
 
         .contact-card {
             background: var(--card-bg);
             border: 1px solid rgba(79, 195, 247, 0.1);
             border-radius: 11.25px;
-            padding: 15极;
+            padding: 15px;
             max-width: 600px;
             margin: 22.5px auto;
             backdrop-filter: blur(10px);
@@ -285,9 +285,10 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
+        /* Articles grid made of equal squares on large screens */
         .articles-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin: 30px 0;
         }
@@ -303,7 +304,8 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            aspect-ratio: 1/1; /* square cards */
+            min-height: 320px; /* ensures presence on very wide screens */
         }
 
         .article-card::before {
@@ -311,7 +313,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 极0%;
+            width: 100%;
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             transform: scaleX(0);
@@ -321,7 +323,7 @@
 
         .article-card:hover {
             transform: translateY(-7.5px);
-            box-shadow: 0 11.25极 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 11.25px 30px rgba(0, 0, 0, 0.4);
             border-color: rgba(79, 195, 247, 0.4);
         }
 
@@ -352,6 +354,7 @@
             margin-bottom: 15px;
             flex-grow: 1;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+            overflow-y: auto; /* allow scrolling within square */
         }
 
         .article-content p {
@@ -367,7 +370,7 @@
             margin-bottom: 8px;
         }
 
-        /* New styles for the image panel */
+        /* Image panel kept consistent with card sizing */
         .image-panel {
             display: flex;
             flex-direction: column;
@@ -452,7 +455,7 @@
             text-align: center;
             width: 100%;
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.75极;
+            letter-spacing: 0.75px;
             position: relative;
             overflow: hidden;
             margin-top: 15px;
@@ -465,18 +468,18 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 极.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.5s;
         }
 
         .article-link:hover {
-            background: linear-gradient极90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             color: var(--darker);
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
             transform: translateY(-2.25px);
         }
 
-        .article-link:hover极:before {
+        .article-link:hover::before {
             left: 100%;
         }
 
@@ -500,30 +503,9 @@
             opacity: 0.7;
         }
 
-        .multilingualism-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 4px;
-            border: 1px solid rgba(79, 195, 247, 0.2);
-            background: rgba(79, 195, 247, 0.05);
-        }
-
-        .multilingualism-link:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 10px rgba(41, 182, 246, 0.7);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(41, 182, 246, 0.3);
-            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
-        }
-
         @media (max-width: 1100px) {
             .articles-container {
-                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -541,6 +523,12 @@
             
             .articles-container {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Allow cards to grow naturally for readability on narrow screens */
+            .article-card {
+                aspect-ratio: auto;
+                min-height: 300px;
             }
             
             h1 {
@@ -597,7 +585,7 @@
             <a href="https://oeybers-cpu.github.io/Fanon/" class="sidebar-link" target="_blank">
                 Fanon and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fY极ikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
@@ -618,7 +606,7 @@
                 
                 <div class="contact-card">
                     <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
-                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialization models."</p>
+                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
 
@@ -634,17 +622,17 @@
                             <li>Assumes skills apply across all contexts</li>
                         </ul>
                         
-                        <p><strong>Academic Socialization Model:</strong></p>
+                        <p><strong>Academic Socialisation Model:</strong></p>
                         <ul>
                             <li>Acculturation into disciplinary discourses</li>
                             <li>Learning genres and conventions</li>
                             <li>Assumes stability in disciplinary norms</li>
                         </ul>
                         
-                        <p><strong>Academic Literacies Model:</strong></极>
+                        <p><strong>Academic Literacies Model:</strong></p>
                         <ul>
                             <li>Focus on meaning-making, identity, power</li>
-                            <li>Recognizes literacy practices as situated</li>
+                            <li>Recognises literacy practices as situated</li>
                             <li>Embraces complexity and variability</li>
                         </ul>
                     </div>
@@ -658,21 +646,21 @@
                 <div class="article-card">
                     <h3><i class="fas fa-book-open"></i> Disciplinary Literacy</h3>
                     <div class="article-content">
-                        <p>Disciplinary literacy emphasizes the specialized knowledge and abilities used by experts within each discipline.</p>
+                        <p>Disciplinary literacy emphasises the specialised knowledge and abilities used by experts within each discipline.</p>
                         
                         <p><strong>Key distinctions from content area literacy:</strong></p>
                         <ul>
                             <li>Focuses on discipline-specific practices</li>
                             <li>Uses unique tools of each discipline</li>
-                            <li>Recognizes fundamental differences between disciplines</li>
+                            <li>Recognises fundamental differences between disciplines</li>
                             <li>Addresses varied purposes, genres, and communication traditions</li>
                         </ul>
                         
-                        <p><strong>Research approaches:</极></p>
+                        <p><strong>Research approaches:</strong></p>
                         <ul>
-                            <li>Expert-novice comparisons</li>
+                            <li>Expert–novice comparisons</li>
                             <li>Functional linguistics analysis</li>
-                            <li>Think-aloud protocols</li>
+                            <li>Think‑aloud protocols</li>
                         </ul>
                     </div>
                     <div class="article-meta">
@@ -695,7 +683,7 @@
                         
                         <p><strong>Grammatical patterns:</strong></p>
                         <ul>
-                            <li>Science: Nominalization, passive voice</li>
+                            <li>Science: Nominalisation, passive voice</li>
                             <li>History: Focus on human agency, causation</li>
                             <li>Different points of view and attribution</li>
                         </ul>
@@ -716,7 +704,7 @@
                 
                 <!-- Applications -->
                 <div class="article-card">
-                    <h3><i class="fas fa-cogs"></i> Applications & Implications</h3>
+                    <h3><i class="fas fa-cogs"></i> Applications &amp; Implications</h3>
                     <div class="article-content">
                         <p><strong>For teaching:</strong></p>
                         <ul>
@@ -728,7 +716,7 @@
                         
                         <p><strong>For curriculum design:</strong></p>
                         <ul>
-                           极li>Recognizes epistemological differences</li>
+                            <li>Recognises epistemological differences</li>
                             <li>Addresses power relations in knowledge</li>
                             <li>Considers institutional requirements</li>
                             <li>Foregrounds identity in writing</li>
@@ -754,23 +742,23 @@
                     <div class="article-content">
                         <p><strong>Sources of disciplinary literacy:</strong></p>
                         <ul>
-                            <li极History of content area reading</li>
+                            <li>History of content area reading</li>
                             <li>Cognitive analyses of expert readers</li>
-                            <li>Functional linguistics极search</li>
+                            <li>Functional linguistics research</li>
                         </ul>
                         
-                        <p><strong>Expert-novice studies reveal:</strong></p>
+                        <p><strong>Expert–novice studies reveal:</strong></p>
                         <ul>
                             <li>Physicists focus on unexpected information</li>
-                            <li>Historians use sourcing, contextualization, corroboration</li>
+                            <li>Historians use sourcing, contextualisation, corroboration</li>
                             <li>Different critical reading approaches across fields</li>
                         </ul>
                         
                         <p><strong>Functional linguistics findings:</strong></p>
                         <ul>
-                            <li>Science: Classification, description, nominalization</li>
+                            <li>Science: Classification, description, nominalisation</li>
                             <li>History: Actions, events, verbal processes</li>
-                            <li>Different standards of precision and evidence</极>
+                            <li>Different standards of precision and evidence</li>
                         </ul>
                     </div>
                     <div class="article-meta">
@@ -783,13 +771,13 @@
                 <div class="article-card image-panel">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
                     <div class="image-container">
-                        <a href="https://oeybers-cpu.github.io/oe_research/" target="_blank">
+                        <a href="https://oeybers-cpu.github.io/oe_research/" target="_blank" rel="noopener">
                             <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/laptop.png?raw=true" 
-                                 alt="Academic Literacies Models Visualization">
+                                 alt="Academic Literacies Models Visualisation">
                         </a>
                     </div>
                     <div class="article-meta">
-                        <span class="meta-tag">Visualization</span>
+                        <span class="meta-tag">Visualisation</span>
                         <span class="meta-tag new-tag">Model</span>
                     </div>
                 </div>
@@ -797,14 +785,14 @@
 
             <div class="copyright">
                 <div class="university-logo">
-                    <svg viewBox="0 0 100 30" fill="#0288d1">
+                    <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
                         <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#4fc3f7" stroke-width="2" fill="none"/>
-                        <circle cx="50" cy="15" r="5极 fill="#4fc3f7"/>
+                        <circle cx="50" cy="15" r="5" fill="#4fc3f7"/>
                         <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
                     </svg>
                 </div>
                 <p>© 2024 Academic Literacies Research Portal</p>
-                <p>Based on works by Lea & Street (2006) and Shanahan & Shanahan (2012)</p>
+                <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
             </div>
         </div>
     </div>
@@ -847,4 +835,5 @@
             });
         });
     </script>
+</body>
 </html>
