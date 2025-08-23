@@ -47,7 +47,7 @@
             background: 
                 radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
+                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 极.03) 0%, transparent 30%);
             pointer-events: none;
             z-index: -2;
         }
@@ -60,7 +60,7 @@
             height: 100%;
             background-image: 
                 linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(79极 195, 247, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
             z-index: -1;
@@ -85,7 +85,6 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
-            text-decoration: none;
         }
 
         .back-button:hover {
@@ -98,7 +97,7 @@
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
-            background: var(--card-bg);
+            background: var(--card极g);
             border: 1px solid rgba(79, 195, 247, 0.1);
             border-radius: 11.25px;
             margin-right: 30px;
@@ -170,7 +169,7 @@
             background: linear-gradient(90deg, 
                 transparent, 
                 rgba(79, 195, 247, 0.1), 
-                rgba(41, 182, 246, 0.8), 
+                rgba(41, 182, 246, 0.1), 
                 rgba(2, 136, 209, 0.1),
                 transparent);
             animation: headerShine 8s infinite linear;
@@ -201,7 +200,7 @@
 
         @keyframes pulse {
             0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
+            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 极 30px rgba(79, 195, 247, 0.6); }
         }
 
         h1::after {
@@ -426,7 +425,440 @@
         }
 
         .meta-tag {
-            background: rgba(79, 195, 247, 0.3);
+            background: rgba(79, 195, 247, 0.1);
             color: var(--primary);
             padding: 3.75px 9px;
-            border
+            border-radius: 15px;
+            font-size: 0.6375rem;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
+        }
+
+        .new-tag {
+            background: rgba(2, 136, 209, 0.2);
+            color: var(--accent);
+            border-color: rgba(2, 136, 209, 0.3);
+            text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
+        }
+
+        .article-link {
+            display: inline-block;
+            color: var(--light);
+            background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
+            padding: 7.5px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            text-align: center;
+            width: 100%;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.75px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .article-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .article-link:hover {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--darker);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            transform: translateY(-2.25px);
+        }
+
+        .article-link:hover::before {
+            left: 100%;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 30px 0 15px;
+            color: #777;
+            font-size: 0.675rem;
+            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            margin-top: 22.5px;
+        }
+
+        .copyright p {
+            margin: 6px 0;
+        }
+
+        .university-logo {
+            width: 120极;
+            margin: 11.25px auto;
+            filter: brightness(0.8);
+            opacity: 0.7;
+        }
+
+        .multilingualism-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            background: rgba(79, 195, 247, 0.05);
+        }
+
+        .multilingualism-link:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(41, 182, 246, 0.7);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(41, 182, 246, 0.3);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+        }
+
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: relative;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-card {
+                aspect-ratio: auto;
+                min-height: 300px;
+            }
+            
+            h1 {
+                font-size: 2.1rem;
+            }
+            
+            .subtitle {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.65rem;
+            }
+            
+            .contact-card a {
+                font-size: 0.75rem;
+            }
+            
+            .article-card {
+                padding: 15px 11.25px;
+            }
+            
+            .article-card h极 {
+                font-size: 1rem;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-lines"></div>
+    
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">
+        <i class="fab fa-google"></i>
+    </div>
+    
+    <!-- Sidebar with links and images -->
+    <div class="sidebar">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+        
+        <div class="sidebar-links">
+            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_The极ry_and_Applications" class="sidebar-link" target="_blank">
+                The academic literacies model: Theory and applications
+            </a>
+            <a href="https://oeybers-cpu.github.io/Fanon/" class="sidebar-link" target="_blank">
+                Fanon and academic literacy
+            </a>
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZ极hkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQ极CgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
+                An inclusive African theory of academic literacy
+            </a>
+            <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
+                Achebe and academic literacy
+            </a>
+            <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
+                Wa Thiong'o and academic literacy
+            </a>
+        </div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <header>
+                <h1>Academic Literacies Model</h1>
+                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                
+                <div class="contact-card">
+                    <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
+                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialization models."</p>
+                </div>
+            </header>
+
+            <div class="articles-container">
+                <!-- Model Overview -->
+                <div class="article-card">
+                    <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
+                    <div class="article-content">
+                        <p><strong>Study Skills Model:</strong></p>
+                        <ul>
+                            <li>Focuses on technical, transferable skills</li>
+                            <li>Grammar, punctuation, sentence structure</li>
+                            <li>Assumes skills apply across all contexts</li>
+                        </ul>
+                        
+                        <p><strong>Academic Socialization Model:</strong></p>
+                        <ul>
+                            <li>Acculturation into disciplinary discourses</li>
+                            <li>Learning genres and conventions</li>
+                            <li>Assumes stability in disciplinary norms</li>
+                        </ul>
+                        
+                        <p><strong>Academic Literacies Model:</strong></p>
+                        <ul>
+                            <li>Focus on meaning-making, identity, power</li>
+                            <li>Recognizes literacy practices as situated</li>
+                            <li>Embraces complexity and variability</li>
+                        </ul>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Framework</span>
+                        <span class="meta-tag new-tag">Theory</span>
+                    </div>
+                </div>
+                
+                <!-- Disciplinary Literacy -->
+                <div class="article-card">
+                    <h3><i class="fas fa-book-open"></i> Disciplinary Literacy</h3>
+                    <div class="article-content">
+                        <p>Disciplinary literacy emphasizes the specialized knowledge and abilities used by experts within each discipline.</p>
+                        
+                        <p><strong>Key distinctions from content area literacy:</strong></p>
+                        <ul>
+                            <li>Focuses on discipline-specific practices</li>
+                            <li>Uses unique tools of each discipline</li>
+                            <li>Recognizes fundamental differences between disciplines</li>
+                            <li>Addresses varied purposes, genres, and communication traditions</li>
+                        </ul>
+                        
+                        <p><strong>Research approaches:</strong></p>
+                        <ul>
+                            <li>Expert-novice comparisons</极>
+                            <li>Functional linguistics analysis</li>
+                            <li>Think-aloud protocols</li>
+                        </ul>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Pedagogy</span>
+                        <span class="meta-tag">Research</span>
+                    </div>
+                </div>
+                
+                <!-- Language Differences -->
+                <div class="article-card">
+                    <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
+                    <div class="article-content">
+                        <p><strong>Vocabulary differences:</strong></p>
+                        <ul>
+                            <li>Science: Greek/Latin roots for precision</li>
+                            <li>History: Metaphorical terms, perspectives</li>
+                            <li>Mathematics: Symbolic, axiomatic language</li>
+                            <li>Literature: Figurative, interpretive language</li>
+                        </ul>
+                        
+                        <p><strong>Grammatical patterns:</strong></p>
+                        <ul>
+                            <li>Science: Nominalization, passive voice</li>
+                            <li>History: Focus on human agency, causation</li>
+                            <li>Different points of view and attribution</li>
+                        </ul>
+                        
+                        <p><strong>Author awareness:</strong></p>
+                        <ul>
+                            <li>History: Author bias is central to interpretation</li>
+                            <li>Science: Author as quality screen, not interpretive factor</li>
+                            <li>Mathematics: Author intentionally ignored</li>
+                            <li>Literature: Controversial role of author</li>
+                        </ul>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Linguistics</span>
+                        <span class="meta-tag new-tag">Analysis</span>
+                    </div>
+                </div>
+                
+                <!-- Academic Literacies Class Image -->
+                <div class="article-card image-panel">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Academic Literacies in Practice</h3>
+                    <div class="image-container">
+                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true" 
+                             alt="Academic Literacies in Classroom Practice">
+                    </div>
+                    <div class="article-content">
+                        <p>This image illustrates academic literacies approaches being implemented in diverse classroom settings, showing how literacy practices are contextual and vary across disciplines.</p>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Visualization</span>
+                        <span class="meta-tag">Practice</span>
+                    </div>
+                </div>
+                
+                <!-- Applications -->
+                <div class="article-card">
+                    <h3><i class="fas fa-cogs"></i> Applications & Implications</h3>
+                    <div class极article-content">
+                        <p><strong>For teaching:</strong></p>
+                        <ul>
+                            <li>Moves beyond generic study skills</li>
+                            <li>Addresses discipline-specific practices</li>
+                            <li>More appealing to content area teachers</li>
+                            <li>Supports wider range of students</li>
+                        </ul>
+                        
+                        <p><strong>For curriculum design:</strong></p>
+                        <ul>
+                            <li>Recognizes epistemological differences</li>
+                            <li>Addresses power relations in knowledge</li>
+                            <li>Considers institutional requirements</li>
+                            <li>Foregrounds identity in writing</li>
+                        </ul>
+                        
+                        <p><strong>For student learning:</strong></p>
+                        <ul>
+                            <li>Develops disciplinary insider perspectives</li>
+                            <li>Enhances critical engagement with texts</li>
+                            <li>Supports advanced interpretation skills</li>
+                            <li>Facilitates deeper conceptual understanding</li>
+                        </ul>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Practice</span>
+                        <span class="meta-tag">Implementation</span>
+                    </div>
+                </div>
+                
+                <!-- Research Base -->
+                <div class="article-card">
+                    <h3><i class="fas fa-flask"></i> Research Foundations</h3>
+                    <div class="article-content">
+                        <p><strong>Sources of disciplinary literacy:</strong></极>
+                        <ul>
+                            <li>History of content area reading</li>
+                            <li>Cognitive analyses of expert readers</li>
+                            <li>Functional linguistics research</li>
+                        </ul>
+                        
+                        <p><strong>Expert-novice studies reveal:</strong></p>
+                        <ul>
+                            <li>Physicists focus on unexpected information</li>
+                            <li>Historians use sourcing, contextualization, corroboration</li>
+                            <li>Different critical reading approaches across fields</li>
+                        </ul>
+                        
+                        <p><strong>Functional linguistics findings:</strong></p>
+                        <ul>
+                            <li>Science: Classification, description, nominalization</li>
+                            <li>History: Actions, events, verbal processes</li>
+                            <li>Different standards of precision and evidence</li>
+                        </ul>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Evidence</span>
+                        <span class="meta-tag">Studies</span>
+                    </div>
+                </div>
+                
+                <!-- Knowledge Gateway -->
+                <div class="article-card image-panel">
+                    <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
+                    <div class="image-container">
+                        <a href="https://oeybers-cpu.github.io/oe_research/" target="_blank">
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/laptop.png?raw=true" 
+                                 alt="Academic Literacies Models Visualization">
+                        </a>
+                    </div>
+                    <div class="article-content">
+                        <p>Explore interactive visualizations of academic literacies models and their applications across different disciplinary contexts.</p>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Visualization</span>
+                        <span class="meta-tag new-tag">Model</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <div class="university-logo">
+                    <svg viewBox="0 0 100 30" fill="#0288d1">
+                        <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#4fc3f7" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="15" r="5" fill="#4fc3f7"/>
+                        <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
+                    </svg>
+                </div>
+                <p>© 2024 Academic Literacies Research Portal</p>
+                <p>Based on works by Lea & Street (2006) and Shanahan & Shanahan (2012)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add subtle animation to article cards on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.article-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+            
+            // Add pulse animation to contact card
+            const contactCard = document.querySelector('.contact-card');
+            setInterval(() => {
+                contactCard.style.boxShadow = '0 0 30px rgba(79, 195, 247, 0.3)';
+                setTimeout(() => {
+                    contactCard.style.boxShadow = '0 0 20px rgba(79, 195, 247, 0.1)';
+                }, 1000);
+            }, 3000);
+            
+           </body>
+</html>
