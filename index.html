@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Literacies Model | Critical Analysis</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+极:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -47,7 +47,7 @@
             background: 
                 radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 极.03) 0%, transparent 30%);
+                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
             pointer-events: none;
             z-index: -2;
         }
@@ -59,10 +59,10 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79极 195, 247, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(79, 195, 247, 0.03) 1极, transparent 1px),
+                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
-            pointer-events: none;
+            pointer极events: none;
             z-index: -1;
         }
 
@@ -97,7 +97,7 @@
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
-            background: var(--card极g);
+            background: var(--card-bg);
             border: 1px solid rgba(79, 195, 247, 0.1);
             border-radius: 11.25px;
             margin-right: 30px;
@@ -134,7 +134,7 @@
 
         .sidebar-link:hover {
             background: rgba(79, 195, 247, 0.15);
-            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            box-shadow: 极 0 15px rgba(79, 195, 247, 0.5);
             transform: translateY(-2px);
         }
 
@@ -200,7 +200,7 @@
 
         @keyframes pulse {
             0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 极 30px rgba(79, 195, 247, 0.6); }
+            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
         }
 
         h1::after {
@@ -219,14 +219,14 @@
             color: #aaa;
             max-width: 800px;
             margin: 11.25px auto 15px;
-            line-height: 1.6;
+            line极height: 1.6;
         }
 
         .contact-card {
             background: var(--card-bg);
             border: 1px solid rgba(79, 195, 247, 0.1);
             border-radius: 11.25px;
-            padding: 15px;
+            padding: 15极;
             max-width: 600px;
             margin: 22.5px auto;
             backdrop-filter: blur(10px);
@@ -285,10 +285,9 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Square grid layout */
         .articles-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
             gap: 30px;
             margin: 30px 0;
         }
@@ -304,7 +303,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            aspect-ratio: 1/1; /* Makes the cards square */
+            height: 100%;
         }
 
         .article-card::before {
@@ -312,7 +311,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 极0%;
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             transform: scaleX(0);
@@ -322,7 +321,7 @@
 
         .article-card:hover {
             transform: translateY(-7.5px);
-            box-shadow: 0 11.25px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 11.25极 30px rgba(0, 0, 0, 0.4);
             border-color: rgba(79, 195, 247, 0.4);
         }
 
@@ -353,7 +352,6 @@
             margin-bottom: 15px;
             flex-grow: 1;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            overflow-y: auto;
         }
 
         .article-content p {
@@ -369,7 +367,7 @@
             margin-bottom: 8px;
         }
 
-        /* Image panel styling */
+        /* New styles for the image panel */
         .image-panel {
             display: flex;
             flex-direction: column;
@@ -454,7 +452,7 @@
             text-align: center;
             width: 100%;
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.75px;
+            letter-spacing: 0.75极;
             position: relative;
             overflow: hidden;
             margin-top: 15px;
@@ -467,18 +465,18 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 极.2), transparent);
             transition: 0.5s;
         }
 
         .article-link:hover {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient极90deg, var(--primary), var(--accent));
             color: var(--darker);
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
             transform: translateY(-2.25px);
         }
 
-        .article-link:hover::before {
+        .article-link:hover极:before {
             left: 100%;
         }
 
@@ -496,7 +494,7 @@
         }
 
         .university-logo {
-            width: 120极;
+            width: 120px;
             margin: 11.25px auto;
             filter: brightness(0.8);
             opacity: 0.7;
@@ -525,7 +523,7 @@
 
         @media (max-width: 1100px) {
             .articles-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             }
         }
 
@@ -543,11 +541,6 @@
             
             .articles-container {
                 grid-template-columns: 1fr;
-            }
-            
-            .article-card {
-                aspect-ratio: auto;
-                min-height: 300px;
             }
             
             h1 {
@@ -572,7 +565,7 @@
                 padding: 15px 11.25px;
             }
             
-            .article-card h极 {
+            .article-card h3 {
                 font-size: 1rem;
             }
             
@@ -598,13 +591,13 @@
         <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         
         <div class="sidebar-links">
-            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_The极ry_and_Applications" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theory_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
             </a>
             <a href="https://oeybers-cpu.github.io/Fanon/" class="sidebar-link" target="_blank">
                 Fanon and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZ极hkU_8fYQikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQ极CgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fY极ikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
@@ -648,7 +641,7 @@
                             <li>Assumes stability in disciplinary norms</li>
                         </ul>
                         
-                        <p><strong>Academic Literacies Model:</strong></p>
+                        <p><strong>Academic Literacies Model:</strong></极>
                         <ul>
                             <li>Focus on meaning-making, identity, power</li>
                             <li>Recognizes literacy practices as situated</li>
@@ -675,9 +668,9 @@
                             <li>Addresses varied purposes, genres, and communication traditions</li>
                         </ul>
                         
-                        <p><strong>Research approaches:</strong></p>
+                        <p><strong>Research approaches:</极></p>
                         <ul>
-                            <li>Expert-novice comparisons</极>
+                            <li>Expert-novice comparisons</li>
                             <li>Functional linguistics analysis</li>
                             <li>Think-aloud protocols</li>
                         </ul>
@@ -721,26 +714,10 @@
                     </div>
                 </div>
                 
-                <!-- Academic Literacies Class Image -->
-                <div class="article-card image-panel">
-                    <h3><i class="fas fa-chalkboard-teacher"></i> Academic Literacies in Practice</h3>
-                    <div class="image-container">
-                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true" 
-                             alt="Academic Literacies in Classroom Practice">
-                    </div>
-                    <div class="article-content">
-                        <p>This image illustrates academic literacies approaches being implemented in diverse classroom settings, showing how literacy practices are contextual and vary across disciplines.</p>
-                    </div>
-                    <div class="article-meta">
-                        <span class="meta-tag">Visualization</span>
-                        <span class="meta-tag">Practice</span>
-                    </div>
-                </div>
-                
                 <!-- Applications -->
                 <div class="article-card">
                     <h3><i class="fas fa-cogs"></i> Applications & Implications</h3>
-                    <div class极article-content">
+                    <div class="article-content">
                         <p><strong>For teaching:</strong></p>
                         <ul>
                             <li>Moves beyond generic study skills</li>
@@ -751,7 +728,7 @@
                         
                         <p><strong>For curriculum design:</strong></p>
                         <ul>
-                            <li>Recognizes epistemological differences</li>
+                           极li>Recognizes epistemological differences</li>
                             <li>Addresses power relations in knowledge</li>
                             <li>Considers institutional requirements</li>
                             <li>Foregrounds identity in writing</li>
@@ -775,11 +752,11 @@
                 <div class="article-card">
                     <h3><i class="fas fa-flask"></i> Research Foundations</h3>
                     <div class="article-content">
-                        <p><strong>Sources of disciplinary literacy:</strong></极>
+                        <p><strong>Sources of disciplinary literacy:</strong></p>
                         <ul>
-                            <li>History of content area reading</li>
+                            <li极History of content area reading</li>
                             <li>Cognitive analyses of expert readers</li>
-                            <li>Functional linguistics research</li>
+                            <li>Functional linguistics极search</li>
                         </ul>
                         
                         <p><strong>Expert-novice studies reveal:</strong></p>
@@ -793,7 +770,7 @@
                         <ul>
                             <li>Science: Classification, description, nominalization</li>
                             <li>History: Actions, events, verbal processes</li>
-                            <li>Different standards of precision and evidence</li>
+                            <li>Different standards of precision and evidence</极>
                         </ul>
                     </div>
                     <div class="article-meta">
@@ -802,7 +779,7 @@
                     </div>
                 </div>
                 
-                <!-- Knowledge Gateway -->
+                <!-- New Image Panel -->
                 <div class="article-card image-panel">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
                     <div class="image-container">
@@ -810,9 +787,6 @@
                             <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/laptop.png?raw=true" 
                                  alt="Academic Literacies Models Visualization">
                         </a>
-                    </div>
-                    <div class="article-content">
-                        <p>Explore interactive visualizations of academic literacies models and their applications across different disciplinary contexts.</p>
                     </div>
                     <div class="article-meta">
                         <span class="meta-tag">Visualization</span>
@@ -825,7 +799,7 @@
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1">
                         <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#4fc3f7" stroke-width="2" fill="none"/>
-                        <circle cx="50" cy="15" r="5" fill="#4fc3f7"/>
+                        <circle cx="50" cy="15" r="5极 fill="#4fc3f7"/>
                         <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
                     </svg>
                 </div>
@@ -860,5 +834,17 @@
                 }, 1000);
             }, 3000);
             
-           </body>
+            // Back button functionality
+            const backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                // Check if there's a previous page in history
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    // If no history, redirect to Google
+                    window.location.href = 'https://www.google.com';
+                }
+            });
+        });
+    </script>
 </html>
