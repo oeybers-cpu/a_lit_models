@@ -483,6 +483,139 @@
             left: 100%;
         }
 
+        /* Weather widget styles */
+        .weather-widget {
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: 15px;
+            margin: 30px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 22.5px rgba(79, 195, 247, 0.1);
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .weather-widget::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .weather-widget:hover::before {
+            transform: scaleX(1);
+        }
+
+        .weather-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .weather-header h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+        }
+
+        .weather-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .weather-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .weather-temp {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--lighter-accent);
+            text-shadow: 0 0 10px rgba(129, 212, 250, 0.5);
+        }
+
+        .weather-desc {
+            font-size: 1rem;
+            color: #ddd;
+            margin-top: 5px;
+        }
+
+        .weather-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .weather-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(79, 195, 247, 0.05);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(79, 195, 247, 0.1);
+        }
+
+        .detail-label {
+            font-size: 0.7rem;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 0.9rem;
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .weather-error {
+            color: #ff6b6b;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .weather-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            color: var(--primary);
+        }
+
+        .weather-loading i {
+            margin-right: 10px;
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .copyright {
             text-align: center;
             padding: 30px 0 15px;
@@ -538,6 +671,16 @@
             .subtitle {
                 font-size: 0.75rem;
             }
+
+            .weather-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .weather-details {
+                margin-top: 20px;
+                width: 100%;
+            }
         }
 
         @media (max-width: 600px) {
@@ -563,6 +706,14 @@
                 width: 40px;
                 height: 40px;
             }
+
+            .weather-temp {
+                font-size: 2rem;
+            }
+
+            .weather-icon {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -579,13 +730,13 @@
         <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         
         <div class="sidebar-links">
-            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theory_and_Applications" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
             </a>
             <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
                 Ubuntu and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxicYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
@@ -593,7 +744,6 @@
             </a>
             <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
                 Wa Thiong'o and academic literacy
-            </a>
             </a>
             <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
                 Ancient African Writing
@@ -787,6 +937,47 @@
                 </div>
             </div>
 
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <div class="weather-header">
+                    <h3><i class="fas fa-cloud-sun"></i> Current Weather</h3>
+                    <div class="location">Pretoria, South Africa</div>
+                </div>
+                <div class="weather-loading" id="weatherLoading">
+                    <i class="fas fa-spinner"></i> Loading weather data...
+                </div>
+                <div class="weather-content" id="weatherContent" style="display: none;">
+                    <div class="weather-main">
+                        <div class="weather-icon" id="weatherIcon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-temp" id="weatherTemp">--°C</div>
+                        <div class="weather-desc" id="weatherDesc">Loading...</div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <span class="detail-label">Feels Like</span>
+                            <span class="detail-value" id="feelsLike">--°C</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity">--%</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value" id="windSpeed">-- km/h</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value" id="pressure">-- mb</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-error" id="weatherError" style="display: none;">
+                    Unable to load weather data. Please try again later.
+                </div>
+            </div>
+
             <div class="copyright">
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
@@ -837,7 +1028,125 @@
                     window.location.href = 'https://www.google.com';
                 }
             });
+
+            // Fetch weather data for Pretoria, South Africa
+            fetchWeatherData();
         });
+
+        // Weather API integration for Pretoria, South Africa
+        async function fetchWeatherData() {
+            const loadingElement = document.getElementById('weatherLoading');
+            const contentElement = document.getElementById('weatherContent');
+            const errorElement = document.getElementById('weatherError');
+            
+            // Using your RapidAPI key
+            const apiKey = 'f5757e0e95msh62afd8a6ba4c95dp1764a2jsn2d85e9448f4c';
+            
+            // Coordinates for Pretoria, South Africa
+            const lat = -25.75;
+            const lon = 28.19;
+            
+            try {
+                const response = await fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/forecast/3hourly?lat=${lat}&lon=${lon}&units=metric&lang=en`, {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': apiKey,
+                        'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Update the weather widget with the received data
+                updateWeatherWidget(data);
+                
+                // Show content and hide loading
+                loadingElement.style.display = 'none';
+                contentElement.style.display = 'flex';
+                
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+            }
+        }
+
+        function updateWeatherWidget(data) {
+            // Get current weather data (first item in the array)
+            const currentWeather = data.data[0];
+            
+            // Update temperature
+            document.getElementById('weatherTemp').textContent = `${Math.round(currentWeather.temp)}°C`;
+            
+            // Update weather description
+            document.getElementById('weatherDesc').textContent = currentWeather.weather.description;
+            
+            // Update weather icon based on condition
+            const weatherIcon = document.getElementById('weatherIcon');
+            setWeatherIcon(weatherIcon, currentWeather.weather.code);
+            
+            // Update additional details
+            document.getElementById('feelsLike').textContent = `${Math.round(currentWeather.app_temp)}°C`;
+            document.getElementById('humidity').textContent = `${currentWeather.rh}%`;
+            document.getElementById('windSpeed').textContent = `${Math.round(currentWeather.wind_spd * 3.6)} km/h`; // Convert m/s to km/h
+            document.getElementById('pressure').textContent = `${currentWeather.pres} mb`;
+        }
+
+        function setWeatherIcon(iconElement, weatherCode) {
+            // Map weather codes to appropriate Font Awesome icons
+            const iconMappings = {
+                // Clear
+                800: 'fa-sun',
+                // Clouds
+                801: 'fa-cloud-sun',
+                802: 'fa-cloud',
+                803: 'fa-cloud',
+                804: 'fa-cloud',
+                // Drizzle
+                300: 'fa-cloud-rain',
+                301: 'fa-cloud-rain',
+                302: 'fa-cloud-rain',
+                // Rain
+                500: 'fa-cloud-showers-heavy',
+                501: 'fa-cloud-showers-heavy',
+                502: 'fa-cloud-showers-heavy',
+                503: 'fa-cloud-showers-heavy',
+                504: 'fa-cloud-showers-heavy',
+                // Snow
+                600: 'fa-snowflake',
+                601: 'fa-snowflake',
+                602: 'fa-snowflake',
+                611: 'fa-snowflake',
+                612: 'fa-snowflake',
+                613: 'fa-snowflake',
+                // Atmosphere
+                700: 'fa-smog',
+                711: 'fa-smog',
+                721: 'fa-smog',
+                731: 'fa-smog',
+                741: 'fa-smog',
+                751: 'fa-smog',
+                // Thunderstorm
+                200: 'fa-bolt',
+                201: 'fa-bolt',
+                202: 'fa-bolt',
+            };
+            
+            // Default icon
+            let iconClass = 'fa-cloud';
+            
+            // Find the appropriate icon
+            if (iconMappings[weatherCode]) {
+                iconClass = iconMappings[weatherCode];
+            }
+            
+            // Update the icon
+            iconElement.innerHTML = `<i class="fas ${iconClass}"></i>`;
+        }
     </script>
 </body>
 </html>
