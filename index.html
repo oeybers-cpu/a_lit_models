@@ -148,9 +148,89 @@
             position: relative;
         }
 
+        /* Video Player Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+        }
+
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .video-container:hover .video-controls {
+            opacity: 1;
+        }
+
+        .control-btn {
+            background: var(--primary);
+            color: var(--darker);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .control-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
+        }
+
+        .video-title {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
         header {
             text-align: center;
-            padding: 30px 0 15px;
+            padding: 15px 0;
             position: relative;
             background: linear-gradient(to right, rgba(79, 195, 247, 0.1), transparent);
             border-bottom: 1px solid rgba(79, 195, 247, 0.2);
@@ -714,6 +794,17 @@
             .weather-icon {
                 font-size: 2.5rem;
             }
+            
+            .video-title {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+            
+            .control-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -758,6 +849,24 @@
     <!-- Main content -->
     <div class="main-content">
         <div class="container">
+            <!-- Video Player -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe class="video-player" id="youtubeVideo" src="https://www.youtube.com/embed/gdzY1IKDlZ8?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-title">
+                        <i class="fas fa-video"></i> Introduction to Academic Literacies
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" id="playBtn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="control-btn" id="pauseBtn">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <header>
                 <h1>Academic Literacies Model</h1>
                 <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
@@ -997,6 +1106,57 @@
     </div>
 
     <script>
+        // YouTube Player API integration
+        let player;
+        
+        // Load YouTube IFrame API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        
+        // Initialize player when API is ready
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubeVideo', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        
+        function onPlayerReady(event) {
+            // Player is ready
+            console.log('YouTube player is ready');
+        }
+        
+        function onPlayerStateChange(event) {
+            // Update play/pause buttons based on player state
+            if (event.data == YT.PlayerState.PLAYING) {
+                document.getElementById('playBtn').style.display = 'none';
+                document.getElementById('pauseBtn').style.display = 'flex';
+            } else if (event.data == YT.PlayerState.PAUSED) {
+                document.getElementById('playBtn').style.display = 'flex';
+                document.getElementById('pauseBtn').style.display = 'none';
+            }
+        }
+        
+        // Play/pause button functionality
+        document.getElementById('playBtn').addEventListener('click', function() {
+            player.playVideo();
+            this.style.display = 'none';
+            document.getElementById('pauseBtn').style.display = 'flex';
+        });
+        
+        document.getElementById('pauseBtn').addEventListener('click', function() {
+            player.pauseVideo();
+            this.style.display = 'none';
+            document.getElementById('playBtn').style.display = 'flex';
+        });
+        
+        // Initially hide pause button
+        document.getElementById('pauseBtn').style.display = 'none';
+
         // Add subtle animation to article cards on page load
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.article-card');
