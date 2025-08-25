@@ -23,6 +23,7 @@
             --card-bg: rgba(20, 20, 30, 0.7);
             --sidebar-width: 280px;
             --lighter-accent: #81d4fa;
+            --digital-purple: #cf40ff; /* New digital purple color */
         }
 
         body {
@@ -216,17 +217,7 @@
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
         }
 
-        .video-title {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: var(--light);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-        }
+        /* REMOVED the video-title class as requested */
 
         header {
             text-align: center;
@@ -411,8 +402,9 @@
             transform: scaleX(1);
         }
 
+        /* UPDATED: Changed to digital purple with glow effect */
         .article-card h3 {
-            color: var(--lighter-accent);
+            color: var(--digital-purple);
             font-size: 1.1rem;
             margin-bottom: 11.25px;
             line-height: 1.4;
@@ -420,7 +412,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            text-shadow: 0 0 8px rgba(129, 212, 250, 0.6);
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover h3 {
+            text-shadow: 0 0 12px rgba(207, 64, 255, 1), 0 0 20px rgba(207, 64, 255, 0.6);
         }
 
         .article-card h3 i {
@@ -801,11 +798,6 @@
                 font-size: 2.5rem;
             }
             
-            .video-title {
-                font-size: 0.8rem;
-                padding: 5px 10px;
-            }
-            
             .control-btn {
                 width: 35px;
                 height: 35px;
@@ -833,11 +825,10 @@
             <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
                 Ubuntu and academic literacy
             </a>
-            </a>
             <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
                 Imhotep and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjbontZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxicYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxicYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
@@ -859,9 +850,7 @@
             <div class="video-container">
                 <div class="video-wrapper">
                     <iframe class="video-player" id="youtubeVideo" src="https://www.youtube.com/embed/gdzY1IKDlZ8?enablejsapi=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-title">
-                        <i class="fas fa-video"></i> Introduction to Academic Literacies
-                    </div>
+                    <!-- REMOVED the video-title element as requested -->
                     <div class="video-controls">
                         <button class="control-btn" id="playBtn">
                             <i class="fas fa-play"></i>
