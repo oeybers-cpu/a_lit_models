@@ -196,91 +196,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
         }
-        /* New custom video player styles for the embedded video */
-        .custom-video-container {
-            position: relative;
-            width: 100%;
-            margin: 0 auto 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            background: #000;
-        }
-        .custom-video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-        }
-        .custom-video-player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            border: none;
-            border-radius: 15px;
-        }
-        .custom-video-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            backdrop-filter: blur(5px);
-            z-index: 10;
-        }
-        .custom-video-container:hover .custom-video-controls {
-            opacity: 1;
-        }
-        .custom-control-btn {
-            background: var(--primary);
-            color: var(--darker);
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-        .custom-control-btn:hover {
-            background: var(--secondary);
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
-        }
-        .progress-container {
-            flex-grow: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            cursor: pointer;
-            overflow: hidden;
-        }
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: var(--primary);
-            border-radius: 2px;
-            transition: width 0.1s linear;
-        }
-        .time-display {
-            color: white;
-            font-size: 0.85rem;
-            min-width: 60px;
-            text-align: center;
-        }
         /* REMOVED the video-title class as requested */
         header {
             text-align: center;
@@ -851,7 +766,7 @@
                     <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
-            <div class="articles-container first-row">
+            <div class="articles-container">
                 <!-- Model Overview -->
                 <div class="article-card">
                     <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
@@ -904,31 +819,6 @@
                         <span class="meta-tag">Research</span>
                     </div>
                 </div>
-            </div>
-            
-            <!-- New Custom Video Below First Row of Cards -->
-            <div class="custom-video-container">
-                <div class="custom-video-wrapper">
-                    <video class="custom-video-player" id="customVideo" poster="https://github.com/oeybers-cpu/a_lit_models/blob/main/video-preview.jpg?raw=true" controls>
-                        <source src="https://github.com/oeybers-cpu/a_lit_models/raw/main/2d37b237-4c4d-420b-84ce-1325841aa155.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="custom-video-controls">
-                        <button class="custom-control-btn" id="customPlayBtn">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="progress-container" id="progressContainer">
-                            <div class="progress-bar" id="progressBar"></div>
-                        </div>
-                        <div class="time-display" id="timeDisplay">0:00 / 0:00</div>
-                        <button class="custom-control-btn" id="customMuteBtn">
-                            <i class="fas fa-volume-up"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="articles-container second-row">
                 <!-- Language Differences -->
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
@@ -1130,67 +1020,8 @@
         });
         // Initially hide pause button
         document.getElementById('pauseBtn').style.display = 'none';
-        
-        // Custom video player functionality
+        // Add subtle animation to article cards on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const customVideo = document.getElementById('customVideo');
-            const customPlayBtn = document.getElementById('customPlayBtn');
-            const customMuteBtn = document.getElementById('customMuteBtn');
-            const progressBar = document.getElementById('progressBar');
-            const progressContainer = document.getElementById('progressContainer');
-            const timeDisplay = document.getElementById('timeDisplay');
-            
-            // Play/Pause functionality
-            customPlayBtn.addEventListener('click', function() {
-                if (customVideo.paused) {
-                    customVideo.play();
-                    this.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    customVideo.pause();
-                    this.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
-            
-            // Mute/Unmute functionality
-            customMuteBtn.addEventListener('click', function() {
-                customVideo.muted = !customVideo.muted;
-                this.innerHTML = customVideo.muted ? 
-                    '<i class="fas fa-volume-mute"></i>' : 
-                    '<i class="fas fa-volume-up"></i>';
-            });
-            
-            // Update progress bar
-            customVideo.addEventListener('timeupdate', function() {
-                const progress = (customVideo.currentTime / customVideo.duration) * 100;
-                progressBar.style.width = progress + '%';
-                
-                // Update time display
-                const currentMinutes = Math.floor(customVideo.currentTime / 60);
-                const currentSeconds = Math.floor(customVideo.currentTime % 60);
-                const durationMinutes = Math.floor(customVideo.duration / 60);
-                const durationSeconds = Math.floor(customVideo.duration % 60);
-                
-                timeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
-            });
-            
-            // Seek functionality
-            progressContainer.addEventListener('click', function(e) {
-                const width = this.clientWidth;
-                const clickX = e.offsetX;
-                const seekTime = (clickX / width) * customVideo.duration;
-                customVideo.currentTime = seekTime;
-            });
-            
-            // Initialize play button icon
-            customVideo.addEventListener('play', function() {
-                customPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            });
-            
-            customVideo.addEventListener('pause', function() {
-                customPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-            });
-            
-            // Add subtle animation to article cards on page load
             const cards = document.querySelectorAll('.article-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
@@ -1201,7 +1032,6 @@
                     card.style.transform = 'translateY(0)';
                 }, 100 * index);
             });
-            
             // Add pulse animation to contact card
             const contactCard = document.querySelector('.contact-card');
             setInterval(() => {
@@ -1210,7 +1040,6 @@
                     contactCard.style.boxShadow = '0 0 20px rgba(79, 195, 247, 0.1)';
                 }, 1000);
             }, 3000);
-            
             // Back button functionality
             const backButton = document.getElementById('backButton');
             backButton.addEventListener('click', function() {
@@ -1222,11 +1051,9 @@
                     window.location.href = 'https://www.google.com';
                 }
             });
-            
             // Fetch weather data for Pretoria, South Africa
             fetchWeatherData();
         });
-        
         // Weather API integration for Pretoria, South Africa
         async function fetchWeatherData() {
             const loadingElement = document.getElementById('weatherLoading');
@@ -1260,7 +1087,6 @@
                 errorElement.style.display = 'block';
             }
         }
-        
         function updateWeatherWidget(data) {
             // Get current weather data (first item in the array)
             const currentWeather = data.data[0];
@@ -1277,7 +1103,6 @@
             document.getElementById('windSpeed').textContent = `${Math.round(currentWeather.wind_spd * 3.6)} km/h`; // Convert m/s to km/h
             document.getElementById('pressure').textContent = `${currentWeather.pres} mb`;
         }
-        
         function setWeatherIcon(iconElement, weatherCode) {
             // Map weather codes to appropriate Font Awesome icons
             const iconMappings = {
