@@ -434,9 +434,9 @@
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 320px; /* Adjusted for better content fit */
+            /* CHANGED: Removed min-height and adjusted display properties */
+            display: block;
+            margin-bottom: 20px;
         }
 
         .article-card::before {
@@ -489,9 +489,7 @@
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: 15px;
-            flex-grow: 1;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            overflow-y: auto; /* allow scrolling within square */
         }
 
         .article-content p {
@@ -520,13 +518,13 @@
             align-items: center;
             justify-content: center;
             margin: 15px 0;
-            min-height: 150px; /* Reduced from 200px */
+            min-height: 150px;
             overflow: hidden;
             border-radius: 8px;
         }
         
         .image-container img {
-            width: 75%; /* Reduced from 100% by 25% */
+            width: 75%;
             height: auto;
             object-fit: cover;
             border-radius: 8px;
@@ -543,6 +541,11 @@
             background: 
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
+        }
+        
+        /* CHANGED: Added specific class for Imhotep image with 55% reduction */
+        .imhotep-image {
+            width: 33.75% !important; /* 75% * 45% = 33.75% (55% reduction) */
         }
         
         /* Enhanced sparkle effect on hover */
@@ -772,7 +775,7 @@
             
             /* Allow cards to grow naturally for readability on narrow screens */
             .article-card {
-                min-height: 300px;
+                min-height: auto;
             }
             
             h1 {
@@ -996,7 +999,7 @@
                         <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
                     </div>
                     <div class="image-container">
-                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue">
+                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
                     </div>
                 </div>
                 
