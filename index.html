@@ -421,7 +421,7 @@
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            gap: 25px;
             margin: 30px 0;
         }
 
@@ -430,14 +430,13 @@
             background: var(--card-bg);
             border: 1px solid rgba(79, 195, 247, 0.1);
             border-radius: 11.25px;
-            padding: 18.75px;
+            padding: 15px;
             transition: all 0.4s ease;
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            height: 100%; /* Ensures cards fill their grid cell */
-            display: flex;
-            flex-direction: column;
+            /* CHANGED: Removed height: 100% and flex properties */
+            display: block;
         }
 
         .article-card::before {
@@ -454,8 +453,8 @@
         }
 
         .article-card:hover {
-            transform: translateY(-7.5px);
-            box-shadow: 0 11.25px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
             border-color: rgba(79, 195, 247, 0.4);
         }
 
@@ -467,7 +466,7 @@
         .article-card h3 {
             color: var(--digital-purple);
             font-size: 1.1rem;
-            margin-bottom: 11.25px;
+            margin-bottom: 10px;
             line-height: 1.4;
             font-weight: 600;
             display: flex;
@@ -489,39 +488,36 @@
             color: #ddd;
             font-size: 0.9rem;
             line-height: 1.6;
-            margin-bottom: 15px;
-            flex-grow: 1; /* Ensures content fills available space */
+            margin-bottom: 12px;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            overflow: hidden; /* Prevents content overflow */
+            /* CHANGED: Removed flex-grow and overflow */
         }
 
         .article-content p {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .article-content ul {
             padding-left: 20px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .article-content li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         /* Image panel styles - UPDATED: Reduced size by 25% and added glowing borders */
         .image-panel {
             display: flex;
             flex-direction: column;
-            height: 100%;
         }
         
         .image-container {
-            flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 15px 0;
-            min-height: 150px;
+            margin: 12px 0;
+            min-height: 120px;
             overflow: hidden;
             border-radius: 8px;
         }
@@ -578,16 +574,16 @@
         .article-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 9px 0;
+            gap: 8px;
+            margin: 7px 0 5px;
         }
 
         .meta-tag {
             background: rgba(79, 195, 247, 0.1);
             color: var(--primary);
-            padding: 3.75px 9px;
+            padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.6375rem;
+            font-size: 0.6rem;
             border: 1px solid rgba(79, 195, 247, 0.2);
             text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
         }
@@ -603,8 +599,8 @@
             display: inline-block;
             color: var(--light);
             background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
-            padding: 7.5px 15px;
-            border-radius: 6px;
+            padding: 6px 12px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -615,7 +611,8 @@
             letter-spacing: 0.75px;
             position: relative;
             overflow: hidden;
-            margin-top: 15px;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
         .article-link::before {
@@ -632,8 +629,8 @@
         .article-link:hover {
             background: linear-gradient(90deg, var(--primary), var(--accent));
             color: var(--darker);
-            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
-            transform: translateY(-2.25px);
+            box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
+            transform: translateY(-2px);
         }
 
         .article-link:hover::before {
@@ -811,7 +808,7 @@
             }
             
             .article-card {
-                padding: 15px 11.25px;
+                padding: 12px 10px;
             }
             
             .article-card h3 {
@@ -958,11 +955,11 @@
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
                     <div class="article-content">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <div>
                                 <p><strong>Vocabulary:</strong></p>
-                                <ul style="margin-left: 10px; font-size: 0.85rem;">
-                                    <li>Science: Ancient roots for precision</li>
+                                <ul style="margin-left: 10px; font-size: 0.85rem; padding-left: 15px;">
+                                    <li>Science: Ancient roots</li>
                                     <li>History: Metaphorical terms</li>
                                     <li>Math: Symbolic, axiomatic</li>
                                     <li>Lit: Figurative, interpretive</li>
@@ -970,7 +967,7 @@
                             </div>
                             <div>
                                 <p><strong>Grammar:</strong></p>
-                                <ul style="margin-left: 10px; font-size: 0.85rem;">
+                                <ul style="margin-left: 10px; font-size: 0.85rem; padding-left: 15px;">
                                     <li>Science: Nominalisation</li>
                                     <li>History: Human agency</li>
                                     <li>Different perspectives</li>
@@ -1060,23 +1057,23 @@
             
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+                card.style.transform = 'translateY(10px)';
                 
                 setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                }, 100 * index);
+                }, 80 * index);
             });
             
             // Add pulse animation to contact card
             const contactCard = document.querySelector('.contact-card');
             setInterval(() => {
-                contactCard.style.boxShadow = '0 0 30px rgba(79, 195, 247, 0.3)';
+                contactCard.style.boxShadow = '0 0 25px rgba(79, 195, 247, 0.3)';
                 setTimeout(() => {
                     contactCard.style.boxShadow = '0 0 20px rgba(79, 195, 247, 0.1)';
-                }, 1000);
-            }, 3000);
+                }, 800);
+            }, 2500);
             
             // Back button functionality
             const backButton = document.getElementById('backButton');
@@ -1101,7 +1098,7 @@
             // Add animation to counter
             counterElement.style.opacity = '0';
             setTimeout(() => {
-                counterElement.style.transition = 'opacity 0.5s ease';
+                counterElement.style.transition = 'opacity 0.4s ease';
                 counterElement.style.opacity = '1';
             }, 100);
         });
