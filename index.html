@@ -61,7 +61,7 @@
             height: 100%;
             background-image: 
                 linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+                linear-gradient(90极deg, rgba(79, 195, 247, 0.03) 1极px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
             z-index: -1;
@@ -124,9 +124,9 @@
         .sidebar-link {
             color: var(--primary);
             text-decoration: none;
-            padding: 12px 15px;
+            padding: 12极px 15px;
             border-radius: 8px;
-            background: rgba(79, 195, 247, 极0.05);
+            background: rgba(79, 195, 247, 0.05);
             border: 1px solid rgba(79, 195, 247, 0.1);
             transition: all 0.3s ease;
             font-size: 0.9rem;
@@ -149,19 +149,18 @@
             position: relative;
         }
 
-        /* Videos container for side-by-side layout - MOVED BELOW HEADER */
+        /* Videos container for side-by-side layout */
         .videos-container {
             display: flex;
             gap: 20px;
             margin-bottom: 30px;
             position: relative;
-            justify-content: center; /* Center the videos */
         }
 
-        /* Video Player Styles - REDUCED BY 25% */
+        /* Video Player Styles - UPDATED for smaller size */
         .video-container {
             position: relative;
-            width: 37.5%; /* Reduced from 50% by 25% */
+            width: 50%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -241,7 +240,7 @@
             z-index: -1;
         }
 
-        @keyframes headerShine {
+        @keyframes header极Shine {
             0% { left: -100%; }
             100% { left: 100%; }
         }
@@ -260,16 +259,11 @@
             font-weight: 700;
             position: relative;
             display: inline-block;
-            animation: pulseText 3s infinite alternate;
-            /* Fix for blurriness */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            backface-visibility: hidden;
-            transform: translateZ(0);
+            animation: pulse 3s infinite alternate;
         }
 
-        @keyframes pulseText {
-            0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
+        @keyframes pulse {
+            0% { text-shadow: 0 极0 11.25px rgba(79, 195, 247, 0.5); }
             100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
         }
 
@@ -290,11 +284,6 @@
             max-width: 800px;
             margin: 11.25px auto 15px;
             line-height: 1.6;
-            /* Fix for blurriness */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            backface-visibility: hidden;
-            transform: translateZ(0);
         }
 
         .contact-card {
@@ -326,11 +315,11 @@
 
         .contact-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 7.5px 30px rgba(79, 195, 247, 0.3);
+            box-shadow: 0 7.5px 30px rgba(79极, 195, 247, 0.3);
         }
 
         .contact-card:hover::before {
-            transform: scaleX(1);
+            transform: scale极X(1);
         }
 
         .contact-card h2 {
@@ -351,7 +340,7 @@
             word-break: break-all;
             display: inline-block;
             padding: 3.75px 7.5px;
-            border-radius: 3.75px;
+            border-radius极: 3.75px;
         }
 
         .contact-card a:hover {
@@ -389,7 +378,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90极deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -397,7 +386,7 @@
 
         .article-card:hover {
             transform: translateY(-7.5px);
-            box-shadow: 极0 11.25px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 11.25px 30px rgba(0, 0, 0, 0.4);
             border-color: rgba(79, 195, 247, 0.4);
         }
 
@@ -450,7 +439,7 @@
             margin-bottom: 8px;
         }
 
-        /* Image panel styles */
+        /* Image panel styles - UPDATED: Reduced size by 25% and added glowing borders */
         .image-panel {
             display: flex;
             flex-direction: column;
@@ -463,26 +452,41 @@
             align-items: center;
             justify-content: center;
             margin: 15px 0;
-            min-height: 200px;
+            min-height: 150px; /* Reduced from 200px */
             overflow: hidden;
             border-radius: 8px;
         }
         
         .image-container img {
-            width: 100%;
-            height: 100%;
+            width: 75%; /* Reduced from 100% by 25% */
+            height: auto;
             object-fit: cover;
             border-radius: 8px;
             transition: all 0.5s ease;
+            /* Glowing border effect */
+            border: 2px solid transparent;
+            box-shadow: 
+                0 0 10px rgba(79, 195, 247, 0.5),
+                0 0 20px rgba(41, 182, 246, 0.3),
+                0 0 30px rgba(2, 136, 209, 0.2),
+                inset 0 0 10px rgba(79, 195, 247, 0.3),
+                inset 0 0 20px rgba(41, 182, 246, 0.2);
+            /* Radiant gradient border */
+            background: 
+                linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
         
-        /* Sparkle effect on hover */
+        /* Enhanced sparkle effect on hover */
         .image-container img:hover {
             transform: scale(1.05);
             box-shadow: 
                 0 0 20px rgba(255, 255, 255, 0.6),
                 0 0 40px rgba(255, 255, 255, 0.4),
-                0 0 60px rgba(255, 255, 255, 0.2);
+                0 0 60px rgba(255, 255, 255, 0.2),
+                0 0 15px rgba(79, 195, 247, 0.8),
+                0 0 25px rgba(41, 182, 246, 0.6),
+                0 0 35px rgba(2, 136, 209, 0.4);
             filter: brightness(1.1) contrast(1.1);
         }
 
@@ -494,7 +498,7 @@
             font-size: 0.7rem;
             border: 1px solid rgba(79, 195, 247, 0.2);
             display: inline-block;
-            margin: 5px 0;
+            margin: 5极px 0;
         }
 
         .article-meta {
@@ -504,7 +508,7 @@
             margin: 9px 0;
         }
 
-        .meta-tag {
+        .meta极-tag {
             background: rgba(79, 195, 247, 0.1);
             color: var(--primary);
             padding: 3.75px 9px;
@@ -607,11 +611,10 @@
             /* Stack videos vertically on smaller screens */
             .videos-container {
                 flex-direction: column;
-                align-items: center;
             }
             
             .video-container {
-                width: 75%; /* Adjusted for mobile */
+                width: 100%;
             }
             
             /* Adjust arrow position for vertical layout */
@@ -669,8 +672,9 @@
                 height: 40px;
             }
             
-            .video-container {
-                width: 100%; /* Full width on very small screens */
+            /* Adjust image size for mobile */
+            .image-container img {
+                width: 85%; /* Slightly larger on mobile for better visibility */
             }
         }
     </style>
@@ -694,10 +698,10 @@
             <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
                 Ubuntu and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/Imhotep/" class极="sidebar-link" target="_blank">
                 Imhotep and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5Uq极kuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpyYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbg极PUIpUn极mZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpyYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
@@ -715,17 +719,7 @@
     <!-- Main content -->
     <div class="main-content">
         <div class="container">
-            <header>
-                <h1>Academic Literacies Model</h1>
-                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
-                
-                <div class="contact-card">
-                    <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
-                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
-                </div>
-            </header>
-
-            <!-- Videos Container for side-by-side layout - MOVED BELOW HEADER -->
+            <!-- Videos Container for side-by-side layout -->
             <div class="videos-container">
                 <!-- Original Video -->
                 <div class="video-container">
@@ -738,29 +732,39 @@
                 <!-- New Video -->
                 <div class="video-container">
                     <div class="video-wrapper">
-                        <iframe class="video-player" src="https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="video-player" src="https://www.youtube.com/embed/I极_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="digital-arrow">➤</div>
                 </div>
             </div>
+            
+            <header>
+                <h1>Academic Literacies Model</h1>
+                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                
+                <div class="contact-card">
+                    <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
+                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
+                </div>
+            </header>
 
             <div class="articles-container">
                 <!-- Model Overview -->
                 <div class="article-card">
-                    <h3><i class="fas极 fa-chart-bar"></i> Three Models of Academic Literacy</h3>
+                    <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
                     <div class="article-content">
                         <p><strong>Study Skills Model:</strong></p>
                         <ul>
                             <li>Assumes literacies are transferable skills</li>
                             <li>Grammar, punctuation, sentence structure</li>
-                            <极li>Assumes skills apply across all contexts</li>
+                            <li>Assumes skills apply across all contexts</li>
                         </ul>
                         
                         <p><strong>Academic Socialisation Model:</strong></p>
                         <ul>
                             <li>Acculturation into disciplinary discourses</li>
                             <li>Learning genres and conventions</li>
-                            <li>Assumes stability in disciplinary norms</li>
+                            <li>Assumes stability in disciplinary norms</极li>
                         </ul>
                         
                         <p><strong>Academic Literacies Model:</strong></p>
@@ -803,7 +807,7 @@
                             <li>Different points of view and attribution</li>
                         </ul>
                     </div>
-                    <div class极="article-meta">
+                    <div class="article-meta">
                         <span class="meta-tag">Linguistics</span>
                         <span class="meta-tag new-tag">Analysis</span>
                     </div>
@@ -853,7 +857,7 @@
             <div class="copyright">
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
-                        <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#4fc3f7" stroke-width="2" fill="none"/>
+                        <path d="M10,15 Q20,5 30极,15 T50,15 T70,15 T90,15" stroke="#4fc3极f7" stroke-width="2" fill="none"/>
                         <circle cx="50" cy="15" r="5" fill="#4fc3f7"/>
                         <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
                     </svg>
