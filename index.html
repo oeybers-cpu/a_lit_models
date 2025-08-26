@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Literacies Model | Critical Analysis</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css    ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -284,6 +284,55 @@
             border-radius: 50%;
         }
 
+        h2 {
+            font-size: 1.8rem;
+            margin: 20px 0 15px;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-light);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            border-radius: 50%;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 15px 0 12px;
+            color: var(--digital-purple);
+            line-height: 1.4;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        h3::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--digital-purple), transparent);
+            border-radius: 50%;
+        }
+
         .subtitle {
             font-size: 0.825rem;
             color: #aaa;
@@ -341,6 +390,14 @@
             align-items: center;
             gap: 11.25px;
             font-family: 'Orbitron', sans-serif;
+            border: none;
+            text-align: left;
+            width: auto;
+            padding-bottom: 0;
+        }
+
+        .contact-card h2::after {
+            display: none;
         }
 
         .contact-card a {
@@ -722,6 +779,14 @@
                 font-size: 2.1rem;
             }
             
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
             .subtitle {
                 font-size: 0.75rem;
             }
@@ -730,6 +795,14 @@
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.65rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
             }
             
             .contact-card a {
@@ -776,28 +849,28 @@
     
     <!-- Sidebar with links and images -->
     <div class="sidebar">
-        <img src="    https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         
         <div class="sidebar-links">
-            <a href="    https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications    " class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
             </a>
-            <a href="https://oeybers-cpu.github.io/ubuntu/    " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
                 Ubuntu and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/Imhotep/    " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
                 Imhotep and academic literacy
             </a>
             <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpyYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
-            <a href="    https://oeybers-cpu.github.io/Achebe/    " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
                 Achebe and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/ngugi/    " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
                 Wa Thiong'o and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/ancient_writers/    " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
                 Ancient African Writing
             </a>
         </div>
@@ -830,7 +903,7 @@
                 <!-- New Video - RE-EMBEDDED with correct link -->
                 <div class="video-container">
                     <div class="video-wrapper">
-                        <iframe class="video-player" src="    https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="video-player" src="https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="digital-arrow">➤</div>
                 </div>
@@ -872,7 +945,11 @@
                 <div class="article-card image-panel">
                     <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
                     <div class="image-container">
-                        <img src="    https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
+                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
+                    </div>
+                    <div class="article-content">
+                        <p>Ubuntu is a philosophical concept that emphasises our interconnectedness as human beings. The phrase "Umuntu ngumuntu ngabantu" (I am because we are) captures the essence of this worldview, which focuses on community, mutual caring, and shared humanity.</p>
+                        <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
                     </div>
                 </div>
                 
@@ -919,7 +996,7 @@
                         <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
                     </div>
                     <div class="image-container">
-                        <img src="    https://raw.githubusercontent.com/oeybers-cpu/Ubuntu_2/0881299ad1b078bd4eba041c41b79908b4b0519b/jpeg%20    (2).jpg" alt="African Knowledge Systems">
+                        <img src="https://raw.githubusercontent.com/oeybers-cpu/Imhotep/main/imhotep-statue.jpg" alt="Imhotep Statue">
                     </div>
                 </div>
                 
@@ -942,7 +1019,7 @@
                         <span class="meta-tag">Visualisation</span>
                         <span class="meta-tag new-tag">Resource</span>
                     </div>
-                    <a href="https://oeybers-cpu.github.io/oe_research/    " class="article-link" target="_blank">
+                    <a href="https://oeybers-cpu.github.io/oe_research/" class="article-link" target="_blank">
                         Explore Gateway <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -951,7 +1028,7 @@
             <!-- Visitor Counter - Added at the bottom -->
             <div class="visitor-counter">
                 <h2 class="counter-title"><i class="fas fa-eye"></i> Research Portal Visits</h2>
-                <div class="counter-value" id="visitor-count">0</div>
+                <div class="counter-value" id="visitor-count">1</div>
                 <p class="counter-description">This counter tracks the number of visitors to our academic literacies research portal. Each visit helps expand our understanding of how language, culture, and academic practices intersect.</p>
             </div>
 
@@ -1002,31 +1079,17 @@
                     window.history.back();
                 } else {
                     // If no history, redirect to Google
-                    window.location.href = 'https://www.google.com    ';
+                    window.location.href = 'https://www.google.com';
                 }
             });
             
             // Visitor Counter Functionality
-            // Get current count from localStorage or initialize to 0
-            let count = localStorage.getItem('academicLiteraciesCounter');
-            if (count === null) {
-                count = 0;
-                // Initialize with a base count to show activity
-                const baseCount = 2487;
-                count = baseCount;
-            } else {
-                count = parseInt(count);
-            }
+            // Reset counter to 1 for everyone
+            localStorage.setItem('academicLiteraciesCounter', '1');
             
-            // Increment count
-            count++;
-            
-            // Save updated count
-            localStorage.setItem('academicLiteraciesCounter', count);
-            
-            // Display count with animation
+            // Set counter to 1
             const counterElement = document.getElementById('visitor-count');
-            counterElement.textContent = count.toLocaleString();
+            counterElement.textContent = '1';
             
             // Add animation to counter
             counterElement.style.opacity = '0';
