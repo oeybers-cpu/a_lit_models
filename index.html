@@ -417,7 +417,7 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Articles grid made of equal squares on large screens */
+        /* Articles grid - FIXED GRID LAYOUT */
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -425,6 +425,7 @@
             margin: 30px 0;
         }
 
+        /* FIXED CARD SIZING */
         .article-card {
             background: var(--card-bg);
             border: 1px solid rgba(79, 195, 247, 0.1);
@@ -434,9 +435,9 @@
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            /* CHANGED: Removed min-height and adjusted display properties */
-            display: block;
-            margin-bottom: 20px;
+            height: 100%; /* Ensures cards fill their grid cell */
+            display: flex;
+            flex-direction: column;
         }
 
         .article-card::before {
@@ -489,7 +490,9 @@
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: 15px;
+            flex-grow: 1; /* Ensures content fills available space */
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+            overflow: hidden; /* Prevents content overflow */
         }
 
         .article-content p {
@@ -773,11 +776,6 @@
                 transform: translateX(-50%) rotate(-90deg);
             }
             
-            /* Allow cards to grow naturally for readability on narrow screens */
-            .article-card {
-                min-height: auto;
-            }
-            
             h1 {
                 font-size: 2.1rem;
             }
@@ -956,24 +954,30 @@
                     </div>
                 </div>
                 
-                <!-- Language Across Disciplines -->
+                <!-- Language Across Disciplines - COMPACTED -->
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
                     <div class="article-content">
-                        <p><strong>Vocabulary differences:</strong></p>
-                        <ul>
-                            <li>Science: Ancient, ancestral roots for precision</li>
-                            <li>History: Metaphorical terms, perspectives</li>
-                            <li>Mathematics: Symbolic, axiomatic language</li>
-                            <li>Literature: Figurative, interpretive language</li>
-                        </ul>
-                        
-                        <p><strong>Grammatical patterns:</strong></p>
-                        <ul>
-                            <li>Science: Nominalisation, passive voice</li>
-                            <li>History: Focus on human agency, causation</li>
-                            <li>Different points of view and attribution</li>
-                        </ul>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <p><strong>Vocabulary:</strong></p>
+                                <ul style="margin-left: 10px; font-size: 0.85rem;">
+                                    <li>Science: Ancient roots for precision</li>
+                                    <li>History: Metaphorical terms</li>
+                                    <li>Math: Symbolic, axiomatic</li>
+                                    <li>Lit: Figurative, interpretive</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p><strong>Grammar:</strong></p>
+                                <ul style="margin-left: 10px; font-size: 0.85rem;">
+                                    <li>Science: Nominalisation</li>
+                                    <li>History: Human agency</li>
+                                    <li>Different perspectives</li>
+                                    <li>Varying attribution</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="article-meta">
                         <span class="meta-tag">Linguistics</span>
