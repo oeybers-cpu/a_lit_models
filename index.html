@@ -498,9 +498,9 @@
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
-        /* CHANGED: Added specific class for Imhotep image with 55% reduction */
+        /* CHANGED: Increased image size by 72.5% (33.75% * 1.725 = 58.21875%) */
         .imhotep-image {
-            width: 60% !important; /* Increased from 33.75% to 60% */
+            width: 58.2% !important;
         }
         /* Enhanced sparkle effect on hover */
         .image-container img:hover {
@@ -585,26 +585,6 @@
         .article-link:hover::before {
             left: 100%;
         }
-        
-        /* IMHOTEP CARD LAYOUT - CENTERED */
-        .imhotep-card {
-            grid-column: span 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .imhotep-content {
-            display: flex;
-            width: 100%;
-            margin-top: 10px;
-        }
-        
-        .imhotep-text {
-            flex: 1;
-            padding-right: 15px;
-        }
-        
         .copyright {
             text-align: center;
             padding: 30px 0 15px;
@@ -928,23 +908,19 @@
                     </a>
                 </div>
                 <!-- African Knowledge Systems - CENTERED WITH LARGER IMAGE -->
-                <div class="article-card imhotep-card">
+                <div class="article-card">
                     <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
-                    <div class="imhotep-content">
-                        <div class="imhotep-text">
-                            <div class="article-content">
-                                <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
-                                <p><strong>Key Roles:</strong></p>
-                                <ul>
-                                    <li>Chief minister and advisor to Pharaoh Djoser</li>
-                                    <li>Architect of the Step Pyramid at Saqqara</li>
-                                    <li>Physician and founder of Egyptian medicine</li>
-                                    <li>Astronomer and sage</li>
-                                    <li>Later deified as god of medicine and wisdom</li>
-                                </ul>
-                                <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
-                            </div>
-                        </div>
+                    <div class="article-content">
+                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
+                        <p><strong>Key Roles:</strong></p>
+                        <ul>
+                            <li>Chief minister and advisor to Pharaoh Djoser</li>
+                            <li>Architect of the Step Pyramid at Saqqara</li>
+                            <li>Physician and founder of Egyptian medicine</li>
+                            <li>Astronomer and sage</li>
+                            <li>Later deified as god of medicine and wisdom</li>
+                        </ul>
+                        <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
