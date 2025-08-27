@@ -792,39 +792,6 @@
                     </div>
                 </div>
                 
-                <!-- Language Across Disciplines -->
-                <div class="article-card">
-                    <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
-                    <div class="article-content">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                            <div>
-                                <p><strong>Vocabulary:</strong></p>
-                                <ul style="padding-left: 15px; margin-bottom: 10px;">
-                                    <li>Science: Ancient roots</li>
-                                    <li>History: Metaphorical terms</li>
-                                    <li>Math: Symbolic, axiomatic</li>
-                                    <li>Lit: Figurative, interpretive</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p><strong>Grammar:</strong></p>
-                                <ul style="padding-left: 15px; margin-bottom: 10px;">
-                                    <li>Science: Nominalisation</li>
-                                    <li>History: Human agency</li>
-                                    <li>Different perspectives</li>
-                                    <li>Varying attribution</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="citation">
-                            "Each discipline has its own ways of constructing knowledge through language."
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        Disciplinary literacy goes beyond vocabulary to include knowledge construction practices
-                    </div>
-                </div>
-                
                 <!-- African Knowledge Systems -->
                 <div class="article-card">
                     <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
@@ -862,33 +829,6 @@
                         "Africa has the world's oldest writing systems, yet its intellectual heritage is often overlooked"
                     </div>
                 </div>
-                
-                <!-- Knowledge Gateway -->
-                <div class="article-card">
-                    <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
-                    <div class="image-container" style="background: rgba(10, 10, 15, 0.3); border: 1px dashed rgba(79, 195, 247, 0.2);">
-                        <div style="text-align: center; color: var(--lighter-accent);">
-                            <i class="fas fa-project-diagram" style="font-size: 2rem; margin-bottom: 8px;"></i>
-                            <p style="font-size: 0.9rem;">Interactive Knowledge Map</p>
-                        </div>
-                    </div>
-                    <div class="article-content">
-                        <p>Explore the interconnectedness of academic literacies through our visualization platform. This gateway provides access to:</p>
-                        <ul style="padding-left: 20px;">
-                            <li>Comparative analysis of literacy models</li>
-                            <li>Case studies from diverse academic disciplines</li>
-                            <li>Resources for implementing literacies approaches</li>
-                            <li>Research on inclusive pedagogical practices</li>
-                        </ul>
-                        <p>The platform highlights how academic literacies intersect with cultural knowledge systems and critical pedagogy.</p>
-                    </div>
-                    <div class="card-footer">
-                        Visualizing connections between academic literacies and cultural knowledge traditions
-                    </div>
-                    <a href="https://oeybers-cpu.github.io/oe_research/" class="article-link" target="_blank">
-                        Explore Gateway <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
             </div>
             
             <!-- Visitor Counter -->
@@ -908,4 +848,46 @@
                     </svg>
                 </div>
                 <p>© 2024 Academic Literacies Research Portal</p>
-                <p>Based on works by Lea &amp; Street (2006) and
+                <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.article-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 80 * index);
+            });
+            
+            // Back button functionality
+            const backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = 'https://www.google.com';
+                }
+            });
+            
+            // Visitor Counter
+            const counterElement = document.getElementById('visitor-count');
+            counterElement.textContent = '1';
+            
+            // Add animation to counter
+            counterElement.style.opacity = '0';
+            setTimeout(() => {
+                counterElement.style.transition = 'opacity 0.4s ease';
+                counterElement.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
