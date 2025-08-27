@@ -500,7 +500,7 @@
         }
         /* CHANGED: Added specific class for Imhotep image with 55% reduction */
         .imhotep-image {
-            width: 33.75% !important; /* 75% * 45% = 33.75% (55% reduction) */
+            width: 60% !important; /* Increased from 33.75% to 60% */
         }
         /* Enhanced sparkle effect on hover */
         .image-container img:hover {
@@ -586,35 +586,23 @@
             left: 100%;
         }
         
-        /* IMHOTEP CARD LAYOUT */
+        /* IMHOTEP CARD LAYOUT - CENTERED */
         .imhotep-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: 
-                "header header"
-                "text image"
-                "meta meta";
-            gap: 10px;
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .imhotep-card h3 {
-            grid-area: header;
+        .imhotep-content {
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
         }
         
         .imhotep-text {
-            grid-area: text;
-            padding-right: 10px;
-        }
-        
-        .imhotep-image-container {
-            grid-area: image;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .imhotep-meta {
-            grid-area: meta;
+            flex: 1;
+            padding-right: 15px;
         }
         
         .copyright {
@@ -888,7 +876,6 @@
                         <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
                     </div>
                 </div>
-                
                 <!-- Language Across Disciplines - COMPACTED -->
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
@@ -919,7 +906,6 @@
                         <span class="meta-tag new-tag">Analysis</span>
                     </div>
                 </div>
-                
                 <!-- Knowledge Gateway -->
                 <div class="article-card">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
@@ -941,34 +927,31 @@
                         Explore Gateway <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-                
-                <!-- IMHOTEP CARD WITH TEXT ON LEFT, IMAGE ON RIGHT -->
+                <!-- African Knowledge Systems - CENTERED WITH LARGER IMAGE -->
                 <div class="article-card imhotep-card">
                     <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
-                    <div class="imhotep-text">
-                        <div class="article-content">
-                            <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
-                            <p><strong>Key Roles:</strong></p>
-                            <ul>
-                                <li>Chief minister and advisor to Pharaoh Djoser</li>
-                                <li>Architect of the Step Pyramid at Saqqara</li>
-                                <li>Physician and founder of Egyptian medicine</li>
-                                <li>Astronomer and sage</li>
-                                <li>Later deified as god of medicine and wisdom</li>
-                            </ul>
-                            <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
+                    <div class="imhotep-content">
+                        <div class="imhotep-text">
+                            <div class="article-content">
+                                <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
+                                <p><strong>Key Roles:</strong></p>
+                                <ul>
+                                    <li>Chief minister and advisor to Pharaoh Djoser</li>
+                                    <li>Architect of the Step Pyramid at Saqqara</li>
+                                    <li>Physician and founder of Egyptian medicine</li>
+                                    <li>Astronomer and sage</li>
+                                    <li>Later deified as god of medicine and wisdom</li>
+                                </ul>
+                                <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="imhotep-image-container">
-                        <div class="image-container">
-                            <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
-                        </div>
+                    <div class="image-container">
+                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
                     </div>
-                    <div class="imhotep-meta">
-                        <div class="article-meta">
-                            <span class="meta-tag">History</span>
-                            <span class="meta-tag new-tag">African Knowledge</span>
-                        </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">History</span>
+                        <span class="meta-tag new-tag">African Knowledge</span>
                     </div>
                 </div>
             </div>
