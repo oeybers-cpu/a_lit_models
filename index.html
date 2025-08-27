@@ -1,764 +1,695 @@
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    :root {
-        --primary: #4fc3f7;
-        --secondary: #29b6f6;
-        --accent: #0288d1;
-        --dark: #0a0a14;
-        --darker: #050508;
-        --light: #f0f0f0;
-        --card-bg: rgba(20, 20, 30, 0.7);
-        --sidebar-width: 280px;
-        --lighter-accent: #81d4fa;
-        --digital-purple: #cf40ff;
-        --card-padding: 15px;
-    }
-    body {
-        background: linear-gradient(135deg, var(--darker), var(--dark));
-        color: var(--light);
-        min-height: 100vh;
-        padding: 20px;
-        position: relative;
-        overflow-x: hidden;
-        font-family: 'Exo 2', sans-serif;
-        line-height: 1.6;
-        display: flex;
-    }
-    body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: 
-            radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
-            radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
-            radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
-        pointer-events: none;
-        z-index: -2;
-    }
-    .grid-lines {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-            linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
-        background-size: 40px 40px;
-        pointer-events: none;
-        z-index: -1;
-    }
-    /* Back button styling */
-    .back-button {
-        position: fixed;
-        top: 25px;
-        left: 25px;
-        z-index: 1000;
-        background: rgba(20, 20, 30, 0.7);
-        border: 1px solid rgba(79, 195, 247, 0.2);
-        color: var(--primary);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
-    }
-    .back-button:hover {
-        background: rgba(79, 195, 247, 0.2);
-        transform: translateX(-5px);
-        box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
-    }
-    /* Sidebar styling */
-    .sidebar {
-        width: var(--sidebar-width);
-        padding: 20px;
-        background: var(--card-bg);
-        border: 1px solid rgba(79, 195, 247, 0.1);
-        border-radius: 11.25px;
-        margin-right: 30px;
-        backdrop-filter: blur(10px);
-        height: fit-content;
-        position: sticky;
-        top: 20px;
-    }
-    .sidebar-image {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        border: 1px solid rgba(79, 195, 247, 0.2);
-    }
-    .sidebar-links {
-        display: flex;
-        flex-direction: column;
-        gap: 25px; /* Increased from 15px to 25px for more spacing */
-    }
-    .sidebar-link {
-        color: var(--primary);
-        text-decoration: none;
-        padding: 12px 15px;
-        border-radius: 8px;
-        background: rgba(79, 195, 247, 0.05);
-        border: 1px solid rgba(79, 195, 247, 0.1);
-        transition: all 0.3s ease;
-        font-size: 0.9rem;
-        text-align: center;
-    }
-    .sidebar-link:hover {
-        background: rgba(79, 195, 247, 0.15);
-        box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
-        transform: translateY(-2px);
-    }
-    .main-content {
-        flex: 1;
-    }
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        position: relative;
-    }
-    /* Videos container for side-by-side layout - UPDATED */
-    .videos-container {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 30px;
-        position: relative;
-        justify-content: center;
-    }
-    /* Video Player Styles - MADE SMALLER */
-    .video-container {
-        position: relative;
-        width: 33.75%; /* Reduced from 45% to 33.75% (25% smaller) */
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-    .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-        background: #000;
-    }
-    .video-player {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    /* Digital Arrow Styling */
-    .digital-arrow {
-        position: absolute;
-        top: 50%;
-        right: -30px;
-        transform: translateY(-50%);
-        font-size: 30px;
-        color: var(--primary);
-        text-shadow: 0 0 10px var(--primary);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        animation: pulse 2s infinite;
-        z-index: 10;
-    }
-    .video-container:hover .digital-arrow {
-        opacity: 1;
-    }
-    .video-container:nth-child(2) .digital-arrow {
-        left: -30px;
-        right: auto;
-    }
-    @keyframes pulse {
-        0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
-        50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
-    }
-    header {
-        text-align: center;
-        padding: 15px 0;
-        position: relative;
-        background: linear-gradient(to right, rgba(79, 195, 247, 0.1), transparent);
-        border-bottom: 1px solid rgba(79, 195, 247, 0.2);
-        margin-bottom: 22.5px;
-        border-radius: 0 0 15px 15px;
-        overflow: hidden;
-    }
-    header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, 
-            transparent, 
-            rgba(79, 195, 247, 0.1), 
-            rgba(41, 182, 246, 0.1), 
-            rgba(2, 136, 209, 0.1),
-            transparent);
-        animation: headerShine 8s infinite linear;
-        z-index: -1;
-    }
-    @keyframes headerShine {
-        0% { left: -100%; }
-        100% { left: 100%; }
-    }
-    h1 {
-        font-size: 2.4rem;
-        margin-bottom: 7.5px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-transform: uppercase;
-        letter-spacing: 2.25px;
-        text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5);
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 700;
-        position: relative;
-        display: inline-block;
-        animation: pulseText 3s infinite alternate;
-        /* Fix for blurriness */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-    }
-    @keyframes pulseText {
-        0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
-        100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
-    }
-    h1::after {
-        content: '';
-        position: absolute;
-        bottom: -6px;
-        left: 10%;
-        width: 80%;
-        height: 1.5px;
-        background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
-        border-radius: 50%;
-    }
-    h2 {
-        font-size: 1.8rem;
-        margin: 20px 0 15px;
-        color: var(--primary);
-        padding-bottom: 8px;
-        border-bottom: 2px solid var(--primary-light);
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-    }
-    h2::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
-        border-radius: 50%;
-    }
-    h3 {
-        font-size: 1.8rem; /* Increased from 1.3rem for better visual weight */
-        margin: 15px 0 12px;
-        color: var(--digital-purple);
-        line-height: 1.4;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
-        transition: all 0.3s ease;
-        position: relative;
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba(79, 195, 247, 0.2);
-    }
-    h3::before {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 40px;
-        height: 2px;
-        background: linear-gradient(90deg, var(--digital-purple), transparent);
-        border-radius: 50%;
-    }
-    .subtitle {
-        font-size: 0.825rem;
-        color: #aaa;
-        max-width: 800px;
-        margin: 11.25px auto 15px;
-        line-height: 1.6;
-        /* Fix for blurriness */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-    }
-    .contact-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(79, 195, 247, 0.1);
-        border-radius: 11.25px;
-        padding: 15px;
-        max-width: 600px;
-        margin: 22.5px auto;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 22.5px rgba(79, 195, 247, 0.1);
-        transition: all 0.4s ease;
-        position: relative;
-        overflow: hidden;
-    }
-    .contact-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s ease;
-    }
-    .contact-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 7.5px 30px rgba(79, 195, 247, 0.3);
-    }
-    .contact-card:hover::before {
-        transform: scaleX(1);
-    }
-    .contact-card h2 {
-        color: var(--primary);
-        margin-bottom: 11.25px;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        gap: 11.25px;
-        font-family: 'Orbitron', sans-serif;
-        border: none;
-        text-align: left;
-        width: auto;
-        padding-bottom: 0;
-    }
-    .contact-card h2::after {
-        display: none;
-    }
-    .contact-card a {
-        color: var(--primary);
-        text-decoration: none;
-        font-size: 0.825rem;
-        transition: all 0.3s ease;
-        word-break: break-all;
-        display: inline-block;
-        padding: 3.75px 7.5px;
-        border-radius: 3.75px;
-    }
-    .contact-card a:hover {
-        color: var(--secondary);
-        text-shadow: 0 0 11.25px rgba(41, 182, 246, 0.7);
-        background: rgba(255, 255, 255, 0.1);
-    }
-    /* Articles grid - FIXED GRID LAYOUT */
-    .articles-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        margin: 30px 0;
-    }
-    /* FIXED CARD SIZING */
-    .article-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(79, 195, 247, 0.1);
-        border-radius: 11.25px;
-        padding: var(--card-padding);
-        transition: all 0.4s ease;
-        backdrop-filter: blur(5px);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        height: 100%; /* Ensure all cards have equal height */
-    }
-    .article-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s ease;
-    }
-    .article-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-        border-color: rgba(79, 195, 247, 0.4);
-    }
-    .article-card:hover::before {
-        transform: scaleX(1);
-    }
-    /* UPDATED: Changed to digital purple with glow effect */
-    .article-card h3 {
-        color: var(--digital-purple);
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-        line-height: 1.4;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
-        transition: all 0.3s ease;
-    }
-    .article-card:hover h3 {
-        text-shadow: 0 0 12px rgba(207, 64, 255, 1), 0 0 20px rgba(207, 64, 255, 0.6);
-    }
-    .article-card h3 i {
-        font-size: 1.3rem;
-    }
-    .article-content {
-        color: #ddd;
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 12px;
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-        flex-grow: 1;
-    }
-    .article-content p {
-        margin-bottom: 10px;
-    }
-    .article-content ul {
-        padding-left: 20px;
-        margin-bottom: 10px;
-    }
-    .article-content li {
-        margin-bottom: 6px;
-    }
-    
-    /* NEW: Consistent card footer for quotes */
-    .card-footer {
-        background: rgba(79, 195, 247, 0.05);
-        border-top: 1px solid rgba(79, 195, 247, 0.1);
-        padding: 8px 10px;
-        border-radius: 0 0 8px 8px;
-        margin-top: auto;
-        font-size: 0.75rem;
-        color: var(--lighter-accent);
-        position: relative;
-    }
-    
-    .card-footer::before {
-        content: '»';
-        position: absolute;
-        left: 5px;
-        color: var(--digital-purple);
-        font-weight: bold;
-    }
-    
-    /* Image panel styles - UPDATED: Reduced size by 25% and added glowing borders */
-    .image-panel {
-        display: flex;
-        flex-direction: column;
-    }
-    .image-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 12px 0;
-        min-height: 120px;
-        overflow: hidden;
-        border-radius: 8px;
-        background: rgba(10, 10, 15, 0.5);
-        border: 1px solid rgba(79, 195, 247, 0.1);
-    }
-    .image-container img {
-        width: 75%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-        transition: all 0.5s ease;
-        /* Glowing border effect */
-        border: 2px solid transparent;
-        box-shadow: 
-            0 0 10px rgba(79, 195, 247, 0.5),
-            0 0 20px rgba(41, 182, 246, 0.3),
-            0 0 30px rgba(2, 136, 209, 0.2),
-            inset 0 0 10px rgba(79, 195, 247, 0.3),
-            inset 0 0 20px rgba(41, 182, 246, 0.2);
-        /* Radiant gradient border */
-        background: 
-            linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
-            linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
-    }
-    /* CHANGED: Added specific class for Imhotep image with 55% reduction */
-    .imhotep-image {
-        width: 33.75% !important; /* 75% * 45% = 33.75% (55% reduction) */
-    }
-    /* Enhanced sparkle effect on hover */
-    .image-container img:hover {
-        transform: scale(1.05);
-        box-shadow: 
-            0 0 20px rgba(255, 255, 255, 0.6),
-            0 0 40px rgba(255, 255, 255, 0.4),
-            0 0 60px rgba(255, 255, 255, 0.2),
-            0 0 15px rgba(79, 195, 247, 0.8),
-            0 0 25px rgba(41, 182, 246, 0.6),
-            0 0 35px rgba(2, 136, 209, 0.4);
-        filter: brightness(1.1) contrast(1.1);
-    }
-    .citation {
-        background: rgba(79, 195, 247, 0.1);
-        color: var(--primary);
-        padding: 3.75px 9px;
-        border-radius: 15px;
-        font-size: 0.7rem;
-        border: 1px solid rgba(79, 195, 247, 0.2);
-        display: inline-block;
-        margin: 5px 0;
-    }
-    .article-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 7px 0 5px;
-    }
-    .meta-tag {
-        background: rgba(79, 195, 247, 0.1);
-        color: var(--primary);
-        padding: 3px 8px;
-        border-radius: 15px;
-        font-size: 0.6rem;
-        border: 1px solid rgba(79, 195, 247, 0.2);
-        text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
-    }
-    .new-tag {
-        background: rgba(2, 136, 209, 0.2);
-        color: var(--accent);
-        border-color: rgba(2, 136, 209, 0.3);
-        text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
-    }
-    .article-link {
-        display: inline-block;
-        color: var(--light);
-        background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
-        padding: 6px 12px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(79, 195, 247, 0.3);
-        text-align: center;
-        width: 100%;
-        font-family: 'Orbitron', sans-serif;
-        letter-spacing: 0.75px;
-        position: relative;
-        overflow: hidden;
-        margin-top: 10px;
-        font-size: 0.9rem;
-    }
-    .article-link::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: 0.5s;
-    }
-    .article-link:hover {
-        background: linear-gradient(90deg, var(--primary), var(--accent));
-        color: var(--darker);
-        box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
-        transform: translateY(-2px);
-    }
-    .article-link:hover::before {
-        left: 100%;
-    }
-    .copyright {
-        text-align: center;
-        padding: 30px 0 15px;
-        color: #777;
-        font-size: 0.675rem;
-        border-top: 1px solid rgba(79, 195, 247, 0.1);
-        margin-top: 22.5px;
-    }
-    .copyright p {
-        margin: 6px 0;
-    }
-    .university-logo {
-        width: 120px;
-        margin: 11.25px auto;
-        filter: brightness(0.8);
-        opacity: 0.7;
-    }
-    /* Visitor Counter Styling */
-    .visitor-counter {
-        background: var(--card-bg);
-        border: 1px solid rgba(79, 195, 247, 0.1);
-        border-radius: 11.25px;
-        padding: 15px;
-        margin: 0 auto 30px;
-        backdrop-filter: blur(10px);
-        max-width: 600px;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-    }
-    .visitor-counter::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--digital-purple), var(--primary));
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s ease;
-    }
-    .visitor-counter:hover::before {
-        transform: scaleX(1);
-    }
-    .counter-title {
-        color: var(--digital-purple);
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
-    }
-    .counter-value {
-        font-size: 2.5rem;
-        font-family: 'Orbitron', sans-serif;
-        background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
-        margin: 15px 0;
-        animation: pulseCounter 2s infinite;
-    }
-    @keyframes pulseCounter {
-        0%, 100% { text-shadow: 0 0 15px rgba(79, 195, 247, 0.5); }
-        50% { text-shadow: 0 0 25px rgba(207, 64, 255, 0.8), 0 0 35px rgba(79, 195, 247, 0.6); }
-    }
-    .counter-description {
-        color: #aaa;
-        font-size: 0.8rem;
-        max-width: 500px;
-        margin: 0 auto;
-        line-height: 1.5;
-    }
-    @media (max-width: 1100px) {
-        .articles-container {
-            grid-template-columns: 1fr 1fr;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Literacies Model</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
-    @media (max-width: 900px) {
+        :root {
+            --primary: #4fc3f7;
+            --secondary: #29b6f6;
+            --accent: #0288d1;
+            --dark: #0a0a14;
+            --darker: #050508;
+            --light: #f0f0f0;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --sidebar-width: 280px;
+            --lighter-accent: #81d4fa;
+            --digital-purple: #cf40ff;
+            --card-padding: 15px;
+            --card-gap: 25px;
+        }
         body {
-            flex-direction: column;
-        }
-        .sidebar {
-            width: 100%;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
             position: relative;
-            margin-right: 0;
-            margin-bottom: 30px;
+            overflow-x: hidden;
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+            display: flex;
         }
-        .articles-container {
-            grid-template-columns: 1fr;
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -2;
         }
-        /* Stack videos vertically on smaller screens */
-        .videos-container {
-            flex-direction: column;
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        /* Back button styling */
+        .back-button {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1000;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
         }
+        .back-button:hover {
+            background: rgba(79, 195, 247, 0.2);
+            transform: translateX(-5px);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+        }
+        /* Sidebar styling */
+        .sidebar {
+            width: var(--sidebar-width);
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            margin-right: 30px;
+            backdrop-filter: blur(10px);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .sidebar-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sidebar-link {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(79, 195, 247, 0.05);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .sidebar-link:hover {
+            background: rgba(79, 195, 247, 0.15);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            transform: translateY(-2px);
+        }
+        .main-content {
+            flex: 1;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /* Videos container for side-by-side layout */
+        .videos-container {
+            display: flex;
+            gap: var(--card-gap);
+            margin-bottom: 30px;
+            position: relative;
+            justify-content: center;
+        }
+        /* Video Player Styles */
         .video-container {
-            width: 63.75%; /* Adjusted for mobile (25% smaller than original 85%) */
+            position: relative;
+            width: 45%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
-        /* Adjust arrow position for vertical layout */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+        }
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Digital Arrow Styling */
         .digital-arrow {
-            top: auto;
-            bottom: -30px;
-            left: 50%;
-            right: auto;
-            transform: translateX(-50%) rotate(90deg);
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+        .video-container:hover .digital-arrow {
+            opacity: 1;
         }
         .video-container:nth-child(2) .digital-arrow {
-            top: -30px;
-            bottom: auto;
-            left: 50%;
+            left: -30px;
             right: auto;
-            transform: translateX(-50%) rotate(-90deg);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+        }
+        header {
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            background: linear-gradient(to right, rgba(79, 195, 247, 0.1), transparent);
+            border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+            margin-bottom: 22.5px;
+            border-radius: 0 0 15px 15px;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 195, 247, 0.1), 
+                rgba(41, 182, 246, 0.1), 
+                rgba(2, 136, 209, 0.1),
+                transparent);
+            animation: headerShine 8s infinite linear;
+            z-index: -1;
+        }
+        @keyframes headerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         h1 {
-            font-size: 2.1rem;
+            font-size: 2.4rem;
+            margin-bottom: 7.5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2.25px;
+            text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            animation: pulseText 3s infinite alternate;
+            /* Fix for blurriness */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
-        h2 {
-            font-size: 1.6rem;
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
         }
-        h3 {
-            font-size: 1.2rem;
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 10%;
+            width: 80%;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            border-radius: 50%;
         }
         .subtitle {
-            font-size: 0.75rem;
+            font-size: 0.825rem;
+            color: #aaa;
+            max-width: 800px;
+            margin: 11.25px auto 15px;
+            line-height: 1.6;
+            /* Fix for blurriness */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
-    }
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 1.65rem;
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: 15px;
+            max-width: 600px;
+            margin: 22.5px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 22.5px rgba(79, 195, 247, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
-        h2 {
-            font-size: 1.4rem;
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
-        h3 {
-            font-size: 1.1rem;
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 7.5px 30px rgba(79, 195, 247, 0.3);
+        }
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+        .contact-card h2 {
+            color: var(--primary);
+            margin-bottom: 11.25px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 11.25px;
+            font-family: 'Orbitron', sans-serif;
+            border: none;
+            text-align: left;
+            width: auto;
+            padding-bottom: 0;
+        }
+        .contact-card h2::after {
+            display: none;
         }
         .contact-card a {
-            font-size: 0.75rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.825rem;
+            transition: all 0.3s ease;
+            word-break: break-all;
+            display: inline-block;
+            padding: 3.75px 7.5px;
+            border-radius: 3.75px;
         }
+        .contact-card a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 11.25px rgba(41, 182, 246, 0.7);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        /* Articles grid - FIXED GRID LAYOUT */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--card-gap);
+            margin: 30px 0;
+        }
+        /* FIXED CARD SIZING - ALL CARDS HAVE SAME HEIGHT */
         .article-card {
-            padding: 12px 10px;
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: var(--card-padding);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            border-color: rgba(79, 195, 247, 0.4);
+        }
+        .article-card:hover::before {
+            transform: scaleX(1);
         }
         .article-card h3 {
-            font-size: 1rem;
+            color: var(--digital-purple);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 8px;
         }
-        .back-button {
-            top: 15px;
-            left: 15px;
+        .article-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 40px;
-            height: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--digital-purple), transparent);
+            border-radius: 50%;
         }
-        /* Adjust image size for mobile */
+        .article-card h3 i {
+            font-size: 1.3rem;
+        }
+        .article-card:hover h3 {
+            text-shadow: 0 0 12px rgba(207, 64, 255, 1), 0 0 20px rgba(207, 64, 255, 0.6);
+        }
+        .article-content {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-content p {
+            margin-bottom: 10px;
+        }
+        .article-content ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        .article-content li {
+            margin-bottom: 6px;
+        }
+        /* Standardized card footer */
+        .card-footer {
+            background: rgba(79, 195, 247, 0.05);
+            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            padding: 8px 10px;
+            border-radius: 0 0 8px 8px;
+            font-size: 0.75rem;
+            color: var(--lighter-accent);
+            position: relative;
+            margin-top: auto;
+        }
+        .card-footer::before {
+            content: '»';
+            position: absolute;
+            left: 5px;
+            color: var(--digital-purple);
+            font-weight: bold;
+        }
+        /* Image container - STANDARDIZED */
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            min-height: 120px;
+            background: rgba(10, 10, 15, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            overflow: hidden;
+        }
         .image-container img {
-            width: 85%; /* Slightly larger on mobile for better visibility */
+            width: 75%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+            /* Glowing border effect */
+            border: 2px solid transparent;
+            box-shadow: 
+                0 0 10px rgba(79, 195, 247, 0.5),
+                0 0 20px rgba(41, 182, 246, 0.3),
+                0 0 30px rgba(2, 136, 209, 0.2),
+                inset 0 0 10px rgba(79, 195, 247, 0.3),
+                inset 0 0 20px rgba(41, 182, 246, 0.2);
+            /* Radiant gradient border */
+            background: 
+                linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
-        .video-container {
-            width: 75%; /* Full width on very small screens (25% smaller) */
+        /* CHANGED: Added specific class for Imhotep image */
+        .imhotep-image {
+            width: 45% !important;
+        }
+        /* Enhanced sparkle effect on hover */
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(255, 255, 255, 0.2),
+                0 0 15px rgba(79, 195, 247, 0.8),
+                0 0 25px rgba(41, 182, 246, 0.6),
+                0 0 35px rgba(2, 136, 209, 0.4);
+            filter: brightness(1.1) contrast(1.1);
+        }
+        .citation {
+            background: rgba(79, 195, 247, 0.1);
+            color: var(--primary);
+            padding: 3.75px 9px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 7px 0 5px;
+        }
+        .meta-tag {
+            background: rgba(79, 195, 247, 0.1);
+            color: var(--primary);
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.6rem;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
+        }
+        .new-tag {
+            background: rgba(2, 136, 209, 0.2);
+            color: var(--accent);
+            border-color: rgba(2, 136, 209, 0.3);
+            text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
+        }
+        .article-link {
+            display: inline-block;
+            color: var(--light);
+            background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            text-align: center;
+            width: 100%;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.75px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .article-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        .article-link:hover {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--darker);
+            box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
+            transform: translateY(-2px);
+        }
+        .article-link:hover::before {
+            left: 100%;
+        }
+        .copyright {
+            text-align: center;
+            padding: 30px 0 15px;
+            color: #777;
+            font-size: 0.675rem;
+            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            margin-top: 22.5px;
+        }
+        .copyright p {
+            margin: 6px 0;
+        }
+        .university-logo {
+            width: 120px;
+            margin: 11.25px auto;
+            filter: brightness(0.8);
+            opacity: 0.7;
+        }
+        /* Visitor Counter Styling */
+        .visitor-counter {
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: 15px;
+            margin: 0 auto 30px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .visitor-counter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--digital-purple), var(--primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .visitor-counter:hover::before {
+            transform: scaleX(1);
+        }
+        .counter-title {
+            color: var(--digital-purple);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
         }
         .counter-value {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            margin: 15px 0;
+            animation: pulseCounter 2s infinite;
         }
-    }
-</style>
+        @keyframes pulseCounter {
+            0%, 100% { text-shadow: 0 0 15px rgba(79, 195, 247, 0.5); }
+            50% { text-shadow: 0 0 25px rgba(207, 64, 255, 0.8), 0 0 35px rgba(79, 195, 247, 0.6); }
+        }
+        .counter-description {
+            color: #aaa;
+            font-size: 0.8rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            .videos-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .video-container {
+                width: 85%;
+            }
+            .digital-arrow {
+                top: auto;
+                bottom: -30px;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%) rotate(90deg);
+            }
+            .video-container:nth-child(2) .digital-arrow {
+                top: -30px;
+                bottom: auto;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%) rotate(-90deg);
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.65rem;
+            }
+            .back-button {
+                top: 15px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            .video-container {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="grid-lines"></div>
@@ -768,27 +699,27 @@
     </div>
     <!-- Sidebar with links and images -->
     <div class="sidebar">
-        <img src=" https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         <div class="sidebar-links">
-            <a href=" https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications " class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
             </a>
-            <a href="https://oeybers-cpu.github.io/ubuntu/ " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
                 Ubuntu and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/Imhotep/ " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
                 Imhotep and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=m68r5UqkuxeqFAbgPUIpUnmZaTwqbIZqcQj7ptGxVD2cjZghkU_8fYikcJWwlTr5DJKt5-8119z6WESX4WvAIoLHOc2yAOAbA9gd0UA.yej_5BfMAMmK2Ndwj6UmqwaNK4TSQzCgdOUQiBv2wnlmAlKb3Am3oYiOrMNiZu-Udm0hEvgc8MA0JME1YbJJeA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpyYXRpb24iLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
-            <a href=" https://oeybers-cpu.github.io/Achebe/ " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
                 Achebe and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/ngugi/ " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
                 Wa Thiong'o and academic literacy
             </a>
-            <a href="https://oeybers-cpu.github.io/ancient_writers/ " class="sidebar-link" target="_blank">
+            <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
                 Ancient African Writing
             </a>
         </div>
@@ -796,7 +727,7 @@
     <!-- Main content -->
     <div class="main-content">
         <div class="container">
-            <!-- Header moved to top -->
+            <!-- Header -->
             <header>
                 <h1>Academic Literacies Model</h1>
                 <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
@@ -805,57 +736,52 @@
                     <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
-            <!-- Videos Container moved below header -->
+            <!-- Videos Container -->
             <div class="videos-container">
-                <!-- Original Video -->
+                <!-- Video 1 -->
                 <div class="video-container">
                     <div class="video-wrapper">
                         <iframe class="video-player" src="https://www.youtube.com/embed/gdzY1IKDlZ8?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="digital-arrow">➤</div>
                 </div>
-                <!-- New Video - RE-EMBEDDED with correct link -->
+                <!-- Video 2 -->
                 <div class="video-container">
                     <div class="video-wrapper">
-                        <iframe class="video-player" src=" https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="video-player" src="https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="digital-arrow">➤</div>
                 </div>
             </div>
+            <!-- Articles Grid -->
             <div class="articles-container">
-                <!-- Model Overview - REVISED -->
+                <!-- Model Overview -->
                 <div class="article-card">
                     <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
                     <div class="article-content">
                         <p><strong>Study Skills Model:</strong> Views literacy as transferable technical skills (grammar, punctuation).</p>
                         <p><strong>Academic Socialisation Model:</strong> Focuses on acculturation into disciplinary discourses and conventions.</p>
                         <p><strong>Academic Literacies Model:</strong> Emphasizes meaning-making, identity, power, and authority in academic writing contexts.</p>
-                        
-                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
-                            <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
-                                <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
-                                "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
-                            </p>
-                            <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: right; color: var(--lighter-accent);">
-                                - Lea & Street (2006)
-                            </p>
+                        <div class="citation">
+                            "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
+                            <br>- Lea & Street (2006)
                         </div>
                     </div>
                     <div class="card-footer">
                         Each model offers different perspectives on how students engage with academic writing demands
                     </div>
                 </div>
-                <!-- Disciplinary Literacy - REVISED with footer -->
-                <div class="article-card image-panel">
+                
+                <!-- Ubuntu Concept -->
+                <div class="article-card">
                     <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
                     <div class="image-container">
-                        <img src=" https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
+                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
                     </div>
                     <div class="article-content">
                         <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
                         <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
-                        
-                        <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
+                        <div class="article-meta">
                             <span class="meta-tag">Philosophy</span>
                             <span class="meta-tag">Community</span>
                             <span class="meta-tag">African Epistemology</span>
@@ -865,14 +791,15 @@
                         "A person is a person through other persons" - African proverb
                     </div>
                 </div>
-                <!-- Language Across Disciplines - REVISED -->
+                
+                <!-- Language Across Disciplines -->
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
                     <div class="article-content">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <div>
                                 <p><strong>Vocabulary:</strong></p>
-                                <ul style="margin-left: 10px; font-size: 0.85rem; padding-left: 15px;">
+                                <ul style="padding-left: 15px; margin-bottom: 10px;">
                                     <li>Science: Ancient roots</li>
                                     <li>History: Metaphorical terms</li>
                                     <li>Math: Symbolic, axiomatic</li>
@@ -881,7 +808,7 @@
                             </div>
                             <div>
                                 <p><strong>Grammar:</strong></p>
-                                <ul style="margin-left: 10px; font-size: 0.85rem; padding-left: 15px;">
+                                <ul style="padding-left: 15px; margin-bottom: 10px;">
                                     <li>Science: Nominalisation</li>
                                     <li>History: Human agency</li>
                                     <li>Different perspectives</li>
@@ -889,43 +816,34 @@
                                 </ul>
                             </div>
                         </div>
-                        
-                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px; font-size: 0.85rem;">
-                            <p style="margin: 0 0 5px 0; display: flex; align-items: center; gap: 5px;">
-                                <i class="fas fa-book" style="color: var(--digital-purple);"></i>
-                                Disciplinary literacy requires understanding specialized language patterns
-                            </p>
-                            <p style="margin: 0; color: var(--lighter-accent); font-style: italic;">
-                                "Each discipline has its own ways of constructing knowledge through language."
-                            </p>
+                        <div class="citation">
+                            "Each discipline has its own ways of constructing knowledge through language."
                         </div>
                     </div>
                     <div class="card-footer">
                         Disciplinary literacy goes beyond vocabulary to include knowledge construction practices
                     </div>
                 </div>
-                <!-- African Knowledge Systems - REVISED -->
+                
+                <!-- African Knowledge Systems -->
                 <div class="article-card">
                     <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
                     <div class="image-container">
-                        <img src=" https://www.worldhistory.org/uploads/images/4514.jpg " alt="Imhotep Statue" class="imhotep-image">
+                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
                     </div>
                     <div class="article-content">
                         <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
                         <p>Imhotep was a polymath who excelled as an architect (Step Pyramid), physician (founder of Egyptian medicine), astronomer, and sage. His name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
-                        
-                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px; font-size: 0.85rem;">
-                            <p style="margin: 0; display: flex; align-items: center; gap: 5px;">
-                                <i class="fas fa-landmark" style="color: var(--digital-purple);"></i>
-                                "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
-                            </p>
+                        <div class="citation">
+                            "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
                         </div>
                     </div>
                     <div class="card-footer">
                         African intellectual traditions predate colonial influence by millennia
                     </div>
                 </div>
-                <!-- NEW CARD: Ancient African Script - REVISED -->
+                
+                <!-- Ancient African Script -->
                 <div class="article-card">
                     <h3><i class="fas fa-feather-alt"></i> Ancient African Script</h3>
                     <div class="image-container">
@@ -934,8 +852,7 @@
                     <div class="article-content">
                         <p>Ancient Egyptian hieroglyphics, one of the world's oldest writing systems, combined logographic and alphabetic elements to record religious texts and administrative documents on temple walls and papyri.</p>
                         <p>Ge'ez script, developed around the 8th century BCE in Ethiopia and Eritrea, remains in use today for liturgical purposes in the Ethiopian Orthodox Church. Across Africa, numerous writing systems flourished including Nsibidi, Tifinagh, and Meroitic script.</p>
-                        
-                        <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
+                        <div class="article-meta">
                             <span class="meta-tag">Writing Systems</span>
                             <span class="meta-tag">History</span>
                             <span class="meta-tag">Epistemology</span>
@@ -945,10 +862,11 @@
                         "Africa has the world's oldest writing systems, yet its intellectual heritage is often overlooked"
                     </div>
                 </div>
-                <!-- Knowledge Gateway - REVISED -->
+                
+                <!-- Knowledge Gateway -->
                 <div class="article-card">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
-                    <div class="image-container" style="background: rgba(10, 10, 15, 0.3); min-height: 100px; border: 1px dashed rgba(79, 195, 247, 0.2);">
+                    <div class="image-container" style="background: rgba(10, 10, 15, 0.3); border: 1px dashed rgba(79, 195, 247, 0.2);">
                         <div style="text-align: center; color: var(--lighter-accent);">
                             <i class="fas fa-project-diagram" style="font-size: 2rem; margin-bottom: 8px;"></i>
                             <p style="font-size: 0.9rem;">Interactive Knowledge Map</p>
@@ -956,7 +874,7 @@
                     </div>
                     <div class="article-content">
                         <p>Explore the interconnectedness of academic literacies through our visualization platform. This gateway provides access to:</p>
-                        <ul>
+                        <ul style="padding-left: 20px;">
                             <li>Comparative analysis of literacy models</li>
                             <li>Case studies from diverse academic disciplines</li>
                             <li>Resources for implementing literacies approaches</li>
@@ -967,17 +885,20 @@
                     <div class="card-footer">
                         Visualizing connections between academic literacies and cultural knowledge traditions
                     </div>
-                    <a href=" https://oeybers-cpu.github.io/oe_research/ " class="article-link" target="_blank">
+                    <a href="https://oeybers-cpu.github.io/oe_research/" class="article-link" target="_blank">
                         Explore Gateway <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <!-- Visitor Counter - Added at the bottom -->
+            
+            <!-- Visitor Counter -->
             <div class="visitor-counter">
                 <h2 class="counter-title"><i class="fas fa-eye"></i> Research Portal Visits</h2>
                 <div class="counter-value" id="visitor-count">1</div>
                 <p class="counter-description">This counter tracks the number of visitors to our academic literacies research portal. Each visit helps expand our understanding of how language, culture, and academic practices intersect.</p>
             </div>
+            
+            <!-- Copyright -->
             <div class="copyright">
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
@@ -987,55 +908,4 @@
                     </svg>
                 </div>
                 <p>© 2024 Academic Literacies Research Portal</p>
-                <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Add subtle animation to article cards on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.article-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(10px)';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 80 * index);
-            });
-            // Add pulse animation to contact card
-            const contactCard = document.querySelector('.contact-card');
-            setInterval(() => {
-                contactCard.style.boxShadow = '0 0 25px rgba(79, 195, 247, 0.3)';
-                setTimeout(() => {
-                    contactCard.style.boxShadow = '0 0 20px rgba(79, 195, 247, 0.1)';
-                }, 800);
-            }, 2500);
-            // Back button functionality
-            const backButton = document.getElementById('backButton');
-            backButton.addEventListener('click', function() {
-                // Check if there's a previous page in history
-                if (window.history.length > 1) {
-                    window.history.back();
-                } else {
-                    // If no history, redirect to Google
-                    window.location.href = 'https://www.google.com ';
-                }
-            });
-            // Visitor Counter Functionality
-            // Reset counter to 1 for everyone
-            localStorage.setItem('academicLiteraciesCounter', '1');
-            // Set counter to 1
-            const counterElement = document.getElementById('visitor-count');
-            counterElement.textContent = '1';
-            // Add animation to counter
-            counterElement.style.opacity = '0';
-            setTimeout(() => {
-                counterElement.style.transition = 'opacity 0.4s ease';
-                counterElement.style.opacity = '1';
-            }, 100);
-        });
-    </script>
-</body>
-</html>
+                <p>Based on works by Lea &amp; Street (2006) and
