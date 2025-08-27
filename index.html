@@ -393,9 +393,8 @@
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 420px; /* Fixed height for all cards */
+            /* CHANGED: Removed height: 100% and flex properties */
+            display: block;
         }
         .article-card::before {
             content: '';
@@ -442,51 +441,39 @@
             line-height: 1.6;
             margin-bottom: 12px;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            flex: 1;
-            overflow-y: auto;
-            padding-right: 5px;
+            /* CHANGED: Removed flex-grow and overflow */
         }
-        
-        /* Custom scrollbar styling */
-        .article-content::-webkit-scrollbar {
-            width: 8px;
+        .article-content p {
+            margin-bottom: 10px;
         }
-        
-        .article-content::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
+        .article-content ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
         }
-        
-        .article-content::-webkit-scrollbar-thumb {
-            background: rgba(79, 195, 247, 0.5);
-            border-radius: 4px;
+        .article-content li {
+            margin-bottom: 6px;
         }
-        
-        .article-content::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
-        
         /* Image panel styles - UPDATED: Reduced size by 25% and added glowing borders */
         .image-panel {
             display: flex;
             flex-direction: column;
         }
         .image-container {
-            min-height: 150px;
-            max-height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 12px 0;
+            min-height: 120px;
             overflow: hidden;
             border-radius: 8px;
         }
         .image-container img {
-            max-width: 100%;
-            max-height: 140px;
-            object-fit: contain;
+            width: 75%;
+            height: auto;
+            object-fit: cover;
             border-radius: 8px;
             transition: all 0.5s ease;
+            /* Glowing border effect */
             border: 2px solid transparent;
             box-shadow: 
                 0 0 10px rgba(79, 195, 247, 0.5),
@@ -494,13 +481,14 @@
                 0 0 30px rgba(2, 136, 209, 0.2),
                 inset 0 0 10px rgba(79, 195, 247, 0.3),
                 inset 0 0 20px rgba(41, 182, 246, 0.2);
+            /* Radiant gradient border */
             background: 
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
-        /* CHANGED: Increased image size by 72.5% (33.75% * 1.725 = 58.21875%) */
+        /* CHANGED: Added specific class for Imhotep image with 55% reduction */
         .imhotep-image {
-            width: 58.2% !important;
+            width: 33.75% !important; /* 75% * 45% = 33.75% (55% reduction) */
         }
         /* Enhanced sparkle effect on hover */
         .image-container img:hover {
@@ -525,7 +513,6 @@
             margin: 5px 0;
         }
         .article-meta {
-            flex-shrink: 0;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
@@ -547,7 +534,6 @@
             text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
         }
         .article-link {
-            flex-shrink: 0;
             display: inline-block;
             color: var(--light);
             background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
@@ -886,6 +872,42 @@
                         <span class="meta-tag new-tag">Analysis</span>
                     </div>
                 </div>
+                <!-- African Knowledge Systems - Imhotep -->
+                <div class="article-card">
+                    <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
+                    <div class="article-content">
+                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
+                        <p><strong>Key Roles:</strong></p>
+                        <ul>
+                            <li>Chief minister and advisor to Pharaoh Djoser</li>
+                            <li>Architect of the Step Pyramid at Saqqara</li>
+                            <li>Physician and founder of Egyptian medicine</li>
+                            <li>Astronomer and sage</li>
+                            <li>Later deified as god of medicine and wisdom</li>
+                        </ul>
+                        <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
+                    </div>
+                </div>
+                <!-- NEW CARD: Ancient African Script -->
+                <div class="article-card">
+                    <h3><i class="fas fa-feather-alt"></i> Ancient African Script</h3>
+                    <div class="article-content">
+                        <p>Ancient Egyptian hieroglyphics, one of the world's oldest writing systems, combined logographic and alphabetic elements to record religious texts and administrative documents on temple walls and papyri.</p>
+                        <p>Ge'ez script, shown in the image below, developed around the 8th century BCE in Ethiopia and Eritrea and remains in use today for liturgical purposes in the Ethiopian Orthodox Church.</p>
+                        <p>Across the continent, numerous other writing systems flourished, including Nsibidi from Nigeria, Tifinagh from North Africa, and the Meroitic script of ancient Sudan, each reflecting unique cultural knowledge traditions.</p>
+                        <p>These diverse African writing systems demonstrate the continent's rich intellectual heritage and challenge Eurocentric narratives that often overlook Africa's contributions to global literacy practices.</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://beinecke.library.yale.edu/sites/default/files/styles/cropped_image/public/ms_31_ge_ez_0.jpg?itok=haqpM1oT&c=16c304a46d481d79d91071f095f1707d" alt="Ge'ez Script">
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">History</span>
+                        <span class="meta-tag new-tag">Writing Systems</span>
+                    </div>
+                </div>
                 <!-- Knowledge Gateway -->
                 <div class="article-card">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
@@ -906,29 +928,6 @@
                     <a href="https://oeybers-cpu.github.io/oe_research/" class="article-link" target="_blank">
                         Explore Gateway <i class="fas fa-arrow-right"></i>
                     </a>
-                </div>
-                <!-- African Knowledge Systems - CENTERED WITH LARGER IMAGE -->
-                <div class="article-card">
-                    <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
-                    <div class="article-content">
-                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
-                        <p><strong>Key Roles:</strong></p>
-                        <ul>
-                            <li>Chief minister and advisor to Pharaoh Djoser</li>
-                            <li>Architect of the Step Pyramid at Saqqara</li>
-                            <li>Physician and founder of Egyptian medicine</li>
-                            <li>Astronomer and sage</li>
-                            <li>Later deified as god of medicine and wisdom</li>
-                        </ul>
-                        <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
-                    </div>
-                    <div class="image-container">
-                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
-                    </div>
-                    <div class="article-meta">
-                        <span class="meta-tag">History</span>
-                        <span class="meta-tag new-tag">African Knowledge</span>
-                    </div>
                 </div>
             </div>
             <!-- Visitor Counter - Added at the bottom -->
