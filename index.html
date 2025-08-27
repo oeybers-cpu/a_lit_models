@@ -12,7 +12,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary: #4fc3f7;
             --secondary: #29b6f6;
@@ -25,7 +24,6 @@
             --lighter-accent: #81d4fa;
             --digital-purple: #cf40ff;
         }
-
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
             color: var(--light);
@@ -37,7 +35,6 @@
             line-height: 1.6;
             display: flex;
         }
-
         body::before {
             content: '';
             position: absolute;
@@ -52,7 +49,6 @@
             pointer-events: none;
             z-index: -2;
         }
-
         .grid-lines {
             position: fixed;
             top: 0;
@@ -66,7 +62,6 @@
             pointer-events: none;
             z-index: -1;
         }
-
         /* Back button styling */
         .back-button {
             position: fixed;
@@ -87,13 +82,11 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
         }
-
         .back-button:hover {
             background: rgba(79, 195, 247, 0.2);
             transform: translateX(-5px);
             box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
         }
-
         /* Sidebar styling */
         .sidebar {
             width: var(--sidebar-width);
@@ -107,20 +100,17 @@
             position: sticky;
             top: 20px;
         }
-
         .sidebar-image {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 20px;
             border: 1px solid rgba(79, 195, 247, 0.2);
         }
-
         .sidebar-links {
             display: flex;
             flex-direction: column;
             gap: 25px; /* Increased from 15px to 25px for more spacing */
         }
-
         .sidebar-link {
             color: var(--primary);
             text-decoration: none;
@@ -132,23 +122,19 @@
             font-size: 0.9rem;
             text-align: center;
         }
-
         .sidebar-link:hover {
             background: rgba(79, 195, 247, 0.15);
             box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
             transform: translateY(-2px);
         }
-
         .main-content {
             flex: 1;
         }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
         }
-
         /* Videos container for side-by-side layout - UPDATED */
         .videos-container {
             display: flex;
@@ -157,7 +143,6 @@
             position: relative;
             justify-content: center;
         }
-
         /* Video Player Styles - MADE SMALLER */
         .video-container {
             position: relative;
@@ -166,7 +151,6 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
-
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -174,7 +158,6 @@
             height: 0;
             background: #000;
         }
-
         .video-player {
             position: absolute;
             top: 0;
@@ -183,7 +166,6 @@
             height: 100%;
             border: none;
         }
-
         /* Digital Arrow Styling */
         .digital-arrow {
             position: absolute;
@@ -198,21 +180,17 @@
             animation: pulse 2s infinite;
             z-index: 10;
         }
-
         .video-container:hover .digital-arrow {
             opacity: 1;
         }
-
         .video-container:nth-child(2) .digital-arrow {
             left: -30px;
             right: auto;
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
             50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
         }
-
         header {
             text-align: center;
             padding: 15px 0;
@@ -223,7 +201,6 @@
             border-radius: 0 0 15px 15px;
             overflow: hidden;
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -240,12 +217,10 @@
             animation: headerShine 8s infinite linear;
             z-index: -1;
         }
-
         @keyframes headerShine {
             0% { left: -100%; }
             100% { left: 100%; }
         }
-
         h1 {
             font-size: 2.4rem;
             margin-bottom: 7.5px;
@@ -267,12 +242,10 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-
         @keyframes pulseText {
             0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
             100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
         }
-
         h1::after {
             content: '';
             position: absolute;
@@ -283,7 +256,6 @@
             background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
             border-radius: 50%;
         }
-
         h2 {
             font-size: 1.8rem;
             margin: 20px 0 15px;
@@ -295,7 +267,6 @@
             width: 100%;
             text-align: center;
         }
-
         h2::after {
             content: '';
             position: absolute;
@@ -307,7 +278,6 @@
             background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
             border-radius: 50%;
         }
-
         h3 {
             font-size: 1.3rem;
             margin: 15px 0 12px;
@@ -321,7 +291,6 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         h3::before {
             content: '';
             position: absolute;
@@ -332,7 +301,6 @@
             background: linear-gradient(90deg, var(--digital-purple), transparent);
             border-radius: 50%;
         }
-
         .subtitle {
             font-size: 0.825rem;
             color: #aaa;
@@ -345,7 +313,6 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-
         .contact-card {
             background: var(--card-bg);
             border: 1px solid rgba(79, 195, 247, 0.1);
@@ -359,7 +326,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .contact-card::before {
             content: '';
             position: absolute;
@@ -372,16 +338,13 @@
             transform-origin: left;
             transition: transform 0.5s ease;
         }
-
         .contact-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 7.5px 30px rgba(79, 195, 247, 0.3);
         }
-
         .contact-card:hover::before {
             transform: scaleX(1);
         }
-
         .contact-card h2 {
             color: var(--primary);
             margin-bottom: 11.25px;
@@ -395,11 +358,9 @@
             width: auto;
             padding-bottom: 0;
         }
-
         .contact-card h2::after {
             display: none;
         }
-
         .contact-card a {
             color: var(--primary);
             text-decoration: none;
@@ -410,13 +371,11 @@
             padding: 3.75px 7.5px;
             border-radius: 3.75px;
         }
-
         .contact-card a:hover {
             color: var(--secondary);
             text-shadow: 0 0 11.25px rgba(41, 182, 246, 0.7);
             background: rgba(255, 255, 255, 0.1);
         }
-
         /* Articles grid - FIXED GRID LAYOUT */
         .articles-container {
             display: grid;
@@ -424,7 +383,6 @@
             gap: 25px;
             margin: 30px 0;
         }
-
         /* FIXED CARD SIZING */
         .article-card {
             background: var(--card-bg);
@@ -438,7 +396,6 @@
             /* CHANGED: Removed height: 100% and flex properties */
             display: block;
         }
-
         .article-card::before {
             content: '';
             position: absolute;
@@ -451,17 +408,14 @@
             transform-origin: left;
             transition: transform 0.5s ease;
         }
-
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
             border-color: rgba(79, 195, 247, 0.4);
         }
-
         .article-card:hover::before {
             transform: scaleX(1);
         }
-
         /* UPDATED: Changed to digital purple with glow effect */
         .article-card h3 {
             color: var(--digital-purple);
@@ -475,15 +429,12 @@
             text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
             transition: all 0.3s ease;
         }
-
         .article-card:hover h3 {
             text-shadow: 0 0 12px rgba(207, 64, 255, 1), 0 0 20px rgba(207, 64, 255, 0.6);
         }
-
         .article-card h3 i {
             font-size: 1.3rem;
         }
-
         .article-content {
             color: #ddd;
             font-size: 0.9rem;
@@ -492,26 +443,21 @@
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
             /* CHANGED: Removed flex-grow and overflow */
         }
-
         .article-content p {
             margin-bottom: 10px;
         }
-
         .article-content ul {
             padding-left: 20px;
             margin-bottom: 10px;
         }
-
         .article-content li {
             margin-bottom: 6px;
         }
-
         /* Image panel styles - UPDATED: Reduced size by 25% and added glowing borders */
         .image-panel {
             display: flex;
             flex-direction: column;
         }
-        
         .image-container {
             display: flex;
             align-items: center;
@@ -521,7 +467,6 @@
             overflow: hidden;
             border-radius: 8px;
         }
-        
         .image-container img {
             width: 75%;
             height: auto;
@@ -541,12 +486,10 @@
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
-        
         /* CHANGED: Added specific class for Imhotep image with 55% reduction */
         .imhotep-image {
             width: 33.75% !important; /* 75% * 45% = 33.75% (55% reduction) */
         }
-        
         /* Enhanced sparkle effect on hover */
         .image-container img:hover {
             transform: scale(1.05);
@@ -559,7 +502,6 @@
                 0 0 35px rgba(2, 136, 209, 0.4);
             filter: brightness(1.1) contrast(1.1);
         }
-
         .citation {
             background: rgba(79, 195, 247, 0.1);
             color: var(--primary);
@@ -570,14 +512,12 @@
             display: inline-block;
             margin: 5px 0;
         }
-
         .article-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin: 7px 0 5px;
         }
-
         .meta-tag {
             background: rgba(79, 195, 247, 0.1);
             color: var(--primary);
@@ -587,14 +527,12 @@
             border: 1px solid rgba(79, 195, 247, 0.2);
             text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
         }
-
         .new-tag {
             background: rgba(2, 136, 209, 0.2);
             color: var(--accent);
             border-color: rgba(2, 136, 209, 0.3);
             text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
         }
-
         .article-link {
             display: inline-block;
             color: var(--light);
@@ -614,7 +552,6 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
-
         .article-link::before {
             content: '';
             position: absolute;
@@ -625,18 +562,15 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.5s;
         }
-
         .article-link:hover {
             background: linear-gradient(90deg, var(--primary), var(--accent));
             color: var(--darker);
             box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
             transform: translateY(-2px);
         }
-
         .article-link:hover::before {
             left: 100%;
         }
-
         .copyright {
             text-align: center;
             padding: 30px 0 15px;
@@ -645,18 +579,15 @@
             border-top: 1px solid rgba(79, 195, 247, 0.1);
             margin-top: 22.5px;
         }
-
         .copyright p {
             margin: 6px 0;
         }
-
         .university-logo {
             width: 120px;
             margin: 11.25px auto;
             filter: brightness(0.8);
             opacity: 0.7;
         }
-        
         /* Visitor Counter Styling */
         .visitor-counter {
             background: var(--card-bg);
@@ -670,7 +601,6 @@
             overflow: hidden;
             text-align: center;
         }
-        
         .visitor-counter::before {
             content: '';
             position: absolute;
@@ -683,11 +613,9 @@
             transform-origin: left;
             transition: transform 0.5s ease;
         }
-        
         .visitor-counter:hover::before {
             transform: scaleX(1);
         }
-        
         .counter-title {
             color: var(--digital-purple);
             font-size: 1.1rem;
@@ -698,7 +626,6 @@
             gap: 10px;
             text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
         }
-        
         .counter-value {
             font-size: 2.5rem;
             font-family: 'Orbitron', sans-serif;
@@ -710,12 +637,10 @@
             margin: 15px 0;
             animation: pulseCounter 2s infinite;
         }
-        
         @keyframes pulseCounter {
             0%, 100% { text-shadow: 0 0 15px rgba(79, 195, 247, 0.5); }
             50% { text-shadow: 0 0 25px rgba(207, 64, 255, 0.8), 0 0 35px rgba(79, 195, 247, 0.6); }
         }
-        
         .counter-description {
             color: #aaa;
             font-size: 0.8rem;
@@ -723,39 +648,32 @@
             margin: 0 auto;
             line-height: 1.5;
         }
-
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr 1fr;
             }
         }
-
         @media (max-width: 900px) {
             body {
                 flex-direction: column;
             }
-            
             .sidebar {
                 width: 100%;
                 position: relative;
                 margin-right: 0;
                 margin-bottom: 30px;
             }
-            
             .articles-container {
                 grid-template-columns: 1fr;
             }
-            
             /* Stack videos vertically on smaller screens */
             .videos-container {
                 flex-direction: column;
                 align-items: center;
             }
-            
             .video-container {
                 width: 63.75%; /* Adjusted for mobile (25% smaller than original 85%) */
             }
-            
             /* Adjust arrow position for vertical layout */
             .digital-arrow {
                 top: auto;
@@ -764,7 +682,6 @@
                 right: auto;
                 transform: translateX(-50%) rotate(90deg);
             }
-            
             .video-container:nth-child(2) .digital-arrow {
                 top: -30px;
                 bottom: auto;
@@ -772,65 +689,51 @@
                 right: auto;
                 transform: translateX(-50%) rotate(-90deg);
             }
-            
             h1 {
                 font-size: 2.1rem;
             }
-            
             h2 {
                 font-size: 1.6rem;
             }
-            
             h3 {
                 font-size: 1.2rem;
             }
-            
             .subtitle {
                 font-size: 0.75rem;
             }
         }
-
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.65rem;
             }
-            
             h2 {
                 font-size: 1.4rem;
             }
-            
             h3 {
                 font-size: 1.1rem;
             }
-            
             .contact-card a {
                 font-size: 0.75rem;
             }
-            
             .article-card {
                 padding: 12px 10px;
             }
-            
             .article-card h3 {
                 font-size: 1rem;
             }
-            
             .back-button {
                 top: 15px;
                 left: 15px;
                 width: 40px;
                 height: 40px;
             }
-            
             /* Adjust image size for mobile */
             .image-container img {
                 width: 85%; /* Slightly larger on mobile for better visibility */
             }
-            
             .video-container {
                 width: 75%; /* Full width on very small screens (25% smaller) */
             }
-            
             .counter-value {
                 font-size: 2rem;
             }
@@ -839,16 +742,13 @@
 </head>
 <body>
     <div class="grid-lines"></div>
-    
     <!-- Back Button -->
     <div class="back-button" id="backButton">
         <i class="fab fa-google"></i>
     </div>
-    
     <!-- Sidebar with links and images -->
     <div class="sidebar">
         <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
-        
         <div class="sidebar-links">
             <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
@@ -873,7 +773,6 @@
             </a>
         </div>
     </div>
-    
     <!-- Main content -->
     <div class="main-content">
         <div class="container">
@@ -881,13 +780,11 @@
             <header>
                 <h1>Academic Literacies Model</h1>
                 <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
-                
                 <div class="contact-card">
                     <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
                     <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
-            
             <!-- Videos Container moved below header -->
             <div class="videos-container">
                 <!-- Original Video -->
@@ -897,7 +794,6 @@
                     </div>
                     <div class="digital-arrow">➤</div>
                 </div>
-                
                 <!-- New Video - RE-EMBEDDED with correct link -->
                 <div class="video-container">
                     <div class="video-wrapper">
@@ -906,7 +802,6 @@
                     <div class="digital-arrow">➤</div>
                 </div>
             </div>
-            
             <div class="articles-container">
                 <!-- Model Overview -->
                 <div class="article-card">
@@ -918,14 +813,12 @@
                             <li>Grammar, punctuation, sentence structure</li>
                             <li>Assumes skills apply across all contexts</li>
                         </ul>
-                        
                         <p><strong>Academic Socialisation Model:</strong></p>
                         <ul>
                             <li>Acculturation into disciplinary discourses</li>
                             <li>Learning genres and conventions</li>
                             <li>Assumes stability in disciplinary norms</li>
                         </ul>
-                        
                         <p><strong>Academic Literacies Model:</strong></p>
                         <ul>
                             <li>Focus on meaning-making, identity, power</li>
@@ -938,7 +831,6 @@
                         <span class="meta-tag new-tag">Theory</span>
                     </div>
                 </div>
-                
                 <!-- Disciplinary Literacy - Replaced with Image -->
                 <div class="article-card image-panel">
                     <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
@@ -950,7 +842,6 @@
                         <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
                     </div>
                 </div>
-                
                 <!-- Language Across Disciplines - COMPACTED -->
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
@@ -981,13 +872,11 @@
                         <span class="meta-tag new-tag">Analysis</span>
                     </div>
                 </div>
-                
                 <!-- Research Base - Replaced with Text + Image -->
                 <div class="article-card">
                     <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
                     <div class="article-content">
                         <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
-                        
                         <p><strong>Key Roles:</strong></p>
                         <ul>
                             <li>Chief minister and advisor to Pharaoh Djoser</li>
@@ -996,27 +885,23 @@
                             <li>Astronomer and sage</li>
                             <li>Later deified as god of medicine and wisdom</li>
                         </ul>
-                        
                         <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
                     </div>
                 </div>
-                
                 <!-- Knowledge Gateway -->
                 <div class="article-card">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
                     <div class="article-content">
                         <p>Explore the interconnectedness of academic literacies through our interactive visualization platform. This gateway provides access to:</p>
-                        
                         <ul>
                             <li>Comparative analysis of literacy models</li>
                             <li>Case studies from diverse academic disciplines</li>
                             <li>Resources for implementing literacies approaches</li>
                             <li>Research on inclusive pedagogical practices</li>
                         </ul>
-                        
                         <p>The platform highlights how academic literacies intersect with cultural knowledge systems and critical pedagogy.</p>
                     </div>
                     <div class="article-meta">
@@ -1028,14 +913,12 @@
                     </a>
                 </div>
             </div>
-
             <!-- Visitor Counter - Added at the bottom -->
             <div class="visitor-counter">
                 <h2 class="counter-title"><i class="fas fa-eye"></i> Research Portal Visits</h2>
                 <div class="counter-value" id="visitor-count">1</div>
                 <p class="counter-description">This counter tracks the number of visitors to our academic literacies research portal. Each visit helps expand our understanding of how language, culture, and academic practices intersect.</p>
             </div>
-
             <div class="copyright">
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
@@ -1049,23 +932,19 @@
             </div>
         </div>
     </div>
-
     <script>
         // Add subtle animation to article cards on page load
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.article-card');
-            
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(10px)';
-                
                 setTimeout(() => {
                     card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, 80 * index);
             });
-            
             // Add pulse animation to contact card
             const contactCard = document.querySelector('.contact-card');
             setInterval(() => {
@@ -1074,7 +953,6 @@
                     contactCard.style.boxShadow = '0 0 20px rgba(79, 195, 247, 0.1)';
                 }, 800);
             }, 2500);
-            
             // Back button functionality
             const backButton = document.getElementById('backButton');
             backButton.addEventListener('click', function() {
@@ -1086,15 +964,12 @@
                     window.location.href = 'https://www.google.com';
                 }
             });
-            
             // Visitor Counter Functionality
             // Reset counter to 1 for everyone
             localStorage.setItem('academicLiteraciesCounter', '1');
-            
             // Set counter to 1
             const counterElement = document.getElementById('visitor-count');
             counterElement.textContent = '1';
-            
             // Add animation to counter
             counterElement.style.opacity = '0';
             setTimeout(() => {
