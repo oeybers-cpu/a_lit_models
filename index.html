@@ -442,6 +442,22 @@
             color: var(--digital-purple);
             font-weight: bold;
         }
+        /* Model section styling */
+        .model-section {
+            background: rgba(2, 136, 209, 0.08);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--digital-purple);
+        }
+        .model-title {
+            font-weight: 600;
+            color: var(--digital-purple);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
         /* Image container - STANDARDIZED */
         .image-container {
             display: flex;
@@ -755,16 +771,21 @@
             </div>
             <!-- Articles Grid -->
             <div class="articles-container">
-                <!-- Model Overview -->
+                <!-- Model Overview - UPDATED WITH REQUESTED TEXT -->
                 <div class="article-card">
                     <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
                     <div class="article-content">
-                        <p><strong>Study Skills Model:</strong> Views literacy as transferable technical skills (grammar, punctuation).</p>
-                        <p><strong>Academic Socialisation Model:</strong> Focuses on acculturation into disciplinary discourses and conventions.</p>
-                        <p><strong>Academic Literacies Model:</strong> Emphasizes meaning-making, identity, power, and authority in academic writing contexts.</p>
-                        <div class="citation">
-                            "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
-                            <br>- Lea & Street (2006)
+                        <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
+                        <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
+                        <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
+                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                            <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
+                                "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
+                            </p>
+                            <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: right; color: var(--lighter-accent);">
+                                - Lea & Street (2006)
+                            </p>
                         </div>
                     </div>
                     <div class="card-footer">
