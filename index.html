@@ -54,4 +54,842 @@
         .grid-lines {
             position: fixed;
             top: 0;
-       
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        /* Back button styling */
+        .back-button {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1000;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
+        }
+        .back-button:hover {
+            background: rgba(79, 195, 247, 0.2);
+            transform: translateX(-5px);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+        }
+        /* Sidebar styling */
+        .sidebar {
+            width: var(--sidebar-width);
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            margin-right: 30px;
+            backdrop-filter: blur(10px);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .sidebar-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sidebar-link {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(79, 195, 247, 0.05);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .sidebar-link:hover {
+            background: rgba(79, 195, 247, 0.15);
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            transform: translateY(-2px);
+        }
+        .main-content {
+            flex: 1;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /* Videos container for side-by-side layout */
+        .videos-container {
+            display: flex;
+            gap: var(--card-gap);
+            margin-bottom: 30px;
+            position: relative;
+            justify-content: center;
+        }
+        /* Video Player Styles */
+        .video-container {
+            position: relative;
+            width: 45%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+        }
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Digital Arrow Styling */
+        .digital-arrow {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+        .video-container:hover .digital-arrow {
+            opacity: 1;
+        }
+        .video-container:nth-child(2) .digital-arrow {
+            left: -30px;
+            right: auto;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+        }
+        header {
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            background: linear-gradient(to right, rgba(79, 195, 247, 0.1), transparent);
+            border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+            margin-bottom: 22.5px;
+            border-radius: 0 0 15px 15px;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 195, 247, 0.1), 
+                rgba(41, 182, 246, 0.1), 
+                rgba(2, 136, 209, 0.1),
+                transparent);
+            animation: headerShine 8s infinite linear;
+            z-index: -1;
+        }
+        @keyframes headerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 7.5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2.25px;
+            text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            animation: pulseText 3s infinite alternate;
+            /* Fix for blurriness */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 10%;
+            width: 80%;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            border-radius: 50%;
+        }
+        .subtitle {
+            font-size: 0.825rem;
+            color: #aaa;
+            max-width: 800px;
+            margin: 11.25px auto 15px;
+            line-height: 1.6;
+            /* Fix for blurriness */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: 15px;
+            max-width: 600px;
+            margin: 22.5px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 22.5px rgba(79, 195, 247, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 7.5px 30px rgba(79, 195, 247, 0.3);
+        }
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+        .contact-card h2 {
+            color: var(--primary);
+            margin-bottom: 11.25px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 11.25px;
+            font-family: 'Orbitron', sans-serif;
+            border: none;
+            text-align: left;
+            width: auto;
+            padding-bottom: 0;
+        }
+        .contact-card h2::after {
+            display: none;
+        }
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.825rem;
+            transition: all 0.3s ease;
+            word-break: break-all;
+            display: inline-block;
+            padding: 3.75px 7.5px;
+            border-radius: 3.75px;
+        }
+        .contact-card a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 11.25px rgba(41, 182, 246, 0.7);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        /* Articles grid - FIXED GRID LAYOUT */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--card-gap);
+            margin: 30px 0;
+        }
+        /* FIXED CARD SIZING - ALL CARDS HAVE SAME HEIGHT */
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: var(--card-padding);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            border-color: rgba(79, 195, 247, 0.4);
+        }
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+        .article-card h3 {
+            color: var(--digital-purple);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        .article-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--digital-purple), transparent);
+            border-radius: 50%;
+        }
+        .article-card h3 i {
+            font-size: 1.3rem;
+        }
+        .article-card:hover h3 {
+            text-shadow: 0 0 12px rgba(207, 64, 255, 1), 0 0 20px rgba(207, 64, 255, 0.6);
+        }
+        .article-content {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-content p {
+            margin-bottom: 10px;
+        }
+        .article-content ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        .article-content li {
+            margin-bottom: 6px;
+        }
+        /* Standardized card footer */
+        .card-footer {
+            background: rgba(79, 195, 247, 0.05);
+            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            padding: 8px 10px;
+            border-radius: 0 0 8px 8px;
+            font-size: 0.75rem;
+            color: var(--lighter-accent);
+            position: relative;
+            margin-top: auto;
+        }
+        .card-footer::before {
+            content: '»';
+            position: absolute;
+            left: 5px;
+            color: var(--digital-purple);
+            font-weight: bold;
+        }
+        /* Image container - STANDARDIZED */
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            min-height: 120px;
+            background: rgba(10, 10, 15, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 75%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+            /* Glowing border effect */
+            border: 2px solid transparent;
+            box-shadow: 
+                0 0 10px rgba(79, 195, 247, 0.5),
+                0 0 20px rgba(41, 182, 246, 0.3),
+                0 0 30px rgba(2, 136, 209, 0.2),
+                inset 0 0 10px rgba(79, 195, 247, 0.3),
+                inset 0 0 20px rgba(41, 182, 246, 0.2);
+            /* Radiant gradient border */
+            background: 
+                linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
+        }
+        /* CHANGED: Added specific class for Imhotep image */
+        .imhotep-image {
+            width: 45% !important;
+        }
+        /* Enhanced sparkle effect on hover */
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(255, 255, 255, 0.2),
+                0 0 15px rgba(79, 195, 247, 0.8),
+                0 0 25px rgba(41, 182, 246, 0.6),
+                0 0 35px rgba(2, 136, 209, 0.4);
+            filter: brightness(1.1) contrast(1.1);
+        }
+        .citation {
+            background: rgba(79, 195, 247, 0.1);
+            color: var(--primary);
+            padding: 3.75px 9px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 7px 0 5px;
+        }
+        .meta-tag {
+            background: rgba(79, 195, 247, 0.1);
+            color: var(--primary);
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.6rem;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
+        }
+        .new-tag {
+            background: rgba(2, 136, 209, 0.2);
+            color: var(--accent);
+            border-color: rgba(2, 136, 209, 0.3);
+            text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
+        }
+        .article-link {
+            display: inline-block;
+            color: var(--light);
+            background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            text-align: center;
+            width: 100%;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.75px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .article-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        .article-link:hover {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--darker);
+            box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
+            transform: translateY(-2px);
+        }
+        .article-link:hover::before {
+            left: 100%;
+        }
+        .copyright {
+            text-align: center;
+            padding: 30px 0 15px;
+            color: #777;
+            font-size: 0.675rem;
+            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            margin-top: 22.5px;
+        }
+        .copyright p {
+            margin: 6px 0;
+        }
+        .university-logo {
+            width: 120px;
+            margin: 11.25px auto;
+            filter: brightness(0.8);
+            opacity: 0.7;
+        }
+        /* Visitor Counter Styling */
+        .visitor-counter {
+            background: var(--card-bg);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            border-radius: 11.25px;
+            padding: 15px;
+            margin: 0 auto 30px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .visitor-counter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--digital-purple), var(--primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .visitor-counter:hover::before {
+            transform: scaleX(1);
+        }
+        .counter-title {
+            color: var(--digital-purple);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+        }
+        .counter-value {
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            margin: 15px 0;
+            animation: pulseCounter 2s infinite;
+        }
+        @keyframes pulseCounter {
+            0%, 100% { text-shadow: 0 0 15px rgba(79, 195, 247, 0.5); }
+            50% { text-shadow: 0 0 25px rgba(207, 64, 255, 0.8), 0 0 35px rgba(79, 195, 247, 0.6); }
+        }
+        .counter-description {
+            color: #aaa;
+            font-size: 0.8rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            .videos-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .video-container {
+                width: 85%;
+            }
+            .digital-arrow {
+                top: auto;
+                bottom: -30px;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%) rotate(90deg);
+            }
+            .video-container:nth-child(2) .digital-arrow {
+                top: -30px;
+                bottom: auto;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%) rotate(-90deg);
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.65rem;
+            }
+            .back-button {
+                top: 15px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            .video-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-lines"></div>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">
+        <i class="fab fa-google"></i>
+    </div>
+    <!-- Sidebar with links and images -->
+    <div class="sidebar">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+        <div class="sidebar-links">
+            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
+                The academic literacies model: Theory and applications
+            </a>
+            <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
+                Ubuntu and academic literacy
+            </a>
+            <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
+                Imhotep and academic literacy
+            </a>
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy" class="sidebar-link" target="_blank">
+                An inclusive African theory of academic literacy
+            </a>
+            <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
+                Achebe and academic literacy
+            </a>
+            <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
+                Wa Thiong'o and academic literacy
+            </a>
+            <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
+                Ancient African Writing
+            </a>
+        </div>
+    </div>
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <header>
+                <h1>Academic Literacies Model</h1>
+                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                <div class="contact-card">
+                    <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
+                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
+                </div>
+            </header>
+            <!-- Videos Container -->
+            <div class="videos-container">
+                <!-- Video 1 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe class="video-player" src="https://www.youtube.com/embed/gdzY1IKDlZ8?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="digital-arrow">➤</div>
+                </div>
+                <!-- Video 2 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe class="video-player" src="https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="digital-arrow">➤</div>
+                </div>
+            </div>
+            <!-- Articles Grid -->
+            <div class="articles-container">
+                <!-- Model Overview - WITH IMAGE ADDED -->
+                <div class="article-card">
+                    <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
+                    <div class="article-content">
+                        <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
+                        <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
+                        <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
+                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                            <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
+                                "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
+                            </p>
+                            <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: right; color: var(--lighter-accent);">
+                                - Lea & Street (2006)
+                            </p>
+                        </div>
+                        <!-- Added image as requested -->
+                        <div class="image-container" style="min-height: 100px; margin-top: 12px;">
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="model-image">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        Each model offers different perspectives on how students engage with academic writing demands
+                    </div>
+                </div>
+                
+                <!-- Ubuntu Concept - WITH EMBEDDED VIDEO -->
+                <div class="article-card image-panel">
+                    <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
+                    <div class="image-container">
+                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
+                    </div>
+                    <div class="article-content">
+                        <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
+                        <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
+                        <div class="article-meta">
+                            <span class="meta-tag">Philosophy</span>
+                            <span class="meta-tag">Community</span>
+                            <span class="meta-tag">African Epistemology</span>
+                        </div>
+                        <!-- Embedded video beneath the tags -->
+                        <div class="card-video-container">
+                            <video class="card-video" controls>
+                                <source src="https://github.com/oeybers-cpu/a_lit_models/raw/refs/heads/main/8dab2098-9319-4e8f-9d6f-330c698c660a.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        "A person is a person through other persons" - African proverb
+                    </div>
+                </div>
+                
+                <!-- African Knowledge Systems - UPDATED TEXT -->
+                <div class="article-card">
+                    <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
+                    <div class="image-container">
+                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
+                    </div>
+                    <div class="article-content">
+                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
+                        <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
+                        <p>The name Imhotep translates to "He who comes in peace," a reflection of his legacy as a bringer of wisdom, healing, and harmony. His contributions were so profound that he was later deified as the god of medicine and wisdom—one of the few mortals in ancient Egypt to be granted divine status. His enduring legacy continues to symbolize the depth and sophistication of African intellectual traditions.</p>
+                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                            <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
+                                "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        African intellectual traditions predate colonial influence by millennia
+                    </div>
+                </div>
+                
+                <!-- Ancient African Script -->
+                <div class="article-card">
+                    <h3><i class="fas fa-feather-alt"></i> Ancient African Script</h3>
+                    <div class="image-container">
+                        <img src="https://beinecke.library.yale.edu/sites/default/files/styles/cropped_image/public/ms_31_ge_ez_0.jpg?itok=haqpM1oT&c=16c304a46d481d79d91071f095f1707d" alt="Ge'ez Script">
+                    </div>
+                    <div class="article-content">
+                        <p>Ancient Egyptian hieroglyphics, one of the world's oldest writing systems, combined logographic and alphabetic elements to record religious texts and administrative documents on temple walls and papyri.</p>
+                        <p>Ge'ez script, developed around the 8th century BCE in Ethiopia and Eritrea, remains in use today for liturgical purposes in the Ethiopian Orthodox Church. Across Africa, numerous writing systems flourished including Nsibidi, Tifinagh, and Meroitic script.</p>
+                        <div class="article-meta">
+                            <span class="meta-tag">Writing Systems</span>
+                            <span class="meta-tag">History</span>
+                            <span class="meta-tag">Epistemology</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        "Africa has the world's oldest writing systems, yet its intellectual heritage is often overlooked"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="copyright">
+                <div class="university-logo">
+                    <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
+                        <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#4fc3f7" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="15" r="5" fill="#4fc3f7"/>
+                        <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
+                    </svg>
+                </div>
+                <p>© 2024 Academic Literacies Research Portal</p>
+                <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.article-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 80 * index);
+            });
+            
+            // Back button functionality
+            const backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = 'https://www.google.com';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
