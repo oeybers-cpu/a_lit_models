@@ -393,8 +393,9 @@
             backdrop-filter: blur(5px);
             position: relative;
             overflow: hidden;
-            /* CHANGED: Removed height: 100% and flex properties */
-            display: block;
+            display: flex;
+            flex-direction: column;
+            height: 420px; /* Fixed height for all cards */
         }
         .article-card::before {
             content: '';
@@ -441,39 +442,51 @@
             line-height: 1.6;
             margin-bottom: 12px;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            /* CHANGED: Removed flex-grow and overflow */
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 5px;
         }
-        .article-content p {
-            margin-bottom: 10px;
+        
+        /* Custom scrollbar styling */
+        .article-content::-webkit-scrollbar {
+            width: 8px;
         }
-        .article-content ul {
-            padding-left: 20px;
-            margin-bottom: 10px;
+        
+        .article-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
         }
-        .article-content li {
-            margin-bottom: 6px;
+        
+        .article-content::-webkit-scrollbar-thumb {
+            background: rgba(79, 195, 247, 0.5);
+            border-radius: 4px;
         }
+        
+        .article-content::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+        
         /* Image panel styles - UPDATED: Reduced size by 25% and added glowing borders */
         .image-panel {
             display: flex;
             flex-direction: column;
         }
         .image-container {
+            min-height: 150px;
+            max-height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 12px 0;
-            min-height: 120px;
             overflow: hidden;
             border-radius: 8px;
         }
         .image-container img {
-            width: 75%;
-            height: auto;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 140px;
+            object-fit: contain;
             border-radius: 8px;
             transition: all 0.5s ease;
-            /* Glowing border effect */
             border: 2px solid transparent;
             box-shadow: 
                 0 0 10px rgba(79, 195, 247, 0.5),
@@ -481,7 +494,6 @@
                 0 0 30px rgba(2, 136, 209, 0.2),
                 inset 0 0 10px rgba(79, 195, 247, 0.3),
                 inset 0 0 20px rgba(41, 182, 246, 0.2);
-            /* Radiant gradient border */
             background: 
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
@@ -513,6 +525,7 @@
             margin: 5px 0;
         }
         .article-meta {
+            flex-shrink: 0;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
@@ -534,6 +547,7 @@
             text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
         }
         .article-link {
+            flex-shrink: 0;
             display: inline-block;
             color: var(--light);
             background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
@@ -571,6 +585,38 @@
         .article-link:hover::before {
             left: 100%;
         }
+        
+        /* IMHOTEP CARD LAYOUT */
+        .imhotep-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+                "header header"
+                "text image"
+                "meta meta";
+            gap: 10px;
+        }
+        
+        .imhotep-card h3 {
+            grid-area: header;
+        }
+        
+        .imhotep-text {
+            grid-area: text;
+            padding-right: 10px;
+        }
+        
+        .imhotep-image-container {
+            grid-area: image;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .imhotep-meta {
+            grid-area: meta;
+        }
+        
         .copyright {
             text-align: center;
             padding: 30px 0 15px;
@@ -842,6 +888,7 @@
                         <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
                     </div>
                 </div>
+                
                 <!-- Language Across Disciplines - COMPACTED -->
                 <div class="article-card">
                     <h3><i class="fas fa-language"></i> Language Across Disciplines</h3>
@@ -872,25 +919,7 @@
                         <span class="meta-tag new-tag">Analysis</span>
                     </div>
                 </div>
-                <!-- Research Base - Replaced with Text + Image -->
-                <div class="article-card">
-                    <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
-                    <div class="article-content">
-                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
-                        <p><strong>Key Roles:</strong></p>
-                        <ul>
-                            <li>Chief minister and advisor to Pharaoh Djoser</li>
-                            <li>Architect of the Step Pyramid at Saqqara</li>
-                            <li>Physician and founder of Egyptian medicine</li>
-                            <li>Astronomer and sage</li>
-                            <li>Later deified as god of medicine and wisdom</li>
-                        </ul>
-                        <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
-                    </div>
-                    <div class="image-container">
-                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
-                    </div>
-                </div>
+                
                 <!-- Knowledge Gateway -->
                 <div class="article-card">
                     <h3><i class="fas fa-laptop"></i> Knowledge Gateway</h3>
@@ -911,6 +940,36 @@
                     <a href="https://oeybers-cpu.github.io/oe_research/" class="article-link" target="_blank">
                         Explore Gateway <i class="fas fa-arrow-right"></i>
                     </a>
+                </div>
+                
+                <!-- IMHOTEP CARD WITH TEXT ON LEFT, IMAGE ON RIGHT -->
+                <div class="article-card imhotep-card">
+                    <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
+                    <div class="imhotep-text">
+                        <div class="article-content">
+                            <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom (circa 27th-26th century BCE). He served as chancellor to Pharaoh Djoser and high priest of the sun god Ra at Heliopolis.</p>
+                            <p><strong>Key Roles:</strong></p>
+                            <ul>
+                                <li>Chief minister and advisor to Pharaoh Djoser</li>
+                                <li>Architect of the Step Pyramid at Saqqara</li>
+                                <li>Physician and founder of Egyptian medicine</li>
+                                <li>Astronomer and sage</li>
+                                <li>Later deified as god of medicine and wisdom</li>
+                            </ul>
+                            <p>Imhotep's name means "He who comes in peace," reflecting his reputation as a bringer of knowledge and harmony.</p>
+                        </div>
+                    </div>
+                    <div class="imhotep-image-container">
+                        <div class="image-container">
+                            <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
+                        </div>
+                    </div>
+                    <div class="imhotep-meta">
+                        <div class="article-meta">
+                            <span class="meta-tag">History</span>
+                            <span class="meta-tag new-tag">African Knowledge</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Visitor Counter - Added at the bottom -->
