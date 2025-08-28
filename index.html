@@ -565,67 +565,6 @@
             filter: brightness(0.8);
             opacity: 0.7;
         }
-        /* Visitor Counter Styling */
-        .visitor-counter {
-            background: var(--card-bg);
-            border: 1px solid rgba(79, 195, 247, 0.1);
-            border-radius: 11.25px;
-            padding: 15px;
-            margin: 0 auto 30px;
-            backdrop-filter: blur(10px);
-            max-width: 600px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        .visitor-counter::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--digital-purple), var(--primary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-        .visitor-counter:hover::before {
-            transform: scaleX(1);
-        }
-        .counter-title {
-            color: var(--digital-purple);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
-        }
-        .counter-value {
-            font-size: 2.5rem;
-            font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
-            margin: 15px 0;
-            animation: pulseCounter 2s infinite;
-        }
-        @keyframes pulseCounter {
-            0%, 100% { text-shadow: 0 0 15px rgba(79, 195, 247, 0.5); }
-            50% { text-shadow: 0 0 25px rgba(207, 64, 255, 0.8), 0 0 35px rgba(79, 195, 247, 0.6); }
-        }
-        .counter-description {
-            color: #aaa;
-            font-size: 0.8rem;
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-        
         /* NEW: Video container styling for the Ubuntu card */
         .card-video-container {
             position: relative;
@@ -645,6 +584,27 @@
             width: 100%;
             height: 100%;
             border-radius: 8px;
+        }
+
+        /* NEW: Self-hosted visitor counter styling */
+        .visitor-counter {
+            margin-top: 10px;
+            color: var(--lighter-accent);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .counter-icon {
+            color: var(--digital-purple);
+            font-size: 0.8rem;
+        }
+        .counter-number {
+            font-weight: bold;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px var(--primary);
         }
         
         /* Mobile adjustments for Ubuntu card video */
@@ -848,10 +808,10 @@
                 </div>
                 <p>© 2024 Academic Literacies Research Portal</p>
                 <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
-                <div class="visitor-counter-container" style="text-align: center; margin-top: 10px;">
-                    <a href='https://www.free-counters.org/' style="display: none;">... by Free-Counters.org</a>
-                    <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=5c207ad10bce4c9d7bc736a1f7c194d2a8d8abc0'></script>
-                    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1382795/t/13"></script>
+                <div class="visitor-counter" id="visitor-counter">
+                    <i class="fas fa-users counter-icon"></i>
+                    <span>Visitors:</span>
+                    <span id="counter-value" class="counter-number">Loading...</span>
                 </div>
             </div>
         </div>
@@ -880,6 +840,20 @@
                     window.location.href = 'https://www.google.com';
                 }
             });
+
+            // Self-hosted Visitor Counter Logic
+            const counterElement = document.getElementById('counter-value');
+            const url = 'https://api.countapi.xyz/hit/academic-literacies-model.com/visits';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    counterElement.textContent = data.value;
+                })
+                .catch(error => {
+                    console.error('Error fetching visitor count:', error);
+                    counterElement.textContent = 'N/A';
+                });
         });
     </script>
 </body>
