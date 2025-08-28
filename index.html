@@ -137,18 +137,17 @@
             margin: 0 auto;
             position: relative;
         }
-        /* Videos container for side-by-side layout */
+        /* Videos container for single centered video */
         .videos-container {
             display: flex;
-            gap: var(--card-gap);
+            justify-content: center; /* Center the single video */
             margin-bottom: 30px;
             position: relative;
-            justify-content: center;
         }
         /* Video Player Styles */
         .video-container {
             position: relative;
-            width: 45%;
+            width: 70%; /* Increased width for single video */
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -168,31 +167,7 @@
             height: 100%;
             border: none;
         }
-        /* Digital Arrow Styling */
-        .digital-arrow {
-            position: absolute;
-            top: 50%;
-            right: -30px;
-            transform: translateY(-50%);
-            font-size: 30px;
-            color: var(--primary);
-            text-shadow: 0 0 10px var(--primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            animation: pulse 2s infinite;
-            z-index: 10;
-        }
-        .video-container:hover .digital-arrow {
-            opacity: 1;
-        }
-        .video-container:nth-child(2) .digital-arrow {
-            left: -30px;
-            right: auto;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
-            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
-        }
+        /* Digital Arrow Styling - Removed since we only have one video */
         header {
             text-align: center;
             padding: 15px 0;
@@ -365,6 +340,7 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
+            text-decoration: none;
         }
         .article-card:hover {
             transform: translateY(-5px);
@@ -613,7 +589,6 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
-            text-decoration: none;
         }
         .visitor-counter:hover::before {
             transform: scaleX(1);
@@ -695,26 +670,8 @@
                 margin-right: 0;
                 margin-bottom: 30px;
             }
-            .videos-container {
-                flex-direction: column;
-                align-items: center;
-            }
             .video-container {
                 width: 85%;
-            }
-            .digital-arrow {
-                top: auto;
-                bottom: -30px;
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%) rotate(90deg);
-            }
-            .video-container:nth-child(2) .digital-arrow {
-                top: -30px;
-                bottom: auto;
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%) rotate(-90deg);
             }
             h1 {
                 font-size: 2.1rem;
@@ -784,21 +741,13 @@
                     <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
-            <!-- Videos Container -->
+            <!-- Videos Container - Now with only one centered video -->
             <div class="videos-container">
-                <!-- Video 1 -->
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe class="video-player" src="<iframe width="1204" height="677" src="https://www.youtube.com/embed/iApVVKsF94E" title="No Copyright Video, Background, Green Screen, Motion Graphics, Animated Background, Copyright Free" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="digital-arrow">➤</div>
-                </div>
-                <!-- Video 2 -->
+                <!-- Single centered video -->
                 <div class="video-container">
                     <div class="video-wrapper">
                         <iframe class="video-player" src="https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="digital-arrow">➤</div>
                 </div>
             </div>
             <!-- Articles Grid -->
@@ -920,7 +869,7 @@
             const cards = document.querySelectorAll('.article-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(10px);
+                card.style.transform = 'translateY(10px)';
                 setTimeout(() => {
                     card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                     card.style.opacity = '1';
