@@ -845,7 +845,7 @@
                         </div>
                         <!-- Embedded video beneath the tags - NOW WITH RESPONSIVE CONTAINER -->
                         <div class="card-video-container">
-                            <video class="card-video" controls poster="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true">
+                            <video class="card-video" controls>
                                 <source src="https://github.com/oeybers-cpu/a_lit_models/raw/refs/heads/main/8dab2098-9319-4e8f-9d6f-330c698c660a.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -920,7 +920,7 @@
             const cards = document.querySelectorAll('.article-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(10px)';
+                card.style.transform = 'translateY(10px);
                 setTimeout(() => {
                     card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                     card.style.opacity = '1';
