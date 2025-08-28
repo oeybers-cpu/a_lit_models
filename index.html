@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='LTF_verify' content='4729f595348a5d836a3cb522d6276f3f'/>
     <title>Academic Literacies Model</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
@@ -808,10 +809,9 @@
                 </div>
                 <p>© 2024 Academic Literacies Research Portal</p>
                 <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
-                <div class="visitor-counter" id="visitor-counter">
-                    <i class="fas fa-users counter-icon"></i>
-                    <span>Visitors:</span>
-                    <span id="counter-value" class="counter-number">Loading...</span>
+                <div class="visitor-counter" id="ltf-visitor-counter">
+                    <script type="text/javascript" src="https://cdn.livetrafficfeed.com/static/v5/live.js?bc=ffffff&tc=000000&brd1=2853a8&lnk=135d9e&hc=ffffff&hfc=2853a8&nc=19ff19&vv=210&tft=10&ro=0&tz=America%2FNew_York&res=0"></script>
+                    <noscript id="LTF_live_website_visitor"><a href="http://livetrafficfeed.com">Website Online Counter</a></noscript>
                 </div>
             </div>
         </div>
@@ -840,20 +840,6 @@
                     window.location.href = 'https://www.google.com';
                 }
             });
-
-            // Self-hosted Visitor Counter Logic
-            const counterElement = document.getElementById('counter-value');
-            const url = 'https://api.countapi.xyz/hit/academic-literacies-model.com/visits';
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    counterElement.textContent = data.value;
-                })
-                .catch(error => {
-                    console.error('Error fetching visitor count:', error);
-                    counterElement.textContent = 'N/A';
-                });
         });
     </script>
 </body>
