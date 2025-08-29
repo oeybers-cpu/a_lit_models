@@ -24,7 +24,9 @@
             --sidebar-width: 280px;
             --lighter-accent: #81d4fa;
             --digital-purple: #cf40ff;
-            --royal-blue: #4169E1; /* New royal blue color */
+            --royal-blue: #4169E1;
+            --royal-blue-light: #6c8eff;
+            --aqua-blue: #00FFFF; /* New aqua blue color */
             --card-padding: 15px;
             --card-gap: 25px;
         }
@@ -73,8 +75,8 @@
             left: 25px;
             z-index: 1000;
             background: rgba(20, 20, 30, 0.7);
-            border: 1px solid rgba(207, 64, 255, 0.3);
-            color: var(--digital-purple);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -84,32 +86,32 @@
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.3);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
         }
         .back-button:hover {
-            background: rgba(207, 64, 255, 0.2);
+            background: rgba(65, 105, 225, 0.2);
             transform: translateX(-5px);
-            box-shadow: 0 0 20px rgba(207, 64, 255, 0.5);
+            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
         }
-        /* Sidebar styling */
+        /* Sidebar styling - Royal blue borders */
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
             background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2);
+            border: 1px solid var(--royal-blue);
             border-radius: 11.25px;
             margin-right: 30px;
             backdrop-filter: blur(10px);
             height: fit-content;
             position: sticky;
             top: 20px;
-            box-shadow: 0 0 20px rgba(207, 64, 255, 0.1);
+            box-shadow: 0 0 20px rgba(65, 105, 225, 0.1);
         }
         .sidebar-image {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 20px;
-            border: 1px solid rgba(207, 64, 255, 0.3);
+            border: 1px solid var(--royal-blue);
         }
         .sidebar-links {
             display: flex;
@@ -117,23 +119,24 @@
             gap: 15px;
         }
         .sidebar-link {
-            color: var(--royal-blue); /* Changed to royal blue */
+            color: var(--royal-blue); /* Royal blue text */
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 8px;
-            background: rgba(65, 105, 225, 0.1); /* Royal blue with transparency */
-            border: 1px solid rgba(65, 105, 225, 0.3); /* Royal blue border */
+            background: rgba(65, 105, 225, 0.1);
+            border: 1px solid var(--aqua-blue); /* Aqua blue border */
             transition: all 0.3s ease;
             font-size: 0.85rem;
             text-align: center;
             font-weight: 500;
-            text-shadow: 0 0 5px rgba(65, 105, 225, 0.5); /* Royal blue glow */
+            text-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
         }
         .sidebar-link:hover {
-            background: rgba(65, 105, 225, 0.2);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6); /* Royal blue glow */
+            background: rgba(0, 255, 255, 0.1); /* Light aqua blue background on hover */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Aqua blue glow on hover */
             transform: translateY(-2px);
-            color: #6c8eff; /* Lighter royal blue on hover */
+            color: var(--royal-blue);
+            border-color: var(--aqua-blue); /* Maintain aqua blue border on hover */
         }
         .main-content {
             flex: 1;
@@ -801,7 +804,7 @@
             const cards = document.querySelectorAll('.article-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(10px)';
+                card.style.transform = 'translateY(10px);
                 setTimeout(() => {
                     card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                     card.style.opacity = '1';
