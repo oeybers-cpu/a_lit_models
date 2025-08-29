@@ -72,8 +72,8 @@
             left: 25px;
             z-index: 1000;
             background: rgba(20, 20, 30, 0.7);
-            border: 1px solid rgba(79, 195, 247, 0.2);
-            color: var(--primary);
+            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
+            color: var(--digital-purple); /* Purple icon */
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -83,31 +83,32 @@
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
+            box-shadow: 0 0 15px rgba(207, 64, 255, 0.3); /* Purple glow */
         }
         .back-button:hover {
-            background: rgba(79, 195, 247, 0.2);
+            background: rgba(207, 64, 255, 0.2); /* Purple background */
             transform: translateX(-5px);
-            box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.5); /* Enhanced purple glow */
         }
         /* Sidebar styling */
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
             background: var(--card-bg);
-            border: 1px solid rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             border-radius: 11.25px;
             margin-right: 30px;
             backdrop-filter: blur(10px);
             height: fit-content;
             position: sticky;
             top: 20px;
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.1); /* Purple glow */
         }
         .sidebar-image {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 20px;
-            border: 1px solid rgba(79, 195, 247, 0.2);
+            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
         }
         .sidebar-links {
             display: flex;
@@ -115,19 +116,19 @@
             gap: 15px;
         }
         .sidebar-link {
-            color: var(--primary);
+            color: var(--digital-purple); /* Purple text */
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 8px;
-            background: rgba(79, 195, 247, 0.05);
-            border: 1px solid rgba(79, 195, 247, 0.1);
+            background: rgba(207, 64, 255, 0.08); /* Purple background */
+            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             transition: all 0.3s ease;
             font-size: 0.85rem;
             text-align: center;
         }
         .sidebar-link:hover {
-            background: rgba(79, 195, 247, 0.15);
-            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+            background: rgba(207, 64, 255, 0.2); /* Enhanced purple background */
+            box-shadow: 0 0 15px rgba(207, 64, 255, 0.5); /* Purple glow */
             transform: translateY(-2px);
         }
         .main-content {
@@ -173,8 +174,8 @@
             text-align: center;
             padding: 10px 0; /* Reduced from 15px */
             position: relative;
-            background: linear-gradient(to right, rgba(79, 195, 247, 0.1), transparent);
-            border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+            background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent); /* Purple gradient */
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
             margin-bottom: 15px; /* Reduced from 22.5px */
             border-radius: 0 0 15px 15px;
             overflow: hidden;
@@ -190,7 +191,7 @@
                 transparent, 
                 rgba(79, 195, 247, 0.1), 
                 rgba(41, 182, 246, 0.1), 
-                rgba(2, 136, 209, 0.1),
+                rgba(207, 64, 255, 0.1), /* Purple added to shine */
                 transparent);
             animation: headerShine 8s infinite linear;
             z-index: -1;
@@ -202,13 +203,13 @@
         h1 {
             font-size: 2.4rem; /* Text size remains the same */
             margin-bottom: 5px; /* Reduced from 7.5px */
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Added purple */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 2.25px;
-            text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5);
+            text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.6); /* Purple shadow */
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             position: relative;
@@ -221,8 +222,8 @@
             transform: translateZ(0);
         }
         @keyframes pulseText {
-            0% { text-shadow: 0 0 11.25px rgba(79, 195, 247, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(79, 195, 247, 0.8), 0 0 30px rgba(79, 195, 247, 0.6); }
+            0% { text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 20px rgba(207, 64, 255, 0.8), 0 0 30px rgba(207, 64, 255, 0.6); }
         }
         h1::after {
             content: '';
@@ -231,7 +232,7 @@
             left: 10%;
             width: 80%;
             height: 1.5px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            background: linear-gradient(90deg, transparent, var(--primary), var(--digital-purple), transparent); /* Added purple */
             border-radius: 50%;
         }
         .subtitle {
@@ -248,13 +249,13 @@
         }
         .contact-card {
             background: var(--card-bg);
-            border: 1px solid rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             border-radius: 11.25px;
             padding: 12px; /* Reduced from 15px */
             max-width: 600px;
             margin: 15px auto; /* Reduced from 22.5px auto */
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 22.5px rgba(79, 195, 247, 0.1);
+            box-shadow: 0 0 22.5px rgba(207, 64, 255, 0.15); /* Purple glow */
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -266,20 +267,20 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Added purple */
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
         }
         .contact-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 7.5px 30px rgba(79, 195, 247, 0.3);
+            box-shadow: 0 7.5px 30px rgba(207, 64, 255, 0.3); /* Enhanced purple glow */
         }
         .contact-card:hover::before {
             transform: scaleX(1);
         }
         .contact-card h2 {
-            color: var(--primary);
+            color: var(--digital-purple); /* Purple text */
             margin-bottom: 9px; /* Reduced from 11.25px */
             font-size: 1.2rem; /* Text size remains the same */
             display: flex;
@@ -295,7 +296,7 @@
             display: none;
         }
         .contact-card a {
-            color: var(--primary);
+            color: var(--digital-purple); /* Purple links */
             text-decoration: none;
             font-size: 0.825rem;
             transition: all 0.3s ease;
@@ -305,8 +306,8 @@
             border-radius: 3.75px;
         }
         .contact-card a:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 11.25px rgba(41, 182, 246, 0.7);
+            color: var(--lighter-accent);
+            text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.7); /* Purple glow */
             background: rgba(255, 255, 255, 0.1);
         }
         /* Articles grid - FIXED GRID LAYOUT */
@@ -319,7 +320,7 @@
         /* FIXED CARD SIZING - ALL CARDS HAVE SAME HEIGHT */
         .article-card {
             background: var(--card-bg);
-            border: 1px solid rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             border-radius: 11.25px;
             padding: var(--card-padding);
             transition: all 0.4s ease;
@@ -329,6 +330,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1); /* Purple glow */
         }
         .article-card::before {
             content: '';
@@ -337,7 +339,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Added purple */
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -345,8 +347,8 @@
         }
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-            border-color: rgba(79, 195, 247, 0.4);
+            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3); /* Enhanced purple glow */
+            border-color: rgba(207, 64, 255, 0.4); /* Brighter purple border */
         }
         .article-card:hover::before {
             transform: scaleX(1);
@@ -403,8 +405,8 @@
         }
         /* Standardized card footer */
         .card-footer {
-            background: rgba(79, 195, 247, 0.05);
-            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            background: rgba(207, 64, 255, 0.08); /* Purple background */
+            border-top: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             padding: 8px 10px;
             border-radius: 0 0 8px 8px;
             font-size: 0.75rem;
@@ -428,7 +430,7 @@
             min-height: 120px;
             background: rgba(10, 10, 15, 0.5);
             border-radius: 8px;
-            border: 1px solid rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             overflow: hidden;
         }
         .image-container img {
@@ -440,11 +442,11 @@
             /* Glowing border effect */
             border: 2px solid transparent;
             box-shadow: 
-                0 0 10px rgba(79, 195, 247, 0.5),
-                0 0 20px rgba(41, 182, 246, 0.3),
-                0 0 30px rgba(2, 136, 209, 0.2),
-                inset 0 0 10px rgba(79, 195, 247, 0.3),
-                inset 0 0 20px rgba(41, 182, 246, 0.2);
+                0 0 10px rgba(207, 64, 255, 0.5), /* Purple glow */
+                0 0 20px rgba(207, 64, 255, 0.3), /* Purple glow */
+                0 0 30px rgba(207, 64, 255, 0.2), /* Purple glow */
+                inset 0 0 10px rgba(207, 64, 255, 0.3), /* Purple glow */
+                inset 0 0 20px rgba(207, 64, 255, 0.2); /* Purple glow */
             /* Radiant gradient border */
             background: 
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
@@ -474,18 +476,18 @@
                 0 0 20px rgba(255, 255, 255, 0.6),
                 0 0 40px rgba(255, 255, 255, 0.4),
                 0 0 60px rgba(255, 255, 255, 0.2),
-                0 0 15px rgba(79, 195, 247, 0.8),
-                0 0 25px rgba(41, 182, 246, 0.6),
-                0 0 35px rgba(2, 136, 209, 0.4);
+                0 0 15px rgba(207, 64, 255, 0.8), /* Purple glow */
+                0 0 25px rgba(207, 64, 255, 0.6), /* Purple glow */
+                0 0 35px rgba(207, 64, 255, 0.4); /* Purple glow */
             filter: brightness(1.1) contrast(1.1);
         }
         .citation {
-            background: rgba(79, 195, 247, 0.1);
+            background: rgba(207, 64, 255, 0.15); /* Purple background */
             color: var(--primary);
             padding: 3.75px 9px;
             border-radius: 15px;
             font-size: 0.7rem;
-            border: 1px solid rgba(79, 195, 247, 0.2);
+            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
             display: inline-block;
             margin: 5px 0;
         }
@@ -496,30 +498,30 @@
             margin: 7px 0 5px;
         }
         .meta-tag {
-            background: rgba(79, 195, 247, 0.1);
+            background: rgba(207, 64, 255, 0.15); /* Purple background */
             color: var(--primary);
             padding: 3px 8px;
             border-radius: 15px;
             font-size: 0.6rem;
-            border: 1px solid rgba(79, 195, 247, 0.2);
-            text-shadow: 0 0 4px rgba(79, 195, 247, 0.3);
+            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
+            text-shadow: 0 0 4px rgba(207, 64, 255, 0.3); /* Purple glow */
         }
         .new-tag {
-            background: rgba(2, 136, 209, 0.2);
+            background: rgba(207, 64, 255, 0.25); /* Purple background */
             color: var(--accent);
-            border-color: rgba(2, 136, 209, 0.3);
-            text-shadow: 0 0 4px rgba(2, 136, 209, 0.3);
+            border-color: rgba(207, 64, 255, 0.4); /* Purple border */
+            text-shadow: 0 0 4px rgba(207, 64, 255, 0.4); /* Purple glow */
         }
         .article-link {
             display: inline-block;
             color: var(--light);
-            background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), rgba(2, 136, 209, 0.2));
+            background: linear-gradient(90deg, rgba(207, 64, 255, 0.2), rgba(2, 136, 209, 0.2)); /* Purple gradient */
             padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid rgba(79, 195, 247, 0.3);
+            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
             text-align: center;
             width: 100%;
             font-family: 'Orbitron', sans-serif;
@@ -540,9 +542,9 @@
             transition: 0.5s;
         }
         .article-link:hover {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Purple gradient */
             color: var(--darker);
-            box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.5); /* Purple glow */
             transform: translateY(-2px);
             text-decoration: none;
         }
@@ -554,7 +556,7 @@
             padding: 30px 0 15px;
             color: #777;
             font-size: 0.675rem;
-            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            border-top: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
             margin-top: 22.5px;
         }
         .copyright p {
@@ -576,6 +578,7 @@
             border-radius: 8px;
             margin-top: 10px;
             background: #000;
+            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
         }
         
         .card-video {
@@ -587,27 +590,6 @@
             border-radius: 8px;
         }
 
-        /* NEW: Self-hosted visitor counter styling */
-        .visitor-counter {
-            margin-top: 10px;
-            color: var(--lighter-accent);
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-        .counter-icon {
-            color: var(--digital-purple);
-            font-size: 0.8rem;
-        }
-        .counter-number {
-            font-weight: bold;
-            color: var(--primary);
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 5px var(--primary);
-        }
-        
         /* Mobile adjustments for Ubuntu card video */
         @media (max-width: 600px) {
             .card-video-container {
@@ -711,7 +693,7 @@
                         <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
                         <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
                         <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                        <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
                             <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
                                 <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
                                 "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
@@ -763,7 +745,7 @@
                         <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
                         <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
                         <p>The name Imhotep translates to "He who comes in peace," a reflection of his legacy as a bringer of wisdom, healing, and harmony. His contributions were so profound that he was later deified as the god of medicine and wisdom—one of the few mortals in ancient Egypt to be granted divine status. His enduring legacy continues to symbolize the depth and sophistication of African intellectual traditions.</p>
-                        <div style="background: rgba(2, 136, 209, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                        <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
                             <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
                                 <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
                                 "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
@@ -802,17 +784,13 @@
             <div class="copyright">
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
-                        <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#4fc3f7" stroke-width="2" fill="none"/>
-                        <circle cx="50" cy="15" r="5" fill="#4fc3f7"/>
+                        <path d="M10,15 Q20,5 30,15 T50,15 T70,15 T90,15" stroke="#cf40ff" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="15" r="5" fill="#cf40ff"/>
                         <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
                     </svg>
                 </div>
                 <p>© 2024 Academic Literacies Research Portal</p>
                 <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
-                <div class="visitor-counter" id="ltf-visitor-counter">
-                    <script type="text/javascript" src="https://cdn.livetrafficfeed.com/static/v5/live.js?bc=ffffff&tc=000000&brd1=2853a8&lnk=135d9e&hc=ffffff&hfc=2853a8&nc=19ff19&vv=210&tft=10&ro=0&tz=America%2FNew_York&res=0"></script>
-                    <noscript id="LTF_live_website_visitor"><a href="http://livetrafficfeed.com">Website Online Counter</a></noscript>
-                </div>
             </div>
         </div>
     </div>
