@@ -119,24 +119,24 @@
             gap: 15px;
         }
         .sidebar-link {
-            color: var(--royal-blue); /* Royal blue text */
+            color: var(--digital-purple); /* Changed to purple text */
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 8px;
-            background: rgba(65, 105, 225, 0.1);
-            border: 1px solid var(--aqua-blue); /* Aqua blue border */
+            background: rgba(207, 64, 255, 0.1); /* Changed to purple background */
+            border: 1px solid var(--digital-purple); /* Changed to purple border */
             transition: all 0.3s ease;
             font-size: 0.85rem;
             text-align: center;
             font-weight: 500;
-            text-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5); /* Changed to purple shadow */
         }
         .sidebar-link:hover {
-            background: rgba(0, 255, 255, 0.1); /* Light aqua blue background on hover */
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Aqua blue glow on hover */
+            background: rgba(207, 64, 255, 0.2); /* Changed to purple background on hover */
+            box-shadow: 0 0 15px rgba(207, 64, 255, 0.6); /* Changed to purple glow on hover */
             transform: translateY(-2px);
-            color: var(--royal-blue);
-            border-color: var(--aqua-blue); /* Maintain aqua blue border on hover */
+            color: var(--light);
+            border-color: var(--digital-purple); /* Maintain purple border on hover */
         }
         .main-content {
             flex: 1;
@@ -804,7 +804,7 @@
             const cards = document.querySelectorAll('.article-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(10px);
+                card.style.transform = 'translateY(10px)';
                 setTimeout(() => {
                     card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                     card.style.opacity = '1';
