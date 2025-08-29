@@ -24,6 +24,7 @@
             --sidebar-width: 280px;
             --lighter-accent: #81d4fa;
             --digital-purple: #cf40ff;
+            --royal-blue: #4169E1; /* New royal blue color */
             --card-padding: 15px;
             --card-gap: 25px;
         }
@@ -72,8 +73,8 @@
             left: 25px;
             z-index: 1000;
             background: rgba(20, 20, 30, 0.7);
-            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
-            color: var(--digital-purple); /* Purple icon */
+            border: 1px solid rgba(207, 64, 255, 0.3);
+            color: var(--digital-purple);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -83,32 +84,32 @@
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.3); /* Purple glow */
+            box-shadow: 0 0 15px rgba(207, 64, 255, 0.3);
         }
         .back-button:hover {
-            background: rgba(207, 64, 255, 0.2); /* Purple background */
+            background: rgba(207, 64, 255, 0.2);
             transform: translateX(-5px);
-            box-shadow: 0 0 20px rgba(207, 64, 255, 0.5); /* Enhanced purple glow */
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.5);
         }
         /* Sidebar styling */
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
             background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
             margin-right: 30px;
             backdrop-filter: blur(10px);
             height: fit-content;
             position: sticky;
             top: 20px;
-            box-shadow: 0 0 20px rgba(207, 64, 255, 0.1); /* Purple glow */
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.1);
         }
         .sidebar-image {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 20px;
-            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.3);
         }
         .sidebar-links {
             display: flex;
@@ -116,20 +117,23 @@
             gap: 15px;
         }
         .sidebar-link {
-            color: var(--digital-purple); /* Purple text */
+            color: var(--royal-blue); /* Changed to royal blue */
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 8px;
-            background: rgba(207, 64, 255, 0.08); /* Purple background */
-            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            background: rgba(65, 105, 225, 0.1); /* Royal blue with transparency */
+            border: 1px solid rgba(65, 105, 225, 0.3); /* Royal blue border */
             transition: all 0.3s ease;
             font-size: 0.85rem;
             text-align: center;
+            font-weight: 500;
+            text-shadow: 0 0 5px rgba(65, 105, 225, 0.5); /* Royal blue glow */
         }
         .sidebar-link:hover {
-            background: rgba(207, 64, 255, 0.2); /* Enhanced purple background */
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.5); /* Purple glow */
+            background: rgba(65, 105, 225, 0.2);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6); /* Royal blue glow */
             transform: translateY(-2px);
+            color: #6c8eff; /* Lighter royal blue on hover */
         }
         .main-content {
             flex: 1;
@@ -142,14 +146,14 @@
         /* Videos container for single centered video */
         .videos-container {
             display: flex;
-            justify-content: center; /* Center the single video */
+            justify-content: center;
             margin-bottom: 30px;
             position: relative;
         }
         /* Video Player Styles - REDUCED BY 40% */
         .video-container {
             position: relative;
-            width: 42%; /* Reduced from 70% by 40% (70% * 0.6 = 42%) */
+            width: 42%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -157,7 +161,7 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             background: #000;
         }
@@ -172,11 +176,11 @@
         /* Header adjustments - reduced spacing */
         header {
             text-align: center;
-            padding: 10px 0; /* Reduced from 15px */
+            padding: 10px 0;
             position: relative;
-            background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent); /* Purple gradient */
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
-            margin-bottom: 15px; /* Reduced from 22.5px */
+            background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            margin-bottom: 15px;
             border-radius: 0 0 15px 15px;
             overflow: hidden;
         }
@@ -191,7 +195,7 @@
                 transparent, 
                 rgba(79, 195, 247, 0.1), 
                 rgba(41, 182, 246, 0.1), 
-                rgba(207, 64, 255, 0.1), /* Purple added to shine */
+                rgba(207, 64, 255, 0.1),
                 transparent);
             animation: headerShine 8s infinite linear;
             z-index: -1;
@@ -201,21 +205,20 @@
             100% { left: 100%; }
         }
         h1 {
-            font-size: 2.4rem; /* Text size remains the same */
-            margin-bottom: 5px; /* Reduced from 7.5px */
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Added purple */
+            font-size: 2.4rem;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 2.25px;
-            text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.6); /* Purple shadow */
+            text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.6);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             position: relative;
             display: inline-block;
             animation: pulseText 3s infinite alternate;
-            /* Fix for blurriness */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;
@@ -232,16 +235,15 @@
             left: 10%;
             width: 80%;
             height: 1.5px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--digital-purple), transparent); /* Added purple */
+            background: linear-gradient(90deg, transparent, var(--primary), var(--digital-purple), transparent);
             border-radius: 50%;
         }
         .subtitle {
-            font-size: 0.825rem; /* Text size remains the same */
+            font-size: 0.825rem;
             color: #aaa;
             max-width: 800px;
-            margin: 8px auto 10px; /* Reduced from 11.25px auto 15px */
+            margin: 8px auto 10px;
             line-height: 1.6;
-            /* Fix for blurriness */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;
@@ -249,13 +251,13 @@
         }
         .contact-card {
             background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
-            padding: 12px; /* Reduced from 15px */
+            padding: 12px;
             max-width: 600px;
-            margin: 15px auto; /* Reduced from 22.5px auto */
+            margin: 15px auto;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 22.5px rgba(207, 64, 255, 0.15); /* Purple glow */
+            box-shadow: 0 0 22.5px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -267,25 +269,25 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Added purple */
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
         }
         .contact-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 7.5px 30px rgba(207, 64, 255, 0.3); /* Enhanced purple glow */
+            box-shadow: 0 7.5px 30px rgba(207, 64, 255, 0.3);
         }
         .contact-card:hover::before {
             transform: scaleX(1);
         }
         .contact-card h2 {
-            color: var(--digital-purple); /* Purple text */
-            margin-bottom: 9px; /* Reduced from 11.25px */
-            font-size: 1.2rem; /* Text size remains the same */
+            color: var(--digital-purple);
+            margin-bottom: 9px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 9px; /* Reduced from 11.25px */
+            gap: 9px;
             font-family: 'Orbitron', sans-serif;
             border: none;
             text-align: left;
@@ -296,7 +298,7 @@
             display: none;
         }
         .contact-card a {
-            color: var(--digital-purple); /* Purple links */
+            color: var(--digital-purple);
             text-decoration: none;
             font-size: 0.825rem;
             transition: all 0.3s ease;
@@ -307,7 +309,7 @@
         }
         .contact-card a:hover {
             color: var(--lighter-accent);
-            text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.7); /* Purple glow */
+            text-shadow: 0 0 11.25px rgba(207, 64, 255, 0.7);
             background: rgba(255, 255, 255, 0.1);
         }
         /* Articles grid - FIXED GRID LAYOUT */
@@ -320,7 +322,7 @@
         /* FIXED CARD SIZING - ALL CARDS HAVE SAME HEIGHT */
         .article-card {
             background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
             padding: var(--card-padding);
             transition: all 0.4s ease;
@@ -330,7 +332,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1); /* Purple glow */
+            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
         }
         .article-card::before {
             content: '';
@@ -339,7 +341,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Added purple */
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -347,8 +349,8 @@
         }
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3); /* Enhanced purple glow */
-            border-color: rgba(207, 64, 255, 0.4); /* Brighter purple border */
+            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
+            border-color: rgba(207, 64, 255, 0.4);
         }
         .article-card:hover::before {
             transform: scaleX(1);
@@ -405,8 +407,8 @@
         }
         /* Standardized card footer */
         .card-footer {
-            background: rgba(207, 64, 255, 0.08); /* Purple background */
-            border-top: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            background: rgba(207, 64, 255, 0.08);
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
             padding: 8px 10px;
             border-radius: 0 0 8px 8px;
             font-size: 0.75rem;
@@ -430,7 +432,7 @@
             min-height: 120px;
             background: rgba(10, 10, 15, 0.5);
             border-radius: 8px;
-            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.2);
             overflow: hidden;
         }
         .image-container img {
@@ -439,15 +441,13 @@
             object-fit: cover;
             border-radius: 8px;
             transition: all 0.5s ease;
-            /* Glowing border effect */
             border: 2px solid transparent;
             box-shadow: 
-                0 0 10px rgba(207, 64, 255, 0.5), /* Purple glow */
-                0 0 20px rgba(207, 64, 255, 0.3), /* Purple glow */
-                0 0 30px rgba(207, 64, 255, 0.2), /* Purple glow */
-                inset 0 0 10px rgba(207, 64, 255, 0.3), /* Purple glow */
-                inset 0 0 20px rgba(207, 64, 255, 0.2); /* Purple glow */
-            /* Radiant gradient border */
+                0 0 10px rgba(207, 64, 255, 0.5),
+                0 0 20px rgba(207, 64, 255, 0.3),
+                0 0 30px rgba(207, 64, 255, 0.2),
+                inset 0 0 10px rgba(207, 64, 255, 0.3),
+                inset 0 0 20px rgba(207, 64, 255, 0.2);
             background: 
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
@@ -476,18 +476,18 @@
                 0 0 20px rgba(255, 255, 255, 0.6),
                 0 0 40px rgba(255, 255, 255, 0.4),
                 0 0 60px rgba(255, 255, 255, 0.2),
-                0 0 15px rgba(207, 64, 255, 0.8), /* Purple glow */
-                0 0 25px rgba(207, 64, 255, 0.6), /* Purple glow */
-                0 0 35px rgba(207, 64, 255, 0.4); /* Purple glow */
+                0 0 15px rgba(207, 64, 255, 0.8),
+                0 0 25px rgba(207, 64, 255, 0.6),
+                0 0 35px rgba(207, 64, 255, 0.4);
             filter: brightness(1.1) contrast(1.1);
         }
         .citation {
-            background: rgba(207, 64, 255, 0.15); /* Purple background */
+            background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
             padding: 3.75px 9px;
             border-radius: 15px;
             font-size: 0.7rem;
-            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.3);
             display: inline-block;
             margin: 5px 0;
         }
@@ -498,30 +498,30 @@
             margin: 7px 0 5px;
         }
         .meta-tag {
-            background: rgba(207, 64, 255, 0.15); /* Purple background */
+            background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
             padding: 3px 8px;
             border-radius: 15px;
             font-size: 0.6rem;
-            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
-            text-shadow: 0 0 4px rgba(207, 64, 255, 0.3); /* Purple glow */
+            border: 1px solid rgba(207, 64, 255, 0.3);
+            text-shadow: 0 0 4px rgba(207, 64, 255, 0.3);
         }
         .new-tag {
-            background: rgba(207, 64, 255, 0.25); /* Purple background */
+            background: rgba(207, 64, 255, 0.25);
             color: var(--accent);
-            border-color: rgba(207, 64, 255, 0.4); /* Purple border */
-            text-shadow: 0 0 4px rgba(207, 64, 255, 0.4); /* Purple glow */
+            border-color: rgba(207, 64, 255, 0.4);
+            text-shadow: 0 0 4px rgba(207, 64, 255, 0.4);
         }
         .article-link {
             display: inline-block;
             color: var(--light);
-            background: linear-gradient(90deg, rgba(207, 64, 255, 0.2), rgba(2, 136, 209, 0.2)); /* Purple gradient */
+            background: linear-gradient(90deg, rgba(207, 64, 255, 0.2), rgba(2, 136, 209, 0.2));
             padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid rgba(207, 64, 255, 0.3); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.3);
             text-align: center;
             width: 100%;
             font-family: 'Orbitron', sans-serif;
@@ -542,9 +542,9 @@
             transition: 0.5s;
         }
         .article-link:hover {
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple)); /* Purple gradient */
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             color: var(--darker);
-            box-shadow: 0 0 12px rgba(207, 64, 255, 0.5); /* Purple glow */
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.5);
             transform: translateY(-2px);
             text-decoration: none;
         }
@@ -556,7 +556,7 @@
             padding: 30px 0 15px;
             color: #777;
             font-size: 0.675rem;
-            border-top: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
             margin-top: 22.5px;
         }
         .copyright p {
@@ -572,13 +572,13 @@
         .card-video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
             margin-top: 10px;
             background: #000;
-            border: 1px solid rgba(207, 64, 255, 0.2); /* Purple border */
+            border: 1px solid rgba(207, 64, 255, 0.2);
         }
         
         .card-video {
@@ -593,7 +593,7 @@
         /* Mobile adjustments for Ubuntu card video */
         @media (max-width: 600px) {
             .card-video-container {
-                padding-bottom: 60%; /* Slightly taller aspect ratio for mobile */
+                padding-bottom: 60%;
             }
         }
         
@@ -613,7 +613,7 @@
                 margin-bottom: 30px;
             }
             .video-container {
-                width: 51%; /* Reduced from 85% by 40% (85% * 0.6 = 51%) */
+                width: 51%;
             }
             h1 {
                 font-size: 2.1rem;
@@ -630,7 +630,7 @@
                 height: 40px;
             }
             .video-container {
-                width: 60%; /* Reduced from 100% by 40% (100% * 0.6 = 60%) */
+                width: 60%;
             }
         }
     </style>
