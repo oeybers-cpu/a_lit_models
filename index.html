@@ -26,7 +26,7 @@
             --digital-purple: #cf40ff;
             --royal-blue: #4169E1;
             --royal-blue-light: #6c8eff;
-            --aqua-blue: #00FFFF; /* New aqua blue color */
+            --aqua-blue: #00FFFF;
             --card-padding: 15px;
             --card-gap: 25px;
         }
@@ -68,7 +68,6 @@
             pointer-events: none;
             z-index: -1;
         }
-        /* Back button styling */
         .back-button {
             position: fixed;
             top: 25px;
@@ -79,7 +78,7 @@
             color: var(--royal-blue);
             width: 50px;
             height: 50px;
-            borderRadius: 50%;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,7 +92,6 @@
             transform: translateX(-5px);
             box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
         }
-        /* Sidebar styling - Royal blue borders */
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
@@ -118,26 +116,25 @@
             flex-direction: column;
             gap: 15px;
         }
-        /* CHANGED: Modified sidebar-link to use blue instead of purple */
         .sidebar-link {
-            color: var(--royal-blue-light); /* Changed to blue text */
+            color: var(--royal-blue-light);
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 8px;
-            background: rgba(65, 105, 225, 0.1); /* Changed to blue background */
-            border: 1px solid var(--royal-blue); /* Changed to blue border */
+            background: rgba(65, 105, 225, 0.1);
+            border: 1px solid var(--royal-blue);
             transition: all 0.3s ease;
             font-size: 0.85rem;
             text-align: center;
             font-weight: 500;
-            text-shadow: 0 0 5px rgba(65, 105, 225, 0.5); /* Changed to blue shadow */
+            text-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
         }
         .sidebar-link:hover {
-            background: rgba(65, 105, 225, 0.2); /* Changed to blue background on hover */
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6); /* Changed to blue glow on hover */
+            background: rgba(65, 105, 225, 0.2);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6);
             transform: translateY(-2px);
             color: var(--light);
-            border-color: var(--royal-blue-light); /* Changed to light blue border on hover */
+            border-color: var(--royal-blue-light);
         }
         .main-content {
             flex: 1;
@@ -147,7 +144,6 @@
             margin: 0 auto;
             position: relative;
         }
-        /* Videos container for dual videos */
         .videos-container {
             display: flex;
             justify-content: center;
@@ -155,10 +151,9 @@
             margin-bottom: 30px;
             position: relative;
         }
-        /* Video Player Styles - Smaller size */
         .video-container {
             position: relative;
-            width: 38%; /* Reduced from 42% */
+            width: 38%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -178,14 +173,13 @@
             height: 100%;
             border: none;
         }
-        /* Header adjustments - smaller size */
         header {
             text-align: center;
-            padding: 8px 0; /* Reduced padding */
+            padding: 8px 0;
             position: relative;
             background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            margin-bottom: 12px; /* Reduced margin */
+            margin-bottom: 12px;
             border-radius: 0 0 15px 15px;
             overflow: hidden;
         }
@@ -210,15 +204,15 @@
             100% { left: 100%; }
         }
         h1 {
-            font-size: 2.0rem; /* Reduced from 2.4rem */
-            margin-bottom: 4px; /* Reduced margin */
+            font-size: 2.0rem;
+            margin-bottom: 4px;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
-            letter-spacing: 2px; /* Slightly reduced */
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); /* Reduced glow */
+            letter-spacing: 2px;
+            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             position: relative;
@@ -236,7 +230,7 @@
         h1::after {
             content: '';
             position: absolute;
-            bottom: -5px; /* Adjusted */
+            bottom: -5px;
             left: 10%;
             width: 80%;
             height: 1.5px;
@@ -244,10 +238,10 @@
             border-radius: 50%;
         }
         .subtitle {
-            font-size: 0.75rem; /* Reduced from 0.825rem */
+            font-size: 0.75rem;
             color: #aaa;
             max-width: 800px;
-            margin: 6px auto 8px; /* Reduced margins */
+            margin: 6px auto 8px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -258,11 +252,11 @@
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
-            padding: 10px; /* Reduced padding */
+            padding: 10px;
             max-width: 600px;
-            margin: 12px auto; /* Reduced margin */
+            margin: 12px auto;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 18px rgba(207, 64, 255, 0.15); /* Reduced glow */
+            box-shadow: 0 0 18px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -280,24 +274,25 @@
             transition: transform 0.5s ease;
         }
         .contact-card:hover {
-            transform: translateY(-5px); /* Reduced movement */
-            box-shadow: 0 6px 24px rgba(207, 64, 255, 0.3); /* Reduced glow */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 24px rgba(207, 64, 255, 0.3);
         }
         .contact-card:hover::before {
             transform: scaleX(1);
         }
         .contact-card h2 {
             color: var(--digital-purple);
-            margin-bottom: 7px; /* Reduced margin */
-            font-size: 1.1rem; /* Slightly smaller */
+            margin-bottom: 7px;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 7px; /* Reduced gap */
+            gap: 7px;
             font-family: 'Orbitron', sans-serif;
             border: none;
             text-align: left;
             width: auto;
             padding-bottom: 0;
+            margin-top: 0;
         }
         .contact-card h2::after {
             display: none;
@@ -305,26 +300,24 @@
         .contact-card a {
             color: var(--digital-purple);
             text-decoration: none;
-            font-size: 0.75rem; /* Reduced */
+            font-size: 0.75rem;
             transition: all 0.3s ease;
             word-break: break-all;
             display: inline-block;
-            padding: 3px 6px; /* Reduced padding */
+            padding: 3px 6px;
             border-radius: 3px;
         }
         .contact-card a:hover {
             color: var(--lighter-accent);
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.7); /* Reduced glow */
+            text-shadow: 0 0 9px rgba(207, 64, 255, 0.7);
             background: rgba(255, 255, 255, 0.1);
         }
-        /* Articles grid - FIXED GRID LAYOUT */
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--card-gap);
-            margin: 25px 0; /* Reduced margin */
+            margin: 25px 0;
         }
-        /* FIXED CARD SIZING - ALL CARDS HAVE SAME HEIGHT */
         .article-card {
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
@@ -373,6 +366,7 @@
             transition: all 0.3s ease;
             position: relative;
             padding-bottom: 8px;
+            margin-top: 0;
         }
         .article-card h3::after {
             content: '';
@@ -411,7 +405,6 @@
         .article-content li {
             margin-bottom: 6px;
         }
-        /* Standardized card footer */
         .card-footer {
             background: rgba(207, 64, 255, 0.08);
             border-top: 1px solid rgba(207, 64, 255, 0.2);
@@ -429,7 +422,6 @@
             color: var(--digital-purple);
             font-weight: bold;
         }
-        /* Image container - STANDARDIZED */
         .image-container {
             display: flex;
             align-items: center;
@@ -458,24 +450,18 @@
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
-        /* CHANGED: Added specific class for Imhotep image */
         .imhotep-image {
             width: 45% !important;
         }
-        /* ADDED: Specific class for Ubuntu image to fix mobile view */
         .ubuntu-image {
             width: 65% !important;
         }
-        
-        /* ADDED: Mobile-specific sizing for Ubuntu image */
         @media (max-width: 600px) {
             .ubuntu-image {
                 width: 50% !important;
                 max-width: 100% !important;
             }
         }
-        
-        /* Enhanced sparkle effect on hover */
         .image-container img:hover {
             transform: scale(1.05);
             box-shadow: 
@@ -559,22 +545,21 @@
         }
         .copyright {
             text-align: center;
-            padding: 25px 0 15px; /* Reduced padding */
+            padding: 25px 0 15px;
             color: #777;
             font-size: 0.675rem;
             border-top: 1px solid rgba(207, 64, 255, 0.2);
-            margin-top: 20px; /* Reduced margin */
+            margin-top: 20px;
         }
         .copyright p {
             margin: 6px 0;
         }
         .university-logo {
             width: 120px;
-            margin: 10px auto; /* Reduced margin */
+            margin: 10px auto;
             filter: brightness(0.8);
             opacity: 0.7;
         }
-        /* NEW: Video container styling for the Ubuntu card */
         .card-video-container {
             position: relative;
             width: 100%;
@@ -596,6 +581,12 @@
             border-radius: 8px;
         }
 
+        @media (max-width: 600px) {
+            .card-video-container {
+                padding-bottom: 60%;
+            }
+        }
+        
         /* Counter Styles */
         .counter-section {
             text-align: center;
@@ -631,7 +622,6 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile adjustments for Ubuntu card video */
         @media (max-width: 600px) {
             .card-video-container {
                 padding-bottom: 60%;
@@ -663,16 +653,16 @@
                 align-items: center;
             }
             .video-container {
-                width: 65%; /* Adjusted for mobile */
+                width: 65%;
                 margin-bottom: 20px;
             }
             h1 {
-                font-size: 1.8rem; /* Adjusted for mobile */
+                font-size: 1.8rem;
             }
         }
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.5rem; /* Adjusted for mobile */
+                font-size: 1.5rem;
             }
             .back-button {
                 top: 15px;
@@ -681,7 +671,7 @@
                 height: 40px;
             }
             .video-container {
-                width: 85%; /* Adjusted for mobile */
+                width: 85%;
             }
             .counter-wrapper {
                 font-size: 2rem !important;
@@ -714,7 +704,7 @@
             <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
                 Imhotep and academic literacy
             </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy" class="sidebar-link" target="_blank">
+            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_Of_Academic_Literacy" class="sidebar-link" target="_blank">
                 An inclusive African theory of academic literacy
             </a>
             <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
@@ -739,7 +729,6 @@
                 </div>
             </header>
             <div class="videos-container">
-                <!-- New video on the left -->
                 <div class="video-container">
                     <div class="video-wrapper">
                         <video class="video-player" controls>
@@ -748,7 +737,6 @@
                         </video>
                     </div>
                 </div>
-                <!-- Original video on the right -->
                 <div class="video-container">
                     <div class="video-wrapper">
                         <iframe class="video-player" src="https://www.youtube.com/embed/I_AcbAejbIo?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -854,7 +842,7 @@
             <div class="counter-section">
                 <div class="counter-label">Total Page Visits</div>
                 <div class="counter-wrapper">
-                    <div id="sfce12aua7unus6hsqy4cycg9hewu4wm1wy"></div>
+                    <div id="sfccglk3cgablbxj84tq57qjacs3rg6j7n4"></div>
                 </div>
                 <p>This page has been visited by students working on their academic literacy skills</p>
             </div>
@@ -899,8 +887,8 @@
         });
     </script>
     
-    <!-- Hit Counter Script -->
-    <script type="text/javascript" src="https://counter5.optistats.ovh/private/counter.js?c=e12aua7unus6hsqy4cycg9hewu4wm1wy&down=async" async></script>
-    <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter5.optistats.ovh/private/freecounterstat.php?c=e12aua7unus6hsqy4cycg9hewu4wm1wy" border="0" title="website counter" alt="website counter"></a></noscript>
+    <!-- New Counter Script -->
+    <script type="text/javascript" src="https://counter5.optistats.ovh/private/counter.js?c=cglk3cgablbxj84tq57qjacs3rg6j7n4&down=async" async></script>
+    <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter5.optistats.ovh/private/freecounterstat.php?c=cglk3cgablbxj84tq57qjacs3rg6j7n4" border="0" title="website counter" alt="website counter"></a></noscript>
 </body>
 </html>
