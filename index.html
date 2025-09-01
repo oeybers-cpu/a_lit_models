@@ -121,7 +121,7 @@
             gap: 15px;
         }
         .sidebar-link {
-            color: var(--digital-purple); /* Changed from royal-blue-light to purple */
+            color: var(--digital-purple);
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 8px;
@@ -131,7 +131,7 @@
             font-size: 0.85rem;
             text-align: center;
             font-weight: 500;
-            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5); /* Updated to purple */
+            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
         }
         .sidebar-link:hover {
             background: rgba(65, 105, 225, 0.2);
@@ -148,18 +148,25 @@
             margin: 0 auto;
             position: relative;
         }
-        .header-image-container {
+        /* New hero section to hold pyramid and image */
+        .hero-section {
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
-            position: relative;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .header-image-container {
+            flex-shrink: 0;
         }
         .header-image {
-            width: 25%; /* Reduced to 25% */
+            width: 25%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             border: 2px solid var(--royal-blue);
+            min-width: 200px;
         }
         .header-image img {
             width: 100%;
@@ -614,6 +621,63 @@
             margin-top: 0.5rem;
             font-size: 0.9rem;
         }
+        /* Pyramid Styles */
+        .pyramid-container {
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+        .pyramid {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: pyramid-rotate 20s infinite linear;
+        }
+        .pyramid .face {
+            position: absolute;
+            width: 142px; /* Adjusted for a 200px base */
+            height: 142px; /* Adjusted for a 200px base */
+            top: 50px; /* Adjust based on height */
+            left: 50px; /* Adjust based on width */
+            background-color: transparent;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            transform-origin: bottom center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
+            background-image: repeating-linear-gradient(90deg, transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%),
+                              repeating-linear-gradient(transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%);
+            background-size: 15px 15px;
+            animation: glowing-colors 10s infinite linear;
+        }
+        .pyramid .face.front {
+            transform: rotateY(0deg) rotateX(60deg) translateZ(100px);
+        }
+        .pyramid .face.back {
+            transform: rotateY(180deg) rotateX(60deg) translateZ(100px);
+        }
+        .pyramid .face.left {
+            transform: rotateY(-90deg) rotateX(60deg) translateZ(100px);
+        }
+        .pyramid .face.right {
+            transform: rotateY(90deg) rotateX(60deg) translateZ(100px);
+        }
+        @keyframes pyramid-rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        @keyframes glowing-colors {
+            0% { box-shadow: 0 0 50px var(--primary); }
+            25% { box-shadow: 0 0 50px var(--digital-purple); }
+            50% { box-shadow: 0 0 50px var(--royal-blue-light); }
+            75% { box-shadow: 0 0 50px var(--aqua-blue); }
+            100% { box-shadow: 0 0 50px var(--primary); }
+        }
 
         @media (max-width: 600px) {
             .card-video-container {
@@ -646,6 +710,16 @@
             }
             h1 {
                 font-size: 1.8rem;
+            }
+        }
+        /* Mobile styles for the hero section */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .header-image {
+                width: 70%;
             }
         }
         @media (max-width: 600px) {
@@ -716,9 +790,19 @@
                 </div>
             </header>
             
-            <div class="header-image-container">
-                <div class="header-image">
-                    <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" alt="Academic Literacies Debate">
+            <div class="hero-section">
+                <div class="pyramid-container">
+                    <div class="pyramid">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                </div>
+                <div class="header-image-container">
+                    <div class="header-image">
+                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" alt="Academic Literacies Debate">
+                    </div>
                 </div>
             </div>
             
@@ -833,7 +917,7 @@
                         <text x="50" y="25" text-anchor="middle" fill="#aaa" font-size="8">LITERACY RESEARCH</text>
                     </svg>
                 </div>
-                <p>© 2025 Academic Literacies Research Portal</p>
+                <p>© 2024 Academic Literacies Research Portal</p>
                 <p>Based on works by Lea &amp; Street (2006) and Shanahan &amp; Shanahan (2012)</p>
             </div>
         </div>
