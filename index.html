@@ -633,18 +633,18 @@
             overflow: hidden;
         }
         .pyramid {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             position: relative;
             transform-style: preserve-3d;
             animation: pyramid-rotate 20s infinite linear;
         }
         .pyramid .face {
             position: absolute;
-            width: 142px; /* Adjusted for a 200px base */
-            height: 142px; /* Adjusted for a 200px base */
-            top: 50px; /* Adjust based on height */
-            left: 50px; /* Adjust based on width */
+            width: 213px;
+            height: 213px;
+            top: 75px;
+            left: 75px;
             background-color: transparent;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -656,16 +656,16 @@
             animation: glowing-colors 10s infinite linear;
         }
         .pyramid .face.front {
-            transform: rotateY(0deg) rotateX(60deg) translateZ(100px);
+            transform: rotateY(0deg) rotateX(60deg) translateZ(150px);
         }
         .pyramid .face.back {
-            transform: rotateY(180deg) rotateX(60deg) translateZ(100px);
+            transform: rotateY(180deg) rotateX(60deg) translateZ(150px);
         }
         .pyramid .face.left {
-            transform: rotateY(-90deg) rotateX(60deg) translateZ(100px);
+            transform: rotateY(-90deg) rotateX(60deg) translateZ(150px);
         }
         .pyramid .face.right {
-            transform: rotateY(90deg) rotateX(60deg) translateZ(100px);
+            transform: rotateY(90deg) rotateX(60deg) translateZ(150px);
         }
         @keyframes pyramid-rotate {
             from { transform: rotateY(0deg); }
@@ -797,11 +797,6 @@
                         <div class="face back"></div>
                         <div class="face left"></div>
                         <div class="face right"></div>
-                    </div>
-                </div>
-                <div class="header-image-container">
-                    <div class="header-image">
-                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" alt="Academic Literacies Debate">
                     </div>
                 </div>
             </div>
