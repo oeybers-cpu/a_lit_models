@@ -154,7 +154,7 @@
             align-items: center;
             justify-content: center;
             gap: 30px;
-            margin: 30px 0;
+            margin: 10px 0; /* Reduced top/bottom margin */
             flex-wrap: wrap;
         }
         .header-image-container {
@@ -621,7 +621,7 @@
             margin-top: 0.5rem;
             font-size: 0.9rem;
         }
-        /* Pyramid Styles */
+        /* Pyramid Styles - New design */
         .pyramid-container {
             width: 100%;
             height: 300px;
@@ -629,15 +629,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 40px 0;
+            margin: 20px 0; /* Reduced top/bottom margin */
             overflow: hidden;
+            position: relative;
         }
         .pyramid {
             width: 300px;
             height: 300px;
-            position: relative;
+            position: absolute;
             transform-style: preserve-3d;
             animation: pyramid-rotate 20s infinite linear;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateY(0deg);
         }
         .pyramid .face {
             position: absolute;
@@ -667,9 +671,55 @@
         .pyramid .face.right {
             transform: rotateY(90deg) rotateX(60deg) translateZ(150px);
         }
+        
+        /* Inverted Pyramid */
+        .pyramid-inverted {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: pyramid-rotate-inverted 20s infinite linear;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateY(0deg) rotateX(180deg);
+            z-index: -1;
+        }
+        .pyramid-inverted .face {
+            position: absolute;
+            width: 213px;
+            height: 213px;
+            top: 75px;
+            left: 75px;
+            background-color: transparent;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            transform-origin: bottom center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
+            background-image: repeating-linear-gradient(90deg, transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%),
+                              repeating-linear-gradient(transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%);
+            background-size: 15px 15px;
+            animation: glowing-colors 10s infinite linear;
+            opacity: 0.5;
+        }
+        .pyramid-inverted .face.front {
+            transform: rotateY(0deg) rotateX(60deg) translateZ(150px);
+        }
+        .pyramid-inverted .face.back {
+            transform: rotateY(180deg) rotateX(60deg) translateZ(150px);
+        }
+        .pyramid-inverted .face.left {
+            transform: rotateY(-90deg) rotateX(60deg) translateZ(150px);
+        }
+        .pyramid-inverted .face.right {
+            transform: rotateY(90deg) rotateX(60deg) translateZ(150px);
+        }
         @keyframes pyramid-rotate {
-            from { transform: rotateY(0deg); }
-            to { transform: rotateY(360deg); }
+            from { transform: translate(-50%, -50%) rotateY(0deg); }
+            to { transform: translate(-50%, -50%) rotateY(360deg); }
+        }
+        @keyframes pyramid-rotate-inverted {
+            from { transform: translate(-50%, -50%) rotateY(0deg) rotateX(180deg); }
+            to { transform: translate(-50%, -50%) rotateY(360deg) rotateX(180deg); }
         }
         @keyframes glowing-colors {
             0% { box-shadow: 0 0 50px var(--primary); }
@@ -793,6 +843,12 @@
             <div class="hero-section">
                 <div class="pyramid-container">
                     <div class="pyramid">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="pyramid-inverted">
                         <div class="face front"></div>
                         <div class="face back"></div>
                         <div class="face left"></div>
