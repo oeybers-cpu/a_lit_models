@@ -632,93 +632,16 @@
             margin-top: 0.5rem;
             font-size: 0.9rem;
         }
-        /* New Pyramid Styles */
-        .scene {
-            width: 300px;
-            height: 300px;
-            perspective: 1000px;
-            position: relative;
+        /* New GIF Styles */
+        .hero-gif {
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(207, 64, 255, 0.5);
+            border: 2px solid var(--digital-purple);
+            display: block;
+            margin: 0 auto;
         }
-
-        .pyramid {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-            animation: rotate 12s infinite linear;
-        }
-
-        .face {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            transform-origin: 50% 100%;
-            opacity: 0.8;
-            transition: background 0.5s ease-in-out;
-        }
-
-        .face.base {
-            width: 200px;
-            height: 200px;
-            transform: translateZ(-100px) rotateX(90deg);
-            border-left: 0;
-            border-right: 0;
-            border-bottom: 0;
-            background: linear-gradient(135deg, var(--color6), var(--color7));
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(255, 100, 100, 0.3);
-            border-style: none; /* Remove border-style to avoid issues with border-left/right/bottom */
-        }
-        
-        .face.front {
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 173.2px solid;
-            background: linear-gradient(135deg, var(--color1), var(--color2));
-            transform: rotateX(-30deg) translateZ(100px);
-        }
-
-        .face.right {
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 173.2px solid;
-            background: linear-gradient(135deg, var(--color2), var(--color3));
-            transform: rotateY(90deg) rotateX(-30deg) translateZ(100px);
-        }
-
-        .face.back {
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 173.2px solid;
-            background: linear-gradient(135deg, var(--color3), var(--color4));
-            transform: rotateY(180deg) rotateX(-30deg) translateZ(100px);
-        }
-
-        .face.left {
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 173.2px solid;
-            background: linear-gradient(135deg, var(--color4), var(--color5));
-            transform: rotateY(-90deg) rotateX(-30deg) translateZ(100px);
-        }
-
-        @keyframes rotate {
-            0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-            100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
-        }
-
-        @keyframes colorChange {
-            0% { --color1: #FF6B6B; --color2: #FFD166; --color3: #06D6A0; --color4: #118AB2; --color5: #EF476F; --color6: #FF9E00; --color7: #073B4C; }
-            14% { --color1: #FFD166; --color2: #06D6A0; --color3: #118AB2; --color4: #EF476F; --color5: #FF9E00; --color6: #073B4C; --color7: #FF6B6B; }
-            28% { --color1: #06D6A0; --color2: #118AB2; --color3: #EF476F; --color4: #FF9E00; --color5: #073B4C; --color6: #FF6B6B; --color7: #FFD166; }
-            42% { --color1: #118AB2; --color2: #EF476F; --color3: #FF9E00; --color4: #073B4C; --color5: #FF6B6B; --color6: #FFD166; --color7: #06D6A0; }
-            57% { --color1: #EF476F; --color2: #FF9E00; --color3: #073B4C; --color4: #FF6B6B; --color5: #FFD166; --color6: #06D6A0; --color7: #118AB2; }
-            71% { --color1: #FF9E00; --color2: #073B4C; --color3: #FF6B6B; --color4: #FFD166; --color5: #06D6A0; --color6: #118AB2; --color7: #EF476F; }
-            85% { --color1: #073B4C; --color2: #FF6B6B; --color3: #FFD166; --color4: #06D6A0; --color5: #118AB2; --color6: #EF476F; --color7: #FF9E00; }
-            100% { --color1: #FF6B6B; --color2: #FFD166; --color3: #06D6A0; --color4: #118AB2; --color5: #EF476F; --color6: #FF9E00; --color7: #073B4C; }
-        }
-
         @media (max-width: 600px) {
             .card-video-container {
                 padding-bottom: 60%;
@@ -831,15 +754,7 @@
             </header>
 
             <div class="hero-section">
-                <div class="scene">
-                    <div class="pyramid">
-                        <div class="face front"></div>
-                        <div class="face right"></div>
-                        <div class="face back"></div>
-                        <div class="face left"></div>
-                        <div class="face base"></div>
-                    </div>
-                </div>
+                <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif">
             </div>
 
             <div class="articles-container">
@@ -981,22 +896,6 @@
                 } else {
                     window.location.href = 'https://www.google.com';
                 }
-            });
-
-            // Add subtle interaction to enhance the experience
-            const pyramid = document.querySelector('.pyramid');
-
-            // Add mouse move interaction for subtle rotation
-            document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth / 2 - e.clientX) / 20;
-                const y = (window.innerHeight / 2 - e.clientY) / 20;
-
-                pyramid.style.transform = `rotateX(${y}deg) rotateY(${-x}deg)`;
-            });
-
-            // Reset rotation on mouse leave
-            document.addEventListener('mouseleave', () => {
-                pyramid.style.transform = 'rotateX(0deg) rotateY(0deg)';
             });
         });
     </script>
