@@ -29,6 +29,17 @@
             --aqua-blue: #00FFFF;
             --card-padding: 15px;
             --card-gap: 25px;
+            --pyramid-neon-color: #00FFFF;
+            --pyramid-base-size: 400px;
+            --pyramid-height: 300px;
+            /* New pyramid colors */
+            --color1: #FF6B6B;
+            --color2: #FFD166;
+            --color3: #06D6A0;
+            --color4: #118AB2;
+            --color5: #EF476F;
+            --color6: #FF9E00;
+            --color7: #073B4C;
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -48,7 +59,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
@@ -61,7 +72,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -154,7 +165,7 @@
             align-items: center;
             justify-content: center;
             gap: 30px;
-            margin: 10px 0; /* Reduced top/bottom margin */
+            margin: 0;
             flex-wrap: wrap;
         }
         .header-image-container {
@@ -190,10 +201,10 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(79, 195, 247, 0.1), 
-                rgba(41, 182, 246, 0.1), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(79, 195, 247, 0.1),
+                rgba(41, 182, 246, 0.1),
                 rgba(207, 64, 255, 0.1),
                 transparent);
             animation: headerShine 8s infinite linear;
@@ -316,7 +327,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--card-gap);
-            margin: 25px 0;
+            margin: 15px 0;
         }
         .article-card {
             background: var(--card-bg);
@@ -440,13 +451,13 @@
             border-radius: 8px;
             transition: all 0.5s ease;
             border: 2px solid transparent;
-            box-shadow: 
+            box-shadow:
                 0 0 10px rgba(207, 64, 255, 0.5),
                 0 0 20px rgba(207, 64, 255, 0.3),
                 0 0 30px rgba(207, 64, 255, 0.2),
                 inset 0 0 10px rgba(207, 64, 255, 0.3),
                 inset 0 0 20px rgba(207, 64, 255, 0.2);
-            background: 
+            background:
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
@@ -464,7 +475,7 @@
         }
         .image-container img:hover {
             transform: scale(1.05);
-            box-shadow: 
+            box-shadow:
                 0 0 20px rgba(255, 255, 255, 0.6),
                 0 0 40px rgba(255, 255, 255, 0.4),
                 0 0 60px rgba(255, 255, 255, 0.2),
@@ -571,7 +582,7 @@
             background: #000;
             border: 1px solid rgba(207, 64, 255, 0.2);
         }
-        
+
         .card-video {
             position: absolute;
             top: 0;
@@ -586,7 +597,7 @@
                 padding-bottom: 60%;
             }
         }
-        
+
         /* Counter Styles */
         .counter-section {
             text-align: center;
@@ -621,112 +632,91 @@
             margin-top: 0.5rem;
             font-size: 0.9rem;
         }
-        /* Pyramid Styles - New design */
-        .pyramid-container {
-            width: 100%;
+        /* New Pyramid Styles */
+        .scene {
+            width: 300px;
             height: 300px;
             perspective: 1000px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0; /* Reduced top/bottom margin */
-            overflow: hidden;
             position: relative;
         }
+
         .pyramid {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             position: absolute;
             transform-style: preserve-3d;
-            animation: pyramid-rotate 20s infinite linear;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateY(0deg);
+            animation: rotate 12s infinite linear;
         }
-        .pyramid .face {
+
+        .face {
             position: absolute;
-            width: 213px;
-            height: 213px;
-            top: 75px;
-            left: 75px;
-            background-color: transparent;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            transform-origin: bottom center;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
-            background-image: repeating-linear-gradient(90deg, transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%),
-                              repeating-linear-gradient(transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%);
-            background-size: 15px 15px;
-            animation: glowing-colors 10s infinite linear;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            transform-origin: 50% 100%;
+            opacity: 0.8;
+            transition: background 0.5s ease-in-out;
         }
-        .pyramid .face.front {
-            transform: rotateY(0deg) rotateX(60deg) translateZ(150px);
-        }
-        .pyramid .face.back {
-            transform: rotateY(180deg) rotateX(60deg) translateZ(150px);
-        }
-        .pyramid .face.left {
-            transform: rotateY(-90deg) rotateX(60deg) translateZ(150px);
-        }
-        .pyramid .face.right {
-            transform: rotateY(90deg) rotateX(60deg) translateZ(150px);
+
+        .face.base {
+            width: 200px;
+            height: 200px;
+            transform: translateZ(-100px) rotateX(90deg);
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            background: linear-gradient(135deg, var(--color6), var(--color7));
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255, 100, 100, 0.3);
+            border-style: none; /* Remove border-style to avoid issues with border-left/right/bottom */
         }
         
-        /* Inverted Pyramid */
-        .pyramid-inverted {
-            width: 300px;
-            height: 300px;
-            position: absolute;
-            transform-style: preserve-3d;
-            animation: pyramid-rotate-inverted 20s infinite linear;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateY(0deg) rotateX(180deg);
-            z-index: -1;
+        .face.front {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 173.2px solid;
+            background: linear-gradient(135deg, var(--color1), var(--color2));
+            transform: rotateX(-30deg) translateZ(100px);
         }
-        .pyramid-inverted .face {
-            position: absolute;
-            width: 213px;
-            height: 213px;
-            top: 75px;
-            left: 75px;
-            background-color: transparent;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            transform-origin: bottom center;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
-            background-image: repeating-linear-gradient(90deg, transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%),
-                              repeating-linear-gradient(transparent 0 5%, rgba(255,255,255,0.1) 5% 10%, transparent 10% 20%);
-            background-size: 15px 15px;
-            animation: glowing-colors 10s infinite linear;
-            opacity: 0.5;
+
+        .face.right {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 173.2px solid;
+            background: linear-gradient(135deg, var(--color2), var(--color3));
+            transform: rotateY(90deg) rotateX(-30deg) translateZ(100px);
         }
-        .pyramid-inverted .face.front {
-            transform: rotateY(0deg) rotateX(60deg) translateZ(150px);
+
+        .face.back {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 173.2px solid;
+            background: linear-gradient(135deg, var(--color3), var(--color4));
+            transform: rotateY(180deg) rotateX(-30deg) translateZ(100px);
         }
-        .pyramid-inverted .face.back {
-            transform: rotateY(180deg) rotateX(60deg) translateZ(150px);
+
+        .face.left {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 173.2px solid;
+            background: linear-gradient(135deg, var(--color4), var(--color5));
+            transform: rotateY(-90deg) rotateX(-30deg) translateZ(100px);
         }
-        .pyramid-inverted .face.left {
-            transform: rotateY(-90deg) rotateX(60deg) translateZ(150px);
+
+        @keyframes rotate {
+            0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
         }
-        .pyramid-inverted .face.right {
-            transform: rotateY(90deg) rotateX(60deg) translateZ(150px);
-        }
-        @keyframes pyramid-rotate {
-            from { transform: translate(-50%, -50%) rotateY(0deg); }
-            to { transform: translate(-50%, -50%) rotateY(360deg); }
-        }
-        @keyframes pyramid-rotate-inverted {
-            from { transform: translate(-50%, -50%) rotateY(0deg) rotateX(180deg); }
-            to { transform: translate(-50%, -50%) rotateY(360deg) rotateX(180deg); }
-        }
-        @keyframes glowing-colors {
-            0% { box-shadow: 0 0 50px var(--primary); }
-            25% { box-shadow: 0 0 50px var(--digital-purple); }
-            50% { box-shadow: 0 0 50px var(--royal-blue-light); }
-            75% { box-shadow: 0 0 50px var(--aqua-blue); }
-            100% { box-shadow: 0 0 50px var(--primary); }
+
+        @keyframes colorChange {
+            0% { --color1: #FF6B6B; --color2: #FFD166; --color3: #06D6A0; --color4: #118AB2; --color5: #EF476F; --color6: #FF9E00; --color7: #073B4C; }
+            14% { --color1: #FFD166; --color2: #06D6A0; --color3: #118AB2; --color4: #EF476F; --color5: #FF9E00; --color6: #073B4C; --color7: #FF6B6B; }
+            28% { --color1: #06D6A0; --color2: #118AB2; --color3: #EF476F; --color4: #FF9E00; --color5: #073B4C; --color6: #FF6B6B; --color7: #FFD166; }
+            42% { --color1: #118AB2; --color2: #EF476F; --color3: #FF9E00; --color4: #073B4C; --color5: #FF6B6B; --color6: #FFD166; --color7: #06D6A0; }
+            57% { --color1: #EF476F; --color2: #FF9E00; --color3: #073B4C; --color4: #FF6B6B; --color5: #FFD166; --color6: #06D6A0; --color7: #118AB2; }
+            71% { --color1: #FF9E00; --color2: #073B4C; --color3: #FF6B6B; --color4: #FFD166; --color5: #06D6A0; --color6: #118AB2; --color7: #EF476F; }
+            85% { --color1: #073B4C; --color2: #FF6B6B; --color3: #FFD166; --color4: #06D6A0; --color5: #118AB2; --color6: #EF476F; --color7: #FF9E00; }
+            100% { --color1: #FF6B6B; --color2: #FFD166; --color3: #06D6A0; --color4: #118AB2; --color5: #EF476F; --color6: #FF9E00; --color7: #073B4C; }
         }
 
         @media (max-width: 600px) {
@@ -739,7 +729,7 @@
                 padding: 0.4rem 1rem;
             }
         }
-        
+
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr;
@@ -826,7 +816,7 @@
             </a>
             <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
                 Ancient African Writing
-            </a> 
+            </a>
         </div>
     </div>
     <div class="main-content">
@@ -839,24 +829,19 @@
                     <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
-            
+
             <div class="hero-section">
-                <div class="pyramid-container">
+                <div class="scene">
                     <div class="pyramid">
                         <div class="face front"></div>
+                        <div class="face right"></div>
                         <div class="face back"></div>
                         <div class="face left"></div>
-                        <div class="face right"></div>
-                    </div>
-                    <div class="pyramid-inverted">
-                        <div class="face front"></div>
-                        <div class="face back"></div>
-                        <div class="face left"></div>
-                        <div class="face right"></div>
+                        <div class="face base"></div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="articles-container">
                 <div class="article-card">
                     <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
@@ -881,7 +866,7 @@
                         Each model offers different perspectives on how students engage with academic writing demands
                     </div>
                 </div>
-                
+
                 <div class="article-card image-panel">
                     <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
                     <div class="image-container">
@@ -906,7 +891,7 @@
                         "A person is a person through other persons" - African proverb
                     </div>
                 </div>
-                
+
                 <div class="article-card">
                     <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
                     <div class="image-container">
@@ -915,7 +900,6 @@
                     <div class="article-content">
                         <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
                         <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
-                        <p>The name Imhotep translates to "He who comes in peace," a reflection of his legacy as a bringer of wisdom, healing, and harmony. His contributions were so profound that he was later deified as the god of medicine and wisdom—one of the few mortals in ancient Egypt to be granted divine status. His enduring legacy continues to symbolize the depth and sophistication of African intellectual traditions.</p>
                         <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
                             <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
                                 <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
@@ -927,7 +911,7 @@
                         African intellectual traditions predate colonial influence by millennia
                     </div>
                 </div>
-                
+
                 <div class="article-card">
                     <h3><i class="fas fa-feather-alt"></i> Ancient African Script</h3>
                     <div class="image-container">
@@ -941,7 +925,7 @@
                             <span class="meta-tag">History</span>
                             <span class="meta-tag">Epistemology</span>
                         </div>
-                        
+
                         <div class="image-container" style="min-height: 80px; margin-top: 12px;">
                             <img src="https://thumbs.dreamstime.com/b/hieroglyphic-carvings-ancient-egyptian-burial-chamber-burial-chamber-ramses-v-hieroglypic-carvings-wall-258805172.jpg" alt="Hieroglyphic Carvings" style="width: 90%;">
                         </div>
@@ -951,7 +935,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="counter-section">
                 <div class="counter-label">Total Page Visits</div>
                 <div class="counter-wrapper">
@@ -959,7 +943,7 @@
                 </div>
                 <p>This page has been visited by students working on their academic literacy skills</p>
             </div>
-            
+
             <div class="copyright">
                 <div class="university-logo">
                     <svg viewBox="0 0 100 30" fill="#0288d1" aria-hidden="true">
@@ -973,7 +957,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Animate cards on load
@@ -987,7 +971,7 @@
                     card.style.transform = 'translateY(0)';
                 }, 80 * index);
             });
-            
+
             // Back button functionality
             const backButton = document.getElementById('backButton');
             backButton.addEventListener('click', function(event) {
@@ -998,9 +982,25 @@
                     window.location.href = 'https://www.google.com';
                 }
             });
+
+            // Add subtle interaction to enhance the experience
+            const pyramid = document.querySelector('.pyramid');
+
+            // Add mouse move interaction for subtle rotation
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth / 2 - e.clientX) / 20;
+                const y = (window.innerHeight / 2 - e.clientY) / 20;
+
+                pyramid.style.transform = `rotateX(${y}deg) rotateY(${-x}deg)`;
+            });
+
+            // Reset rotation on mouse leave
+            document.addEventListener('mouseleave', () => {
+                pyramid.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
         });
     </script>
-    
+
     <script type="text/javascript" src="https://counter5.optistats.ovh/private/counter.js?c=cglk3cgablbxj84tq57qjacs3rg6j7n4&down=async" async></script>
     <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter5.optistats.ovh/private/freecounterstat.php?c=cglk3cgablbxj84tq57qjacs3rg6j7n4" border="0" title="website counter" alt="website counter"></a></noscript>
 </body>
