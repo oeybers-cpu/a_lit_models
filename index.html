@@ -68,7 +68,7 @@
             pointer-events: none;
             z-index: -1;
         }
-        .back-button {
+        .back-button-tab {
             position: fixed;
             top: 25px;
             left: 25px;
@@ -76,21 +76,25 @@
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
             color: var(--royal-blue);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            padding: 10px 20px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
-        .back-button:hover {
+        .back-button-tab:hover {
             background: rgba(65, 105, 225, 0.2);
             transform: translateX(-5px);
             box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         .sidebar {
             width: var(--sidebar-width);
@@ -151,7 +155,7 @@
             position: relative;
         }
         .header-image {
-            width: 80%;
+            width: 50%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -648,11 +652,10 @@
             h1 {
                 font-size: 1.5rem;
             }
-            .back-button {
+            .back-button-tab {
                 top: 15px;
                 left: 15px;
-                width: 40px;
-                height: 40px;
+                padding: 8px 15px;
             }
             .counter-wrapper {
                 font-size: 2rem !important;
@@ -667,9 +670,9 @@
 </head>
 <body>
     <div class="grid-lines"></div>
-    <div class="back-button" id="backButton">
-        <i class="fab fa-google"></i>
-    </div>
+    <a href="#" class="back-button-tab" id="backButton">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
     <div class="sidebar">
         <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         <div class="sidebar-links">
@@ -710,7 +713,6 @@
                 </div>
             </header>
             
-            <!-- Replaced videos with image -->
             <div class="header-image-container">
                 <div class="header-image">
                     <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" alt="Academic Literacies Debate">
@@ -812,7 +814,6 @@
                 </div>
             </div>
             
-            <!-- Counter Section -->
             <div class="counter-section">
                 <div class="counter-label">Total Page Visits</div>
                 <div class="counter-wrapper">
@@ -851,7 +852,8 @@
             
             // Back button functionality
             const backButton = document.getElementById('backButton');
-            backButton.addEventListener('click', function() {
+            backButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default link behavior
                 if (window.history.length > 1) {
                     window.history.back();
                 } else {
@@ -861,7 +863,6 @@
         });
     </script>
     
-    <!-- New Counter Script -->
     <script type="text/javascript" src="https://counter5.optistats.ovh/private/counter.js?c=cglk3cgablbxj84tq57qjacs3rg6j7n4&down=async" async></script>
     <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter5.optistats.ovh/private/freecounterstat.php?c=cglk3cgablbxj84tq57qjacs3rg6j7n4" border="0" title="website counter" alt="website counter"></a></noscript>
 </body>
