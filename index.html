@@ -155,7 +155,7 @@
             position: relative;
         }
         .header-image {
-            width: 50%;
+            width: 25%; /* Reduced to 25% */
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -642,7 +642,7 @@
                 margin-bottom: 30px;
             }
             .header-image {
-                width: 95%;
+                width: 50%;
             }
             h1 {
                 font-size: 1.8rem;
@@ -651,6 +651,9 @@
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
+            }
+            .header-image {
+                width: 95%; /* Adjusted for mobile view */
             }
             .back-button-tab {
                 top: 15px;
