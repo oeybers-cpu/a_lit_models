@@ -161,30 +161,82 @@
             margin: 0 auto;
             position: relative;
         }
-        /* New hero section to hold pyramid and image */
-        .hero-section {
+        /* Header styling with pyramid integration */
+        .header-content {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            flex-wrap: wrap;
+            position: relative;
+            padding: 8px 0;
         }
-        .header-image-container {
+        .header-text {
+            flex: 1;
+            text-align: left;
+            padding-right: 20px;
+        }
+        .header-pyramid {
             flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            margin-left: 20px;
         }
-        .header-image {
-            width: 25%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--royal-blue);
-            min-width: 200px;
-        }
-        .header-image img {
+        /* Pyramid styling for header */
+        .pyramid-container {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            perspective: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pyramid {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: swivel 10s infinite ease-in-out,
+                       color-shift 15s infinite linear;
+        }
+        @keyframes swivel {
+            0% { transform: rotateX(-20deg) rotateY(0deg); }
+            100% { transform: rotateX(-20deg) rotateY(360deg); }
+        }
+        @keyframes color-shift {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        .pyramid-base {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: radial-gradient(circle, #ffcc00, #ff9900);
+            transform: rotateX(90deg) translateZ(30px);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+        }
+        .pyramid-face {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 30px 52px 30px;
+            border-color: transparent transparent #ffcc00 transparent;
+            background-image: radial-gradient(circle, #ffcc00, #ff9900);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8),
+                        inset 0 0 8px rgba(255, 204, 0, 0.5);
+            transform: rotateX(-60deg) translateZ(52px);
+            transform-origin: 50% 100%;
+        }
+        .pyramid-face.front {
+            transform: rotateX(-60deg) translateZ(52px);
+        }
+        .pyramid-face.back {
+            transform: rotateY(180deg) rotateX(-60deg) translateZ(52px);
+        }
+        .pyramid-face.left {
+            transform: rotateY(-90deg) rotateX(-60deg) translateZ(52px);
+        }
+        .pyramid-face.right {
+            transform: rotateY(90deg) rotateX(-60deg) translateZ(52px);
         }
         header {
             text-align: center;
@@ -710,6 +762,19 @@
             .sidebar-image {
                 height: 150px;
             }
+            /* Adjust header layout for mobile */
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-text {
+                padding-right: 0;
+                margin-bottom: 15px;
+            }
+            .header-pyramid {
+                margin-left: 0;
+                margin-top: 10px;
+            }
         }
         
         /* Image optimization classes */
@@ -774,8 +839,23 @@
     <div class="main-content">
         <div class="container">
             <header>
-                <h1>Academic Literacies Model</h1>
-                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                <div class="header-content">
+                    <div class="header-text">
+                        <h1>Academic Literacies Model</h1>
+                        <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                    </div>
+                    <div class="header-pyramid">
+                        <div class="pyramid-container">
+                            <div class="pyramid">
+                                <div class="pyramid-base"></div>
+                                <div class="pyramid-face front"></div>
+                                <div class="pyramid-face back"></div>
+                                <div class="pyramid-face left"></div>
+                                <div class="pyramid-face right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="contact-card">
                     <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
                     <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
