@@ -70,7 +70,7 @@
             z-index: -1;
         }
         
-        /* New top header with title */
+        /* New top header with title - Fixed for mobile */
         .top-header {
             position: fixed;
             top: 0;
@@ -97,6 +97,9 @@
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             animation: pulseText 3s infinite alternate;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 70%;
         }
         @keyframes pulseText {
             0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
@@ -558,8 +561,16 @@
             header {
                 min-height: 220px;
             }
+            .top-header {
+                padding: 15px 10px;
+                flex-direction: column;
+                height: auto;
+            }
             .top-header h1 {
                 font-size: 1.3rem;
+                max-width: 100%;
+                padding: 0 50px;
+                margin-top: 5px;
             }
             .top-nav {
                 grid-template-columns: 1fr;
@@ -583,15 +594,21 @@
             .article-card h3 {
                 font-size: 1.1rem;
             }
+            .main-container {
+                margin: 130px auto 0;
+            }
         }
         
         /* Special handling for landscape mode on mobile */
         @media (max-height: 500px) and (orientation: landscape) {
             .top-header {
                 padding: 10px 15px;
+                flex-direction: row;
             }
             .top-header h1 {
                 font-size: 1.2rem;
+                padding: 0;
+                margin-top: 0;
             }
             .back-button-tab {
                 top: 15px;
@@ -636,6 +653,7 @@
         @media (max-width: 360px) {
             .top-header h1 {
                 font-size: 1.1rem;
+                padding: 0 40px;
             }
             .nav-link {
                 font-size: 0.75rem;
@@ -647,6 +665,9 @@
             }
             .card-image {
                 height: 160px;
+            }
+            .back-button-tab {
+                padding: 6px 12px;
             }
         }
     </style>
@@ -811,7 +832,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2025 Dr Oscar Eybers</p>
+                <p>&copy; 2023 Academic Literacies Research</p>
                 <p>All rights reserved</p>
             </div>
         </div>
