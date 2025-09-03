@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='LTF_verify' content='4729f595348a5d836a3cb522d6276f3f'/>
     <title>Academic Literacies Model</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
@@ -27,19 +26,8 @@
             --royal-blue: #4169E1;
             --royal-blue-light: #6c8eff;
             --aqua-blue: #00FFFF;
-            --card-padding: 20px;
+            --card-padding: 15px;
             --card-gap: 20px;
-            --pyramid-neon-color: #00FFFF;
-            --pyramid-base-size: 400px;
-            --pyramid-height: 300px;
-            /* New pyramid colors */
-            --color1: #FF6B6B;
-            --color2: #FFD166;
-            --color3: #06D6A0;
-            --color4: #118AB2;
-            --color5: #EF476F;
-            --color6: #FF9E00;
-            --color7: #073B4C;
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -161,7 +149,7 @@
             margin: 0 auto;
             position: relative;
         }
-        /* Header styling with pyramid integration - UPDATED */
+        /* Header styling */
         .header-content {
             display: flex;
             flex-direction: column;
@@ -177,67 +165,6 @@
             padding: 0;
             margin-bottom: 10px;
             width: 100%;
-        }
-        .header-pyramid {
-            margin: 10px 0 0 0;
-        }
-        /* Pyramid styling for header */
-        .pyramid-container {
-            width: 100%;
-            height: 100%;
-            perspective: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .pyramid {
-            width: 40px;
-            height: 40px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: swivel 10s infinite ease-in-out,
-                       color-shift 15s infinite linear;
-        }
-        @keyframes swivel {
-            0% { transform: rotateX(-20deg) rotateY(0deg); }
-            100% { transform: rotateX(-20deg) rotateY(360deg); }
-        }
-        @keyframes color-shift {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-        .pyramid-base {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-image: radial-gradient(circle, #ffcc00, #ff9900);
-            transform: rotateX(90deg) translateZ(20px);
-            box-shadow: 0 0 12px rgba(255, 204, 0, 0.8);
-        }
-        .pyramid-face {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 20px 34px 20px;
-            border-color: transparent transparent #ffcc00 transparent;
-            background-image: radial-gradient(circle, #ffcc00, #ff9900);
-            box-shadow: 0 0 12px rgba(255, 204, 0, 0.8),
-                        inset 0 0 5px rgba(255, 204, 0, 0.5);
-            transform: rotateX(-60deg) translateZ(34px);
-            transform-origin: 50% 100%;
-        }
-        .pyramid-face.front {
-            transform: rotateX(-60deg) translateZ(34px);
-        }
-        .pyramid-face.back {
-            transform: rotateY(180deg) rotateX(-60deg) translateZ(34px);
-        }
-        .pyramid-face.left {
-            transform: rotateY(-90deg) rotateX(-60deg) translateZ(34px);
-        }
-        .pyramid-face.right {
-            transform: rotateY(90deg) rotateX(-60deg) translateZ(34px);
         }
         header {
             text-align: center;
@@ -375,21 +302,6 @@
             margin-top: 10px;
             line-height: 1.5;
         }
-        .contact-card a {
-            color: var(--digital-purple);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            word-break: break-all;
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-        .contact-card a:hover {
-            color: var(--lighter-accent);
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.7);
-            background: rgba(255, 255, 255, 0.1);
-        }
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -505,15 +417,15 @@
             align-items: center;
             justify-content: center;
             margin: 12px 0;
-            min-height: 200px;
+            min-height: 180px;
             background: rgba(10, 10, 15, 0.5);
             border-radius: 8px;
             border: 1px solid rgba(207, 64, 255, 0.2);
             overflow: hidden;
         }
         .image-container img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             border-radius: 8px;
             transition: all 0.5s ease;
@@ -647,12 +559,6 @@
             border-radius: 8px;
         }
 
-        @media (max-width: 600px) {
-            .card-video-container {
-                padding-bottom: 60%;
-            }
-        }
-
         /* Counter Styles */
         .counter-section {
             text-align: center;
@@ -689,111 +595,14 @@
         }
         /* New GIF Styles */
         .hero-gif {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(207, 64, 255, 0.5);
             border: 2px solid var(--digital-purple);
             display: block;
             margin: 0 auto;
             object-fit: cover;
-        }
-        @media (max-width: 600px) {
-            .card-video-container {
-                padding-bottom: 60%;
-            }
-            .counter-wrapper {
-                font-size: 2rem !important;
-                min-width: 200px;
-                padding: 0.3rem 0.8rem;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            .articles-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media (max-width: 900px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                position: relative;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            .header-image {
-                width: 50%;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-        }
-        /* Mobile styles for the hero section */
-        @media (max-width: 768px) {
-            .hero-section {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .header-image {
-                width: 70%;
-            }
-        }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            .subtitle {
-                font-size: 0.9rem;
-            }
-            .header-image {
-                width: 95%;
-            }
-            .back-button-tab {
-                top: 12px;
-                left: 12px;
-                padding: 6px 12px;
-            }
-            .counter-wrapper {
-                font-size: 1.8rem !important;
-                min-width: 180px;
-                padding: 0.3rem 0.7rem;
-            }
-            .counter-label {
-                font-size: 0.9rem;
-            }
-            .sidebar-image {
-                height: 120px;
-            }
-            /* Adjust header layout for mobile */
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .header-text {
-                padding-right: 0;
-                margin-bottom: 12px;
-            }
-            .header-pyramid {
-                margin-left: 0;
-                margin-top: 8px;
-            }
-            .image-container img {
-                width: 150px;
-                height: 150px;
-            }
-            .hero-gif {
-                width: 150px;
-                height: 150px;
-            }
-        }
-        
-        /* Image optimization classes */
-        .optimized-img {
-            max-width: 100%;
-            height: auto;
         }
         
         /* Content organization improvements */
@@ -821,6 +630,59 @@
             max-width: 600px;
             width: 100%;
         }
+
+        /* Media Queries */
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            .back-button-tab {
+                top: 12px;
+                left: 12px;
+                padding: 6px 12px;
+            }
+            .counter-wrapper {
+                font-size: 1.8rem !important;
+                min-width: 180px;
+                padding: 0.3rem 0.7rem;
+            }
+            .counter-label {
+                font-size: 0.9rem;
+            }
+            .sidebar-image {
+                height: 120px;
+            }
+            .image-container img {
+                width: 150px;
+                height: 150px;
+            }
+            .hero-gif {
+                width: 150px;
+                height: 150px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -829,7 +691,7 @@
         <i class="fas fa-arrow-left"></i> Back
     </a>
     <div class="sidebar">
-        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image optimized-img">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
         <div class="sidebar-links">
             <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
@@ -869,17 +731,6 @@
                         <h1>Academic Literacies Model</h1>
                         <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
                     </div>
-                    <div class="header-pyramid">
-                        <div class="pyramid-container">
-                            <div class="pyramid">
-                                <div class="pyramid-base"></div>
-                                <div class="pyramid-face front"></div>
-                                <div class="pyramid-face back"></div>
-                                <div class="pyramid-face left"></div>
-                                <div class="pyramid-face right"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="contact-card">
                     <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
@@ -890,7 +741,7 @@
             <div class="content-section">
                 <h2 class="section-title">Core Concepts</h2>
                 <div class="hero-section">
-                    <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif optimized-img">
+                    <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif">
                 </div>
             </div>
 
@@ -913,7 +764,7 @@
                                 </p>
                             </div>
                             <div class="image-container">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="optimized-img">
+                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -921,12 +772,12 @@
                         </div>
                     </div>
 
-                    <div class="article-card image-panel">
+                    <div class="article-card">
                         <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
-                        <div class="image-container">
-                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="optimized-img">
-                        </div>
                         <div class="article-content">
+                            <div class="image-container">
+                                <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
+                            </div>
                             <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
                             <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
                             <div class="article-meta">
@@ -949,10 +800,10 @@
                     <div class="centered-card">
                         <div class="article-card">
                             <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
-                            <div class="image-container">
-                                <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="optimized-img">
-                            </div>
                             <div class="article-content">
+                                <div class="image-container">
+                                    <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue">
+                                </div>
                                 <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
                                 <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
                                 <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
