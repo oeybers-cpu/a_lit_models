@@ -71,11 +71,45 @@
             pointer-events: none;
             z-index: -1;
         }
+        
+        /* New top header with title */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(10, 10, 20, 0.8);
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .top-header h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            animation: pulseText 3s infinite alternate;
+        }
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
+        }
+        
         .back-button-tab {
             position: fixed;
             top: 25px;
             left: 25px;
-            z-index: 1000;
+            z-index: 1001;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
             color: var(--royal-blue);
@@ -103,7 +137,7 @@
             display: flex;
             width: 100%;
             max-width: 1400px;
-            margin: 60px auto 0;
+            margin: 100px auto 0;
             gap: 30px;
         }
         .sidebar {
@@ -115,7 +149,7 @@
             backdrop-filter: blur(10px);
             height: fit-content;
             position: sticky;
-            top: 80px;
+            top: 100px;
             box-shadow: 0 0 20px rgba(65, 105, 225, 0.1);
         }
         .sidebar-image {
@@ -170,10 +204,10 @@
             margin-bottom: 30px;
             border-radius: 0 0 15px 15px;
             overflow: hidden;
-            min-height: 350px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
         }
         header::before {
@@ -250,7 +284,7 @@
             100% { opacity: 0.8; }
         }
         
-        /* Header text elements */
+        /* Header content */
         .header-content {
             position: relative;
             z-index: 2;
@@ -259,36 +293,6 @@
             margin: 0 auto;
         }
         
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-            animation: pulseText 3s infinite alternate;
-        }
-        @keyframes pulseText {
-            0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
-        }
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 10%;
-            width: 80%;
-            height: 1.5px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--digital-purple), transparent);
-            border-radius: 50%;
-        }
         .subtitle {
             font-size: 0.9rem;
             color: #aaa;
@@ -404,7 +408,7 @@
             width: 100%;
             height: 220px;
             object-fit: cover;
-            object-position: center 30%; /* Show the pyramids at the top of the image */
+            object-position: center 30%;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 2px solid rgba(207, 64, 255, 0.3);
@@ -515,8 +519,8 @@
                 margin-bottom: 30px;
                 top: 0;
             }
-            h1 {
-                font-size: 1.8rem;
+            .top-header h1 {
+                font-size: 1.5rem;
             }
         }
         @media (max-width: 768px) {
@@ -525,9 +529,6 @@
             }
         }
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
-            }
             .back-button-tab {
                 top: 15px;
                 left: 15px;
@@ -559,13 +560,22 @@
                 box-shadow: 0 0 15px 4px var(--sun-ray-color);
             }
             header {
-                min-height: 280px;
+                min-height: 250px;
+            }
+            .top-header h1 {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="grid-lines"></div>
+    
+    <!-- New top header with title -->
+    <div class="top-header">
+        <h1>Academic Literacies Model</h1>
+    </div>
+    
     <a href="#" class="back-button-tab" id="backButton">
         <i class="fas fa-arrow-left"></i> Back
     </a>
@@ -614,8 +624,8 @@
                     </div>
                     
                     <div class="header-content">
-                        <h1>Academic Literacies Model</h1>
-                                             <div class="contact-card">
+                        <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                        <div class="contact-card">
                             <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
                             <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                         </div>
