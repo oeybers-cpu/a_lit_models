@@ -161,24 +161,25 @@
             margin: 0 auto;
             position: relative;
         }
-        /* Header styling with pyramid integration */
+        /* Header styling with pyramid integration - UPDATED */
         .header-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             position: relative;
-            padding: 5px 0;
+            padding: 15px 0;
+            text-align: center;
+            width: 100%;
         }
         .header-text {
-            flex: 1;
-            text-align: left;
-            padding-right: 15px;
+            text-align: center;
+            padding: 0;
+            margin-bottom: 15px;
+            width: 100%;
         }
         .header-pyramid {
-            flex-shrink: 0;
-            width: 100px;
-            height: 100px;
-            margin-left: 10px;
+            margin: 15px 0 0 0;
         }
         /* Pyramid styling for header */
         .pyramid-container {
@@ -240,7 +241,7 @@
         }
         header {
             text-align: center;
-            padding: 5px 0;
+            padding: 20px 0;
             position: relative;
             background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
@@ -269,15 +270,15 @@
             100% { left: 100%; }
         }
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 3px;
+            font-size: 2.8rem; /* Increased from 1.8rem */
+            margin-bottom: 10px;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
+            text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); /* Increased glow */
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             position: relative;
@@ -287,44 +288,49 @@
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;
             transform: translateZ(0);
+            width: 100%;
+            text-align: center;
         }
         @keyframes pulseText {
-            0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
+            0% { text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); }
+            100% { text-shadow: 0 0 25px rgba(207, 64, 255, 1), 0 0 35px rgba(207, 64, 255, 0.8); }
         }
         h1::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 10%;
-            width: 80%;
-            height: 1.5px;
+            bottom: -8px;
+            left: 15%;
+            width: 70%;
+            height: 2px;
             background: linear-gradient(90deg, transparent, var(--primary), var(--digital-purple), transparent);
             border-radius: 50%;
         }
         .subtitle {
-            font-size: 0.7rem;
-            color: #aaa;
+            font-size: 1.1rem; /* Increased from 0.7rem */
+            color: #ccc; /* Lightened for better visibility */
             max-width: 800px;
-            margin: 4px auto 6px;
+            margin: 10px auto 15px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;
             transform: translateZ(0);
+            text-align: center;
+            padding: 0 20px;
         }
         .contact-card {
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
-            padding: 8px;
-            max-width: 500px;
-            margin: 10px auto;
+            padding: 15px;
+            max-width: 600px;
+            margin: 20px auto;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
         .contact-card::before {
             content: '';
@@ -347,29 +353,36 @@
         }
         .contact-card h2 {
             color: var(--digital-purple);
-            margin-bottom: 5px;
-            font-size: 1rem;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 10px;
             font-family: 'Orbitron', sans-serif;
             border: none;
-            text-align: left;
-            width: auto;
+            text-align: center;
+            width: 100%;
             padding-bottom: 0;
             margin-top: 0;
         }
         .contact-card h2::after {
             display: none;
         }
+        .contact-card p {
+            color: #ddd;
+            font-size: 1rem;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
         .contact-card a {
             color: var(--digital-purple);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             word-break: break-all;
             display: inline-block;
-            padding: 2px 5px;
+            padding: 5px 10px;
             border-radius: 3px;
         }
         .contact-card a:hover {
@@ -723,7 +736,7 @@
                 width: 50%;
             }
             h1 {
-                font-size: 1.6rem;
+                font-size: 2.2rem; /* Adjusted for tablet */
             }
         }
         /* Mobile styles for the hero section */
@@ -741,7 +754,10 @@
         }
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.4rem;
+                font-size: 1.8rem; /* Adjusted for mobile */
+            }
+            .subtitle {
+                font-size: 0.9rem; /* Adjusted for mobile */
             }
             .header-image {
                 width: 95%; /* Adjusted for mobile view */
@@ -870,7 +886,7 @@
                 </div>
                 <div class="contact-card">
                     <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
-                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
+                    <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                 </div>
             </header>
 
