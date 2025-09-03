@@ -28,7 +28,7 @@
             --royal-blue-light: #6c8eff;
             --aqua-blue: #00FFFF;
             --card-padding: 15px;
-            --card-gap: 25px;
+            --card-gap: 20px;
             --pyramid-neon-color: #00FFFF;
             --pyramid-base-size: 400px;
             --pyramid-height: 300px;
@@ -122,6 +122,8 @@
         }
         .sidebar-image {
             width: 100%;
+            height: 180px;
+            object-fit: cover;
             border-radius: 8px;
             margin-bottom: 20px;
             border: 1px solid var(--royal-blue);
@@ -445,7 +447,7 @@
             overflow: hidden;
         }
         .image-container img {
-            width: 75%;
+            max-width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 8px;
@@ -461,17 +463,14 @@
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
         }
-        .imhotep-image {
-            width: 45% !important;
+        .model-image {
+            max-width: 85%;
         }
         .ubuntu-image {
-            width: 65% !important;
+            max-width: 60%;
         }
-        @media (max-width: 600px) {
-            .ubuntu-image {
-                width: 50% !important;
-                max-width: 100% !important;
-            }
+        .imhotep-image {
+            max-width: 50%;
         }
         .image-container img:hover {
             transform: scale(1.05);
@@ -684,6 +683,9 @@
             .header-image {
                 width: 70%;
             }
+            .model-image, .ubuntu-image, .imhotep-image {
+                max-width: 80% !important;
+            }
         }
         @media (max-width: 600px) {
             h1 {
@@ -705,6 +707,29 @@
             .counter-label {
                 font-size: 1rem;
             }
+            .sidebar-image {
+                height: 150px;
+            }
+        }
+        
+        /* Image optimization classes */
+        .optimized-img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Content organization improvements */
+        .content-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: var(--digital-purple);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
         }
     </style>
 </head>
@@ -714,7 +739,7 @@
         <i class="fas fa-arrow-left"></i> Back
     </a>
     <div class="sidebar">
-        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image optimized-img">
         <div class="sidebar-links">
             <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
                 The academic literacies model: Theory and applications
@@ -757,77 +782,83 @@
                 </div>
             </header>
 
-            <div class="hero-section">
-                <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif">
+            <div class="content-section">
+                <h2 class="section-title">Core Concepts</h2>
+                <div class="hero-section">
+                    <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif optimized-img">
+                </div>
             </div>
 
-            <div class="articles-container">
-                <div class="article-card">
-                    <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
-                    <div class="article-content">
-                        <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
-                        <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
-                        <p><strong>Academic Literacies Model:</strong> Literacy is understood as <a href="https://www.sciencedirect.com/topics/social-sciences/academic-literacy" target="_blank">socially situated and contested</a>, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                        <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
-                            <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
-                                <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
-                                "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
-                            </p>
-                            <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: right; color: var(--lighter-accent);">
-                                - Lea & Street (2006)
-                            </p>
+            <div class="content-section">
+                <h2 class="section-title">Key Perspectives</h2>
+                <div class="articles-container">
+                    <div class="article-card">
+                        <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
+                        <div class="article-content">
+                            <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
+                            <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
+                            <p><strong>Academic Literacies Model:</strong> Literacy is understood as <a href="https://www.sciencedirect.com/topics/social-sciences/academic-literacy" target="_blank">socially situated and contested</a>, involving negotiation of meaning, identity, and power within academic contexts.</p>
+                            <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                                <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
+                                    "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
+                                </p>
+                                <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: right; color: var(--lighter-accent);">
+                                    - Lea & Street (2006)
+                                </p>
+                            </div>
+                            <div class="image-container" style="min-height: 100px; margin-top: 12px;">
+                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="model-image optimized-img">
+                            </div>
                         </div>
-                        <div class="image-container" style="min-height: 100px; margin-top: 12px;">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="model-image">
+                        <div class="card-footer">
+                            Each model offers different perspectives on how students engage with academic writing demands
                         </div>
                     </div>
-                    <div class="card-footer">
-                        Each model offers different perspectives on how students engage with academic writing demands
-                    </div>
-                </div>
 
-                <div class="article-card image-panel">
-                    <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
-                    <div class="image-container">
-                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="ubuntu-image">
-                    </div>
-                    <div class="article-content">
-                        <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
-                        <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
-                        <div class="article-meta">
-                            <span class="meta-tag">Philosophy</span>
-                            <span class="meta-tag">Community</span>
-                            <span class="meta-tag">African Epistemology</span>
+                    <div class="article-card image-panel">
+                        <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
+                        <div class="image-container">
+                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="ubuntu-image optimized-img">
                         </div>
-                        <div class="card-video-container">
-                             <video class="card-video" controls>
-                                 <source src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/68814a0f33248487952b2cf30e22888ae2d531ec/ss_study_female.mp4" type="video/mp4">
-                                 Your browser does not support the video tag.
-                             </video>
+                        <div class="article-content">
+                            <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
+                            <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
+                            <div class="article-meta">
+                                <span class="meta-tag">Philosophy</span>
+                                <span class="meta-tag">Community</span>
+                                <span class="meta-tag">African Epistemology</span>
+                            </div>
+                            <div class="card-video-container">
+                                 <video class="card-video" controls>
+                                     <source src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/68814a0f33248487952b2cf30e22888ae2d531ec/ss_study_female.mp4" type="video/mp4">
+                                     Your browser does not support the video tag.
+                                 </video>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            "A person is a person through other persons" - African proverb
                         </div>
                     </div>
-                    <div class="card-footer">
-                        "A person is a person through other persons" - African proverb
-                    </div>
-                </div>
 
-                <div class="article-card">
-                    <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
-                    <div class="image-container">
-                        <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image">
-                    </div>
-                    <div class="article-content">
-                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
-                        <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
-                        <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
-                            <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
-                                <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
-                                "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
-                            </p>
+                    <div class="article-card">
+                        <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
+                        <div class="image-container">
+                            <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image optimized-img">
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        "A person is a person through other persons" - African proverb
+                        <div class="article-content">
+                            <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
+                            <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
+                            <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
+                                <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
+                                    "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            "A person is a person through other persons" - African proverb
+                        </div>
                     </div>
                 </div>
             </div>
