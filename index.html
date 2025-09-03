@@ -473,15 +473,19 @@
             margin-top: 40px;
         }
         
-        /* Responsive Design */
-        @media (max-width: 1100px) {
-            .articles-container {
-                grid-template-columns: 1fr;
-            }
+        /* Responsive Design Improvements */
+        @media (max-width: 1200px) {
             .top-nav {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 900px) {
             .top-nav {
                 grid-template-columns: repeat(2, 1fr);
@@ -489,17 +493,45 @@
             .top-header h1 {
                 font-size: 1.5rem;
             }
+            header {
+                min-height: 250px;
+            }
+            .sun-container {
+                width: 250px;
+                height: 250px;
+            }
+            .sun-core {
+                width: 100px;
+                height: 100px;
+            }
+            .sun-rays {
+                width: 250px;
+                height: 250px;
+            }
         }
+        
         @media (max-width: 768px) {
             .header-image {
                 width: 70%;
             }
+            .top-nav {
+                gap: 12px;
+            }
+            .nav-link {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
         }
+        
         @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
             .back-button-tab {
                 top: 15px;
                 left: 15px;
                 padding: 8px 15px;
+                font-size: 0.8rem;
             }
             .card-image {
                 height: 180px;
@@ -524,13 +556,97 @@
                 box-shadow: 0 0 15px 4px var(--sun-ray-color);
             }
             header {
-                min-height: 250px;
+                min-height: 220px;
             }
             .top-header h1 {
                 font-size: 1.3rem;
             }
             .top-nav {
                 grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 0 10px;
+            }
+            .nav-link {
+                padding: 12px 10px;
+                font-size: 0.85rem;
+            }
+            .contact-card {
+                padding: 15px;
+                margin: 15px auto;
+            }
+            .contact-card h2 {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .article-card h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Special handling for landscape mode on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .top-header {
+                padding: 10px 15px;
+            }
+            .top-header h1 {
+                font-size: 1.2rem;
+            }
+            .back-button-tab {
+                top: 15px;
+                left: 15px;
+                padding: 6px 12px;
+            }
+            .main-container {
+                margin: 70px auto 0;
+            }
+            header {
+                min-height: 200px;
+            }
+            .sun-container {
+                width: 150px;
+                height: 150px;
+            }
+            .sun-core {
+                width: 60px;
+                height: 60px;
+            }
+            .sun-rays {
+                width: 150px;
+                height: 150px;
+            }
+            .contact-card {
+                padding: 12px;
+                margin: 10px auto;
+            }
+            .contact-card h2 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .contact-card p {
+                font-size: 0.9rem;
+            }
+            .top-nav {
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Special handling for very small devices */
+        @media (max-width: 360px) {
+            .top-header h1 {
+                font-size: 1.1rem;
+            }
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 10px 8px;
+            }
+            .hero-gif {
+                width: 150px;
+                height: 150px;
+            }
+            .card-image {
+                height: 160px;
             }
         }
     </style>
@@ -706,6 +822,14 @@
         document.getElementById('backButton').addEventListener('click', function(e) {
             e.preventDefault();
             window.history.back();
+        });
+        
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            // Reload on orientation change for better rendering
+            setTimeout(function() {
+                window.location.reload();
+            }, 300);
         });
     </script>
 </body>
