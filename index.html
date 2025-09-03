@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='LTF_verify' content='4729f595348a5d836a3cb522d6276f3f'/>
     <title>Academic Literacies Model</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
@@ -29,16 +28,6 @@
             --aqua-blue: #00FFFF;
             --card-padding: 20px;
             --card-gap: 25px;
-            --pyramid-neon-color: #00FFFF;
-            --pyramid-base-size: 400px;
-            --pyramid-height: 300px;
-            --color1: #FF6B6B;
-            --color2: #FFD166;
-            --color3: #06D6A0;
-            --color4: #118AB2;
-            --color5: #EF476F;
-            --color6: #FF9E00;
-            --color7: #073B4C;
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -50,7 +39,6 @@
             font-family: 'Exo 2', sans-serif;
             line-height: 1.6;
             display: flex;
-            flex-direction: column;
         }
         body::before {
             content: '';
@@ -259,6 +247,7 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
+            z-index: 1;
         }
         .contact-card:hover {
             transform: translateY(-5px);
@@ -300,10 +289,28 @@
             height: 100%;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--digital-purple), var(--royal-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            z-index: 1;
         }
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
+        }
+        .article-card:hover::before {
+            transform: scaleX(1);
         }
         .article-card h3 {
             color: var(--digital-purple);
@@ -327,6 +334,10 @@
             border-radius: 8px;
             margin-bottom: 15px;
             border: 2px solid rgba(207, 64, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover .card-image {
+            transform: scale(1.03);
         }
         .card-text {
             flex-grow: 1;
@@ -569,7 +580,8 @@
                             <div class="article-card">
                                 <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
                                 <div class="article-content">
-                                    <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756873309.png?raw=true" alt="Imhotep Statue" class="card-image">
+                                    <!-- Updated Imhotep image with object-position: top -->
+                                    <img src="https://cdn.britannica.com/11/10811-004-A4430E2C/Imhotep-sculpture-Egyptian-Museum-Berlin.jpg" alt="Imhotep Statue" class="card-image">
                                     <div class="card-text">
                                         <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis.</p>
                                         <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture.</p>
