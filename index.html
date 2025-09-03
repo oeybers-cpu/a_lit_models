@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='LTF_verify' content='4729f595348a5d836a3cb522d6276f3f'/>
     <title>Academic Literacies Model</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,20 +21,31 @@
             --darker: #050508;
             --light: #f0f0f0;
             --card-bg: rgba(20, 20, 30, 0.7);
-            --sidebar-width: 250px;
+            --sidebar-width: 280px;
             --lighter-accent: #81d4fa;
             --digital-purple: #cf40ff;
             --royal-blue: #4169E1;
             --royal-blue-light: #6c8eff;
             --aqua-blue: #00FFFF;
-            --card-padding: 15px;
-            --card-gap: 20px;
+            --card-padding: 20px;
+            --card-gap: 25px;
+            --pyramid-neon-color: #00FFFF;
+            --pyramid-base-size: 400px;
+            --pyramid-height: 300px;
+            /* New pyramid colors */
+            --color1: #FF6B6B;
+            --color2: #FFD166;
+            --color3: #06D6A0;
+            --color4: #118AB2;
+            --color5: #EF476F;
+            --color6: #FF9E00;
+            --color7: #073B4C;
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
             color: var(--light);
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
             position: relative;
             overflow-x: hidden;
             font-family: 'Exo 2', sans-serif;
@@ -69,23 +81,23 @@
         }
         .back-button-tab {
             position: fixed;
-            top: 20px;
-            left: 20px;
+            top: 25px;
+            left: 25px;
             z-index: 1000;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
             color: var(--royal-blue);
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
         .back-button-tab:hover {
@@ -97,39 +109,39 @@
         }
         .sidebar {
             width: var(--sidebar-width);
-            padding: 15px;
+            padding: 20px;
             background: var(--card-bg);
             border: 1px solid var(--royal-blue);
             border-radius: 11.25px;
-            margin-right: 25px;
+            margin-right: 30px;
             backdrop-filter: blur(10px);
             height: fit-content;
             position: sticky;
-            top: 15px;
+            top: 20px;
             box-shadow: 0 0 20px rgba(65, 105, 225, 0.1);
         }
         .sidebar-image {
             width: 100%;
-            height: 140px;
+            height: 150px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid var(--royal-blue);
         }
         .sidebar-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
         .sidebar-link {
             color: var(--digital-purple);
             text-decoration: none;
-            padding: 8px 12px;
+            padding: 10px 15px;
             border-radius: 8px;
             background: rgba(65, 105, 225, 0.1);
             border: 1px solid var(--royal-blue);
             transition: all 0.3s ease;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-align: center;
             font-weight: 500;
             text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
@@ -149,30 +161,42 @@
             margin: 0 auto;
             position: relative;
         }
-        /* Header styling */
-        .header-content {
+        /* New hero section to hold pyramid and image */
+        .hero-section {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            position: relative;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+            flex-wrap: wrap;
         }
-        .header-text {
-            text-align: center;
-            padding: 0;
-            margin-bottom: 10px;
+        .header-image-container {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
             width: 100%;
+            margin: 20px 0;
+        }
+        .header-image {
+            width: 25%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--royal-blue);
+            min-width: 200px;
+        }
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         header {
             text-align: center;
-            padding: 15px 0;
+            padding: 8px 0;
             position: relative;
             background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-radius: 0 0 15px 15px;
             overflow: hidden;
         }
@@ -197,15 +221,15 @@
             100% { left: 100%; }
         }
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
+            font-size: 2.0rem;
+            margin-bottom: 4px;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(207, 64, 255, 0.8);
+            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             position: relative;
@@ -215,35 +239,31 @@
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;
             transform: translateZ(0);
-            width: 100%;
-            text-align: center;
         }
         @keyframes pulseText {
-            0% { text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); }
-            100% { text-shadow: 0 0 25px rgba(207, 64, 255, 1), 0 0 35px rgba(207, 64, 255, 0.8); }
+            0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
         }
         h1::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 15%;
-            width: 70%;
-            height: 2px;
+            bottom: -5px;
+            left: 10%;
+            width: 80%;
+            height: 1.5px;
             background: linear-gradient(90deg, transparent, var(--primary), var(--digital-purple), transparent);
             border-radius: 50%;
         }
         .subtitle {
-            font-size: 1.1rem;
-            color: #ccc;
+            font-size: 0.75rem;
+            color: #aaa;
             max-width: 800px;
-            margin: 8px auto 12px;
+            margin: 6px auto 8px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;
             transform: translateZ(0);
-            text-align: center;
-            padding: 0 20px;
         }
         .contact-card {
             background: var(--card-bg);
@@ -253,7 +273,7 @@
             max-width: 600px;
             margin: 15px auto;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
+            box-shadow: 0 0 18px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -273,7 +293,7 @@
         }
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(207, 64, 255, 0.3);
+            box-shadow: 0 6px 24px rgba(207, 64, 255, 0.3);
         }
         .contact-card:hover::before {
             transform: scaleX(1);
@@ -281,263 +301,129 @@
         .contact-card h2 {
             color: var(--digital-purple);
             margin-bottom: 10px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             font-family: 'Orbitron', sans-serif;
-            border: none;
-            text-align: center;
-            width: 100%;
-            padding-bottom: 0;
-            margin-top: 0;
-        }
-        .contact-card h2::after {
-            display: none;
         }
         .contact-card p {
             color: #ddd;
-            font-size: 1rem;
-            margin-top: 10px;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
+        
+        /* Improved Card Styles */
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--card-gap);
-            margin: 15px 0;
+            margin: 30px 0;
         }
         .article-card {
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 11.25px;
+            border-radius: 12px;
             padding: var(--card-padding);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             height: 100%;
+            transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
-        }
-        .article-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-            text-decoration: none;
         }
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(207, 64, 255, 0.3);
-            border-color: rgba(207, 64, 255, 0.4);
-        }
-        .article-card:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
         }
         .article-card h3 {
             color: var(--digital-purple);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            line-height: 1.4;
-            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 6px;
-            margin-top: 0;
-        }
-        .article-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--digital-purple), transparent);
-            border-radius: 50%;
-        }
-        .article-card h3 i {
-            font-size: 1.1rem;
-            color: var(--digital-purple);
-        }
-        .article-card:hover h3 {
-            text-shadow: 0 0 12px rgba(207, 64, 255, 1), 0 0 20px rgba(207, 64, 255, 0.6);
+            gap: 10px;
         }
         .article-content {
-            color: #ddd;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(207, 64, 255, 0.3);
+        }
+        .card-text {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        .article-content p {
-            margin-bottom: 12px;
-        }
-        .article-content ul {
-            padding-left: 18px;
-            margin-bottom: 12px;
-        }
-        .article-content li {
-            margin-bottom: 5px;
+        .card-text p {
+            margin-bottom: 15px;
+            color: #ddd;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
         .card-footer {
             background: rgba(207, 64, 255, 0.08);
             border-top: 1px solid rgba(207, 64, 255, 0.2);
-            padding: 8px 12px;
+            padding: 12px 15px;
             border-radius: 0 0 8px 8px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--lighter-accent);
-            position: relative;
-            margin-top: auto;
-        }
-        .card-footer::before {
-            content: '»';
-            position: absolute;
-            left: 8px;
-            color: var(--digital-purple);
-            font-weight: bold;
-        }
-        .image-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 12px 0;
-            min-height: 180px;
-            background: rgba(10, 10, 15, 0.5);
-            border-radius: 8px;
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            overflow: hidden;
-        }
-        .image-container img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: all 0.5s ease;
-            border: 2px solid transparent;
-            box-shadow:
-                0 0 8px rgba(207, 64, 255, 0.5),
-                0 0 15px rgba(207, 64, 255, 0.3),
-                0 0 20px rgba(207, 64, 255, 0.2),
-                inset 0 0 8px rgba(207, 64, 255, 0.3),
-                inset 0 0 15px rgba(207, 64, 255, 0.2);
-            background:
-                linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
-                linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
-        }
-        .image-container img:hover {
-            transform: scale(1.05);
-            box-shadow:
-                0 0 15px rgba(255, 255, 255, 0.6),
-                0 0 30px rgba(255, 255, 255, 0.4),
-                0 0 45px rgba(255, 255, 255, 0.2),
-                0 0 12px rgba(207, 64, 255, 0.8),
-                0 0 20px rgba(207, 64, 255, 0.6),
-                0 0 28px rgba(207, 64, 255, 0.4);
-            filter: brightness(1.1) contrast(1.1);
+            margin-top: 15px;
         }
         .citation {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.75rem;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
             border: 1px solid rgba(207, 64, 255, 0.3);
-            display: inline-block;
-            margin: 6px 0;
+            margin: 15px 0;
         }
         .article-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin: 8px 0 6px;
+            margin: 10px 0;
         }
         .meta-tag {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
-            padding: 3px 8px;
+            padding: 5px 10px;
             border-radius: 15px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             border: 1px solid rgba(207, 64, 255, 0.3);
-            text-shadow: 0 0 4px rgba(207, 64, 255, 0.3);
         }
-        .new-tag {
-            background: rgba(207, 64, 255, 0.25);
-            color: var(--accent);
-            border-color: rgba(207, 64, 255, 0.4);
-            text-shadow: 0 0 4px rgba(207, 64, 255, 0.4);
+        .centered-card {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
         }
-        .article-link {
-            display: inline-block;
-            color: var(--light);
-            background: linear-gradient(90deg, rgba(207, 64, 255, 0.2), rgba(2, 136, 209, 0.2));
-            padding: 8px 12px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(207, 64, 255, 0.3);
-            text-align: center;
+        .centered-card > .article-card {
+            max-width: 700px;
             width: 100%;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            color: var(--digital-purple);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.75px;
-            position: relative;
-            overflow: hidden;
-            margin-top: 12px;
-            font-size: 0.9rem;
-        }
-        .article-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        .article-link:hover {
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            color: var(--darker);
-            box-shadow: 0 0 10px rgba(207, 64, 255, 0.5);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-        .article-link:hover::before {
-            left: 100%;
-        }
-        .copyright {
             text-align: center;
-            padding: 20px 0 12px;
-            color: #777;
-            font-size: 0.75rem;
-            border-top: 1px solid rgba(207, 64, 255, 0.2);
-            margin-top: 15px;
         }
-        .copyright p {
-            margin: 5px 0;
-        }
-        .university-logo {
-            width: 100px;
-            margin: 8px auto;
-            filter: brightness(0.8);
-            opacity: 0.7;
-        }
+        
+        /* Video Styles */
         .card-video-container {
             position: relative;
             width: 100%;
@@ -545,11 +431,10 @@
             height: 0;
             overflow: hidden;
             border-radius: 8px;
-            margin-top: 12px;
+            margin: 15px 0;
             background: #000;
             border: 1px solid rgba(207, 64, 255, 0.2);
         }
-
         .card-video {
             position: absolute;
             top: 0;
@@ -558,80 +443,29 @@
             height: 100%;
             border-radius: 8px;
         }
-
-        /* Counter Styles */
-        .counter-section {
-            text-align: center;
-            padding: 1.2rem;
-            background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 11.25px;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.1);
-        }
-        .counter-label {
-            font-size: 1rem;
-            color: var(--digital-purple);
-            margin-bottom: 0.4rem;
-        }
-        .counter-wrapper {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-shadow: 0 0 8px rgba(207, 64, 255, 0.7);
-            margin: 0.4rem 0;
-            padding: 0.4rem 1.2rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            min-width: 250px;
-            letter-spacing: 1px;
-            display: inline-block;
-        }
-        .counter-section p {
-            color: #aaa;
-            margin-top: 0.4rem;
-            font-size: 0.85rem;
-        }
-        /* New GIF Styles */
+        
+        /* Hero GIF */
         .hero-gif {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(207, 64, 255, 0.5);
+            box-shadow: 0 0 25px rgba(207, 64, 255, 0.5);
             border: 2px solid var(--digital-purple);
             display: block;
             margin: 0 auto;
             object-fit: cover;
         }
         
-        /* Content organization improvements */
-        .content-section {
-            margin-bottom: 25px;
-        }
-        
-        .section-title {
-            color: var(--digital-purple);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            font-family: 'Orbitron', sans-serif;
+        .copyright {
             text-align: center;
+            padding: 30px 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
+            margin-top: 40px;
         }
         
-        /* Centering for the last card */
-        .centered-card {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-        }
-        .centered-card > .article-card {
-            max-width: 600px;
-            width: 100%;
-        }
-
-        /* Media Queries */
+        /* Responsive Design */
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr;
@@ -645,42 +479,45 @@
                 width: 100%;
                 position: relative;
                 margin-right: 0;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
+            }
+            .header-image {
+                width: 50%;
             }
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .header-image {
+                width: 70%;
             }
         }
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
-            .subtitle {
-                font-size: 0.9rem;
+            .header-image {
+                width: 95%;
             }
             .back-button-tab {
-                top: 12px;
-                left: 12px;
-                padding: 6px 12px;
-            }
-            .counter-wrapper {
-                font-size: 1.8rem !important;
-                min-width: 180px;
-                padding: 0.3rem 0.7rem;
-            }
-            .counter-label {
-                font-size: 0.9rem;
+                top: 15px;
+                left: 15px;
+                padding: 8px 15px;
             }
             .sidebar-image {
-                height: 120px;
+                height: 130px;
             }
-            .image-container img {
-                width: 150px;
-                height: 150px;
+            .card-image {
+                height: 180px;
             }
             .hero-gif {
-                width: 150px;
-                height: 150px;
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
@@ -726,12 +563,8 @@
     <div class="main-content">
         <div class="container">
             <header>
-                <div class="header-content">
-                    <div class="header-text">
-                        <h1>Academic Literacies Model</h1>
-                        <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
-                    </div>
-                </div>
+                <h1>Academic Literacies Model</h1>
+                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
                 <div class="contact-card">
                     <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
                     <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
@@ -740,7 +573,7 @@
 
             <div class="content-section">
                 <h2 class="section-title">Core Concepts</h2>
-                <div class="hero-section">
+                <div class="header-image-container">
                     <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif">
                 </div>
             </div>
@@ -748,23 +581,20 @@
             <div class="content-section">
                 <h2 class="section-title">Key Perspectives</h2>
                 <div class="articles-container">
+                    <!-- Card 1: Three Models -->
                     <div class="article-card">
                         <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
                         <div class="article-content">
-                            <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
-                            <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
-                            <p><strong>Academic Literacies Model:</strong> Literacy is understood as <a href="https://www.sciencedirect.com/topics/social-sciences/academic-literacy" target="_blank">socially situated and contested</a>, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                            <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
-                                <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
-                                    <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
-                                    "The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access."
-                                </p>
-                                <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: right; color: var(--lighter-accent);">
-                                    - Lea & Street (2006)
-                                </p>
-                            </div>
-                            <div class="image-container">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy">
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="card-image">
+                            <div class="card-text">
+                                <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
+                                <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
+                                <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
+                                
+                                <div class="citation">
+                                    <p><i class="fas fa-quote-left"></i> The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access.</p>
+                                    <p>- Lea & Street (2006)</p>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -772,24 +602,27 @@
                         </div>
                     </div>
 
+                    <!-- Card 2: Ubuntu Concept -->
                     <div class="article-card">
                         <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
                         <div class="article-content">
-                            <div class="image-container">
-                                <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy">
-                            </div>
-                            <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
-                            <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
-                            <div class="article-meta">
-                                <span class="meta-tag">Philosophy</span>
-                                <span class="meta-tag">Community</span>
-                                <span class="meta-tag">African Epistemology</span>
-                            </div>
-                            <div class="card-video-container">
-                                 <video class="card-video" controls>
-                                     <source src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/68814a0f33248487952b2cf30e22888ae2d531ec/ss_study_female.mp4" type="video/mp4">
-                                     Your browser does not support the video tag.
-                                 </video>
+                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="card-image">
+                            <div class="card-text">
+                                <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
+                                <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
+                                
+                                <div class="article-meta">
+                                    <span class="meta-tag">Philosophy</span>
+                                    <span class="meta-tag">Community</span>
+                                    <span class="meta-tag">African Epistemology</span>
+                                </div>
+                                
+                                <div class="card-video-container">
+                                    <video class="card-video" controls>
+                                        <source src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/68814a0f33248487952b2cf30e22888ae2d531ec/ss_study_female.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -797,20 +630,19 @@
                         </div>
                     </div>
 
+                    <!-- Card 3: African Knowledge Systems -->
                     <div class="centered-card">
                         <div class="article-card">
                             <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
                             <div class="article-content">
-                                <div class="image-container">
-                                    <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue">
-                                </div>
-                                <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
-                                <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture. He was also a pioneering physician, often credited as the founder of Egyptian medicine, with his teachings influencing healing practices for centuries. In addition, he contributed to astronomy and philosophical thought, earning a reputation as a sage and advisor.</p>
-                                <div style="background: rgba(207, 64, 255, 0.1); border-radius: 8px; padding: 8px; margin-top: 10px;">
-                                    <p style="margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 5px;">
-                                        <i class="fas fa-quote-left" style="color: var(--digital-purple);"></i>
-                                        "Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt."
-                                    </p>
+                                <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="card-image">
+                                <div class="card-text">
+                                    <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis.</p>
+                                    <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture.</p>
+                                    
+                                    <div class="citation">
+                                        <p><i class="fas fa-quote-left"></i> Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt.</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
