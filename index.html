@@ -6,7 +6,7 @@
     <meta name='LTF_verify' content='4729f595348a5d836a3cb522d6276f3f'/>
     <title>Academic Literacies Model</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">https://github.com/oeybers-cpu/a_lit_models/blob/main/1756873309.png?raw=true
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -32,7 +32,6 @@
             --pyramid-neon-color: #00FFFF;
             --pyramid-base-size: 400px;
             --pyramid-height: 300px;
-            /* New pyramid colors */
             --color1: #FF6B6B;
             --color2: #FFD166;
             --color3: #06D6A0;
@@ -51,6 +50,7 @@
             font-family: 'Exo 2', sans-serif;
             line-height: 1.6;
             display: flex;
+            flex-direction: column;
         }
         body::before {
             content: '';
@@ -107,23 +107,30 @@
             color: var(--light);
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1400px;
+            margin: 60px auto 0;
+            gap: 30px;
+        }
         .sidebar {
             width: var(--sidebar-width);
             padding: 20px;
             background: var(--card-bg);
             border: 1px solid var(--royal-blue);
             border-radius: 11.25px;
-            margin-right: 30px;
             backdrop-filter: blur(10px);
             height: fit-content;
             position: sticky;
-            top: 20px;
+            top: 80px;
             box-shadow: 0 0 20px rgba(65, 105, 225, 0.1);
         }
         .sidebar-image {
             width: 100%;
             height: 150px;
             object-fit: cover;
+            object-position: top;
             border-radius: 8px;
             margin-bottom: 20px;
             border: 1px solid var(--royal-blue);
@@ -157,46 +164,16 @@
             flex: 1;
         }
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
             position: relative;
-        }
-        /* New hero section to hold pyramid and image */
-        .hero-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            flex-wrap: wrap;
-        }
-        .header-image-container {
-            flex-shrink: 0;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 20px 0;
-        }
-        .header-image {
-            width: 25%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--royal-blue);
-            min-width: 200px;
-        }
-        .header-image img {
-            width: 100%;
-            height: auto;
-            display: block;
         }
         header {
             text-align: center;
-            padding: 8px 0;
+            padding: 20px 0;
             position: relative;
             background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            margin-bottom: 12px;
+            margin-bottom: 30px;
             border-radius: 0 0 15px 15px;
             overflow: hidden;
         }
@@ -221,8 +198,8 @@
             100% { left: 100%; }
         }
         h1 {
-            font-size: 2.0rem;
-            margin-bottom: 4px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
@@ -235,10 +212,6 @@
             position: relative;
             display: inline-block;
             animation: pulseText 3s infinite alternate;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            backface-visibility: hidden;
-            transform: translateZ(0);
         }
         @keyframes pulseText {
             0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
@@ -255,23 +228,19 @@
             border-radius: 50%;
         }
         .subtitle {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: #aaa;
             max-width: 800px;
-            margin: 6px auto 8px;
+            margin: 10px auto 15px;
             line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            backface-visibility: hidden;
-            transform: translateZ(0);
         }
         .contact-card {
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
-            padding: 15px;
+            padding: 20px;
             max-width: 600px;
-            margin: 15px auto;
+            margin: 20px auto;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 18px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
@@ -300,8 +269,8 @@
         }
         .contact-card h2 {
             color: var(--digital-purple);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -310,8 +279,8 @@
         }
         .contact-card p {
             color: #ddd;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
         /* Improved Card Styles */
@@ -354,7 +323,7 @@
             width: 100%;
             height: 220px;
             object-fit: cover;
-            object-position: top; /* Ensure top of image is visible */
+            object-position: top;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 2px solid rgba(207, 64, 255, 0.3);
@@ -424,27 +393,6 @@
             text-align: center;
         }
         
-        /* Video Styles */
-        .card-video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            margin: 15px 0;
-            background: #000;
-            border: 1px solid rgba(207, 64, 255, 0.2);
-        }
-        .card-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 8px;
-        }
-        
         /* Hero GIF */
         .hero-gif {
             width: 220px;
@@ -473,27 +421,20 @@
             }
         }
         @media (max-width: 900px) {
-            body {
+            .main-container {
                 flex-direction: column;
             }
             .sidebar {
                 width: 100%;
                 position: relative;
-                margin-right: 0;
                 margin-bottom: 30px;
-            }
-            .header-image {
-                width: 50%;
+                top: 0;
             }
             h1 {
                 font-size: 1.8rem;
             }
         }
         @media (max-width: 768px) {
-            .hero-section {
-                flex-direction: column;
-                gap: 20px;
-            }
             .header-image {
                 width: 70%;
             }
@@ -501,9 +442,6 @@
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
-            }
-            .header-image {
-                width: 95%;
             }
             .back-button-tab {
                 top: 15px;
@@ -528,122 +466,96 @@
     <a href="#" class="back-button-tab" id="backButton">
         <i class="fas fa-arrow-left"></i> Back
     </a>
-    <div class="sidebar">
-        <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
-        <div class="sidebar-links">
-            <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
-                The academic literacies model: Theory and applications
-            </a>
-            <a href="https://oeybers-cpu.github.io/multimodal_grammar" class="sidebar-link" target="_blank">
-                Multimodal academic literacy
-            </a>
-            <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
-                Ubuntu and academic literacy
-            </a>
-            <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
-                Imhotep and academic literacy
-            </a>
-            <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_Of_Academic_Literacy" class="sidebar-link" target="_blank">
-                An inclusive African theory of academic literacy
-            </a>
-            <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
-                Achebe and academic literacy
-            </a>
-            <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
-                Wa Thiong'o and academic literacy
-            </a>
-            <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
-                Ancient African Writing
-            </a>
-            <!-- New African Art Semiotics Link -->
-            <a href="https://oeybers-cpu.github.io/visual_semiotics/" class="sidebar-link" target="_blank">
-                African art semiotics
-            </a>
-        </div>
-    </div>
-    <div class="main-content">
-        <div class="container">
-            <header>
-                <h1>Academic Literacies Model</h1>
-                <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
-                <div class="contact-card">
-                    <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
-                    <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
-                </div>
-            </header>
 
-            <div class="content-section">
-                <h2 class="section-title">Core Concepts</h2>
-                <div class="header-image-container">
-                    <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif">
-                </div>
+    <div class="main-container">
+        <div class="sidebar">
+            <img src="https://github.com/oeybers-cpu/multi1/blob/main/1755804090.png?raw=true" alt="Academic Literacies Model" class="sidebar-image">
+            <div class="sidebar-links">
+                <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="sidebar-link" target="_blank">
+                    The academic literacies model: Theory and applications
+                </a>
+                <a href="https://oeybers-cpu.github.io/multimodal_grammar" class="sidebar-link" target="_blank">
+                    Multimodal academic literacy
+                </a>
+                <a href="https://oeybers-cpu.github.io/ubuntu/" class="sidebar-link" target="_blank">
+                    Ubuntu and academic literacy
+                </a>
+                <a href="https://oeybers-cpu.github.io/Imhotep/" class="sidebar-link" target="_blank">
+                    Imhotep and academic literacy
+                </a>
+                <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_Of_Academic_Literacy" class="sidebar-link" target="_blank">
+                    An inclusive African theory of academic literacy
+                </a>
+                <a href="https://oeybers-cpu.github.io/Achebe/" class="sidebar-link" target="_blank">
+                    Achebe and academic literacy
+                </a>
+                <a href="https://oeybers-cpu.github.io/ngugi/" class="sidebar-link" target="_blank">
+                    Wa Thiong'o and academic literacy
+                </a>
+                <a href="https://oeybers-cpu.github.io/ancient_writers/" class="sidebar-link" target="_blank">
+                    Ancient African Writing
+                </a>
+                <a href="https://oeybers-cpu.github.io/visual_semiotics/" class="sidebar-link" target="_blank">
+                    African art semiotics
+                </a>
             </div>
+        </div>
 
-            <div class="content-section">
-                <h2 class="section-title">Key Perspectives</h2>
-                <div class="articles-container">
-                    <!-- Card 1: Three Models -->
-                    <div class="article-card">
-                        <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
-                        <div class="article-content">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="card-image">
-                            <div class="card-text">
-                                <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
-                                <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
-                                <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                                
-                                <div class="citation">
-                                    <p><i class="fas fa-quote-left"></i> The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access.</p>
-                                    <p>- Lea & Street (2006)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            Each model offers different perspectives on how students engage with academic writing demands
-                        </div>
+        <div class="main-content">
+            <div class="container">
+                <header>
+                    <h1>Academic Literacies Model</h1>
+                    <p class="subtitle">A framework for understanding literacy practices in academic contexts</p>
+                    <div class="contact-card">
+                        <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
+                        <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                     </div>
+                </header>
 
-                    <!-- Card 2: Ubuntu Concept -->
-                    <div class="article-card">
-                        <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
-                        <div class="article-content">
-                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="card-image">
-                            <div class="card-text">
-                                <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
-                                <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
-                                
-                                <div class="article-meta">
-                                    <span class="meta-tag">Philosophy</span>
-                                    <span class="meta-tag">Community</span>
-                                    <span class="meta-tag">African Epistemology</span>
-                                </div>
-                                
-                                <div class="card-video-container">
-                                    <video class="card-video" controls>
-                                        <source src="https://raw.githubusercontent.com/oeybers-cpu/a_lit_models/68814a0f33248487952b2cf30e22888ae2d531ec/ss_study_female.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            "A person is a person through other persons" - African proverb
-                        </div>
+                <div class="content-section">
+                    <h2 class="section-title">Core Concepts</h2>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="https://66.media.tumblr.com/6d37485a795ab1d3af4d20a17b07e937/825ed58673ec0cec-6d/s500x750/67019afe3b309a9b4539bbf8857cefa537f826fc.gif" alt="Hypnotic Digital Pyramid GIF" class="hero-gif">
                     </div>
+                </div>
 
-                    <!-- Card 3: African Knowledge Systems -->
-                    <div class="centered-card">
+                <div class="content-section">
+                    <h2 class="section-title">Key Perspectives</h2>
+                    <div class="articles-container">
+                        <!-- Card 1: Three Models -->
                         <div class="article-card">
-                            <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
+                            <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
                             <div class="article-content">
-                                <!-- Updated Imhotep image with object-position: top -->
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756873309.png?raw=true" alt="Imhotep Statue" class="card-image" style="object-position: top;">
+                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="card-image">
                                 <div class="card-text">
-                                    <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis.</p>
-                                    <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture.</p>
+                                    <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
+                                    <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
+                                    <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
                                     
                                     <div class="citation">
-                                        <p><i class="fas fa-quote-left"></i> Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt.</p>
+                                        <p><i class="fas fa-quote-left"></i> The academic literacies model recognizes that writing is never just about skills or socialization, but always involves questions of power, identity, and access.</p>
+                                        <p>- Lea & Street (2006)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                Each model offers different perspectives on how students engage with academic writing demands
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Ubuntu Concept -->
+                        <div class="article-card">
+                            <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
+                            <div class="article-content">
+                                <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="card-image">
+                                <div class="card-text">
+                                    <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
+                                    <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
+                                    
+                                    <div class="article-meta">
+                                        <span class="meta-tag">Philosophy</span>
+                                        <span class="meta-tag">Community</span>
+                                        <span class="meta-tag">African Epistemology</span>
                                     </div>
                                 </div>
                             </div>
@@ -651,13 +563,34 @@
                                 "A person is a person through other persons" - African proverb
                             </div>
                         </div>
+
+                        <!-- Card 3: African Knowledge Systems -->
+                        <div class="centered-card">
+                            <div class="article-card">
+                                <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
+                                <div class="article-content">
+                                    <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756873309.png?raw=true" alt="Imhotep Statue" class="card-image">
+                                    <div class="card-text">
+                                        <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis.</p>
+                                        <p>Widely recognized as a polymath, Imhotep demonstrated exceptional skill and innovation in multiple fields. As the architect of the Step Pyramid at Saqqara—the first monumental stone structure in history—he revolutionized Egyptian architecture.</p>
+                                        
+                                        <div class="citation">
+                                            <p><i class="fas fa-quote-left"></i> Imhotep was deified after his death as the god of medicine and wisdom, one of the few mortals to achieve divine status in ancient Egypt.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    Imhotep: The first architect, physician, and engineer in history
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="copyright">
-                <p>&copy; 2023 Academic Literacies Research</p>
-                <p>All rights reserved</p>
+                <div class="copyright">
+                    <p>&copy; 2023 Academic Literacies Research</p>
+                    <p>All rights reserved</p>
+                </div>
             </div>
         </div>
     </div>
