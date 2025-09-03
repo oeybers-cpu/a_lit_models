@@ -27,7 +27,7 @@
             --royal-blue: #4169E1;
             --royal-blue-light: #6c8eff;
             --aqua-blue: #00FFFF;
-            --card-padding: 12px;
+            --card-padding: 20px;
             --card-gap: 20px;
             --pyramid-neon-color: #00FFFF;
             --pyramid-base-size: 400px;
@@ -168,18 +168,18 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            padding: 15px 0;
+            padding: 10px 0;
             text-align: center;
             width: 100%;
         }
         .header-text {
             text-align: center;
             padding: 0;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             width: 100%;
         }
         .header-pyramid {
-            margin: 15px 0 0 0;
+            margin: 10px 0 0 0;
         }
         /* Pyramid styling for header */
         .pyramid-container {
@@ -191,8 +191,8 @@
             align-items: center;
         }
         .pyramid {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             position: relative;
             transform-style: preserve-3d;
             animation: swivel 10s infinite ease-in-out,
@@ -208,40 +208,40 @@
         }
         .pyramid-base {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background-image: radial-gradient(circle, #ffcc00, #ff9900);
-            transform: rotateX(90deg) translateZ(25px);
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+            transform: rotateX(90deg) translateZ(20px);
+            box-shadow: 0 0 12px rgba(255, 204, 0, 0.8);
         }
         .pyramid-face {
             position: absolute;
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 25px 43px 25px;
+            border-width: 0 20px 34px 20px;
             border-color: transparent transparent #ffcc00 transparent;
             background-image: radial-gradient(circle, #ffcc00, #ff9900);
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.8),
-                        inset 0 0 6px rgba(255, 204, 0, 0.5);
-            transform: rotateX(-60deg) translateZ(43px);
+            box-shadow: 0 0 12px rgba(255, 204, 0, 0.8),
+                        inset 0 0 5px rgba(255, 204, 0, 0.5);
+            transform: rotateX(-60deg) translateZ(34px);
             transform-origin: 50% 100%;
         }
         .pyramid-face.front {
-            transform: rotateX(-60deg) translateZ(43px);
+            transform: rotateX(-60deg) translateZ(34px);
         }
         .pyramid-face.back {
-            transform: rotateY(180deg) rotateX(-60deg) translateZ(43px);
+            transform: rotateY(180deg) rotateX(-60deg) translateZ(34px);
         }
         .pyramid-face.left {
-            transform: rotateY(-90deg) rotateX(-60deg) translateZ(43px);
+            transform: rotateY(-90deg) rotateX(-60deg) translateZ(34px);
         }
         .pyramid-face.right {
-            transform: rotateY(90deg) rotateX(-60deg) translateZ(43px);
+            transform: rotateY(90deg) rotateX(-60deg) translateZ(34px);
         }
         header {
             text-align: center;
-            padding: 20px 0;
+            padding: 15px 0;
             position: relative;
             background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
@@ -270,15 +270,15 @@
             100% { left: 100%; }
         }
         h1 {
-            font-size: 2.8rem; /* Increased from 1.8rem */
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(207, 64, 255, 0.8); /* Increased glow */
+            text-shadow: 0 0 15px rgba(207, 64, 255, 0.8);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             position: relative;
@@ -306,10 +306,10 @@
             border-radius: 50%;
         }
         .subtitle {
-            font-size: 1.1rem; /* Increased from 0.7rem */
-            color: #ccc; /* Lightened for better visibility */
+            font-size: 1.1rem;
+            color: #ccc;
             max-width: 800px;
-            margin: 10px auto 15px;
+            margin: 8px auto 12px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -324,7 +324,7 @@
             border-radius: 11.25px;
             padding: 15px;
             max-width: 600px;
-            margin: 20px auto;
+            margin: 15px auto;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
@@ -433,8 +433,8 @@
         }
         .article-card h3 {
             color: var(--digital-purple);
-            font-size: 1rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             line-height: 1.4;
             font-weight: 600;
             display: flex;
@@ -465,7 +465,7 @@
         }
         .article-content {
             color: #ddd;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 10px;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
@@ -474,11 +474,11 @@
             flex-direction: column;
         }
         .article-content p {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         .article-content ul {
             padding-left: 18px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         .article-content li {
             margin-bottom: 5px;
@@ -486,9 +486,9 @@
         .card-footer {
             background: rgba(207, 64, 255, 0.08);
             border-top: 1px solid rgba(207, 64, 255, 0.2);
-            padding: 6px 8px;
+            padding: 8px 12px;
             border-radius: 0 0 8px 8px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--lighter-accent);
             position: relative;
             margin-top: auto;
@@ -496,7 +496,7 @@
         .card-footer::before {
             content: '»';
             position: absolute;
-            left: 5px;
+            left: 8px;
             color: var(--digital-purple);
             font-weight: bold;
         }
@@ -504,16 +504,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 8px 0;
-            min-height: 80px;
+            margin: 12px 0;
+            min-height: 200px;
             background: rgba(10, 10, 15, 0.5);
             border-radius: 8px;
             border: 1px solid rgba(207, 64, 255, 0.2);
             overflow: hidden;
         }
         .image-container img {
-            max-width: 50%;
-            height: auto;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
             transition: all 0.5s ease;
@@ -527,15 +527,6 @@
             background:
                 linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--digital-purple)) border-box;
-        }
-        .model-image {
-            max-width: 60%;
-        }
-        .ubuntu-image {
-            max-width: 45%;
-        }
-        .imhotep-image {
-            max-width: 40%;
         }
         .image-container img:hover {
             transform: scale(1.05);
@@ -551,25 +542,25 @@
         .citation {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 15px;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             border: 1px solid rgba(207, 64, 255, 0.3);
             display: inline-block;
-            margin: 4px 0;
+            margin: 6px 0;
         }
         .article-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin: 6px 0 4px;
+            gap: 8px;
+            margin: 8px 0 6px;
         }
         .meta-tag {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
-            padding: 2px 6px;
+            padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.55rem;
+            font-size: 0.7rem;
             border: 1px solid rgba(207, 64, 255, 0.3);
             text-shadow: 0 0 4px rgba(207, 64, 255, 0.3);
         }
@@ -583,7 +574,7 @@
             display: inline-block;
             color: var(--light);
             background: linear-gradient(90deg, rgba(207, 64, 255, 0.2), rgba(2, 136, 209, 0.2));
-            padding: 5px 10px;
+            padding: 8px 12px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
@@ -595,8 +586,8 @@
             letter-spacing: 0.75px;
             position: relative;
             overflow: hidden;
-            margin-top: 8px;
-            font-size: 0.85rem;
+            margin-top: 12px;
+            font-size: 0.9rem;
         }
         .article-link::before {
             content: '';
@@ -622,7 +613,7 @@
             text-align: center;
             padding: 20px 0 12px;
             color: #777;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             border-top: 1px solid rgba(207, 64, 255, 0.2);
             margin-top: 15px;
         }
@@ -642,7 +633,7 @@
             height: 0;
             overflow: hidden;
             border-radius: 8px;
-            margin-top: 8px;
+            margin-top: 12px;
             background: #000;
             border: 1px solid rgba(207, 64, 255, 0.2);
         }
@@ -698,13 +689,14 @@
         }
         /* New GIF Styles */
         .hero-gif {
-            max-width: 200px;
-            height: auto;
+            width: 200px;
+            height: 200px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(207, 64, 255, 0.5);
             border: 2px solid var(--digital-purple);
             display: block;
             margin: 0 auto;
+            object-fit: cover;
         }
         @media (max-width: 600px) {
             .card-video-container {
@@ -736,7 +728,7 @@
                 width: 50%;
             }
             h1 {
-                font-size: 2.2rem; /* Adjusted for tablet */
+                font-size: 2.2rem;
             }
         }
         /* Mobile styles for the hero section */
@@ -748,19 +740,16 @@
             .header-image {
                 width: 70%;
             }
-            .model-image, .ubuntu-image, .imhotep-image {
-                max-width: 70% !important;
-            }
         }
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.8rem; /* Adjusted for mobile */
+                font-size: 1.8rem;
             }
             .subtitle {
-                font-size: 0.9rem; /* Adjusted for mobile */
+                font-size: 0.9rem;
             }
             .header-image {
-                width: 95%; /* Adjusted for mobile view */
+                width: 95%;
             }
             .back-button-tab {
                 top: 12px;
@@ -791,6 +780,14 @@
                 margin-left: 0;
                 margin-top: 8px;
             }
+            .image-container img {
+                width: 150px;
+                height: 150px;
+            }
+            .hero-gif {
+                width: 150px;
+                height: 150px;
+            }
         }
         
         /* Image optimization classes */
@@ -806,9 +803,9 @@
         
         .section-title {
             color: var(--digital-purple);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -915,8 +912,8 @@
                                     - Lea & Street (2006)
                                 </p>
                             </div>
-                            <div class="image-container" style="min-height: 80px; margin-top: 10px;">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="model-image optimized-img">
+                            <div class="image-container">
+                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="optimized-img">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -927,7 +924,7 @@
                     <div class="article-card image-panel">
                         <h3><i class="fas fa-book-open"></i> Ubuntu Concept</h3>
                         <div class="image-container">
-                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="ubuntu-image optimized-img">
+                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="optimized-img">
                         </div>
                         <div class="article-content">
                             <p>Ubuntu is a philosophical concept that emphasizes our interconnectedness as human beings. "Umuntu ngumuntu ngabantu" (I am because we are) captures this worldview focusing on community, mutual caring, and shared humanity.</p>
@@ -953,7 +950,7 @@
                         <div class="article-card">
                             <h3><i class="fas fa-flask"></i> African Knowledge Systems</h3>
                             <div class="image-container">
-                                <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="imhotep-image optimized-img">
+                                <img src="https://www.worldhistory.org/uploads/images/4514.jpg" alt="Imhotep Statue" class="optimized-img">
                             </div>
                             <div class="article-content">
                                 <p>Imhotep lived over 4,000 years ago during Egypt's Old Kingdom, specifically around the 27th to 26th century BCE. He held prominent roles in society, serving as chancellor to Pharaoh Djoser and as high priest of the sun god Ra at the sacred city of Heliopolis. His influence extended across both political and religious spheres, making him one of the most revered figures of his time.</p>
