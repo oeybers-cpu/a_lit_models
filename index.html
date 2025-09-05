@@ -1282,35 +1282,402 @@
     </div>
 </div>
 
-                    <!-- Card 7: Multilingual Academic Literacy -->
-                    <div class="centered-card">
-                        <div class="article-card">
-                            <h3><i class="fas fa-language"></i> Multilingual Academic Literacy</h3>
-                            <div class="article-content">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/meeting%20business.png?raw=true" alt="Multilingual Literacy" class="card-image">
-                                <div class="card-text">
-                                    <p>Multilingual academic literacy recognises the value of diverse linguistic resources in knowledge production. It challenges monolingual biases in academia and embraces the richness that multiple languages bring to academic discourse.</p>
-                                    <p>This approach acknowledges that knowledge is created and communicated across languages, and that multilingual students bring unique strengths to academic contexts through their ability to navigate multiple linguistic systems.</p>
-                                    
-                                    <div class="citation">
-                                        <p><i class="fas fa-quote-left"></i> Academic writing that embraces multilingualism recognises that all languages contain unique ways of knowing, being, and expressing knowledge.</p>
-                                        <p>- Canagarajah (2011)</p>
-                                    </div>
-                                    
-                                    <div class="article-meta">
-                                        <span class="meta-tag">Linguistics</span>
-                                        <span class="meta-tag">Diversity</span>
-                                        <span class="meta-tag">Inclusion</span>
-                                    </div>
-                                </div>
+                   <!-- Card 6: Five Modes of Communication -->
+<div class="article-card">
+    <h3><i class="fas fa-sitemap"></i> Five Modes of Communication</h3>
+    <div class="article-content">
+        <div class="card-text">
+            <!-- Replaced image with animated communication modes -->
+            <div class="communication-modes-container" style="margin: 15px 0 20px; max-width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <style>
+                    .communication-modes-container * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    
+                    .communication-modes-container {
+                        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+                        color: white;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        overflow: hidden;
+                    }
+                    
+                    .modes-grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: auto auto;
+                        gap: 12px;
+                        padding: 12px;
+                    }
+                    
+                    .mode {
+                        background: rgba(255, 255, 255, 0.08);
+                        border-radius: 10px;
+                        padding: 12px 8px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        transition: all 0.3s;
+                        overflow: hidden;
+                        position: relative;
+                        height: 110px;
+                        border: 1px solid rgba(255,255,255,0.1);
+                    }
+                    
+                    .mode:hover {
+                        background: rgba(255, 255, 255, 0.15);
+                        transform: translateY(-3px);
+                    }
+                    
+                    .mode-title {
+                        font-size: 0.95rem;
+                        margin-top: 5px;
+                        text-align: center;
+                        font-weight: 600;
+                        z-index: 2;
+                    }
+                    
+                    .visual-content {
+                        width: 100%;
+                        height: 65px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    
+                    /* VISUAL Mode - Top Left */
+                    .visual {
+                        border: 1px solid #ff4d94;
+                    }
+                    
+                    .visual .mode-title {
+                        color: #ff4d94;
+                    }
+                    
+                    .eye {
+                        width: 35px;
+                        height: 22px;
+                        background: #ff4d94;
+                        border-radius: 50%;
+                        position: relative;
+                        overflow: hidden;
+                        animation: blink 4s infinite;
+                    }
+                    
+                    .pupil {
+                        width: 12px;
+                        height: 12px;
+                        background: #000;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 5px;
+                        left: 11px;
+                        animation: look-around 6s infinite alternate;
+                    }
+                    
+                    /* AURAL Mode - Top Right */
+                    .aural {
+                        border: 1px solid #4dffd2;
+                    }
+                    
+                    .aural .mode-title {
+                        color: #4dffd2;
+                    }
+                    
+                    .sound-waves {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 3px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    
+                    .wave {
+                        width: 4px;
+                        height: 10px;
+                        background: #4dffd2;
+                        border-radius: 10px;
+                        animation: sound-wave 1.8s infinite ease-in-out;
+                    }
+                    
+                    .wave:nth-child(2) { animation-delay: 0.2s; }
+                    .wave:nth-child(3) { animation-delay: 0.4s; }
+                    .wave:nth-child(4) { animation-delay: 0.6s; }
+                    .wave:nth-child(5) { animation-delay: 0.8s; }
+                    
+                    /* LINGUISTIC Mode - Bottom Left */
+                    .linguistic {
+                        border: 1px solid #ffcc4d;
+                    }
+                    
+                    .linguistic .mode-title {
+                        color: #ffcc4d;
+                    }
+                    
+                    .words {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 4px;
+                        font-size: 0.7rem;
+                    }
+                    
+                    .word {
+                        opacity: 0;
+                        animation: words-appear 8s infinite;
+                    }
+                    
+                    /* GESTURAL Mode - Bottom Right */
+                    .gestural {
+                        border: 1px solid #4d88ff;
+                    }
+                    
+                    .gestural .mode-title {
+                        color: #4d88ff;
+                    }
+                    
+                    .hands {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    
+                    .hand {
+                        width: 18px;
+                        height: 28px;
+                        background: #4d88ff;
+                        border-radius: 5px;
+                        position: relative;
+                        animation: gesture 4s infinite alternate;
+                    }
+                    
+                    .hand::before {
+                        content: '';
+                        position: absolute;
+                        width: 14px;
+                        height: 5px;
+                        background: #4d88ff;
+                        top: -5px;
+                        left: 2px;
+                        border-radius: 3px 3px 0 0;
+                    }
+                    
+                    .hand.right { transform: rotate(20deg); }
+                    .hand.left { transform: rotate(-20deg); }
+                    
+                    /* SPATIAL Mode - Centered */
+                    .spatial-container {
+                        grid-column: 1 / -1;
+                        display: flex;
+                        justify-content: center;
+                        margin-top: -10px;
+                        margin-bottom: -5px;
+                    }
+                    
+                    .spatial {
+                        width: 100%;
+                        max-width: 200px;
+                        background: rgba(255, 255, 255, 0.08);
+                        border: 1px solid #cc4dff;
+                        border-radius: 10px;
+                        padding: 10px 8px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        height: auto;
+                    }
+                    
+                    .spatial .mode-title {
+                        color: #cc4dff;
+                        font-size: 0.95rem;
+                        margin-bottom: 8px;
+                    }
+                    
+                    .space {
+                        width: 100%;
+                        height: 50px;
+                        position: relative;
+                    }
+                    
+                    .shape {
+                        position: absolute;
+                        opacity: 0.7;
+                        animation: float 8s infinite ease-in-out;
+                    }
+                    
+                    .cube {
+                        width: 22px;
+                        height: 22px;
+                        background: #cc4dff;
+                        top: 50%;
+                        left: 25%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .sphere {
+                        width: 18px;
+                        height: 18px;
+                        background: #ff4da6;
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .pyramid {
+                        width: 0;
+                        height: 0;
+                        border-left: 11px solid transparent;
+                        border-right: 11px solid transparent;
+                        border-bottom: 22px solid #4dffb8;
+                        top: 50%;
+                        left: 75%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    /* Animations */
+                    @keyframes blink {
+                        0%, 95%, 98%, 100% { height: 22px; }
+                        96%, 97% { height: 2px; }
+                    }
+                    
+                    @keyframes look-around {
+                        0%, 100% { transform: translateX(0); }
+                        25% { transform: translateX(7px); }
+                        50% { transform: translateX(-7px); }
+                        75% { transform: translateY(5px); }
+                    }
+                    
+                    @keyframes sound-wave {
+                        0%, 100% { height: 10px; }
+                        50% { height: 35px; }
+                    }
+                    
+                    @keyframes words-appear {
+                        0%, 15%, 100% { opacity: 0; }
+                        5%, 10% { opacity: 1; }
+                    }
+                    
+                    @keyframes gesture {
+                        0%, 100% { transform: rotate(20deg); }
+                        50% { transform: rotate(-20deg); }
+                    }
+                    
+                    @keyframes float {
+                        0%, 100% { transform: translate(0, 0); }
+                        25% { transform: translate(15px, -10px); }
+                        50% { transform: translate(0, -20px); }
+                        75% { transform: translate(-15px, -10px); }
+                    }
+                    
+                    /* Responsive adjustments */
+                    @media (max-width: 480px) {
+                        .modes-grid {
+                            grid-template-columns: 1fr;
+                        }
+                        
+                        .spatial-container {
+                            grid-column: auto;
+                            margin-top: 10px;
+                        }
+                    }
+                </style>
+                <div class="modes-grid">
+                    <!-- VISUAL Mode - Top Left -->
+                    <div class="mode visual">
+                        <div class="visual-content">
+                            <div class="eye">
+                                <div class="pupil"></div>
                             </div>
-                            <div class="card-footer">
-                                Embracing linguistic diversity in academic contexts
+                        </div>
+                        <h4 class="mode-title">VISUAL</h4>
+                    </div>
+                    
+                    <!-- AURAL Mode - Top Right -->
+                    <div class="mode aural">
+                        <div class="visual-content">
+                            <div class="sound-waves">
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">AURAL</h4>
+                    </div>
+                    
+                    <!-- LINGUISTIC Mode - Bottom Left -->
+                    <div class="mode linguistic">
+                        <div class="visual-content">
+                            <div class="words">
+                                <div class="word">Words</div>
+                                <div class="word">Text</div>
+                                <div class="word">Syntax</div>
+                                <div class="word">Grammar</div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">LINGUISTIC</h4>
+                    </div>
+                    
+                    <!-- GESTURAL Mode - Bottom Right -->
+                    <div class="mode gestural">
+                        <div class="visual-content">
+                            <div class="hands">
+                                <div class="hand left"></div>
+                                <div class="hand right"></div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">GESTURAL</h4>
+                    </div>
+                    
+                    <!-- SPATIAL Mode - Centered below -->
+                    <div class="spatial-container">
+                        <div class="mode spatial">
+                            <h4 class="mode-title">SPATIAL</h4>
+                            <div class="visual-content">
+                                <div class="space">
+                                    <div class="shape cube"></div>
+                                    <div class="shape sphere"></div>
+                                    <div class="shape pyramid"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- End of animated modes -->
+            
+            <p><strong>Linguistic:</strong> The mode of words, both written and spoken. It covers vocabulary, grammar, and the structure of sentences and paragraphs.</p>
+            <p><strong>Visual:</strong> Everything we can see. This includes images, colors, symbols, layout, and even the font used in a text.</p>
+            <p><strong>Aural:</strong> The mode of sound. This encompasses spoken language, music, sound effects, and the qualities of a voice like tone and pitch.</p>
+            <p><strong>Gestural:</strong> How we use our bodies to communicate. This includes facial expressions, hand gestures, and body language.</p>
+            <p><strong>Spatial:</strong> The arrangement of elements in space. This applies to the layout of a page, the architecture of a room, or the proximity of people in a conversation.</p>
+            <div class="citation">
+                <p><i class="fas fa-quote-left"></i> Meaning is constructed through various channels. Social semiotics identifies five core modes through which we communicate. Each mode offers unique potentials for making meaning, and they often work in concert to create a rich, layered message.</p>
+            </div>
+            <div class="article-meta">
+                <span class="meta-tag">Semiotics</span>
+                <span class="meta-tag">Communication</span>
+                <span class="meta-tag">Multimodality</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        The five core modes through which we communicate
+    </div>
+</div>
 
             <div class="content-section">
                 <h2 class="section-title">Implementation Framework</h2>
