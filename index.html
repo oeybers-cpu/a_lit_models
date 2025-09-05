@@ -353,6 +353,7 @@
             gap: var(--card-gap);
             margin: 30px 0;
         }
+        
         /* Base card styling */
         .card {
             background: var(--card-bg);
@@ -368,6 +369,7 @@
             height: 100%;
             min-height: 550px; /* Fixed height for consistent sizing */
         }
+        
         .card::before {
             content: '';
             position: absolute;
@@ -381,17 +383,21 @@
             transition: transform 0.5s ease;
             z-index: 1;
         }
+        
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
         }
+        
         .card:hover::before {
             transform: scaleX(1);
         }
+        
         /* Card Header */
         .card__header {
             padding-bottom: 10px;
         }
+        
         .card__title {
             color: var(--digital-purple);
             font-size: 1.3rem;
@@ -400,6 +406,7 @@
             align-items: center;
             gap: 10px;
         }
+        
         /* Card Body */
         .card__body {
             flex-grow: 1;
@@ -407,6 +414,7 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        
         .card__image {
             width: 100%;
             height: 220px;
@@ -417,9 +425,11 @@
             border: 2px solid rgba(207, 64, 255, 0.3);
             transition: transform 0.3s ease;
         }
+        
         .card:hover .card__image {
             transform: scale(1.03);
         }
+        
         .card__quote {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
@@ -431,12 +441,14 @@
             position: relative;
             padding-left: 40px;
         }
+        
         .card__quote i {
             position: absolute;
             left: 12px;
             top: 12px;
             color: var(--primary);
         }
+        
         /* Card Meta */
         .card__meta {
             display: flex;
@@ -444,6 +456,7 @@
             gap: 8px;
             margin: 10px 0;
         }
+        
         .tag {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
@@ -452,6 +465,7 @@
             font-size: 0.8rem;
             border: 1px solid rgba(207, 64, 255, 0.3);
         }
+        
         /* Card Footer */
         .card__footer {
             background: rgba(207, 64, 255, 0.08);
@@ -462,10 +476,12 @@
             color: var(--lighter-accent);
             margin-top: 15px;
         }
+        
         /* Content sections */
         .content-section {
             margin-bottom: 40px;
         }
+        
         .section-title {
             color: var(--digital-purple);
             font-size: 1.6rem;
@@ -475,6 +491,7 @@
             font-family: 'Orbitron', sans-serif;
             text-align: center;
         }
+        
         .copyright {
             text-align: center;
             padding: 30px 0;
@@ -483,62 +500,76 @@
             border-top: 1px solid rgba(207, 64, 255, 0.2);
             margin-top: 40px;
         }
+        
         .centered-card {
             grid-column: 1 / -1;
             display: flex;
             justify-content: center;
         }
+        
         .centered-card > .card {
             max-width: 700px;
             width: 100%;
         }
+        
         /* Responsive Design Improvements */
         @media (max-width: 1200px) {
             .top-nav {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr;
             }
         }
+        
         @media (max-width: 900px) {
             .top-nav {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
             .top-header h1 {
                 font-size: 1.5rem;
             }
+            
             header {
                 min-height: 250px;
             }
+            
             .sun-container {
                 width: 250px;
                 height: 250px;
             }
+            
             .sun-core {
                 width: 100px;
                 height: 100px;
             }
+            
             .sun-rays {
                 width: 250px;
                 height: 250px;
             }
         }
+        
         @media (max-width: 768px) {
             .top-nav {
                 gap: 12px;
             }
+            
             .nav-link {
                 padding: 10px 12px;
                 font-size: 0.8rem;
             }
         }
+        
         @media (max-width: 600px) {
             body {
                 padding: 15px;
             }
+            
             /* FIXED: Increased top value to prevent collision with header */
             .back-button-tab {
                 top: 65px;
@@ -547,6 +578,7 @@
                 font-size: 0.8rem;
                 z-index: 1002;
             }
+            
             /* FIXED: Increased top value to prevent collision with header */
             .contact-button-tab {
                 top: 65px;
@@ -555,60 +587,74 @@
                 font-size: 0.8rem;
                 z-index: 1002;
             }
+            
             .card__image {
                 height: 180px;
             }
+            
             /* Adjust sun for mobile */
             .sun-container {
                 width: 200px;
                 height: 200px;
             }
+            
             .sun-core {
                 width: 80px;
                 height: 80px;
                 box-shadow: 0 0 20px 8px var(--sun-glow);
             }
+            
             .sun-rays {
                 width: 200px;
                 height: 200px;
                 box-shadow: 0 0 15px 4px var(--sun-ray-color);
             }
+            
             header {
                 min-height: 220px;
             }
+            
             .top-header {
                 padding: 15px 10px;
                 flex-direction: column;
                 height: auto;
             }
+            
             .top-header h1 {
                 font-size: 1.3rem;
                 max-width: 100%;
                 padding: 0 50px;
                 margin-top: 5px;
             }
+            
             .top-nav {
                 grid-template-columns: 1fr;
                 gap: 10px;
                 padding: 0 10px;
             }
+            
             .nav-link {
                 padding: 12px 10px;
                 font-size: 0.85rem;
             }
+            
             .contact-card {
                 padding: 15px;
                 margin: 15px auto;
             }
+            
             .contact-card h2 {
                 font-size: 1.1rem;
             }
+            
             .section-title {
                 font-size: 1.4rem;
             }
+            
             .card__title {
                 font-size: 1.1rem;
             }
+            
             .main-container {
                 margin: 130px auto 0;
             }
@@ -798,96 +844,39 @@
                     </div>
                 </div>
             </div>
-            <!-- New section with centered card -->
-            <div class="content-section">
-                <h2 class="section-title">Implementation Framework</h2>
-                <div class="articles-container">
-                    <!-- Card 5: Genre and Mode Switching (replaced the Five Modes card) -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-exchange-alt" aria-hidden="true"></i> Genre and Mode Switching
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <!-- UPDATED IMAGE URL -->
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/genres2.png?raw=true" 
-                                 alt="Genre and Mode Switching" 
-                                 class="card__image">
-                            <p>Students are required to interact with different categories of text that we define as different genres and modes. Genres are types of text, both spoken and written, such as student discussions, written notes, letters, academic essays, etc.</p>
-                            <p>The shift from free flowing thoughts/ideas to explicitness in discussion with others we identified as a shift to a different genre. It also involves a shift of 'mode'—from internal thought to external speech.</p>
-                            <p>When students shift from talk and discussion to taking notes, new requirements come into play, such as the need for explicit attention to language structure, use of headings, and use of visual as well as language "modes" such as layout.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Each genre and mode had different qualities. In their educational histories, students had not always been made explicitly aware of these qualities associated with different genres as they moved between different genres in their school work.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Genre</span>
-                                <span class="tag">Mode</span>
-                                <span class="tag">Transformation</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Understanding how students navigate between different communication contexts
-                        </footer>
+            <!-- Centered final card -->
+            <div class="centered-card">
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-globe-africa" aria-hidden="true"></i> Academic Literacy in Global Contexts
+                        </h2>
                     </div>
-                    <!-- Card 6: Principles for Academic Development -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-graduation-cap" aria-hidden="true"></i> Principles for Academic Development
-                            </h2>
+                    <div class="card__body">
+                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" 
+                             alt="Interconnected academic communities representing global knowledge exchange" 
+                             class="card__image">
+                        <p>Academic literacy practices exist within diverse cultural and linguistic contexts. Different knowledge traditions offer valuable perspectives on meaning-making, argumentation, and knowledge construction. Understanding these variations enriches academic communication by expanding the range of acceptable forms and challenging monolingual or monocultural assumptions.</p>
+                        <p>Global academic communication benefits from recognizing multiple ways of knowing and communicating. This includes valuing different narrative structures, argumentation styles, and approaches to evidence. Such recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy is enriched when we recognize and value diverse knowledge traditions and communication practices across cultural contexts.
+                        </blockquote>
+                        <div class="card__meta">
+                            <span class="tag">Global Contexts</span>
+                            <span class="tag">Diversity</span>
+                            <span class="tag">Inclusion</span>
                         </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" 
-                                 alt="Students engaged in academic discussion demonstrating collaborative learning" 
-                                 class="card__image">
-                            <p>Effective academic literacy development requires approaches that recognize the complexity of academic communication. Programs should help students understand the different language and semiotic practices associated with various academic genres and contexts. Rather than treating students as deficient, effective approaches build on students' existing literacy practices and help them expand their repertoire.</p>
-                            <p>Instruction should explicitly address the relationship between language, knowledge construction, and disciplinary expectations. Students benefit from opportunities to analyze academic texts, understand genre conventions, and practice negotiating meaning within academic communities. This approach supports genuine participation rather than mere assimilation into academic discourse.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy development should challenge narrow definitions of language and build on students' existing strengths rather than treating them as deficits to be fixed.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Pedagogy</span>
-                                <span class="tag">Inclusion</span>
-                                <span class="tag">Development</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Principles for supporting academic literacy development
-                        </footer>
                     </div>
-                </div>
-                <!-- Centered final card -->
-                <div class="centered-card">
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-globe-africa" aria-hidden="true"></i> Academic Literacy in Global Contexts
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" 
-                                 alt="Interconnected academic communities representing global knowledge exchange" 
-                                 class="card__image">
-                            <p>Academic literacy practices exist within diverse cultural and linguistic contexts. Different knowledge traditions offer valuable perspectives on meaning-making, argumentation, and knowledge construction. Understanding these variations enriches academic communication by expanding the range of acceptable forms and challenging monolingual or monocultural assumptions.</p>
-                            <p>Global academic communication benefits from recognizing multiple ways of knowing and communicating. This includes valuing different narrative structures, argumentation styles, and approaches to evidence. Such recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy is enriched when we recognize and value diverse knowledge traditions and communication practices across cultural contexts.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Global Contexts</span>
-                                <span class="tag">Diversity</span>
-                                <span class="tag">Inclusion</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Understanding academic literacy within diverse global contexts
-                        </footer>
-                    </div>
+                    <footer class="card__footer">
+                        Understanding academic literacy within diverse global contexts
+                    </footer>
                 </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Dr Oscar Eybers</p>
+                <a href="#" id="topLink" style="display: inline-block; margin-top: 10px; color: var(--digital-purple); text-decoration: none;">
+                    <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
+                </a>
             </div>
         </div>
         <script>
@@ -913,6 +902,19 @@
                         }
                     });
                 }
+                
+                // Top link functionality
+                const topLink = document.getElementById('topLink');
+                if (topLink) {
+                    topLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+                
                 // Store scroll position when navigating away
                 window.addEventListener('beforeunload', function() {
                     const currentState = {
@@ -921,6 +923,7 @@
                     };
                     history.replaceState(currentState, document.title);
                 });
+                
                 // Restore scroll position when returning to page
                 window.addEventListener('pageshow', function(event) {
                     if (event.persisted) {
@@ -930,6 +933,7 @@
                         }
                     }
                 });
+                
                 // Handle direct navigation to this page
                 if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
                     const state = history.state;
@@ -937,6 +941,7 @@
                         window.scrollTo(0, state.scrollY);
                     }
                 }
+                
                 // Handle orientation changes
                 window.addEventListener('orientationchange', function() {
                     setTimeout(function() {
