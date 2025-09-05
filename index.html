@@ -937,7 +937,331 @@
     <h3><i class="fas fa-sitemap"></i> Five Modes of Communication</h3>
     <div class="article-content">
         <div class="card-text">
-            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/jpeg%20(6).jpg?raw=true" alt="Visual representation of the five communication modes" class="card-image-float">
+            <!-- Replaced image with animated communication modes -->
+            <div class="communication-modes-container" style="margin: 15px 0 20px; max-width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <style>
+                    .communication-modes-container * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    
+                    .communication-modes-container {
+                        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+                        color: white;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        overflow: hidden;
+                    }
+                    
+                    .modes-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                        gap: 10px;
+                        padding: 10px;
+                    }
+                    
+                    .mode {
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        padding: 10px 5px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        transition: transform 0.3s, box-shadow 0.3s;
+                        overflow: hidden;
+                        position: relative;
+                        height: 120px;
+                    }
+                    
+                    .mode-title {
+                        font-size: 0.9rem;
+                        margin-top: 5px;
+                        text-align: center;
+                        font-weight: 600;
+                        z-index: 2;
+                        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+                    }
+                    
+                    .visual-content {
+                        width: 100%;
+                        height: 60px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    
+                    /* VISUAL Mode */
+                    .visual {
+                        border: 1px solid #ff4d94;
+                    }
+                    
+                    .visual .mode-title {
+                        color: #ff4d94;
+                    }
+                    
+                    .eye {
+                        width: 30px;
+                        height: 20px;
+                        background: #ff4d94;
+                        border-radius: 50%;
+                        position: relative;
+                        overflow: hidden;
+                        animation: blink 4s infinite;
+                    }
+                    
+                    .pupil {
+                        width: 10px;
+                        height: 10px;
+                        background: #000;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 5px;
+                        left: 10px;
+                        animation: look-around 6s infinite alternate;
+                    }
+                    
+                    /* AURAL Mode */
+                    .aural {
+                        border: 1px solid #4dffd2;
+                    }
+                    
+                    .aural .mode-title {
+                        color: #4dffd2;
+                    }
+                    
+                    .sound-waves {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 2px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    
+                    .wave {
+                        width: 3px;
+                        height: 8px;
+                        background: #4dffd2;
+                        border-radius: 10px;
+                        animation: sound-wave 1.8s infinite ease-in-out;
+                    }
+                    
+                    .wave:nth-child(2) { animation-delay: 0.2s; }
+                    .wave:nth-child(3) { animation-delay: 0.4s; }
+                    .wave:nth-child(4) { animation-delay: 0.6s; }
+                    .wave:nth-child(5) { animation-delay: 0.8s; }
+                    
+                    /* LINGUISTIC Mode */
+                    .linguistic {
+                        border: 1px solid #ffcc4d;
+                    }
+                    
+                    .linguistic .mode-title {
+                        color: #ffcc4d;
+                    }
+                    
+                    .words {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 3px;
+                        font-size: 0.65rem;
+                    }
+                    
+                    .word {
+                        opacity: 0;
+                        animation: words-appear 12s infinite;
+                    }
+                    
+                    /* GESTURAL Mode */
+                    .gestural {
+                        border: 1px solid #4d88ff;
+                    }
+                    
+                    .gestural .mode-title {
+                        color: #4d88ff;
+                    }
+                    
+                    .hands {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    
+                    .hand {
+                        width: 15px;
+                        height: 25px;
+                        background: #4d88ff;
+                        border-radius: 5px;
+                        position: relative;
+                        animation: gesture 4s infinite alternate;
+                    }
+                    
+                    .hand::before {
+                        content: '';
+                        position: absolute;
+                        width: 12px;
+                        height: 4px;
+                        background: #4d88ff;
+                        top: -4px;
+                        left: 1.5px;
+                        border-radius: 3px 3px 0 0;
+                    }
+                    
+                    .hand.right { transform: rotate(20deg); }
+                    .hand.left { transform: rotate(-20deg); }
+                    
+                    /* SPATIAL Mode */
+                    .spatial {
+                        border: 1px solid #cc4dff;
+                    }
+                    
+                    .spatial .mode-title {
+                        color: #cc4dff;
+                    }
+                    
+                    .space {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                    }
+                    
+                    .shape {
+                        position: absolute;
+                        opacity: 0.7;
+                    }
+                    
+                    .cube {
+                        width: 20px;
+                        height: 20px;
+                        background: #cc4dff;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .sphere {
+                        width: 15px;
+                        height: 15px;
+                        background: #ff4da6;
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .pyramid {
+                        width: 0;
+                        height: 0;
+                        border-left: 10px solid transparent;
+                        border-right: 10px solid transparent;
+                        border-bottom: 20px solid #4dffb8;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    /* Animations */
+                    @keyframes blink {
+                        0%, 95%, 98%, 100% { height: 20px; }
+                        96%, 97% { height: 2px; }
+                    }
+                    
+                    @keyframes look-around {
+                        0%, 100% { transform: translateX(0); }
+                        25% { transform: translateX(6px); }
+                        50% { transform: translateX(-6px); }
+                        75% { transform: translateY(4px); }
+                    }
+                    
+                    @keyframes sound-wave {
+                        0%, 100% { height: 8px; }
+                        50% { height: 30px; }
+                    }
+                    
+                    @keyframes words-appear {
+                        0%, 15%, 100% { opacity: 0; }
+                        5%, 10% { opacity: 1; }
+                    }
+                    
+                    @keyframes gesture {
+                        0%, 100% { transform: rotate(20deg); }
+                        50% { transform: rotate(-20deg); }
+                    }
+                </style>
+                <div class="modes-grid">
+                    <!-- VISUAL Mode -->
+                    <div class="mode visual">
+                        <div class="visual-content">
+                            <div class="eye">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">VISUAL</h4>
+                    </div>
+                    
+                    <!-- AURAL Mode -->
+                    <div class="mode aural">
+                        <div class="visual-content">
+                            <div class="sound-waves">
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">AURAL</h4>
+                    </div>
+                    
+                    <!-- LINGUISTIC Mode -->
+                    <div class="mode linguistic">
+                        <div class="visual-content">
+                            <div class="words">
+                                <div class="word">Words</div>
+                                <div class="word">Text</div>
+                                <div class="word">Syntax</div>
+                                <div class="word">Grammar</div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">LINGUISTIC</h4>
+                    </div>
+                    
+                    <!-- GESTURAL Mode -->
+                    <div class="mode gestural">
+                        <div class="visual-content">
+                            <div class="hands">
+                                <div class="hand left"></div>
+                                <div class="hand right"></div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">GESTURAL</h4>
+                    </div>
+                    
+                    <!-- SPATIAL Mode -->
+                    <div class="mode spatial">
+                        <div class="visual-content">
+                            <div class="space">
+                                <div class="shape cube"></div>
+                                <div class="shape sphere"></div>
+                                <div class="shape pyramid"></div>
+                            </div>
+                        </div>
+                        <h4 class="mode-title">SPATIAL</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- End of animated modes -->
+            
             <p><strong>Linguistic:</strong> The mode of words, both written and spoken. It covers vocabulary, grammar, and the structure of sentences and paragraphs.</p>
             <p><strong>Visual:</strong> Everything we can see. This includes images, colors, symbols, layout, and even the font used in a text.</p>
             <p><strong>Aural:</strong> The mode of sound. This encompasses spoken language, music, sound effects, and the qualities of a voice like tone and pitch.</p>
