@@ -179,6 +179,37 @@
             color: var(--light);
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
+        
+        /* NEW: Contact button styling */
+        .contact-button-tab {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1001;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .contact-button-tab:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
         /* Main container */
         .main-container {
             width: 100%;
@@ -535,7 +566,6 @@
             max-width: 400px;
             margin: 0 auto;
         }
-
         .box {
             display: flex;
             justify-content: center;
@@ -548,7 +578,6 @@
             transform: scale(0.8);
             animation: fadeInAndScale 1s forwards;
         }
-
         .circle {
             grid-area: linguistic;
             border-radius: 9999px;
@@ -559,7 +588,6 @@
             animation: fadeInAndScale 1s forwards;
             animation-delay: 0s;
         }
-
         .visual {
             grid-area: visual;
             animation-delay: 2s;
@@ -576,7 +604,6 @@
             grid-area: spatial;
             animation-delay: 3.5s;
         }
-
         .line {
             position: absolute;
             background-color: #4a5568;
@@ -584,7 +611,6 @@
             opacity: 0;
             animation: drawLine 1s forwards;
         }
-
         /* Line dimensions and positions */
         .line-top {
             width: 2px;
@@ -622,7 +648,6 @@
             transform-origin: right;
             animation-delay: 2.5s;
         }
-
         /* Keyframes for the animation */
         @keyframes fadeInAndScale {
             to {
@@ -631,7 +656,6 @@
                 border-color: #cbd5e0; /* light gray border */
             }
         }
-
         @keyframes drawLine {
             from {
                 transform: scale(0);
@@ -642,7 +666,6 @@
                 opacity: 1;
             }
         }
-        
         /* Custom colors for the academic literacy theme */
         .visual { background: rgba(255, 77, 148, 0.2); color: #ff4d94; }
         .aural { background: rgba(77, 255, 210, 0.2); color: #4dffd2; }
@@ -650,7 +673,6 @@
         .gestural { background: rgba(77, 136, 255, 0.2); color: #4d88ff; }
         .spatial { background: rgba(204, 77, 255, 0.2); color: #cc4dff; }
         .line { background-color: rgba(207, 64, 255, 0.5); }
-        
         /* Responsive Design Improvements */
         @media (max-width: 1200px) {
             .top-nav {
@@ -704,6 +726,13 @@
             .back-button-tab {
                 top: 15px;
                 left: 15px;
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            /* NEW: Contact button mobile styling */
+            .contact-button-tab {
+                top: 15px;
+                right: 15px;
                 padding: 8px 15px;
                 font-size: 0.8rem;
             }
@@ -791,6 +820,12 @@
                 left: 15px;
                 padding: 6px 12px;
             }
+            /* NEW: Contact button landscape styling */
+            .contact-button-tab {
+                top: 15px;
+                right: 15px;
+                padding: 6px 12px;
+            }
             .main-container {
                 margin: 70px auto 0;
             }
@@ -844,6 +879,10 @@
             .back-button-tab {
                 padding: 6px 12px;
             }
+            /* NEW: Contact button very small device styling */
+            .contact-button-tab {
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
@@ -856,6 +895,12 @@
     <a href="#" class="back-button-tab" id="backButton">
         <i class="fas fa-arrow-left"></i> Back
     </a>
+    
+    <!-- NEW: Contact button in top right -->
+    <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
+        <i class="fas fa-envelope"></i> Contact
+    </a>
+    
     <div class="main-container">
         <!-- Top Navigation Links -->
         <div class="top-nav">
@@ -1050,7 +1095,6 @@
                                 <div class="line line-right"></div>
                                 <div class="line line-bottom"></div>
                                 <div class="line line-left"></div>
-
                                 <!-- The main boxes -->
                                 <div class="box circle linguistic">LINGUISTIC</div>
                                 <div class="box visual">VISUAL</div>
@@ -1137,37 +1181,58 @@
     <script>
         // Ensure DOM is fully loaded before attaching event handlers
         document.addEventListener('DOMContentLoaded', function() {
-            // Back button functionality
+            // Back button functionality - IMPROVED
             const backButton = document.getElementById('backButton');
             if (backButton) {
                 backButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // Store current scroll position
-                    sessionStorage.setItem('scrollPosition', window.scrollY);
-                    // Check if there's a previous page in history
-                    if (window.history.length > 1) {
-                        window.history.back();
+                    
+                    // Store current state with scroll position before navigating
+                    const currentState = {
+                        url: window.location.href,
+                        scrollY: window.scrollY
+                    };
+                    history.replaceState(currentState, document.title);
+                    
+                    // Go back in history
+                    if (history.length > 1) {
+                        history.back();
                     } else {
-                        // If no history, redirect to home page
+                        // Fallback if no history
                         window.location.href = '/';
                     }
                 });
             }
-            // Store scroll position before leaving the page
+            
+            // Store scroll position when navigating away
             window.addEventListener('beforeunload', function() {
-                sessionStorage.setItem('scrollPosition', window.scrollY);
+                const currentState = {
+                    url: window.location.href,
+                    scrollY: window.scrollY
+                };
+                history.replaceState(currentState, document.title);
             });
-            // Restore scroll position when returning to the page
-            window.addEventListener('load', function() {
-                var scrollPosition = sessionStorage.getItem('scrollPosition');
-                if (scrollPosition !== null) {
-                    window.scrollTo(0, parseInt(scrollPosition));
-                    sessionStorage.removeItem('scrollPosition');
+            
+            // Restore scroll position when returning to page
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    const state = history.state;
+                    if (state && state.scrollY !== undefined) {
+                        window.scrollTo(0, state.scrollY);
+                    }
                 }
             });
+            
+            // Handle direct navigation to this page
+            if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
+                const state = history.state;
+                if (state && state.scrollY !== undefined) {
+                    window.scrollTo(0, state.scrollY);
+                }
+            }
+            
             // Handle orientation changes
             window.addEventListener('orientationchange', function() {
-                // Reload on orientation change for better rendering
                 setTimeout(function() {
                     window.location.reload();
                 }, 300);
