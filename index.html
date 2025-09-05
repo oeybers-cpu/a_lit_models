@@ -346,16 +346,14 @@
             font-size: 1rem;
             line-height: 1.6;
         }
-        /* Card Styles - Updated to BEM convention */
+        /* Improved Card Styles */
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--card-gap);
             margin: 30px 0;
         }
-        
-        /* Base card styling */
-        .card {
+        .article-card {
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 12px;
@@ -368,8 +366,7 @@
             overflow: hidden;
             height: 100%;
         }
-        
-        .card::before {
+        .article-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -382,22 +379,14 @@
             transition: transform 0.5s ease;
             z-index: 1;
         }
-        
-        .card:hover {
+        .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
         }
-        
-        .card:hover::before {
+        .article-card:hover::before {
             transform: scaleX(1);
         }
-        
-        /* Card Header */
-        .card__header {
-            padding-bottom: 10px;
-        }
-        
-        .card__title {
+        .article-card h3 {
             color: var(--digital-purple);
             font-size: 1.3rem;
             margin-bottom: 15px;
@@ -405,16 +394,23 @@
             align-items: center;
             gap: 10px;
         }
-        
-        /* Card Body */
-        .card__body {
+        .article-content {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        
-        .card__image {
+        /* Updated to allow text wrapping around the image */
+        .card-image-wrap {
+            float: right;
+            width: 40%;
+            height: auto;
+            margin: 0 0 15px 15px;
+            border-radius: 8px;
+            border: 2px solid rgba(207, 64, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .card-image {
             width: 100%;
             height: 220px;
             object-fit: cover;
@@ -424,49 +420,21 @@
             border: 2px solid rgba(207, 64, 255, 0.3);
             transition: transform 0.3s ease;
         }
-        
-        .card:hover .card__image {
+        .article-card:hover .card-image {
             transform: scale(1.03);
         }
-        
-        .card__quote {
-            background: rgba(207, 64, 255, 0.15);
-            color: var(--primary);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(207, 64, 255, 0.3);
-            margin: 15px 0;
-            position: relative;
-            padding-left: 40px;
-        }
-        
-        .card__quote i {
-            position: absolute;
-            left: 12px;
-            top: 12px;
-            color: var(--primary);
-        }
-        
-        /* Card Meta */
-        .card__meta {
+        .card-text {
+            flex-grow: 1;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
+            flex-direction: column;
         }
-        
-        .tag {
-            background: rgba(207, 64, 255, 0.15);
-            color: var(--primary);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(207, 64, 255, 0.3);
+        .card-text p {
+            margin-bottom: 15px;
+            color: #ddd;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
-        
-        /* Card Footer */
-        .card__footer {
+        .card-footer {
             background: rgba(207, 64, 255, 0.08);
             border-top: 1px solid rgba(207, 64, 255, 0.2);
             padding: 12px 15px;
@@ -475,19 +443,70 @@
             color: var(--lighter-accent);
             margin-top: 15px;
         }
-        
-        /* Special layout for text wrapping around image */
-        .card__image-wrap {
-            float: right;
-            width: 40%;
-            height: auto;
-            margin: 0 0 15px 15px;
+        .citation {
+            background: rgba(207, 64, 255, 0.15);
+            color: var(--primary);
+            padding: 12px;
             border-radius: 8px;
-            border: 2px solid rgba(207, 64, 255, 0.3);
-            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+            border: 1px solid rgba(207, 64, 255, 0.3);
+            margin: 15px 0;
         }
-        
-        /* Communication modes animation */
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .meta-tag {
+            background: rgba(207, 64, 255, 0.15);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(207, 64, 255, 0.3);
+        }
+        .centered-card {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+        }
+        .centered-card > .article-card {
+            max-width: 700px;
+            width: 100%;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            color: var(--digital-purple);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+        /* Hero GIF */
+        .hero-gif {
+            width: 220px;
+            height: 220px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(207, 64, 255, 0.5);
+            border: 2px solid var(--digital-purple);
+            display: block;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+        .copyright {
+            text-align: center;
+            padding: 30px 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
+            margin-top: 40px;
+        }
+        /* NEW: Black and White Animated Communication Modes */
         .modes-animation {
             width: 100%;
             margin: 0 auto 20px;
@@ -495,14 +514,12 @@
             background: rgba(0, 0, 0, 0.3);
             border-radius: 8px;
         }
-        
         .modes-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        
         .mode-item {
             display: flex;
             align-items: center;
@@ -514,13 +531,11 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 6px;
         }
-        
         .mode-item:nth-child(1) { animation-delay: 0.2s; }
         .mode-item:nth-child(2) { animation-delay: 0.4s; }
         .mode-item:nth-child(3) { animation-delay: 0.6s; }
         .mode-item:nth-child(4) { animation-delay: 0.8s; }
         .mode-item:nth-child(5) { animation-delay: 1.0s; }
-        
         .mode-text {
             font-size: 1.2rem;
             font-weight: bold;
@@ -531,7 +546,6 @@
             padding: 5px 10px;
             color: white;
         }
-        
         /* Visual mode animation */
         .visual-mode::before {
             content: '';
@@ -544,7 +558,6 @@
             animation-delay: 0.5s;
             border-right: 2px solid #fff;
         }
-        
         .visual-mode::after {
             content: '◯';
             position: absolute;
@@ -554,7 +567,6 @@
             animation-delay: 1.5s;
             color: white;
         }
-        
         /* Aural mode animation */
         .aural-mode::before {
             content: '';
@@ -567,7 +579,6 @@
             animation-delay: 0.7s;
             border-right: 2px solid #fff;
         }
-        
         .aural-mode::after {
             content: '♪';
             position: absolute;
@@ -577,7 +588,6 @@
             animation-delay: 1.7s;
             color: white;
         }
-        
         /* Linguistic mode animation */
         .linguistic-mode::before {
             content: '';
@@ -590,7 +600,6 @@
             animation-delay: 0.9s;
             border-right: 2px solid #fff;
         }
-        
         .linguistic-mode::after {
             content: '✎';
             position: absolute;
@@ -600,7 +609,6 @@
             animation-delay: 1.9s;
             color: white;
         }
-        
         /* Gestural mode animation */
         .gestural-mode::before {
             content: '';
@@ -613,7 +621,6 @@
             animation-delay: 1.1s;
             border-right: 2px solid #fff;
         }
-        
         .gestural-mode::after {
             content: '✋';
             position: absolute;
@@ -623,7 +630,6 @@
             animation-delay: 2.1s;
             color: white;
         }
-        
         /* Spatial mode animation */
         .spatial-mode::before {
             content: '';
@@ -636,7 +642,6 @@
             animation-delay: 1.3s;
             border-right: 2px solid #fff;
         }
-        
         .spatial-mode::after {
             content: '◻';
             position: absolute;
@@ -646,7 +651,6 @@
             animation-delay: 2.3s;
             color: white;
         }
-        
         /* Animations */
         @keyframes slideIn {
             from {
@@ -658,162 +662,94 @@
                 transform: translateX(0);
             }
         }
-        
         @keyframes expandWidth {
             from { width: 0; }
             to { width: 100%; }
         }
-        
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.2); opacity: 0.8; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
-        
         @keyframes write {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(-15deg); }
             75% { transform: rotate(15deg); }
             100% { transform: rotate(0deg); }
         }
-        
         @keyframes gesture {
             0%, 100% { transform: rotate(0deg); }
             25% { transform: rotate(15deg); }
             50% { transform: rotate(-15deg); }
             75% { transform: rotate(5deg); }
         }
-        
         @keyframes spatial {
             0% { transform: rotate(0deg) scale(1); }
             33% { transform: rotate(90deg) scale(1.2); }
             66% { transform: rotate(180deg) scale(1); }
             100% { transform: rotate(360deg) scale(1); }
         }
-        
-        /* Content sections */
-        .content-section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            color: var(--digital-purple);
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
-        }
-        
-        /* Hero GIF */
-        .hero-gif {
-            width: 220px;
-            height: 220px;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(207, 64, 255, 0.5);
-            border: 2px solid var(--digital-purple);
-            display: block;
-            margin: 0 auto;
-            object-fit: cover;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding: 30px 0;
-            color: #777;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(207, 64, 255, 0.2);
-            margin-top: 40px;
-        }
-        
-        .centered-card {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .centered-card > .card {
-            max-width: 700px;
-            width: 100%;
-        }
-        
         /* Responsive Design Improvements */
         @media (max-width: 1200px) {
             .top-nav {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr;
             }
         }
-        
         @media (max-width: 900px) {
             .top-nav {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
             .top-header h1 {
                 font-size: 1.5rem;
             }
-            
             header {
                 min-height: 250px;
             }
-            
             .sun-container {
                 width: 250px;
                 height: 250px;
             }
-            
             .sun-core {
                 width: 100px;
                 height: 100px;
             }
-            
             .sun-rays {
                 width: 250px;
                 height: 250px;
             }
         }
-        
         @media (max-width: 768px) {
             .header-image {
                 width: 70%;
             }
-            
             .top-nav {
                 gap: 12px;
             }
-            
             .nav-link {
                 padding: 10px 12px;
                 font-size: 0.8rem;
             }
-            
             .mode-text {
                 font-size: 1rem;
             }
-            
             .mode-item::after {
                 right: 10px;
                 font-size: 1rem;
             }
         }
-        
         @media (max-width: 600px) {
             body {
                 padding: 15px;
             }
-            
             /* FIXED: Increased top value to prevent collision with header */
             .back-button-tab {
                 top: 65px;
@@ -822,7 +758,6 @@
                 font-size: 0.8rem;
                 z-index: 1002;
             }
-            
             /* FIXED: Increased top value to prevent collision with header */
             .contact-button-tab {
                 top: 65px;
@@ -831,200 +766,162 @@
                 font-size: 0.8rem;
                 z-index: 1002;
             }
-            
-            .card__image {
+            .card-image {
                 height: 180px;
             }
-            
             .hero-gif {
                 width: 180px;
                 height: 180px;
             }
-            
             /* Adjust sun for mobile */
             .sun-container {
                 width: 200px;
                 height: 200px;
             }
-            
             .sun-core {
                 width: 80px;
                 height: 80px;
                 box-shadow: 0 0 20px 8px var(--sun-glow);
             }
-            
             .sun-rays {
                 width: 200px;
                 height: 200px;
                 box-shadow: 0 0 15px 4px var(--sun-ray-color);
             }
-            
             header {
                 min-height: 220px;
             }
-            
             .top-header {
                 padding: 15px 10px;
                 flex-direction: column;
                 height: auto;
             }
-            
             .top-header h1 {
                 font-size: 1.3rem;
                 max-width: 100%;
                 padding: 0 50px;
                 margin-top: 5px;
             }
-            
             .top-nav {
                 grid-template-columns: 1fr;
                 gap: 10px;
                 padding: 0 10px;
             }
-            
             .nav-link {
                 padding: 12px 10px;
                 font-size: 0.85rem;
             }
-            
             .contact-card {
                 padding: 15px;
                 margin: 15px auto;
             }
-            
             .contact-card h2 {
                 font-size: 1.1rem;
             }
-            
             .section-title {
                 font-size: 1.4rem;
             }
-            
-            .card__title {
+            .article-card h3 {
                 font-size: 1.1rem;
             }
-            
             .main-container {
                 margin: 130px auto 0;
             }
-            
             /* For mobile, revert to original layout without wrapping */
-            .card__image-wrap {
+            .card-image-wrap {
                 float: none;
                 width: 100%;
                 margin: 0 0 15px 0;
             }
-            
             .mode-text {
                 font-size: 0.9rem;
                 letter-spacing: 0;
             }
-            
             .mode-item::after {
                 right: 5px;
                 font-size: 0.9rem;
             }
         }
-        
         /* FIXED: Special handling for landscape mode on mobile */
         @media (max-height: 500px) and (orientation: landscape) {
             .top-header {
                 padding: 10px 15px;
                 flex-direction: row;
             }
-            
             .top-header h1 {
                 font-size: 1.2rem;
                 padding: 0;
                 margin-top: 0;
             }
-            
             .back-button-tab {
                 top: 50px;
                 left: 15px;
                 padding: 6px 12px;
             }
-            
             .contact-button-tab {
                 top: 50px;
                 right: 15px;
                 padding: 6px 12px;
             }
-            
             .main-container {
                 margin: 70px auto 0;
             }
-            
             header {
                 min-height: 200px;
             }
-            
             .sun-container {
                 width: 150px;
                 height: 150px;
             }
-            
             .sun-core {
                 width: 60px;
                 height: 60px;
             }
-            
             .sun-rays {
                 width: 150px;
                 height: 150px;
             }
-            
             .contact-card {
                 padding: 12px;
                 margin: 10px auto;
             }
-            
             .contact-card h2 {
                 font-size: 1rem;
                 margin-bottom: 8px;
             }
-            
             .contact-card p {
                 font-size: 0.9rem;
             }
-            
             .top-nav {
                 margin-bottom: 20px;
             }
         }
-        
         /* FIXED: Special handling for very small devices */
         @media (max-width: 360px) {
             .top-header h1 {
                 font-size: 1.1rem;
                 padding: 0 40px;
             }
-            
             .nav-link {
                 font-size: 0.75rem;
                 padding: 10px 8px;
             }
-            
             .hero-gif {
                 width: 150px;
                 height: 150px;
             }
-            
-            .card__image {
+            .card-image {
                 height: 160px;
             }
-            
             .back-button-tab {
                 top: 70px;
                 padding: 6px 12px;
             }
-            
             .contact-button-tab {
                 top: 70px;
                 padding: 6px 12px;
             }
         }
-        
         /* FIXED: Special adjustment for portrait mode on small devices */
         @media (max-width: 600px) and (orientation: portrait) {
             .back-button-tab, 
@@ -1041,11 +938,11 @@
         <h1>Academic Literacies Model</h1>
     </div>
     <a href="#" class="back-button-tab" id="backButton">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+        <i class="fas fa-arrow-left"></i> Back
     </a>
     <!-- NEW: Contact button in top right -->
     <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
-        <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+        <i class="fas fa-envelope"></i> Contact
     </a>
     <div class="main-container">
         <!-- Top Navigation Links -->
@@ -1102,7 +999,7 @@
                 <div class="header-content">
                     <!-- Removed the subtitle text -->
                     <div class="contact-card">
-                        <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Key Finding</h2>
+                        <h2><i class="fas fa-graduation-cap"></i> Key Finding</h2>
                         <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
                     </div>
                 </div>
@@ -1111,109 +1008,97 @@
                 <h2 class="section-title">Theoretical Frameworks</h2>
                 <div class="articles-container">
                     <!-- Card 1: Three Models -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-chart-bar" aria-hidden="true"></i> Three Models of Academic Literacy
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" 
-                                 alt="Comparison of three academic literacy models showing Study Skills, Academic Socialisation, and Academic Literacies approaches" 
-                                 class="card__image">
-                            <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
-                            <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
-                            <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> The academic literacies model recognises that writing is never just about skills or socialisation, but always involves questions of power, identity, and access.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Theory</span>
-                                <span class="tag">Pedagogy</span>
-                                <span class="tag">Epistemology</span>
+                    <div class="article-card">
+                        <h3><i class="fas fa-chart-bar"></i> Three Models of Academic Literacy</h3>
+                        <div class="article-content">
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" alt="Three Models of Academic Literacy" class="card-image">
+                            <div class="card-text">
+                                <p><strong>Study Skills Model:</strong> Literacy is viewed as a set of discrete, transferable technical skills, such as grammar, punctuation, and spelling, applicable across contexts.</p>
+                                <p><strong>Academic Socialisation Model:</strong> Literacy is seen as contextual and disciplinary, requiring students to adopt the norms, genres, and conventions of specific academic communities.</p>
+                                <p><strong>Academic Literacies Model:</strong> Literacy is understood as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
+                                <div class="citation">
+                                    <p><i class="fas fa-quote-left"></i> The academic literacies model recognises that writing is never just about skills or socialisation, but always involves questions of power, identity, and access.</p>
+                                </div>
+                                <div class="article-meta">
+                                    <span class="meta-tag">Theory</span>
+                                    <span class="meta-tag">Pedagogy</span>
+                                    <span class="meta-tag">Epistemology</span>
+                                </div>
                             </div>
                         </div>
-                        <footer class="card__footer">
+                        <div class="card-footer">
                             Each model offers different perspectives on how students engage with academic writing demands
-                        </footer>
+                        </div>
                     </div>
                     <!-- Card 2: Academic Literacies Model -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-book-open" aria-hidden="true"></i> Academic Literacies Model
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true" 
-                                 alt="Academic Literacies Model framework showing social practices, epistemology, and identity" 
-                                 class="card__image">
-                            <p>The academic literacies model treats reading and writing as social practices that vary with context, culture and genre. It views student writing and learning as issues of epistemology and identities rather than of skill acquisition or academic socialisation alone.</p>
-                            <p>From the student point of view, a dominant feature of academic literacy practices is the requirement to switch writing styles and genres between settings, to deploy a repertoire of literacy practices appropriate to each context, and to handle the social meanings and identities each evokes.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> An academic literacies perspective views student writing and learning as issues of epistemology and identities rather than of skill acquisition or academic socialisation alone, although the perspectives are not mutually exclusive and individuals may move between them according to context and purpose.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Social Practice</span>
-                                <span class="tag">Epistemology</span>
-                                <span class="tag">Identity</span>
+                    <div class="article-card">
+                        <h3><i class="fas fa-book-open"></i> Academic Literacies Model</h3>
+                        <div class="article-content">
+                            <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true" alt="Academic Literacies Model Framework" class="card-image">
+                            <div class="card-text">
+                                <p>The academic literacies model treats reading and writing as social practices that vary with context, culture and genre. It views student writing and learning as issues of epistemology and identities rather than of skill acquisition or academic socialisation alone.</p>
+                                <p>From the student point of view, a dominant feature of academic literacy practices is the requirement to switch writing styles and genres between settings, to deploy a repertoire of literacy practices appropriate to each context, and to handle the social meanings and identities each evokes.</p>
+                                <div class="citation">
+                                    <p><i class="fas fa-quote-left"></i> An academic literacies perspective views student writing and learning as issues of epistemology and identities rather than of skill acquisition or academic socialisation alone, although the perspectives are not mutually exclusive and individuals may move between them according to context and purpose.</p>
+                                </div>
+                                <div class="article-meta">
+                                    <span class="meta-tag">Social Practice</span>
+                                    <span class="meta-tag">Epistemology</span>
+                                    <span class="meta-tag">Identity</span>
+                                </div>
                             </div>
                         </div>
-                        <footer class="card__footer">
+                        <div class="card-footer">
                             Writing as a social practice involving meaning-making, identity, power and authority
-                        </footer>
-                    </div>
-                    <!-- Card 3: Ubuntu Concept -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-leaf" aria-hidden="true"></i> Ubuntu Concept
-                            </h2>
                         </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" 
-                                 alt="Ubuntu philosophy visualization showing interconnected human relationships" 
-                                 class="card__image">
-                            <p>Ubuntu is a philosophical concept that emphasises our interconnectedness as human beings. The phrase "Umuntu ngumuntu ngabantu" (I am because we are) captures the essence of this worldview, which focuses on community, mutual caring, and shared humanity.</p>
-                            <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Ubuntu philosophy transforms academic literacy from individual achievement to communal knowledge-building, where writing becomes an act of relational accountability.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Philosophy</span>
-                                <span class="tag">Community</span>
-                                <span class="tag">African Epistemology</span>
+                    </div>
+                    <!-- Card 3: Ubuntu Concept - Updated with additional image -->
+                    <div class="article-card">
+                        <h3><i class="fas fa-leaf"></i> Ubuntu Concept</h3>
+                        <div class="article-content">
+                            <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" alt="Ubuntu Philosophy" class="card-image">
+                            <div class="card-text">
+                                <p>Ubuntu is a philosophical concept that emphasises our interconnectedness as human beings. The phrase "Umuntu ngumuntu ngabantu" (I am because we are) captures the essence of this worldview, which focuses on community, mutual caring, and shared humanity.</p>
+                                <!-- ADDED: Academic literacy debate image to break up text and reinforce collaborative learning concept -->
+                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" 
+                                     alt="Students engaged in collaborative learning and debate demonstrating Ubuntu principles" 
+                                     class="card-image-wrap">
+                                <p>In academic contexts, Ubuntu encourages collaborative learning, dialectic argumentation, and writing that acknowledges multiple perspectives and the communal nature of knowledge creation.</p>
+                                <div class="citation">
+                                    <p><i class="fas fa-quote-left"></i> Ubuntu philosophy transforms academic literacy from individual achievement to communal knowledge-building, where writing becomes an act of relational accountability.</p>
+                                </div>
+                                <div class="article-meta">
+                                    <span class="meta-tag">Philosophy</span>
+                                    <span class="meta-tag">Community</span>
+                                    <span class="meta-tag">African Epistemology</span>
+                                </div>
                             </div>
                         </div>
-                        <footer class="card__footer">
+                        <div class="card-footer">
                             "A person is a person through other persons" - African proverb
-                        </footer>
+                        </div>
                     </div>
                     <!-- Card 4: Achebe and Academic Literacy -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-feather-alt" aria-hidden="true"></i> Achebe and Academic Literacy
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://bdc2020.o0bc.com/wp-content/uploads/2014/04/Obit-Achebe_001-scaled.jpg" 
-                                 alt="Chinua Achebe portrait with traditional African patterns" 
-                                 class="card__image">
-                            <p>Achebe's literary works—especially "Things Fall Apart"—seek to reclaim African stories from colonial narratives that traditionally distorted or erased African histories and cultures. He believed in helping learners see themselves reflected in the curriculum and countering colonial stereotypes.</p>
-                            <p>This approach transforms academic literacy from mere skill acquisition to a process of cultural reclamation and identity formation.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Reclaiming African stories from colonial distortions, providing counter-narratives to colonial historiography, and helping learners see themselves in the curriculum challenges Eurocentric perspectives in education.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Decolonisation</span>
-                                <span class="tag">Narrative</span>
-                                <span class="tag">Identity</span>
+                    <div class="article-card">
+                        <h3><i class="fas fa-feather-alt"></i> Achebe and Academic Literacy</h3>
+                        <div class="article-content">
+                            <img src="https://bdc2020.o0bc.com/wp-content/uploads/2014/04/Obit-Achebe_001-scaled.jpg" alt="Chinua Achebe" class="card-image">
+                            <div class="card-text">
+                                <p>Achebe's literary works—especially "Things Fall Apart"—seek to reclaim African stories from colonial narratives that traditionally distorted or erased African histories and cultures. He believed in helping learners see themselves reflected in the curriculum and countering colonial stereotypes.</p>
+                                <p>This approach transforms academic literacy from mere skill acquisition to a process of cultural reclamation and identity formation.</p>
+                                <div class="citation">
+                                    <p><i class="fas fa-quote-left"></i> Reclaiming African stories from colonial distortions, providing counter-narratives to colonial historiography, and helping learners see themselves in the curriculum challenges Eurocentric perspectives in education.</p>
+                                </div>
+                                <div class="article-meta">
+                                    <span class="meta-tag">Decolonisation</span>
+                                    <span class="meta-tag">Narrative</span>
+                                    <span class="meta-tag">Identity</span>
+                                </div>
                             </div>
                         </div>
-                        <footer class="card__footer">
+                        <div class="card-footer">
                             Using literature to transform academic literacy into cultural reclamation
-                        </footer>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1222,40 +1107,35 @@
                 <h2 class="section-title">Practical Applications</h2>
                 <div class="articles-container">
                     <!-- Card 5: Multimodal Grammar -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-project-diagram" aria-hidden="true"></i> Multimodal Grammar
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <!-- Updated to wrap text around the image -->
-                            <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true" 
-                                 alt="Digital communication in African contexts showing visual, linguistic, and spatial elements" 
-                                 class="card__image-wrap">
-                            <p>Communication is rarely just about words. Multimodality is the concept that we create meaning using a combination of different 'modes'. Think of a webpage, a film, or even a face-to-face conversation—they all blend text, images, sounds, and gestures to convey a message. Multimodal grammar is the framework we use to understand how these different modes work together to create a coherent whole.</p>
-                            <p>This approach recognises that every element—from the font of a text to the layout of a page—is a deliberate choice that contributes to the overall meaning. By understanding these choices, we become more effective communicators and more critical consumers of information in our increasingly digital world.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through various channels. Social semiotics identifies five core modes through which we communicate: linguistic, visual, aural, gestural, and spatial.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Visual</span>
-                                <span class="tag">Aural</span>
-                                <span class="tag">Spatial</span>
+                    <div class="article-card">
+                        <h3><i class="fas fa-project-diagram"></i> Multimodal Grammar</h3>
+                        <div class="article-content">
+                            <div class="card-text">
+                                <!-- Updated to wrap text around the image -->
+                                <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true" 
+                                     alt="Digital Communication in Africa" 
+                                     class="card-image-wrap">
+                                <p>Communication is rarely just about words. Multimodality is the concept that we create meaning using a combination of different 'modes'. Think of a webpage, a film, or even a face-to-face conversation—they all blend text, images, sounds, and gestures to convey a message. Multimodal grammar is the framework we use to understand how these different modes work together to create a coherent whole.</p>
+                                <p>This approach recognises that every element—from the font of a text to the layout of a page—is a deliberate choice that contributes to the overall meaning. By understanding these choices, we become more effective communicators and more critical consumers of information in our increasingly digital world.</p>
+                                <div class="citation">
+                                    <p><i class="fas fa-quote-left"></i> Meaning is constructed through various channels. Social semiotics identifies five core modes through which we communicate: linguistic, visual, aural, gestural, and spatial.</p>
+                                </div>
+                                <div class="article-meta">
+                                    <span class="meta-tag">Visual</span>
+                                    <span class="meta-tag">Aural</span>
+                                    <span class="meta-tag">Spatial</span>
+                                </div>
                             </div>
                         </div>
-                        <footer class="card__footer">
+                        <div class="card-footer">
                             Understanding how different modes create meaning
-                        </footer>
-                    </div>
-                    <!-- Card 6: Five Modes of Communication -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-sitemap" aria-hidden="true"></i> Five Modes of Communication
-                            </h2>
                         </div>
-                        <div class="card__body">
+                    </div>
+                <!-- Card 6: Five Modes of Communication -->
+                <div class="article-card">
+                    <h3><i class="fas fa-sitemap"></i> Five Modes of Communication</h3>
+                    <div class="article-content">
+                        <div class="card-text">
                             <!-- NEW: Replaced with black and white animated communication modes -->
                             <div class="modes-animation">
                                 <ul class="modes-list">
@@ -1271,138 +1151,109 @@
                             <p><strong>Aural:</strong> The mode of sound. This encompasses spoken language, music, sound effects, and the qualities of a voice like tone and pitch.</p>
                             <p><strong>Gestural:</strong> How we use our bodies to communicate. This includes facial expressions, hand gestures, and body language.</p>
                             <p><strong>Spatial:</strong> The arrangement of elements in space. This applies to the layout of a page, the architecture of a room, or the proximity of people in a conversation.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through various channels. Social semiotics identifies five core modes through which we communicate. Each mode offers unique potentials for making meaning, and they often work in concert to create a rich, layered message.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Semiotics</span>
-                                <span class="tag">Communication</span>
-                                <span class="tag">Multimodality</span>
+                            <div class="citation">
+                                <p><i class="fas fa-quote-left"></i> Meaning is constructed through various channels. Social semiotics identifies five core modes through which we communicate. Each mode offers unique potentials for making meaning, and they often work in concert to create a rich, layered message.</p>
                             </div>
-                        </div>
-                        <footer class="card__footer">
-                            The five core modes through which we communicate
-                        </footer>
-                    </div>
-                </div>
-                <div class="content-section">
-                    <h2 class="section-title">Implementation Framework</h2>
-                    <div class="articles-container">
-                        <!-- Card 7: Genre and Mode Switching -->
-                        <div class="card">
-                            <div class="card__header">
-                                <h2 class="card__title">
-                                    <i class="fas fa-exchange-alt" aria-hidden="true"></i> Genre and Mode Switching
-                                </h2>
+                            <div class="article-meta">
+                                <span class="meta-tag">Semiotics</span>
+                                <span class="meta-tag">Communication</span>
+                                <span class="meta-tag">Multimodality</span>
                             </div>
-                            <div class="card__body">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true" 
-                                     alt="Students switching between different communication modes in classroom setting" 
-                                     class="card__image">
-                                <p>Students are required to interact with different categories of text that we define as different genres and modes. Genres are types of text, both spoken and written, such as student discussions, written notes, letters, academic essays, etc.</p>
-                                <p>The shift from free flowing thoughts/ideas to explicitness in discussion with others we identified as a shift to a different genre. As Gunther Kress has pointed out, it also involves a shift of 'mode'—from internal thought to external speech.</p>
-                                <p>When students shift from talk and discussion to taking notes, new requirements come into play, such as the need for explicit attention to language structure, use of headings, and use of visual as well as language "modes" such as layout.</p>
-                                <blockquote class="card__quote">
-                                    <i class="fas fa-quote-left" aria-hidden="true"></i> Each genre and mode had different qualities. In their educational histories, students had not always been made explicitly aware of these qualities associated with different genres as they moved between different genres in their school work.
-                                </blockquote>
-                                <div class="card__meta">
-                                    <span class="tag">Genre</span>
-                                    <span class="tag">Mode</span>
-                                    <span class="tag">Transformation</span>
-                                </div>
-                            </div>
-                            <footer class="card__footer">
-                                Understanding how students navigate between different communication contexts
-                            </footer>
-                        </div>
-                        <!-- Card 8: Academic Literacy Development -->
-                        <div class="card">
-                            <div class="card__header">
-                                <h2 class="card__title">
-                                    <i class="fas fa-graduation-cap" aria-hidden="true"></i> Academic Literacy Development
-                                </h2>
-                            </div>
-                            <div class="card__body">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/debate.png?raw=true" 
-                                     alt="Students engaged in academic debate showing collaborative learning" 
-                                     class="card__image">
-                                <p>The Academic Literacy Development Programme was designed to provide additional educational opportunities for students from linguistic minority community backgrounds who would like to move on to study at university.</p>
-                                <p>Students were required to interact with different categories of text defined as different genres and modes. The programme focused on developing the use of academic English in Higher Educational contexts by helping students be more aware of the different language and semiotic practices associated with the requirements of different genres in academic contexts.</p>
-                                <p>The programme aims to challenge expectations students may have about language as narrowly defined. The course involves issues of discourse, genre, writing as social process, within a notion of building on what students already have and bring to the programme rather than treating them as a deficit.</p>
-                                <blockquote class="card__quote">
-                                    <i class="fas fa-quote-left" aria-hidden="true"></i> The ALD programme tries to challenge some of the expectations students may have met at school… about language as narrowly defined…the course involves issues of discourse, genre, writing as social process…within a notion of building on what they already had and bring to the programme rather than treating them as a deficit and just fixing that.
-                                </blockquote>
-                                <div class="card__meta">
-                                    <span class="tag">Widening Participation</span>
-                                    <span class="tag">Pedagogy</span>
-                                    <span class="tag">Inclusion</span>
-                                </div>
-                            </div>
-                            <footer class="card__footer">
-                                Practical implementation of academic literacies in educational settings
-                            </footer>
                         </div>
                     </div>
-                </div>
-                <div class="copyright">
-                    <p>&copy; 2025 Dr Oscar Eybers</p>
+                    <div class="card-footer">
+                        The five core modes through which we communicate
+                    </div>
                 </div>
             </div>
+            <div class="content-section">
+                <h2 class="section-title">Implementation Framework</h2>
+                <div class="articles-container">
+                   <div class="article-card">
+    <h3><i class="fas fa-exchange-alt"></i> Genre and Mode Switching</h3>
+    <div class="article-content">
+        <div class="card-text">
+            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true" 
+                 alt="Genre and Mode Switching" 
+                 class="card-image">
+            <p>Students are required to interact with different categories of text that we define as different genres and modes. Genres are types of text, both spoken and written, such as student discussions, written notes, letters, academic essays, etc.</p>
+            <p>The shift from free flowing thoughts/ideas to explicitness in discussion with others we identified as a shift to a different genre. As Gunther Kress has pointed out, it also involves a shift of 'mode'—from internal thought to external speech.</p>
+            <p>When students shift from talk and discussion to taking notes, new requirements come into play, such as the need for explicit attention to language structure, use of headings, and use of visual as well as language "modes" such as layout.</p>
+            <div class="citation">
+                <p><i class="fas fa-quote-left"></i> Each genre and mode had different qualities. In their educational histories, students had not always been made explicitly aware of these qualities associated with different genres as they moved between different genres in their school work.</p>
+            </div>
+            <div class="article-meta">
+                <span class="meta-tag">Genre</span>
+                <span class="meta-tag">Mode</span>
+                <span class="meta-tag">Transformation</span>
+            </div>
         </div>
-        <script>
-            // Ensure DOM is fully loaded before attaching event handlers
-            document.addEventListener('DOMContentLoaded', function() {
-                // Back button functionality - IMPROVED
-                const backButton = document.getElementById('backButton');
-                if (backButton) {
-                    backButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        // Store current state with scroll position before navigating
-                        const currentState = {
-                            url: window.location.href,
-                            scrollY: window.scrollY
-                        };
-                        history.replaceState(currentState, document.title);
-                        // Go back in history
-                        if (history.length > 1) {
-                            history.back();
-                        } else {
-                            // Fallback if no history
-                            window.location.href = '/';
-                        }
-                    });
-                }
-                // Store scroll position when navigating away
-                window.addEventListener('beforeunload', function() {
+    </div>
+    <div class="card-footer">
+        Understanding how students navigate between different communication contexts
+    </div>
+</div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dr Oscar Eybers</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Ensure DOM is fully loaded before attaching event handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back button functionality - IMPROVED
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Store current state with scroll position before navigating
                     const currentState = {
                         url: window.location.href,
                         scrollY: window.scrollY
                     };
                     history.replaceState(currentState, document.title);
-                });
-                // Restore scroll position when returning to page
-                window.addEventListener('pageshow', function(event) {
-                    if (event.persisted) {
-                        const state = history.state;
-                        if (state && state.scrollY !== undefined) {
-                            window.scrollTo(0, state.scrollY);
-                        }
+                    // Go back in history
+                    if (history.length > 1) {
+                        history.back();
+                    } else {
+                        // Fallback if no history
+                        window.location.href = '/';
                     }
                 });
-                // Handle direct navigation to this page
-                if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
+            }
+            // Store scroll position when navigating away
+            window.addEventListener('beforeunload', function() {
+                const currentState = {
+                    url: window.location.href,
+                    scrollY: window.scrollY
+                };
+                history.replaceState(currentState, document.title);
+            });
+            // Restore scroll position when returning to page
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
                     const state = history.state;
                     if (state && state.scrollY !== undefined) {
                         window.scrollTo(0, state.scrollY);
                     }
                 }
-                // Handle orientation changes
-                window.addEventListener('orientationchange', function() {
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 300);
-                });
             });
-        </script>
-    </body>
+            // Handle direct navigation to this page
+            if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
+                const state = history.state;
+                if (state && state.scrollY !== undefined) {
+                    window.scrollTo(0, state.scrollY);
+                }
+            }
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    window.location.reload();
+                }, 300);
+            });
+        });
+    </script>
+</body>
 </html>
