@@ -932,7 +932,7 @@
                         </div>
                     </div>
 
-                 <!-- Card 6: Five Modes of Communication -->
+                <!-- Card 6: Five Modes of Communication -->
 <div class="article-card">
     <h3><i class="fas fa-sitemap"></i> Five Modes of Communication</h3>
     <div class="article-content">
@@ -1081,6 +1081,9 @@
                         font-size: 0.85rem;
                         display: inline-block;
                         animation: scroll-words 60s linear infinite;
+                        /* Center text vertically */
+                        top: 50%;
+                        transform: translateY(-50%);
                     }
                     
                     .word {
@@ -1236,8 +1239,8 @@
                     
                     /* Continuous word scrolling animation -->
                     @keyframes scroll-words {
-                        0% { transform: translateX(100%); }
-                        100% { transform: translateX(-100%); }
+                        0% { transform: translate(100%, -50%); }
+                        100% { transform: translate(-100%, -50%); }
                     }
                     
                     /* Enhanced waving hand animations -->
