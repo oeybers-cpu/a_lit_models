@@ -477,63 +477,6 @@
             margin-top: 15px;
         }
         
-        /* Communication modes animation */
-        .modes-animation {
-            width: 100%;
-            margin: 0 auto 20px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-        }
-        
-        .modes-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .mode-item {
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideIn 0.8s forwards;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-        }
-        
-        .mode-item:nth-child(1) { animation-delay: 0.2s; }
-        .mode-item:nth-child(2) { animation-delay: 0.4s; }
-        .mode-item:nth-child(3) { animation-delay: 0.6s; }
-        .mode-item:nth-child(4) { animation-delay: 0.8s; }
-        .mode-item:nth-child(5) { animation-delay: 1.0s; }
-        
-        .mode-text {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
-            position: relative;
-            padding: 5px 10px;
-            color: white;
-        }
-        
-        /* Animations */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
         /* Content sections */
         .content-section {
             margin-bottom: 40px;
@@ -904,39 +847,34 @@
             <div class="content-section">
                 <h2 class="section-title">Implementation Framework</h2>
                 <div class="articles-container">
-                    <!-- Card 5: Five Modes of Communication -->
+                    <!-- Card 5: Genre and Mode Switching (replaced the Five Modes card) -->
                     <div class="card">
                         <div class="card__header">
                             <h2 class="card__title">
-                                <i class="fas fa-sitemap" aria-hidden="true"></i> The Five Communication Modes
+                                <i class="fas fa-exchange-alt" aria-hidden="true"></i> Genre and Mode Switching
                             </h2>
                         </div>
                         <div class="card__body">
-                            <div class="modes-animation">
-                                <ul class="modes-list">
-                                    <li class="mode-item visual-mode"><span class="mode-text">Visual</span></li>
-                                    <li class="mode-item aural-mode"><span class="mode-text">Aural</span></li>
-                                    <li class="mode-item linguistic-mode"><span class="mode-text">Linguistic</span></li>
-                                    <li class="mode-item gestural-mode"><span class="mode-text">Gestural</span></li>
-                                    <li class="mode-item spatial-mode"><span class="mode-text">Spatial</span></li>
-                                </ul>
-                            </div>
-                            <p>Academic communication operates through five core modes that work together to create meaning. The linguistic mode encompasses vocabulary, grammar, and textual structure. The visual mode includes images, colors, symbols, and layout. The aural mode involves sound elements like voice tone and music. The gestural mode covers body language and physical expressions. The spatial mode refers to the arrangement of elements in physical or digital space.</p>
-                            <p>Each mode offers distinct semiotic resources for meaning-making, and academic communication typically involves strategic integration of multiple modes. Understanding these modes helps students navigate the complex communication demands of academic contexts.</p>
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true" 
+                                 alt="Genre and Mode Switching" 
+                                 class="card__image">
+                            <p>Students are required to interact with different categories of text that we define as different genres and modes. Genres are types of text, both spoken and written, such as student discussions, written notes, letters, academic essays, etc.</p>
+                            <p>The shift from free flowing thoughts/ideas to explicitness in discussion with others we identified as a shift to a different genre. It also involves a shift of 'mode'—from internal thought to external speech.</p>
+                            <p>When students shift from talk and discussion to taking notes, new requirements come into play, such as the need for explicit attention to language structure, use of headings, and use of visual as well as language "modes" such as layout.</p>
                             <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic communication draws on multiple semiotic resources, with each mode contributing uniquely to the construction of meaning in disciplinary contexts.
+                                <i class="fas fa-quote-left" aria-hidden="true"></i> Each genre and mode had different qualities. In their educational histories, students had not always been made explicitly aware of these qualities associated with different genres as they moved between different genres in their school work.
                             </blockquote>
                             <div class="card__meta">
-                                <span class="tag">Semiotics</span>
-                                <span class="tag">Communication</span>
-                                <span class="tag">Multimodality</span>
+                                <span class="tag">Genre</span>
+                                <span class="tag">Mode</span>
+                                <span class="tag">Transformation</span>
                             </div>
                         </div>
                         <footer class="card__footer">
-                            Understanding the five core modes of academic communication
+                            Understanding how students navigate between different communication contexts
                         </footer>
                     </div>
-                    <!-- Card 6: Implementation Principles -->
+                    <!-- Card 6: Principles for Academic Development -->
                     <div class="card">
                         <div class="card__header">
                             <h2 class="card__title">
