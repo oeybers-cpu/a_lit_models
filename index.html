@@ -1,3 +1,6 @@
+Here's the updated HTML with the requested changes. I've fixed the home button to link to the correct URL and added both "Home" and "Top" buttons in the footer:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -681,6 +684,53 @@
             }
         }
 
+        /* Footer Navigation Buttons */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 15px 0;
+        }
+        
+        .footer-button {
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .footer-button:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .footer-button.top {
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid var(--digital-purple);
+            color: var(--digital-purple);
+        }
+        
+        .footer-button.top:hover {
+            background: rgba(207, 64, 255, 0.2);
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.5);
+            color: var(--light);
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .page-layout {
@@ -788,6 +838,12 @@
             .nav-sidebar {
                 top: 100px;
             }
+            
+            /* Footer navigation for mobile */
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -796,8 +852,8 @@
     
     <!-- NEW: Dedicated Navigation Banner -->
     <div class="nav-banner">
-        <a href="https://oeybers-cpu.github.io/" class="back-button-tab" id="backButton">
-            <i class="fas fa-arrow-left"></i> Back to Academic Literacy Home
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="back-button-tab" id="homeButton">
+            <i class="fas fa-home"></i> Home
         </a>
         <!-- NEW: Warning Banner - now on the far right -->
         <div class="warning-banner">
@@ -1074,6 +1130,16 @@
         </div>
     </div>
 
+    <!-- Footer Navigation -->
+    <div class="footer-nav">
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="footer-button">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="#" class="footer-button top" id="topButton">
+            <i class="fas fa-arrow-up"></i> Top
+        </a>
+    </div>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1133,6 +1199,16 @@
         
         // Initial active state
         document.querySelector('.sidebar-link[href="#autonomous-models"]').classList.add('active');
+        
+        // Top button functionality
+        document.getElementById('topButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
+```
