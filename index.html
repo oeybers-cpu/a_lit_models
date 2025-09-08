@@ -34,6 +34,9 @@
             --sun-color: #FFC107;
             --sun-glow: #FFA000;
             --sun-ray-color: #FFD700;
+            /* Header heights for scroll margin */
+            --top-header-height: 70px; /* Approximate height on larger screens */
+            --top-header-height-sm: 90px; /* Approximate height on small screens */
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -81,7 +84,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 20px; /* Adjusted padding */
             background: rgba(10, 10, 20, 0.8);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
             z-index: 1000;
@@ -168,7 +171,7 @@
         .main-container {
             width: 100%;
             max-width: 1400px;
-            margin: 100px auto 0;
+            margin: 100px auto 0; /* Default margin for larger screens */
         }
         /* Top navigation links */
         .top-nav {
@@ -465,6 +468,8 @@
         /* Content sections */
         .content-section {
             margin-bottom: 40px;
+            /* Default scroll margin for larger screens */
+            scroll-margin-top: calc(var(--top-header-height) + 10px);
         }
         .section-title {
             color: var(--digital-purple);
@@ -555,6 +560,9 @@
                 padding: 10px 12px;
                 font-size: 0.8rem;
             }
+            .card__image {
+                 height: 180px; /* Adjust image height */
+            }
         }
         @media (max-width: 600px) {
             body {
@@ -562,7 +570,7 @@
             }
             /* FIXED: Increased top value to prevent collision with header */
             .back-button-tab {
-                top: 65px;
+                top: 65px; /* Adjusted top position */
                 left: 15px;
                 padding: 8px 15px;
                 font-size: 0.8rem;
@@ -570,14 +578,11 @@
             }
             /* FIXED: Increased top value to prevent collision with header */
             .contact-button-tab {
-                top: 65px;
+                top: 65px; /* Adjusted top position */
                 right: 15px;
                 padding: 8px 15px;
                 font-size: 0.8rem;
                 z-index: 1002;
-            }
-            .card__image {
-                height: 180px;
             }
             /* Adjust sun for mobile */
             .sun-container {
@@ -605,8 +610,7 @@
             .top-header h1 {
                 font-size: 1.3rem;
                 max-width: 100%;
-                padding: 0 50px;
-                margin-top: 5px;
+                /* Removed padding and margin-top for simpler, more predictable layout */
             }
             .top-nav {
                 grid-template-columns: 1fr;
@@ -630,8 +634,13 @@
             .card__title {
                 font-size: 1.1rem;
             }
+            /* Adjust main container margin for fixed header height on small screens */
             .main-container {
-                margin: 130px auto 0;
+                margin: calc(var(--top-header-height-sm) + 20px) auto 0; /* Adjusted margin */
+            }
+            /* Adjust scroll margin for fixed header height on small screens */
+            .content-section {
+                scroll-margin-top: calc(var(--top-header-height-sm) + 15px); /* Adjusted scroll margin */
             }
             #freeCounter {
                 padding: 15px;
@@ -725,8 +734,8 @@
                             </h2>
                         </div>
                         <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true" 
-                                 alt="Three models of academic literacy showing different approaches to understanding literacy practices" 
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true"
+                                 alt="Three models of academic literacy showing different approaches to understanding literacy practices"
                                  class="card__image">
                             <p>Academic literacy can be understood through three distinct theoretical approaches. The skills-based perspective views literacy as transferable technical abilities applicable across contexts. The socialisation approach sees literacy as contextual, requiring adaptation to specific academic communities. The literacies perspective recognises literacy as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
                             <p>Each model offers different assumptions about how knowledge is constructed and transmitted within educational settings. Contemporary research increasingly acknowledges the complex social dimensions of academic communication, highlighting how literacy practices are embedded within broader cultural and institutional frameworks rather than being merely transferable skills.</p>
@@ -751,8 +760,8 @@
                             </h2>
                         </div>
                         <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true" 
-                                 alt="Academic literacies model showing social practice framework" 
+                            <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true"
+                                 alt="Academic literacies model showing social practice framework"
                                  class="card__image">
                             <p>Academic literacies treats reading and writing as social practices that vary with context, culture, and genre. This perspective views student writing and learning as issues of epistemology and identity rather than merely skill acquisition or socialisation. Knowledge is constructed through participation in disciplinary communities where meaning-making involves negotiation of power relations and cultural norms.</p>
                             <p>Students navigate multiple literacy practices across different academic settings, each with distinct expectations regarding structure, voice, evidence, and argumentation. These practices reflect deeper epistemological assumptions about what counts as valid knowledge within particular disciplines. The recognition that academic literacy is inherently situated within specific communities challenges simplistic approaches to academic writing instruction.</p>
@@ -777,8 +786,8 @@
                             </h2>
                         </div>
                         <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true" 
-                                 alt="Students switching between different communication modes in classroom setting" 
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true"
+                                 alt="Students switching between different communication modes in classroom setting"
                                  class="card__image">
                             <p>Students constantly navigate between different genres and modes of communication as they move through academic settings. Genres represent types of text—both spoken and written—such as discussions, notes, essays, and presentations. Each genre carries specific expectations regarding structure, language, and purpose.</p>
                             <p>These transitions involve shifts in mode—from internal thought to external speech, from spoken discussion to written notes, from linguistic to visual communication. Each shift requires students to attend to different aspects of communication, including language structure, visual layout, and multimodal elements that contribute to meaning-making. This complex navigation highlights why a narrow focus on technical skills cannot adequately prepare students for the diverse literacy demands they encounter.</p>
@@ -803,8 +812,8 @@
                             </h2>
                         </div>
                         <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true" 
-                                 alt="Multimodal communication showing integration of different semiotic resources" 
+                            <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
+                                 alt="Multimodal communication showing integration of different semiotic resources"
                                  class="card__image">
                             <p>Communication extends far beyond linguistic elements. Multimodality recognises that meaning is constructed through multiple channels working together. In academic contexts, this includes visual elements (images, layout, typography), aural components (tone, pace, silence), gestural communication (body language, hand movements), and spatial arrangements (proximity, architecture).</p>
                             <p>Each mode offers unique resources for meaning-making, and academic communication typically involves the strategic integration of multiple modes. Understanding these multimodal practices is essential for effective participation in academic discourse communities. Approaches that focus solely on linguistic elements fail to acknowledge the rich complexity of contemporary academic communication across diverse contexts and media.</p>
@@ -832,8 +841,8 @@
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true" 
-                             alt="Interconnected academic communities representing global knowledge exchange" 
+                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
+                             alt="Interconnected academic communities representing global knowledge exchange"
                              class="card__image">
                         <p>Academic literacy practices exist within diverse cultural and linguistic contexts. Different knowledge traditions offer valuable perspectives on meaning-making, argumentation, and knowledge construction. Understanding these variations enriches academic communication by expanding the range of acceptable forms and challenging monolingual or monocultural assumptions.</p>
                         <p>Global academic communication benefits from recognising multiple ways of knowing and communicating. This includes valuing different narrative structures, argumentation styles, and approaches to evidence. Such recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production. Approaches that position academic literacy as a fixed set of skills often overlook the rich diversity of knowledge traditions that can enhance academic discourse.</p>
