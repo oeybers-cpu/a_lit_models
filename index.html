@@ -110,6 +110,98 @@
             0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
             100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
         }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-toggle {
+            color: var(--digital-purple);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: rgba(65, 105, 225, 0.1);
+            border: 1px solid var(--royal-blue);
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer; /* Indicate it's clickable */
+            width: 100%;
+            box-sizing: border-box; /* Include padding/border in width */
+        }
+        .dropdown-toggle:hover {
+            background: rgba(65, 105, 225, 0.2);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6);
+            transform: translateY(-2px);
+            color: var(--light);
+            border-color: var(--royal-blue-light);
+        }
+
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 100%; /* Position below the toggle */
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 20, 0.95); /* Slightly darker background */
+            border: 1px solid var(--royal-blue);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 1001; /* Ensure it's above other content */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            backdrop-filter: blur(5px); /* Slight blur for glass effect */
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.2s ease;
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(207, 64, 255, 0.1);
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(65, 105, 225, 0.2);
+            color: var(--light);
+        }
+
+        /* Remove border-bottom from the last item */
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        /* Show dropdown menu when active */
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        /* Rotate icon when active */
+        .dropdown.active .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+
         .back-button-tab {
             position: fixed;
             top: 25px;
@@ -176,34 +268,14 @@
         /* Top navigation links */
         .top-nav {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
             gap: 15px;
             margin-bottom: 40px;
             padding: 0 20px;
         }
-        .nav-link {
-            color: var(--digital-purple);
-            text-decoration: none;
-            padding: 12px 15px;
-            border-radius: 8px;
-            background: rgba(65, 105, 225, 0.1);
-            border: 1px solid var(--royal-blue);
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-            text-align: center;
-            font-weight: 500;
-            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .nav-link:hover {
-            background: rgba(65, 105, 225, 0.2);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6);
-            transform: translateY(-2px);
-            color: var(--light);
-            border-color: var(--royal-blue-light);
-        }
+        /* Removed old .nav-link styles */
+
+
         /* Header with Sun Integration */
         header {
             text-align: center;
@@ -556,7 +628,8 @@
             .top-nav {
                 gap: 12px;
             }
-            .nav-link {
+            /* Adjusted dropdown toggle for smaller screens */
+            .dropdown-toggle {
                 padding: 10px 12px;
                 font-size: 0.8rem;
             }
@@ -613,11 +686,12 @@
                 /* Removed padding and margin-top for simpler, more predictable layout */
             }
             .top-nav {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack dropdowns on mobile */
                 gap: 10px;
                 padding: 0 10px;
             }
-            .nav-link {
+             /* Adjusted dropdown toggle for very small screens */
+            .dropdown-toggle {
                 padding: 12px 10px;
                 font-size: 0.85rem;
             }
@@ -665,56 +739,49 @@
     <div class="main-container">
        <!-- Top Navigation Links -->
 <div class="top-nav">
-    <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="nav-link" target="_blank">
-        Theory and applications
-    </a>
-    <!-- NEW LINK EMBEDDED HERE -->
-    <a href="https://oeybers-cpu.github.io/sociocultural/" class="nav-link" target="_blank">
-        Sociocultural academic literacy
-    </a>
-    <a href="https://acadlit-sz3ss6.manus.space/" class="nav-link" target="_blank">
-        Multilingual academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/autonomous_model/" class="nav-link" target="_blank">
-        Autonomous literacy model
-    </a>
-    <a href="https://oeybers-cpu.github.io/multimodal_grammar/" class="nav-link" target="_blank">
-        Multimodal academic literacy
-    </a>
-     </a>
-    <a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" class="nav-link" target="_blank">
-        Literacy and disciplinary semiotics
-    </a>
-    <a href="https://oeybers-cpu.github.io/ubuntu/" class="nav-link" target="_blank">
-        Ubuntu and academic literacy
-    </a>
-     </a>
-    <a href="https://oeybers-cpu.github.io/pre_colonial/" class="nav-link" target="_blank">
-        Pre-colonial academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/Imhotep/" class="nav-link" target="_blank">
-        Imhotep and academic literacy
-    </a>
-    <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="nav-link" target="_blank">
-        African theory of academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/Achebe/" class="nav-link" target="_blank">
-        Achebe and academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/ngugi/" class="nav-link" target="_blank">
-        Wa Thiong'o and academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/ancient_writers/" class="nav-link" target="_blank">
-        Ancient African Writing
-    </a>
-    <a href="https://oeybers-cpu.github.io/visual_semiotics/" class="nav-link" target="_blank">
-        African art semiotics
-    </a>
-    <!-- New tab for Academic literacy and economic empowerment -->
-    <a href="https://oeybers-cpu.github.io/AL_econ/" class="nav-link" target="_blank">
-        Academic literacy and economic empowerment
-    </a>
+    <!-- Dropdown 1: Foundational Models & Theories -->
+    <div class="dropdown">
+        <div class="dropdown-toggle">
+            Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
+            <li><a href="https://oeybers-cpu.github.io/sociocultural/" target="_blank">Sociocultural academic literacy</a></li>
+            <li><a href="https://acadlit-sz3ss6.manus.space/" target="_blank">Multilingual academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
+            <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
+        </ul>
+    </div>
+
+    <!-- Dropdown 2: Indigenous & Cultural Perspectives -->
+    <div class="dropdown">
+        <div class="dropdown-toggle">
+            Indigenous & Cultural Perspectives <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
+            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Wa Thiong'o and academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
+            <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
+        </ul>
+    </div>
+
+    <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
+    <div class="dropdown">
+        <div class="dropdown-toggle">
+            Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="https://oeybers-cpu.github.io/AL_econ/" target="_blank">Academic literacy and economic empowerment</a></li>
+        </ul>
+    </div>
 </div>
+
         </div>
         <div class="container">
             <header>
@@ -893,6 +960,31 @@
         <script>
             // Ensure DOM is fully loaded before attaching event handlers
             document.addEventListener('DOMContentLoaded', function() {
+
+                // Dropdown functionality
+                const dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(dropdown => {
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    toggle.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Prevent event bubbling
+                        // Close other dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('active');
+                            }
+                        });
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                    });
+                });
+
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', function() {
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                });
+
                 // Back button functionality - IMPROVED
                 const backButton = document.getElementById('backButton');
                 if (backButton) {
@@ -958,4 +1050,3 @@
         </script>
     </body>
 </html>
-```
