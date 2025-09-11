@@ -3,51 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic literacy is multimodal</title>
-    <meta name="description" content="Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
-    <meta name="keywords" content="Multimodal decolonised academic literacy, ubuntu philosophy in education, educational theory and literacy, multiliteracies, multimodal communication, decolonisation, ubunty philosophy, educational theory, linguistics, language and identity">
-    <meta name="author" content="Dr Oscar Eybers">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Semiotics and Disciplinary Knowledge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* --- MODIFIED: Updated style variables to a purplish scheme --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         :root {
-            --primary: #4fc3f7;
-            --secondary: #29b6f6;
-            --accent: #0288d1;
-            --dark: #0a0a14;
-            --darker: #050508;
-            --light: #f0f0f0;
-            --card-bg: rgba(20, 20, 30, 0.7);
-            --lighter-accent: #81d4fa;
-            --digital-purple: #cf40ff;
-            --royal-blue: #4169E1;
-            --royal-blue-light: #6c8eff;
-            --aqua-blue: #00FFFF;
-            --card-padding: 20px;
-            --card-gap: 25px;
-            /* Sun variables */
-            --sun-color: #FFC107;
-            --sun-glow: #FFA000;
-            --sun-ray-color: #FFD700;
-            /* Header heights for scroll margin */
-            --top-header-height: 70px; /* Approximate height on larger screens */
-            --top-header-height-sm: 90px; /* Approximate height on small screens */
+            /* Core Colors - Purplish Theme */
+            --primary-dark-blue: #2E003E; /* Darker Purple/Deep Violet */
+            --secondary-purple: #800080; /* Standard Purple */
+            --accent-aqua: #00FFFF; /* Aqua (kept for contrast/highlights) */
+            --bright-purple: #CF40FF; /* Bright Purple/Magenta */
+            --background-dark: #0a0a14; /* Very Dark Background */
+            --text-light: #f0f0f0; /* Light Text */
+            --card-bg: rgba(20, 10, 30, 0.85); /* Darker Card Background (purple-tinged) */
+            --border-color: rgba(128, 0, 128, 0.4); /* Purple border */
+
+            /* Derived Colors */
+            --primary-light: #B19CD9; /* Lighter Purple */
+            --secondary-light-purple: var(--bright-purple); /* Alias for consistency */
+            --text-secondary: #d0d0d0; /* Slightly dimmer text */
+            --silver-accent: #c0c0c0; /* Silver */
+            --sidebar-width: 280px;
+            /* --- MODIFIED: Define a purple/aqua dominant gradient for the home button --- */
+            --home-button-gradient: linear-gradient(135deg, var(--bright-purple), var(--primary-light), var(--accent-aqua));
+            /* --- END MODIFICATION --- */
         }
+
         body {
-            background: linear-gradient(135deg, var(--darker), var(--dark));
-            color: var(--light);
+            background: var(--background-dark);
+            color: var(--text-light);
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
             position: relative;
             overflow-x: hidden;
             font-family: 'Exo 2', sans-serif;
             line-height: 1.6;
+            display: flex;
+            font-size: 18px;
         }
+
         body::before {
             content: '';
             position: absolute;
@@ -55,907 +56,934 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* Subtle background using new purplish colors */
             background:
-                radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
+                radial-gradient(circle at 10% 20%, rgba(207, 64, 255, 0.07) 0%, transparent 20%), /* Bright Purple */
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 20%); /* Aqua */
             pointer-events: none;
             z-index: -2;
         }
+
         .grid-lines {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            /* Grid lines using purple */
             background-image:
-                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(128, 0, 128, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(128, 0, 128, 0.07) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
             z-index: -1;
         }
-        /* New top header with title - Fixed for mobile */
-        .top-header {
-            position: fixed;
+
+
+        /* --- Header Home Link Style --- */
+        .header-home-link {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: inline-block;
+            text-align: center;
+            padding: 10px 18px;
+            /* --- MODIFIED: Use the new purple/aqua dominant gradient --- */
+            background: var(--home-button-gradient);
+            border: 1px solid var(--text-light);
+            border-radius: 20px;
+            /* --- MODIFIED: Text color to dark for contrast --- */
+            color: var(--background-dark);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            /* Box shadow using bright purple and aqua */
+            box-shadow:
+                0 0 7px var(--bright-purple),
+                0 0 13px var(--accent-aqua),
+                inset 0 0 4px rgba(255, 255, 255, 0.5);
+            z-index: 10; /* Ensure it's above other header elements */
+        }
+
+        .header-home-link:hover {
+            transform: scale(1.03) translateY(-1.5px);
+            /* Hover box shadow using bright purple and aqua */
+            box-shadow:
+                0 0 12px var(--bright-purple),
+                0 0 20px var(--accent-aqua),
+                inset 0 0 8px rgba(255, 255, 255, 0.8);
+            /* --- MODIFIED: Text color to dark for contrast --- */
+            color: var(--background-dark);
+        }
+        /* --- End of Header Home Link Style --- */
+
+
+        /* Sidebar styling */
+        .sidebar {
+            width: var(--sidebar-width);
+            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 9px;
+            margin-right: 20px;
+            backdrop-filter: blur(10px);
+            height: fit-content;
+            position: sticky;
+            top: 15px;
+        }
+
+        /* --- Animated Semiotics Logo --- */
+        .sidebar-logo-container {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .semiotics-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--silver-accent);
+            /* --- MODIFIED: Glow effect using bright purple and aqua --- */
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #fff,
+                0 0 20px var(--bright-purple),
+                0 0 35px var(--bright-purple),
+                0 0 40px var(--bright-purple);
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                /* 'from' glow using bright purple */
+                text-shadow:
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #fff,
+                    0 0 20px var(--bright-purple),
+                    0 0 35px var(--bright-purple),
+                    0 0 40px var(--bright-purple);
+            }
+            to {
+                /* 'to' glow mixing aqua */
+                text-shadow:
+                    0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 30px #fff,
+                    0 0 40px var(--accent-aqua),
+                    0 0 70px var(--accent-aqua),
+                    0 0 80px var(--accent-aqua);
+            }
+        }
+        /* --- End of Animated Semiotics Logo --- */
+
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sidebar-link {
+            /* --- MODIFIED: Link color to bright purple --- */
+            color: var(--bright-purple);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 6px;
+            /* --- MODIFIED: Background using dark purple --- */
+            background: rgba(128, 0, 128, 0.15);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .sidebar-link:hover {
+            /* --- MODIFIED: Hover background using brighter purple --- */
+            background: rgba(207, 64, 255, 0.25);
+            /* --- MODIFIED: Hover box shadow using bright purple --- */
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.6);
+            transform: translateY(-1.5px);
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* --- MODIFIED: Header layout to accommodate video --- */
+        header {
+            padding: 25px 0 15px;
+            margin-bottom: 20px;
+            position: relative;
+            /* --- MODIFIED: Header background using purplish gradient --- */
+            background: linear-gradient(to right, rgba(207, 64, 255, 0.1), transparent);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-text-content {
+            flex: 1;
+        }
+
+        .header-video-container {
+            flex-shrink: 0;
+            max-width: 300px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            /* --- MODIFIED: Box shadow using bright purple --- */
+            box-shadow: 0 0 10px rgba(207, 64, 255, 0.4);
+        }
+
+        .header-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* --- END MODIFICATION --- */
+
+
+        /* --- MODIFIED: Header text styling - Bright Purple --- */
+        .header-main-text {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            /* --- MODIFIED: Main text color to bright purple --- */
+            color: var(--bright-purple);
+            /* --- MODIFIED: Text shadow using bright purple --- */
+            text-shadow: 0 0 12px rgba(207, 64, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-top: 0;
+        }
+        .header-sub-text {
+            font-size: 1.1rem;
+            /* --- MODIFIED: Subtext color to light text --- */
+            color: var(--text-light);
+            margin: 12px 0 15px 0;
+            line-height: 1.5;
+        }
+        /* --- END MODIFICATION --- */
+
+
+        /* --- MODIFIED: Unified glowing border styles for cards --- */
+        .article-card, .contact-card, .google-form-container {
+            background: var(--card-bg);
+            border: 1px dashed var(--border-color);
+            border-radius: 9px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            /* Static glow using purple */
+            box-shadow: 0 0 10px rgba(128, 0, 128, 0.3);
+            transition: all 0.4s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover, .contact-card:hover, .google-form-container:hover {
+            transform: translateY(-5px);
+            /* Enhanced glow on hover using bright purple and adding silver */
+            box-shadow:
+                0 6px 20px rgba(128, 0, 128, 0.5),
+                0 0 15px rgba(207, 64, 255, 0.4),
+                0 0 5px var(--silver-accent);
+            /* --- MODIFIED: Border color on hover to bright purple --- */
+            border-color: var(--bright-purple);
+        }
+
+        /* Top accent bar */
+        .article-card::before, .contact-card::before, .google-form-container::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
+            height: 2.4px;
+            /* --- MODIFIED: Gradient bar using bright purple and aqua --- */
+            background: linear-gradient(90deg, var(--bright-purple), var(--accent-aqua));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover::before, .contact-card:hover::before, .google-form-container:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-card {
+            padding: 15px;
+        }
+
+        .google-form-container {
+            grid-column: 1 / -1;
+            padding: 20px;
+        }
+        /* --- END MODIFICATION --- */
+
+
+        .contact-card-content {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 20px; /* Adjusted padding */
-            background: rgba(10, 10, 20, 0.8);
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        .top-header h1 {
-            font-size: 1.8rem;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            animation: pulseText 3s infinite alternate;
-            text-align: center;
-            margin: 0 auto;
-            max-width: 70%;
-        }
-        @keyframes pulseText {
-            0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
-        }
-        .back-button-tab {
-            position: fixed;
-            top: 25px;
-            left: 25px;
-            z-index: 1001;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid var(--royal-blue);
-            color: var(--royal-blue);
-            padding: 10px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .back-button-tab:hover {
-            background: rgba(65, 105, 225, 0.2);
-            transform: translateX(-5px);
-            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
-            color: var(--light);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        /* NEW: Contact button styling */
-        .contact-button-tab {
-            position: fixed;
-            top: 25px;
-            right: 25px;
-            z-index: 1001;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid var(--royal-blue);
-            color: var(--royal-blue);
-            padding: 10px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .contact-button-tab:hover {
-            background: rgba(65, 105, 225, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
-            color: var(--light);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        /* Main container */
-        .main-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 100px auto 0; /* Default margin for larger screens */
-        }
-        /* Top navigation links */
-        .top-nav {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            align-items: flex-start;
             gap: 15px;
-            margin-bottom: 40px;
-            padding: 0 20px;
         }
-        .nav-link {
-            color: var(--digital-purple);
-            text-decoration: none;
-            padding: 12px 15px;
-            border-radius: 8px;
-            background: rgba(65, 105, 225, 0.1);
-            border: 1px solid var(--royal-blue);
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-            text-align: center;
-            font-weight: 500;
-            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
+
+        .contact-card-quote {
+            flex-grow: 1;
+            /* --- MODIFIED: Quote text color to light text --- */
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .contact-card h2 {
+            /* --- MODIFIED: Heading color to bright purple --- */
+            color: var(--bright-purple);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
+            gap: 9px;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 1;
+            position: relative;
+        }
+
+        .contact-card a {
+            /* --- MODIFIED: Link color to bright purple --- */
+            color: var(--bright-purple);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            word-break: break-word;
+            display: inline-block;
+            padding: 5px 8px;
+            border-radius: 3px;
+        }
+
+        .contact-card a:hover {
+            /* --- MODIFIED: Hover link color to aqua --- */
+            color: var(--accent-aqua);
+            /* --- MODIFIED: Hover text shadow using aqua --- */
+            text-shadow: 0 0 9px rgba(0, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- MODIFIED: Grid layout for cards --- */
+        .articles-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        /* --- MODIFIED: Make the Synthesis card full-width and centered --- */
+        #synthesis {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        #synthesis .article-meta {
             justify-content: center;
         }
-        .nav-link:hover {
-            background: rgba(65, 105, 225, 0.2);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.6);
-            transform: translateY(-2px);
-            color: var(--light);
-            border-color: var(--royal-blue-light);
-        }
-        /* Header with Sun Integration */
-        header {
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            margin-bottom: 30px;
-            border-radius: 0 0 15px 15px;
-            overflow: hidden;
-            min-height: 300px;
+        /* --- END MODIFICATION --- */
+
+
+        /* --- MODIFIED: Card headings to bright purple --- */
+        .article-card h3 {
+            color: var(--bright-purple);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            font-weight: 600;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
             align-items: center;
+            gap: 8px;
+            /* Text shadow using bright purple */
+            text-shadow: 0 0 6px rgba(207, 64, 255, 0.4);
         }
-        header::before {
+        /* --- END MODIFICATION --- */
+
+        .article-card h3 i {
+            font-size: 1.3rem;
+        }
+
+        .article-content {
+            /* --- MODIFIED: Content text color to light text --- */
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            /* Subtle text shadow */
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
+        }
+
+        .article-content p {
+            margin-bottom: 12px;
+        }
+
+        .article-content ul, .article-content ol {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Blockquote styling */
+        .article-content blockquote {
+            margin: 15px 0;
+            padding: 10px 15px;
+            /* --- MODIFIED: Blockquote border using bright purple --- */
+            border-left: 4px solid var(--bright-purple);
+            /* --- MODIFIED: Blockquote background using dark purple --- */
+            background: rgba(128, 0, 128, 0.15);
+            font-style: italic;
+            /* --- MODIFIED: Blockquote text color --- */
+            color: var(--text-secondary);
+        }
+        .article-content blockquote p {
+            margin-bottom: 0;
+        }
+
+
+        .citation {
+            /* --- MODIFIED: Citation background using dark purple --- */
+            background: rgba(128, 0, 128, 0.15);
+            /* --- MODIFIED: Citation color to bright purple --- */
+            color: var(--bright-purple);
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            margin: 6px 0;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .meta-tag {
+            /* --- MODIFIED: Meta tag background using dark purple --- */
+            background: rgba(128, 0, 128, 0.15);
+            /* --- MODIFIED: Meta tag color to bright purple --- */
+            color: var(--bright-purple);
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            /* Text shadow using bright purple */
+            text-shadow: 0 0 3px rgba(207, 64, 255, 0.3);
+        }
+
+        .new-tag {
+            /* --- MODIFIED: New tag background using dark aqua --- */
+            background: rgba(0, 255, 255, 0.1);
+            /* --- MODIFIED: New tag color to aqua --- */
+            color: var(--accent-aqua);
+            /* --- MODIFIED: New tag border using aqua --- */
+            border-color: rgba(0, 255, 255, 0.3);
+            /* --- MODIFIED: New tag text shadow using aqua --- */
+            text-shadow: 0 0 3px rgba(0, 255, 255, 0.3);
+        }
+
+        .article-link {
+            display: inline-block;
+            /* --- MODIFIED: Link gradient using bright purple and aqua --- */
+            background: linear-gradient(90deg, var(--bright-purple), var(--accent-aqua));
+            /* --- MODIFIED: Link text color to dark --- */
+            color: var(--background-dark);
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            width: 100%;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.6px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        .article-link::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0.7),
-                transparent);
-            animation: headerShine 8s infinite linear;
-            z-index: -1;
+            /* Hover effect using light */
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
         }
-        @keyframes headerShine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+
+        .article-link:hover {
+            /* --- MODIFIED: Hover gradient using aqua and bright purple --- */
+            background: linear-gradient(90deg, var(--accent-aqua), var(--bright-purple));
+            /* --- MODIFIED: Hover text color to dark --- */
+            color: var(--background-dark);
+            /* --- MODIFIED: Hover box shadow using bright purple --- */
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.6);
+            transform: translateY(-1.8px);
         }
-        /* Sun container */
-        .sun-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none;
+
+        .article-link:hover::before {
+            left: 100%;
         }
-        .sun-core {
-            width: 120px;
-            height: 120px;
-            background: var(--sun-color);
-            border-radius: 50%;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 0 30px 12px var(--sun-glow);
-            animation: sun-pulse 8s infinite ease-in-out;
-        }
-        .sun-rays {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            z-index: 1;
-            background: repeating-conic-gradient(from 0deg, var(--sun-ray-color) 0deg 3deg, transparent 3deg 20deg);
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: ray-rotate 20s infinite linear, ray-pulse 4s infinite ease-in-out;
-            box-shadow: 0 0 20px 6px var(--sun-ray-color);
-        }
-        @keyframes sun-pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        @keyframes ray-rotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        @keyframes ray-pulse {
-            0% { opacity: 0.8; }
-            50% { opacity: 1; }
-            100% { opacity: 0.8; }
-        }
-        /* Header content */
-        .header-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .contact-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 11.25px;
-            padding: 20px;
-            max-width: 600px;
-            margin: 20px auto;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 18px rgba(207, 64, 255, 0.15);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+
+        /* --- MODIFIED: Footer styling --- */
+        .footer {
             text-align: center;
+            padding: 20px 0 15px;
+            /* --- MODIFIED: Footer text color --- */
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-            z-index: 1;
+
+        .footer-copyright {
+            margin: 0;
         }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 24px rgba(207, 64, 255, 0.3);
+
+        .footer-nav {
+            display: flex;
+            gap: 15px;
         }
-        .contact-card:hover::before {
-            transform: scaleX(1);
+
+        .footer-link {
+            display: inline-block;
+            padding: 6px 12px;
+            /* --- MODIFIED: Footer link uses the same gradient --- */
+            background: var(--home-button-gradient);
+            /* --- MODIFIED: Footer link text color to dark --- */
+            color: var(--background-dark);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--text-light);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            /* Box shadow using bright purple and aqua */
+            box-shadow:
+                0 0 5px var(--bright-purple),
+                0 0 8px var(--accent-aqua),
+                inset 0 0 3px rgba(255, 255, 255, 0.4);
         }
-        .contact-card h2 {
-            color: var(--digital-purple);
+
+        .footer-link:hover {
+            transform: scale(1.05) translateY(-1px);
+            /* Hover box shadow using bright purple and aqua */
+            box-shadow:
+                0 0 8px var(--bright-purple),
+                0 0 15px var(--accent-aqua),
+                inset 0 0 6px rgba(255, 255, 255, 0.6);
+            /* --- MODIFIED: Hover text color to dark --- */
+            color: var(--background-dark);
+        }
+        /* --- END MODIFICATION --- */
+
+
+        .university-logo {
+            width: 120px;
+            margin: 12px auto;
+            filter: brightness(0.8) contrast(0.9);
+            opacity: 0.7;
+        }
+
+        .google-form-container h3 {
+            /* --- MODIFIED: Form container heading color to bright purple --- */
+            color: var(--bright-purple);
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
             font-family: 'Orbitron', sans-serif;
         }
-        .contact-card p {
-            color: #ddd;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        /* Card Styles - Updated to BEM convention */
-        .articles-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--card-gap);
-            margin: 30px 0;
-        }
-        /* Base card styling */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 12px;
-            padding: var(--card-padding);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            min-height: 550px; /* Fixed height for consistent sizing */
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .google-form-iframe {
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--digital-purple), var(--royal-blue));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-            z-index: 1;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
-        }
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-        /* Card Header */
-        .card__header {
-            padding-bottom: 10px;
-        }
-        .card__title {
-            color: var(--digital-purple);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        /* Card Body */
-        .card__body {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card__image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            object-position: center 30%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 2px solid rgba(207, 64, 255, 0.3);
-            transition: transform 0.3s ease;
-        }
-        .card:hover .card__image {
-            transform: scale(1.03);
-        }
-        .card__quote {
-            background: rgba(207, 64, 255, 0.15);
-            color: var(--primary);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(207, 64, 255, 0.3);
-            margin: 15px 0;
-            position: relative;
-            padding-left: 40px;
-        }
-        .card__quote i {
-            position: absolute;
-            left: 12px;
-            top: 12px;
-            color: var(--primary);
-        }
-        /* Card Meta */
-        .card__meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
-        }
-        .tag {
-            background: rgba(207, 64, 255, 0.15);
-            color: var(--primary);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(207, 64, 255, 0.3);
-        }
-        /* Card Footer */
-        .card__footer {
-            background: rgba(207, 64, 255, 0.08);
-            border-top: 1px solid rgba(207, 64, 255, 0.2);
-            padding: 12px 15px;
-            border-radius: 0 0 8px 8px;
-            font-size: 0.85rem;
-            color: var(--lighter-accent);
+            height: 900px;
+            /* Glowing border using purple and aqua */
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.5), 0 0 15px rgba(0, 255, 255, 0.5);
+            border: 1px solid var(--bright-purple);
+            border-radius: 5px;
             margin-top: 15px;
         }
-        /* Content sections */
-        .content-section {
-            margin-bottom: 40px;
-            /* Default scroll margin for larger screens */
-            scroll-margin-top: calc(var(--top-header-height) + 10px);
+        .contact-info {
+            margin-top: 15px;
         }
-        .section-title {
-            color: var(--digital-purple);
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
+        .contact-info p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
-        .copyright {
-            text-align: center;
-            padding: 30px 0;
-            color: #777;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(207, 64, 255, 0.2);
-            margin-top: 40px;
+        .contact-info a {
+            /* --- MODIFIED: Contact info link color to bright purple --- */
+            color: var(--bright-purple);
+            text-decoration: underline;
+            font-size: 1.1rem;
         }
-        .centered-card {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
+        .contact-info a:hover {
+            /* --- MODIFIED: Contact info hover link color to aqua --- */
+            color: var(--accent-aqua);
         }
-        .centered-card > .card {
-            max-width: 700px;
-            width: 100%;
-        }
-        /* Visitor Counter Styles */
-        #freeCounter {
-            text-align: center;
-            padding: 20px 0;
-            margin: 20px auto;
-            max-width: 600px;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
-        }
-        #freeCounter a {
-            color: var(--digital-purple);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        #freeCounter a:hover {
-            color: var(--light);
-            text-shadow: 0 0 10px rgba(207, 64, 255, 0.8);
-        }
-        /* Responsive Design Improvements */
-        @media (max-width: 1200px) {
-            .top-nav {
-                grid-template-columns: repeat(3, 1fr);
+        /* End of specific styles */
+
+        /* Media Queries for Mobile Compatibility */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                padding: 10px;
+                font-size: 16px;
             }
-        }
-        @media (max-width: 1100px) {
+
+            .sidebar {
+                width: 100%;
+                position: relative;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .header-text-content {
+                order: 2;
+                margin-bottom: 15px;
+            }
+
+            .header-video-container {
+                order: 1;
+                max-width: 100%;
+                margin: 0 auto 15px auto;
+            }
+
             .articles-container {
                 grid-template-columns: 1fr;
             }
-        }
-        @media (max-width: 900px) {
-            .top-nav {
-                grid-template-columns: repeat(2, 1fr);
+
+            #synthesis {
+                grid-column: auto;
+                text-align: left; /* Or left for mobile */
             }
-            .top-header h1 {
-                font-size: 1.5rem;
+
+            #synthesis .article-meta {
+                justify-content: flex-start; /* Or flex-start */
             }
-            header {
-                min-height: 250px;
+
+            .header-main-text {
+                font-size: 1.8rem;
             }
-            .sun-container {
-                width: 250px;
-                height: 250px;
+
+            .header-sub-text {
+                font-size: 1rem;
             }
-            .sun-core {
-                width: 100px;
-                height: 100px;
-            }
-            .sun-rays {
-                width: 250px;
-                height: 250px;
-            }
-        }
-        @media (max-width: 768px) {
-            .top-nav {
-                gap: 12px;
-            }
-            .nav-link {
-                padding: 10px 12px;
-                font-size: 0.8rem;
-            }
-            .card__image {
-                 height: 180px; /* Adjust image height */
-            }
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            /* FIXED: Increased top value to prevent collision with header */
-            .back-button-tab {
-                top: 65px; /* Adjusted top position */
-                left: 15px;
+
+            .header-home-link {
+                top: 12px;
+                left: 12px;
                 padding: 8px 15px;
-                font-size: 0.8rem;
-                z-index: 1002;
+                font-size: 1rem;
             }
-            /* FIXED: Increased top value to prevent collision with header */
-            .contact-button-tab {
-                top: 65px; /* Adjusted top position */
-                right: 15px;
-                padding: 8px 15px;
-                font-size: 0.8rem;
-                z-index: 1002;
-            }
-            /* Adjust sun for mobile */
-            .sun-container {
-                width: 200px;
-                height: 200px;
-            }
-            .sun-core {
-                width: 80px;
-                height: 80px;
-                box-shadow: 0 0 20px 8px var(--sun-glow);
-            }
-            .sun-rays {
-                width: 200px;
-                height: 200px;
-                box-shadow: 0 0 15px 4px var(--sun-ray-color);
-            }
-            header {
-                min-height: 220px;
-            }
-            .top-header {
-                padding: 15px 10px;
+            .contact-card-content {
                 flex-direction: column;
-                height: auto;
+                align-items: center;
+                text-align: center;
             }
-            .top-header h1 {
-                font-size: 1.3rem;
-                max-width: 100%;
-                /* Removed padding and margin-top for simpler, more predictable layout */
+        }
+
+        @media (max-width: 600px) {
+            .header-main-text {
+                font-size: 1.6rem;
             }
-            .top-nav {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                padding: 0 10px;
+
+            .contact-card a, .contact-info a, .contact-info p, .article-content, .article-link, .sidebar-link, .header-home-link, .footer-link {
+                font-size: 1rem;
             }
-            .nav-link {
-                padding: 12px 10px;
-                font-size: 0.85rem;
+
+            .article-card {
+                padding: 15px 12px;
             }
-            .contact-card {
-                padding: 15px;
-                margin: 15px auto;
+
+            .article-card h3 {
+                font-size: 1.2rem;
             }
-            .contact-card h2 {
-                font-size: 1.1rem;
-            }
-            .section-title {
-                font-size: 1.4rem;
-            }
-            .card__title {
-                font-size: 1.1rem;
-            }
-            /* Adjust main container margin for fixed header height on small screens */
-            .main-container {
-                margin: calc(var(--top-header-height-sm) + 20px) auto 0; /* Adjusted margin */
-            }
-            /* Adjust scroll margin for fixed header height on small screens */
-            .content-section {
-                scroll-margin-top: calc(var(--top-header-height-sm) + 15px); /* Adjusted scroll margin */
-            }
-            #freeCounter {
-                padding: 15px;
+
+            .header-home-link {
+                top: 10px;
+                left: 10px;
+                padding: 6px 12px;
                 font-size: 0.9rem;
             }
+
+            .header-sub-text {
+                font-size: 0.9rem;
+            }
+
+            .sidebar {
+                padding: 10px;
+            }
+            .contact-card-quote {
+                font-size: 0.95rem;
+            }
+            .google-form-iframe {
+                height: 700px;
+            }
+            .semiotics-logo {
+                font-size: 2rem;
+            }
+            .footer-link {
+                padding: 5px 10px;
+                font-size: 0.85rem;
+            }
         }
+
+        @media (max-width: 400px) {
+            .header-main-text {
+                font-size: 1.4rem;
+            }
+
+            .article-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .contact-card a, .contact-info a, .contact-info p, .article-content, .article-link, .sidebar-link, .header-home-link, .contact-card-quote, .footer-link {
+                font-size: 0.9rem;
+            }
+            .citation {
+                font-size: 0.8rem;
+            }
+            .semiotics-logo {
+                font-size: 1.8rem;
+            }
+            .footer-link {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+            }
+        }
+        /* End of Media Queries */
+
     </style>
 </head>
 <body>
     <div class="grid-lines"></div>
-    <!-- New top header with title -->
-    <div class="top-header">
-        <h1>Academic Literacy Hub</h1>
-    </div>
-    <a href="#" class="back-button-tab" id="backButton">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
-    </a>
-    <!-- NEW: Contact button in top right -->
-    <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
-        <i class="fas fa-envelope" aria-hidden="true"></i> Contact
-    </a>
-    <div class="main-container">
-       <!-- Top Navigation Links -->
-<div class="top-nav">
-    <a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" class="nav-link" target="_blank">
-        Theory and applications
-    </a>
-    <!-- NEW LINK EMBEDDED HERE -->
-    <a href="https://oeybers-cpu.github.io/sociocultural/" class="nav-link" target="_blank">
-        Sociocultural academic literacy
-    </a>
-    <a href="https://acadlit-sz3ss6.manus.space/" class="nav-link" target="_blank">
-        Multilingual academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/autonomous_model/" class="nav-link" target="_blank">
-        Autonomous literacy model
-    </a>
-    <a href="https://oeybers-cpu.github.io/multimodal_grammar/" class="nav-link" target="_blank">
-        Multimodal academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/ubuntu/" class="nav-link" target="_blank">
-        Ubuntu and academic literacy
-    </a>
-   </a>
-    <a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" class="nav-link" target="_blank">
-        Semiotics and disciplines
-    </a> 
-     </a>
-    <a href="https://oeybers-cpu.github.io/pre_colonial/" class="nav-link" target="_blank">
-        Pre-colonial academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/Imhotep/" class="nav-link" target="_blank">
-        Imhotep and academic literacy
-    </a>
-    <a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" class="nav-link" target="_blank">
-        African theory of academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/Achebe/" class="nav-link" target="_blank">
-        Achebe and academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/ngugi/" class="nav-link" target="_blank">
-        Wa Thiong'o and academic literacy
-    </a>
-    <a href="https://oeybers-cpu.github.io/ancient_writers/" class="nav-link" target="_blank">
-        Ancient African Writing
-    </a>
-    <a href="https://oeybers-cpu.github.io/visual_semiotics/" class="nav-link" target="_blank">
-        African art semiotics
-    </a>
-    <!-- New tab for Academic literacy and economic empowerment -->
-    <a href="https://oeybers-cpu.github.io/AL_econ/" class="nav-link" target="_blank">
-        Academic literacy and economic empowerment
-    </a>
-</div>
+
+    <a href="https://oeybers-cpu.github.io/a_lit_models/" class="header-home-link">Home</a>
+
+    <div class="sidebar">
+        <div class="sidebar-logo-container">
+            <div class="semiotics-logo">Semiotics</div>
         </div>
+
+        <div class="sidebar-links">
+            <a href="#concepts" class="sidebar-link">
+                Concepts & Framework
+            </a>
+            <a href="#semiotics" class="sidebar-link">
+                Semiotic Linguistics
+            </a>
+            <a href="#integration" class="sidebar-link">
+                Integration & Pedagogy
+            </a>
+            <a href="#synthesis" class="sidebar-link">
+                Synthesis
+            </a>
+            <a href="#contact" class="sidebar-link">
+                Contact Us
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
         <div class="container">
             <header>
-                <!-- Digital Sun -->
-                <div class="sun-container">
-                    <div class="sun-core"></div>
-                    <div class="sun-rays"></div>
+                <div class="header-text-content">
+                    <h1 class="header-main-text">Disciplinary Knowledge and Semiotic<br>Linguistics</h1>
+                    <p class="header-sub-text">Understanding the Structure and Representation of Academic Knowledge</p>
                 </div>
-                <div class="header-content">
-                    <!-- Removed the subtitle text -->
-                    <div class="contact-card">
-                        <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Key Finding</h2>
-                        <p>"Academic literacies foreground meaning-making, identity, power, and authority in academic writing, moving beyond skills and socialisation models."</p>
+                 <!-- --- MODIFIED: Video container with updated fallback message --- -->
+                <div class="header-video-container">
+                    <video class="header-video" controls>
+                        <source src="7f5ccd02-a6ed-433d-8d1b-9a671260bed3.mp4" type="video/mp4">
+                        <!-- Removed the "here" link from the fallback message -->
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- --- END MODIFICATION --- -->
+
+                <div class="contact-card">
+                    <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+                    <div class="contact-card-content">
+                        <p class="contact-card-quote">
+                            This page explores the relationship between disciplinary knowledge and the semiotic systems used to represent and communicate it. Understanding this interdependence is crucial for effective teaching and learning across academic fields.
+                        </p>
                     </div>
                 </div>
             </header>
-            <div class="content-section">
-                <h2 class="section-title">Theoretical Frameworks</h2>
-                <div class="articles-container">
-                    <!-- Card 1: Three Models -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-chart-bar" aria-hidden="true"></i> Foundations of Academic Literacy
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true"
-                                 alt="Three models of academic literacy showing different approaches to understanding literacy practices"
-                                 class="card__image">
-                            <p>Academic literacy can be understood through three distinct theoretical approaches. The skills-based perspective views literacy as transferable technical abilities applicable across contexts. The socialisation approach sees literacy as contextual, requiring adaptation to specific academic communities. The literacies perspective recognises literacy as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                            <p>Each model offers different assumptions about how knowledge is constructed and transmitted within educational settings. Contemporary research increasingly acknowledges the complex social dimensions of academic communication, highlighting how literacy practices are embedded within broader cultural and institutional frameworks rather than being merely transferable skills.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic writing is never merely about skills or socialisation; it always involves questions of power, identity, and access to knowledge communities.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Theory</span>
-                                <span class="tag">Epistemology</span>
-                                <span class="tag">Pedagogy</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Understanding the foundational perspectives on academic literacy
-                        </footer>
-                    </div>
-                    <!-- Card 2: Academic Literacies Model -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-book-open" aria-hidden="true"></i> Literacy as Social Practice
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true"
-                                 alt="Academic literacies model showing social practice framework"
-                                 class="card__image">
-                            <p>Academic literacies treats reading and writing as social practices that vary with context, culture, and genre. This perspective views student writing and learning as issues of epistemology and identity rather than merely skill acquisition or socialisation. Knowledge is constructed through participation in disciplinary communities where meaning-making involves negotiation of power relations and cultural norms.</p>
-                            <p>Students navigate multiple literacy practices across different academic settings, each with distinct expectations regarding structure, voice, evidence, and argumentation. These practices reflect deeper epistemological assumptions about what counts as valid knowledge within particular disciplines. The recognition that academic literacy is inherently situated within specific communities challenges simplistic approaches to academic writing instruction.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy practices are diverse, contested, and situated within specific social contexts that shape how knowledge is constructed and communicated.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Social Practice</span>
-                                <span class="tag">Epistemology</span>
-                                <span class="tag">Identity</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            How writing functions as a social practice within academic communities
-                        </footer>
-                    </div>
-                    <!-- Card 3: Genre and Mode Switching -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-exchange-alt" aria-hidden="true"></i> Genre and Mode Transitions
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true"
-                                 alt="Students switching between different communication modes in classroom setting"
-                                 class="card__image">
-                            <p>Students constantly navigate between different genres and modes of communication as they move through academic settings. Genres represent types of text—both spoken and written—such as discussions, notes, essays, and presentations. Each genre carries specific expectations regarding structure, language, and purpose.</p>
-                            <p>These transitions involve shifts in mode—from internal thought to external speech, from spoken discussion to written notes, from linguistic to visual communication. Each shift requires students to attend to different aspects of communication, including language structure, visual layout, and multimodal elements that contribute to meaning-making. This complex navigation highlights why a narrow focus on technical skills cannot adequately prepare students for the diverse literacy demands they encounter.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Students must develop awareness of the different qualities associated with various genres and modes as they move between communication contexts in academic work.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Genre</span>
-                                <span class="tag">Mode</span>
-                                <span class="tag">Transformation</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Understanding transitions between communication contexts in academic work
-                        </footer>
-                    </div>
-                    <!-- Card 4: Multimodal Communication -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-project-diagram" aria-hidden="true"></i> Multimodal Meaning-Making
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
-                                 alt="Multimodal communication showing integration of different semiotic resources"
-                                 class="card__image">
-                            <p>Communication extends far beyond linguistic elements. Multimodality recognises that meaning is constructed through multiple channels working together. In academic contexts, this includes visual elements (images, layout, typography), aural components (tone, pace, silence), gestural communication (body language, hand movements), and spatial arrangements (proximity, architecture).</p>
-                            <p>Each mode offers unique resources for meaning-making, and academic communication typically involves the strategic integration of multiple modes. Understanding these multimodal practices is essential for effective participation in academic discourse communities. Approaches that focus solely on linguistic elements fail to acknowledge the rich complexity of contemporary academic communication across diverse contexts and media.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Multimodality</span>
-                                <span class="tag">Semiotics</span>
-                                <span class="tag">Communication</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            How multiple communication modes work together in academic contexts
-                        </footer>
-                    </div>
-                </div>
-            </div>
-            <!-- Centered final card -->
-            <div class="centered-card">
-                <div class="card">
-                    <div class="card__header">
-                        <h2 class="card__title">
-                            <i class="fas fa-globe-africa" aria-hidden="true"></i> Academic Literacy in Global Contexts
-                        </h2>
-                    </div>
-                    <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
-                             alt="Interconnected academic communities representing global knowledge exchange"
-                             class="card__image">
-                        <p>Academic literacy practices exist within diverse cultural and linguistic contexts. Different knowledge traditions offer valuable perspectives on meaning-making, argumentation, and knowledge construction. Understanding these variations enriches academic communication by expanding the range of acceptable forms and challenging monolingual or monocultural assumptions.</p>
-                        <p>Global academic communication benefits from recognising multiple ways of knowing and communicating. This includes valuing different narrative structures, argumentation styles, and approaches to evidence. Such recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production. Approaches that position academic literacy as a fixed set of skills often overlook the rich diversity of knowledge traditions that can enhance academic discourse.</p>
-                        <!-- Embedded new image here, centered and 25% smaller -->
-                        <div style="text-align: center; margin: 15px 0;">
-                            <img src="https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2022/12/Intercultural-dialogue.jpg?w=1024&ssl=1"
-                                 alt="Intercultural dialogue illustration"
-                                 style="width: 75%; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(207, 64, 255, 0.3);">
-                        </div>
-                        <!-- End of new image -->
-                        <blockquote class="card__quote">
-                            <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy is enriched when we recognise and value diverse knowledge traditions and communication practices across cultural contexts.
+
+            <div class="articles-container">
+                <div class="article-card" id="concepts">
+                    <h3><i class="fas fa-book"></i> Disciplinary Knowledge: Definition and Structure</h3>
+                    <div class="article-content">
+                        <p><strong>Framework</strong></p>
+                        <p>Disciplinary knowledge is specialised concepts, methods, and practices that define a particular academic field (such as science, history, or literature). Each discipline organises its knowledge in unique ways—some are hierarchical and cumulative (vertical discourse), whilst others are more segmented and context-dependent (horizontal discourse). Understanding how knowledge is structured within a discipline is crucial for effective teaching and learning.</p>
+
+                        <blockquote>
+                            <p>"Knowledge structures shape how we understand and communicate within academic fields."</p>
                         </blockquote>
-                        <div class="card__meta">
-                            <span class="tag">Global Contexts</span>
-                            <span class="tag">Diversity</span>
-                            <span class="tag">Inclusion</span>
-                        </div>
                     </div>
-                    <footer class="card__footer">
-                        Understanding academic literacy within diverse global contexts
-                    </footer>
+                    <div class="article-meta">
+                        <span class="meta-tag">Framework</span>
+                        <span class="meta-tag">Discipline</span>
+                    </div>
+                </div>
+
+                <div class="article-card" id="semiotics">
+                    <h3><i class="fas fa-comment-dots"></i> Semiotic Linguistics: Meaning-Making Systems</h3>
+                    <div class="article-content">
+                        <p><strong>Theory</strong></p>
+                        <p>Semiotic linguistics, especially as developed in systemic functional linguistics (SFL), studies how language and other sign systems (visual, gestural, mathematical, etc.) are used to create and communicate meaning in social contexts. SFL treats language as a social semiotic, emphasising that meaning is not just in words but in how signs are used within disciplinary practices.</p>
+
+                        <blockquote>
+                            <p>"Language is a social semiotic that creates meaning through contextual use."</p>
+                        </blockquote>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Theory</span>
+                        <span class="meta-tag">SFL</span>
+                        <span class="meta-tag">Semiotics</span>
+                    </div>
+                </div>
+
+                <div class="article-card" id="integration">
+                    <h3><i class="fas fa-link"></i> Interdependence: How Semiotic Systems Represent Disciplinary Knowledge</h3>
+                    <div class="article-content">
+                        <p><strong>Application</strong></p>
+                        <p>Different disciplines use distinct semiotic resources to represent and communicate their knowledge. For example, science relies on technical vocabulary, diagrams, and specific text structures, whilst history may use narrative forms and evaluative language. The choice and organisation of semiotic resources (language, visuals, symbols) are shaped by disciplinary conventions, and mastering these is part of becoming literate in a discipline.</p>
+
+                        <blockquote>
+                            <p>"Each discipline has its own semiotic fingerprint for knowledge representation."</p>
+                        </blockquote>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Application</span>
+                        <span class="meta-tag">Representation</span>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Integration: Teaching and Learning Across Disciplines</h3>
+                    <div class="article-content">
+                        <p><strong>Pedagogy</strong></p>
+                        <p>Effective disciplinary teaching involves making explicit both the content and the semiotic forms used to communicate it. This means helping students understand not only the core ideas of a discipline but also the ways those ideas are expressed through language and other semiotic modes. Integrating semiotic linguistics into disciplinary education supports deeper understanding and enables students to participate in disciplinary practices.</p>
+
+                        <blockquote>
+                            <p>"Teaching must address both what we know and how we express what we know."</p>
+                        </blockquote>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Pedagogy</span>
+                        <span class="meta-tag">Teaching</span>
+                        <span class="meta-tag new-tag">Integration</span>
+                    </div>
+                </div>
+
+                <div class="article-card" id="synthesis">
+                    <h3><i class="fas fa-project-diagram"></i> Summary: Relationship in Practice</h3>
+                    <div class="article-content">
+                        <p><strong>Synthesis</strong></p>
+                        <p>The relationship between disciplinary knowledge and semiotic linguistics is dynamic and reciprocal. Disciplinary knowledge shapes the semiotic resources used for meaning-making, whilst semiotic analysis reveals how knowledge is constructed, communicated, and critiqued within disciplines. Teaching that foregrounds both disciplinary content and its semiotic forms equips learners to engage more fully and critically with academic fields.</p>
+
+                        <blockquote>
+                            <p>"Knowledge and language dance together in the academic discourse."</p>
+                        </blockquote>
+                    </div>
+                    <div class="article-meta">
+                        <span class="meta-tag">Synthesis</span>
+                        <span class="meta-tag">Relationship</span>
+                    </div>
                 </div>
             </div>
-            <!-- Embedded Visitor Counter -->
-            <div id="freeCounter">
-                <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=98eaca31612f4331b0b8acd08eb43e530eb44597'></script>
-                <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1386787/t/5"></script>
-                <br>
-                <a href='https://www.free-counters.org/'>... by Free-Counters.org</a>
-            </div>
-            <!-- End of Visitor Counter -->
-            <div class="copyright">
-                <p>&copy; 2025 Dr Oscar Eybers</p>
-                <a href="#" id="topLink" style="display: inline-block; margin-top: 10px; color: var(--digital-purple); text-decoration: none;">
-                    <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
-                </a>
+
+            <div class="footer">
+                <p class="footer-copyright">© Dr Oscar Eybers 2025</p>
+                <div class="footer-nav">
+                    <a href="#" class="footer-link" id="back-to-top">Top</a>
+                    <a href="https://oeybers-cpu.github.io/a_lit_models/" class="footer-link">Home</a>
+                </div>
             </div>
         </div>
-        <script>
-            // Ensure DOM is fully loaded before attaching event handlers
-            document.addEventListener('DOMContentLoaded', function() {
-                // Back button functionality - IMPROVED
-                const backButton = document.getElementById('backButton');
-                if (backButton) {
-                    backButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        // Store current state with scroll position before navigating
-                        const currentState = {
-                            url: window.location.href,
-                            scrollY: window.scrollY
-                        };
-                        history.replaceState(currentState, document.title);
-                        // Go back in history
-                        if (history.length > 1) {
-                            history.back();
-                        } else {
-                            // Fallback if no history
-                            window.location.href = '/';
-                        }
-                    });
-                }
-                // Top link functionality
-                const topLink = document.getElementById('topLink');
-                if (topLink) {
-                    topLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-                // Store scroll position when navigating away
-                window.addEventListener('beforeunload', function() {
-                    const currentState = {
-                        url: window.location.href,
-                        scrollY: window.scrollY
-                    };
-                    history.replaceState(currentState, document.title);
-                });
-                // Restore scroll position when returning to page
-                window.addEventListener('pageshow', function(event) {
-                    if (event.persisted) {
-                        const state = history.state;
-                        if (state && state.scrollY !== undefined) {
-                            window.scrollTo(0, state.scrollY);
-                        }
-                    }
-                });
-                // Handle direct navigation to this page
-                if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
-                    const state = history.state;
-                    if (state && state.scrollY !== undefined) {
-                        window.scrollTo(0, state.scrollY);
-                    }
-                }
-                // Handle orientation changes
-                window.addEventListener('orientationchange', function() {
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 300);
-                });
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.article-card');
+
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
             });
-        </script>
-    </body>
+
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
 </html>
-```
