@@ -85,31 +85,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 20px; /* Adjusted padding */
+            padding: 10px 20px; /* Reduced padding */
             background: rgba(10, 10, 20, 0.8);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
             z-index: 1000;
             backdrop-filter: blur(10px);
         }
         .top-header h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Reduced font size */
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 9px rgba(207, 64, 255, 0.6);
+            letter-spacing: 1px; /* Reduced letter spacing */
+            text-shadow: 0 0 6px rgba(207, 64, 255, 0.6);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             animation: pulseText 3s infinite alternate;
             text-align: center;
             margin: 0 auto;
-            max-width: 70%;
+            max-width: 80%; /* Increased max-width */
         }
         @keyframes pulseText {
-            0% { text-shadow: 0 0 9px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 16px rgba(207, 64, 255, 0.8), 0 0 24px rgba(207, 64, 255, 0.6); }
+            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 12px rgba(207, 64, 255, 0.8), 0 0 18px rgba(207, 64, 255, 0.6); }
         }
        /* Dropdown Styles */
 .dropdown {
@@ -120,12 +120,12 @@
 .dropdown-toggle {
     color: var(--digital-purple);
     text-decoration: none;
-    padding: 12px 15px;
+    padding: 10px 12px; /* Reduced padding */
     border-radius: 8px;
     background: rgba(65, 105, 225, 0.1);
     border: 1px solid var(--royal-blue);
     transition: all 0.3s ease;
-    font-size: 0.85rem;
+    font-size: 0.8rem; /* Reduced font size */
     text-align: center;
     font-weight: 500;
     text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
@@ -139,7 +139,7 @@
 .dropdown-toggle:hover,
 .dropdown.active .dropdown-toggle {
     background: rgba(65, 105, 225, 0.3);
-    box-shadow: 0 0 15px rgba(65, 105, 225, 0.6);
+    box-shadow: 0 0 12px rgba(65, 105, 225, 0.6);
     transform: translateY(-2px);
     color: var(--light);
     border-color: var(--royal-blue-light);
@@ -154,7 +154,7 @@
     background: rgba(10, 10, 20, 0.95); /* Slightly darker background */
     border: 1px solid var(--royal-blue);
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     z-index: 1001; /* Ensure it's above other content */
     list-style: none;
     padding: 0;
@@ -167,10 +167,10 @@
 .dropdown-menu a {
     color: var(--light);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 8px 12px; /* Reduced padding */
     display: block;
     transition: background-color 0.2s ease;
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Reduced font size */
     border-bottom: 1px solid rgba(207, 64, 255, 0.1);
 }
 .dropdown-menu a:hover {
@@ -191,92 +191,92 @@
     transform: rotate(180deg);
 }
 .dropdown-icon {
-    margin-left: 8px;
+    margin-left: 6px; /* Reduced margin */
     transition: transform 0.3s ease;
+    font-size: 0.8rem; /* Reduced icon size */
 }
         .back-button-tab {
             position: fixed;
-            top: 25px;
-            left: 25px;
+            top: 15px; /* Reduced top position */
+            left: 15px; /* Reduced left position */
             z-index: 1001;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
             color: var(--royal-blue);
-            padding: 10px 20px;
+            padding: 8px 15px; /* Reduced padding */
             border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* Reduced gap */
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
+            box-shadow: 0 0 12px rgba(65, 105, 225, 0.3);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* Reduced font size */
             font-weight: 600;
         }
         .back-button-tab:hover {
             background: rgba(65, 105, 225, 0.2);
-            transform: translateX(-5px);
-            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+            transform: translateX(-3px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
             color: var(--light);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
         /* NEW: Contact button styling */
         .contact-button-tab {
             position: fixed;
-            top: 25px;
-            right: 25px;
+            top: 15px; /* Reduced top position */
+            right: 15px; /* Reduced right position */
             z-index: 1001;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
             color: var(--royal-blue);
-            padding: 10px 20px;
+            padding: 8px 15px; /* Reduced padding */
             border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* Reduced gap */
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
+            box-shadow: 0 0 12px rgba(65, 105, 225, 0.3);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* Reduced font size */
             font-weight: 600;
         }
         .contact-button-tab:hover {
             background: rgba(65, 105, 225, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+            transform: translateX(3px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
             color: var(--light);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
         /* Main container */
         .main-container {
             width: 100%;
             max-width: 1400px;
-            margin: 100px auto 0; /* Default margin for larger screens */
+            margin: 70px auto 0; /* Reduced margin for smaller header */
         }
         /* Top navigation links */
         .top-nav {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
-            gap: 15px;
-            margin-bottom: 40px;
-            padding: 0 20px;
+            gap: 12px; /* Reduced gap */
+            margin-bottom: 30px; /* Reduced margin */
+            padding: 0 15px; /* Reduced padding */
         }
-        /* Removed old .nav-link styles */
-        /* Header with Sun Integration */
+        /* Header with Sun Integration - Significantly reduced height */
         header {
             text-align: center;
-            padding: 20px 0;
+            padding: 10px 0; /* Reduced padding */
             position: relative;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            margin-bottom: 30px;
-            border-radius: 0 0 15px 15px;
+            margin-bottom: 20px; /* Reduced margin */
+            border-radius: 0 0 10px 10px;
             overflow: hidden;
-            min-height: 300px;
+            min-height: 180px; /* Significantly reduced height */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -302,28 +302,29 @@
             0% { left: -100%; }
             100% { left: 100%; }
         }
-        /* Sun container */
+        /* Sun container - Moved behind and reduced size */
         .sun-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 0;
-            width: 300px;
-            height: 300px;
+            z-index: 0; /* Behind other content */
+            width: 200px; /* Reduced size */
+            height: 200px; /* Reduced size */
             display: flex;
             justify-content: center;
             align-items: center;
             pointer-events: none;
+            opacity: 0.7; /* Slightly transparent */
         }
         .sun-core {
-            width: 120px;
-            height: 120px;
+            width: 80px; /* Reduced size */
+            height: 80px; /* Reduced size */
             background: var(--sun-color);
             border-radius: 50%;
             position: relative;
             z-index: 2;
-            box-shadow: 0 0 30px 12px var(--sun-glow);
+            box-shadow: 0 0 20px 8px var(--sun-glow);
             animation: sun-pulse 8s infinite ease-in-out;
         }
         .sun-rays {
@@ -331,18 +332,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
+            width: 200px; /* Reduced size */
+            height: 200px; /* Reduced size */
             z-index: 1;
             background: repeating-conic-gradient(from 0deg, var(--sun-ray-color) 0deg 3deg, transparent 3deg 20deg);
             border-radius: 50%;
-            opacity: 0.8;
+            opacity: 0.6; /* Reduced opacity */
             animation: ray-rotate 20s infinite linear, ray-pulse 4s infinite ease-in-out;
-            box-shadow: 0 0 20px 6px var(--sun-ray-color);
+            box-shadow: 0 0 15px 4px var(--sun-ray-color);
         }
         @keyframes sun-pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); } /* Reduced pulse */
             100% { transform: scale(1); }
         }
         @keyframes ray-rotate {
@@ -350,9 +351,9 @@
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
         @keyframes ray-pulse {
-            0% { opacity: 0.8; }
-            50% { opacity: 1; }
-            100% { opacity: 0.8; }
+            0% { opacity: 0.6; } /* Adjusted for reduced opacity */
+            50% { opacity: 0.8; }
+            100% { opacity: 0.6; }
         }
         /* Header content */
         .header-content {
@@ -366,11 +367,11 @@
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
             max-width: 600px;
-            margin: 20px auto;
+            margin: 15px auto; /* Reduced margin */
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 18px rgba(207, 64, 255, 0.15);
+            box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -390,33 +391,33 @@
             z-index: 1;
         }
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 24px rgba(207, 64, 255, 0.3);
+            transform: translateY(-3px); /* Reduced hover effect */
+            box-shadow: 0 5px 20px rgba(207, 64, 255, 0.3);
         }
         .contact-card:hover::before {
             transform: scaleX(1);
         }
         .contact-card h2 {
             color: var(--digital-purple);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 10px; /* Reduced margin */
+            font-size: 1.1rem; /* Reduced font size */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px; /* Reduced gap */
             font-family: 'Orbitron', sans-serif;
         }
         .contact-card p {
             color: #ddd;
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.9rem; /* Reduced font size */
+            line-height: 1.5; /* Reduced line height */
         }
         /* Card Styles - Updated to BEM convention */
         .articles-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--card-gap);
-            margin: 30px 0;
+            margin: 25px 0; /* Reduced margin */
         }
         /* Base card styling */
         .card {
@@ -431,7 +432,7 @@
             position: relative;
             overflow: hidden;
             height: 100%;
-            min-height: 550px; /* Fixed height for consistent sizing */
+            min-height: 500px; /* Reduced height */
         }
         .card::before {
             content: '';
@@ -447,23 +448,23 @@
             z-index: 1;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.3);
+            transform: translateY(-3px); /* Reduced hover effect */
+            box-shadow: 0 6px 20px rgba(207, 64, 255, 0.3);
         }
         .card:hover::before {
             transform: scaleX(1);
         }
         /* Card Header */
         .card__header {
-            padding-bottom: 10px;
+            padding-bottom: 8px; /* Reduced padding */
         }
         .card__title {
             color: var(--digital-purple);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem; /* Reduced font size */
+            margin-bottom: 12px; /* Reduced margin */
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* Reduced gap */
         }
         /* Card Body */
         .card__body {
@@ -474,81 +475,82 @@
         }
         .card__image {
             width: 100%;
-            height: 220px;
+            height: 200px; /* Reduced height */
             object-fit: cover;
             object-position: center 30%;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 12px; /* Reduced margin */
             border: 2px solid rgba(207, 64, 255, 0.3);
             transition: transform 0.3s ease;
         }
         .card:hover .card__image {
-            transform: scale(1.03);
+            transform: scale(1.02); /* Reduced scale */
         }
         .card__quote {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
-            padding: 12px;
+            padding: 10px; /* Reduced padding */
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Reduced font size */
             border: 1px solid rgba(207, 64, 255, 0.3);
-            margin: 15px 0;
+            margin: 12px 0; /* Reduced margin */
             position: relative;
-            padding-left: 40px;
+            padding-left: 35px; /* Reduced padding */
         }
         .card__quote i {
             position: absolute;
-            left: 12px;
-            top: 12px;
+            left: 10px; /* Reduced left position */
+            top: 10px; /* Reduced top position */
             color: var(--primary);
+            font-size: 0.9rem; /* Reduced icon size */
         }
         /* Card Meta */
         .card__meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
+            gap: 6px; /* Reduced gap */
+            margin: 8px 0; /* Reduced margin */
         }
         .tag {
             background: rgba(207, 64, 255, 0.15);
             color: var(--primary);
-            padding: 5px 10px;
+            padding: 4px 8px; /* Reduced padding */
             border-radius: 15px;
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* Reduced font size */
             border: 1px solid rgba(207, 64, 255, 0.3);
         }
         /* Card Footer */
         .card__footer {
             background: rgba(207, 64, 255, 0.08);
             border-top: 1px solid rgba(207, 64, 255, 0.2);
-            padding: 12px 15px;
+            padding: 10px 12px; /* Reduced padding */
             border-radius: 0 0 8px 8px;
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* Reduced font size */
             color: var(--lighter-accent);
-            margin-top: 15px;
+            margin-top: 12px; /* Reduced margin */
         }
         /* Content sections */
         .content-section {
-            margin-bottom: 40px;
+            margin-bottom: 30px; /* Reduced margin */
             /* Default scroll margin for larger screens */
             scroll-margin-top: calc(var(--top-header-height) + 10px);
         }
         .section-title {
             color: var(--digital-purple);
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
+            font-size: 1.4rem; /* Reduced font size */
+            margin-bottom: 20px; /* Reduced margin */
+            padding-bottom: 8px; /* Reduced padding */
             border-bottom: 1px solid rgba(207, 64, 255, 0.3);
             font-family: 'Orbitron', sans-serif;
             text-align: center;
         }
         .copyright {
             text-align: center;
-            padding: 30px 0;
+            padding: 25px 0; /* Reduced padding */
             color: #777;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Reduced font size */
             border-top: 1px solid rgba(207, 64, 255, 0.2);
-            margin-top: 40px;
+            margin-top: 30px; /* Reduced margin */
         }
         .centered-card {
             grid-column: 1 / -1;
@@ -562,23 +564,24 @@
         /* Visitor Counter Styles */
         #freeCounter {
             text-align: center;
-            padding: 20px 0;
-            margin: 20px auto;
+            padding: 15px 0; /* Reduced padding */
+            margin: 15px auto; /* Reduced margin */
             max-width: 600px;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.15);
         }
         #freeCounter a {
             color: var(--digital-purple);
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
+            font-size: 0.85rem; /* Reduced font size */
         }
         #freeCounter a:hover {
             color: var(--light);
-            text-shadow: 0 0 10px rgba(207, 64, 255, 0.8);
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
         }
         /* Responsive Design Improvements */
         @media (max-width: 1200px) {
@@ -596,119 +599,146 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .top-header h1 {
-                font-size: 1.5rem;
+                font-size: 1.3rem; /* Reduced font size */
             }
             header {
-                min-height: 250px;
+                min-height: 160px; /* Reduced height */
             }
             .sun-container {
-                width: 250px;
-                height: 250px;
+                width: 180px; /* Reduced size */
+                height: 180px; /* Reduced size */
             }
             .sun-core {
-                width: 100px;
-                height: 100px;
+                width: 70px; /* Reduced size */
+                height: 70px; /* Reduced size */
             }
             .sun-rays {
-                width: 250px;
-                height: 250px;
+                width: 180px; /* Reduced size */
+                height: 180px; /* Reduced size */
             }
         }
         @media (max-width: 768px) {
             .top-nav {
-                gap: 12px;
+                gap: 10px; /* Reduced gap */
             }
             /* Adjusted dropdown toggle for smaller screens */
             .dropdown-toggle {
-                padding: 10px 12px;
-                font-size: 0.8rem;
+                padding: 8px 10px; /* Reduced padding */
+                font-size: 0.75rem; /* Reduced font size */
             }
             .card__image {
-                 height: 180px; /* Adjust image height */
+                 height: 160px; /* Reduced height */
             }
         }
         @media (max-width: 600px) {
             body {
-                padding: 15px;
+                padding: 12px; /* Reduced padding */
             }
             /* FIXED: Increased top value to prevent collision with header */
             .back-button-tab {
-                top: 65px; /* Adjusted top position */
-                left: 15px;
-                padding: 8px 15px;
-                font-size: 0.8rem;
+                top: 55px; /* Adjusted top position */
+                left: 12px; /* Reduced left position */
+                padding: 6px 12px; /* Reduced padding */
+                font-size: 0.7rem; /* Reduced font size */
                 z-index: 1002;
             }
             /* FIXED: Increased top value to prevent collision with header */
             .contact-button-tab {
-                top: 65px; /* Adjusted top position */
-                right: 15px;
-                padding: 8px 15px;
-                font-size: 0.8rem;
+                top: 55px; /* Adjusted top position */
+                right: 12px; /* Reduced right position */
+                padding: 6px 12px; /* Reduced padding */
+                font-size: 0.7rem; /* Reduced font size */
                 z-index: 1002;
             }
             /* Adjust sun for mobile */
             .sun-container {
-                width: 200px;
-                height: 200px;
+                width: 150px; /* Reduced size */
+                height: 150px; /* Reduced size */
             }
             .sun-core {
-                width: 80px;
-                height: 80px;
-                box-shadow: 0 0 20px 8px var(--sun-glow);
+                width: 60px; /* Reduced size */
+                height: 60px; /* Reduced size */
+                box-shadow: 0 0 15px 6px var(--sun-glow);
             }
             .sun-rays {
-                width: 200px;
-                height: 200px;
-                box-shadow: 0 0 15px 4px var(--sun-ray-color);
+                width: 150px; /* Reduced size */
+                height: 150px; /* Reduced size */
+                box-shadow: 0 0 12px 3px var(--sun-ray-color);
             }
             header {
-                min-height: 220px;
+                min-height: 140px; /* Reduced height */
             }
             .top-header {
-                padding: 15px 10px;
+                padding: 10px 8px; /* Reduced padding */
                 flex-direction: column;
                 height: auto;
             }
             .top-header h1 {
-                font-size: 1.3rem;
+                font-size: 1.1rem; /* Reduced font size */
                 max-width: 100%;
                 /* Removed padding and margin-top for simpler, more predictable layout */
             }
             .top-nav {
                 grid-template-columns: 1fr; /* Stack dropdowns on mobile */
-                gap: 10px;
-                padding: 0 10px;
+                gap: 8px; /* Reduced gap */
+                padding: 0 8px; /* Reduced padding */
             }
              /* Adjusted dropdown toggle for very small screens */
             .dropdown-toggle {
-                padding: 12px 10px;
-                font-size: 0.85rem;
+                padding: 10px 8px; /* Reduced padding */
+                font-size: 0.8rem; /* Reduced font size */
             }
             .contact-card {
-                padding: 15px;
-                margin: 15px auto;
+                padding: 12px; /* Reduced padding */
+                margin: 12px auto; /* Reduced margin */
             }
             .contact-card h2 {
-                font-size: 1.1rem;
+                font-size: 1rem; /* Reduced font size */
             }
             .section-title {
-                font-size: 1.4rem;
+                font-size: 1.2rem; /* Reduced font size */
             }
             .card__title {
-                font-size: 1.1rem;
+                font-size: 1rem; /* Reduced font size */
             }
             /* Adjust main container margin for fixed header height on small screens */
             .main-container {
-                margin: calc(var(--top-header-height-sm) + 20px) auto 0; /* Adjusted margin */
+                margin: calc(var(--top-header-height-sm) + 15px) auto 0; /* Adjusted margin */
             }
             /* Adjust scroll margin for fixed header height on small screens */
             .content-section {
-                scroll-margin-top: calc(var(--top-header-height-sm) + 15px); /* Adjusted scroll margin */
+                scroll-margin-top: calc(var(--top-header-height-sm) + 10px); /* Adjusted scroll margin */
             }
             #freeCounter {
-                padding: 15px;
-                font-size: 0.9rem;
+                padding: 12px; /* Reduced padding */
+                font-size: 0.8rem; /* Reduced font size */
+            }
+            .card {
+                min-height: 450px; /* Reduced height */
+            }
+            .card__image {
+                height: 140px; /* Reduced height */
+            }
+        }
+        @media (max-width: 480px) {
+            .top-header h1 {
+                font-size: 1rem; /* Further reduced font size */
+            }
+            .back-button-tab, .contact-button-tab {
+                padding: 5px 10px; /* Reduced padding */
+                font-size: 0.65rem; /* Reduced font size */
+            }
+            .card {
+                min-height: 400px; /* Further reduced height */
+            }
+            .card__image {
+                height: 120px; /* Reduced height */
+            }
+            .card__title {
+                font-size: 0.95rem; /* Reduced font size */
+            }
+            .contact-card h2 {
+                font-size: 0.9rem; /* Reduced font size */
             }
         }
     </style>
@@ -736,7 +766,7 @@
             Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
         </div>
         <ul class="dropdown-menu">
-            <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Academic literacies model</a></li>
+            <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
             <li><a href="https://oeybers-cpu.github.io/sociocultural/" target="_blank">Sociocultural academic literacy</a></li>
             <!-- <li><a href="https://acadlit-sz3ss6.manus.space/" target="_blank">Multilingual academic literacy</a></li> --> <!-- REMOVED -->
             <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
@@ -802,7 +832,7 @@
                                  alt="Three models of academic literacy showing different approaches to understanding literacy practices"
                                  class="card__image">
                             <p>Academic literacy can be understood through three distinct theoretical approaches. The skills-based perspective views literacy as transferable technical abilities applicable across contexts. The socialisation approach sees literacy as contextual, requiring adaptation to specific academic communities. The literacies perspective recognises literacy as socially situated and contested, involving negotiation of meaning, identity, and power within academic contexts.</p>
-                            <p>Each model offers different assumptions about how knowledge is constructed and transmitted within educational settings. Contemporary research increasingly acknowledges the complex social dimensions of academic communication, highlighting how literacy practices are embedded within broader cultural and institutional frameworks rather than being merely transferable skills. This understanding is crucial for African students to succeed and transform disciplines from the ground up.</p>
+                            <p>Each model offers different assumptions about how knowledge is constructed and transmitted within educational settings. Contemporary research increasingly acknowledges the complex social dimensions of academic communication, highlighting how literacy practices are embedded within broader cultural and institutional frameworks rather than being merely transferable skills.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> Academic writing is never merely about skills or socialisation; it always involves questions of power, identity, and access to knowledge communities.
                             </blockquote>
@@ -827,8 +857,8 @@
                             <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true"
                                  alt="Academic literacies model showing social practice framework"
                                  class="card__image">
-                            <p>Building on foundational models, academic literacies treats reading and writing as social practices that vary with context, culture, and genre. This perspective views student writing and learning as issues of epistemology and identity rather than merely skill acquisition or socialisation. Knowledge is constructed through participation in disciplinary communities where meaning-making involves negotiation of power relations and cultural norms. This approach empowers African students to see their own knowledge traditions as valuable resources for academic engagement.</p>
-                            <p>Students navigate multiple literacy practices across different academic settings, each with distinct expectations regarding structure, voice, evidence, and argumentation. These practices reflect deeper epistemological assumptions about what counts as valid knowledge within particular disciplines. The recognition that academic literacy is inherently situated within specific communities challenges simplistic approaches to academic writing instruction and encourages students to transform disciplines from within.</p>
+                            <p>Academic literacies treats reading and writing as social practices that vary with context, culture, and genre. This perspective views student writing and learning as issues of epistemology and identity rather than merely skill acquisition or socialisation. Knowledge is constructed through participation in disciplinary communities where meaning-making involves negotiation of power relations and cultural norms.</p>
+                            <p>Students navigate multiple literacy practices across different academic settings, each with distinct expectations regarding structure, voice, evidence, and argumentation. These practices reflect deeper epistemological assumptions about what counts as valid knowledge within particular disciplines. The recognition that academic literacy is inherently situated within specific communities challenges simplistic approaches to academic writing instruction.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy practices are diverse, contested, and situated within specific social contexts that shape how knowledge is constructed and communicated.
                             </blockquote>
@@ -853,7 +883,7 @@
                             <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true"
                                  alt="Students switching between different communication modes in classroom setting"
                                  class="card__image">
-                            <p>As students engage with academic literacies, they constantly navigate between different genres and modes of communication. Genres represent types of text—both spoken and written—such as discussions, notes, essays, and presentations. Each genre carries specific expectations regarding structure, language, and purpose. This navigation becomes particularly important for African students who must bridge their existing knowledge traditions with academic discourse practices.</p>
+                            <p>Students constantly navigate between different genres and modes of communication as they move through academic settings. Genres represent types of text—both spoken and written—such as discussions, notes, essays, and presentations. Each genre carries specific expectations regarding structure, language, and purpose.</p>
                             <p>These transitions involve shifts in mode—from internal thought to external speech, from spoken discussion to written notes, from linguistic to visual communication. Each shift requires students to attend to different aspects of communication, including language structure, visual layout, and multimodal elements that contribute to meaning-making. This complex navigation highlights why a narrow focus on technical skills cannot adequately prepare students for the diverse literacy demands they encounter.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> Students must develop awareness of the different qualities associated with various genres and modes as they move between communication contexts in academic work.
@@ -879,8 +909,8 @@
                             <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
                                  alt="Multimodal communication showing integration of different semiotic resources"
                                  class="card__image">
-                            <p>Communication extends far beyond linguistic elements, and this is particularly relevant for African students bringing diverse knowledge traditions. Multimodality recognises that meaning is constructed through multiple channels working together. In academic contexts, this includes visual elements (images, layout, typography), aural components (tone, pace, silence), gestural communication (body language, hand movements), and spatial arrangements (proximity, architecture). These modes offer unique resources for meaning-making.</p>
-                            <p>Each mode offers unique resources for meaning-making, and academic communication typically involves the strategic integration of multiple modes. Understanding these multimodal practices is essential for effective participation in academic discourse communities. Approaches that focus solely on linguistic elements fail to acknowledge the rich complexity of contemporary academic communication across diverse contexts and media, especially when African students are transforming disciplines from the ground up.</p>
+                            <p>Communication extends far beyond linguistic elements. Multimodality recognises that meaning is constructed through multiple channels working together. In academic contexts, this includes visual elements (images, layout, typography), aural components (tone, pace, silence), gestural communication (body language, hand movements), and spatial arrangements (proximity, architecture).</p>
+                            <p>Each mode offers unique resources for meaning-making, and academic communication typically involves the strategic integration of multiple modes. Understanding these multimodal practices is essential for effective participation in academic discourse communities. Approaches that focus solely on linguistic elements fail to acknowledge the rich complexity of contemporary academic communication across diverse contexts and media.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
                             </blockquote>
@@ -908,10 +938,10 @@
                         <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
                              alt="Interconnected academic communities representing global knowledge exchange"
                              class="card__image">
-                        <p>Academic literacy practices exist within diverse cultural and linguistic contexts, and this diversity is the strength that African students bring to global academic discourse. Different knowledge traditions offer valuable perspectives on meaning-making, argumentation, and knowledge construction. Understanding these variations enriches academic communication by expanding the range of acceptable forms and challenging monolingual or monocultural assumptions. This recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production.</p>
-                        <p>Global academic communication benefits from recognising multiple ways of knowing and communicating. This includes valuing different narrative structures, argumentation styles, and approaches to evidence. Such recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production. Approaches that position academic literacy as a fixed set of skills often overlook the rich diversity of knowledge traditions that can enhance academic discourse and empower African students to succeed.</p>
+                        <p>Academic literacy practices exist within diverse cultural and linguistic contexts. Different knowledge traditions offer valuable perspectives on meaning-making, argumentation, and knowledge construction. Understanding these variations enriches academic communication by expanding the range of acceptable forms and challenging monolingual or monocultural assumptions.</p>
+                        <p>Global academic communication benefits from recognising multiple ways of knowing and communicating. This includes valuing different narrative structures, argumentation styles, and approaches to evidence. Such recognition supports more inclusive academic communities where diverse voices can contribute meaningfully to knowledge production. Approaches that position academic literacy as a fixed set of skills often overlook the rich diversity of knowledge traditions that can enhance academic discourse.</p>
                         <!-- Embedded new image here, centered and 25% smaller -->
-                        <div style="text-align: center; margin: 15px 0;">
+                        <div style="text-align: center; margin: 12px 0;"> <!-- Reduced margin -->
                             <img src="https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2022/12/Intercultural-dialogue.jpg?w=1024&ssl=1"
                                  alt="Intercultural dialogue illustration"
                                  style="width: 75%; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(207, 64, 255, 0.3);">
@@ -941,7 +971,7 @@
             <!-- End of Visitor Counter -->
             <div class="copyright">
                 <p>&copy; 2025 Dr Oscar Eybers</p>
-                <a href="#" id="topLink" style="display: inline-block; margin-top: 10px; color: var(--digital-purple); text-decoration: none;">
+                <a href="#" id="topLink" style="display: inline-block; margin-top: 8px; color: var(--digital-purple); text-decoration: none;"> <!-- Reduced margin -->
                     <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
                 </a>
             </div>
