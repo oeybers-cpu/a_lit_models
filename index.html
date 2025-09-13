@@ -142,7 +142,7 @@
     transform: translateY(-2px);
     color: var(--light);
     border-color: var(--royal-blue-light);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 .dropdown-menu {
     display: none; /* Hidden by default */
@@ -740,23 +740,6 @@
                 font-size: 0.9rem; /* Reduced font size */
             }
         }
-        
-        /* New image container styles for transition challenges */
-        .image-container {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        .image-container .card__image {
-            flex: 1;
-            min-width: 0;
-            height: auto;
-        }
-        @media (max-width: 768px) {
-            .image-container {
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
 <body>
@@ -776,6 +759,7 @@
        <!-- Top Navigation Links -->
 <div class="top-nav">
     <!-- Dropdown 1: Foundational Models & Theories -->
+    <!-- REMOVED: <a href="https://acadlit-sz3ss6.manus.space/" class="nav-link" target="_blank">Multilingual academic literacy</a> -->
     <div class="dropdown">
         <div class="dropdown-toggle">
             Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
@@ -783,8 +767,6 @@
         <ul class="dropdown-menu">
             <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
             <li><a href="https://oeybers-cpu.github.io/sociocultural/" target="_blank">Sociocultural academic literacy</a></li>
-            <!-- New Discourse and literacy link added here -->
-            <li><a href="https://oeybers-cpu.github.io/discourse_intro/" target="_blank">Discourse and literacy</a></li>
             <!-- <li><a href="https://acadlit-sz3ss6.manus.space/" target="_blank">Multilingual academic literacy</a></li> --> <!-- REMOVED -->
             <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
             <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
@@ -897,14 +879,9 @@
                             </h2>
                         </div>
                         <div class="card__body">
-                            <div class="image-container">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/horizontal%20k.png?raw=true" 
-                                     alt="Horizontal academic transition challenge diagram showing genre shifts"
-                                     class="card__image">
-                                <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/vertical%20k.png?raw=true" 
-                                     alt="Vertical academic transition challenge diagram showing mode integration"
-                                     class="card__image">
-                            </div>
+                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true"
+                                 alt="Students switching between different communication modes in classroom setting"
+                                 class="card__image">
                             <p>Students constantly navigate between different genres and modes of communication as they move through academic settings. Genres represent types of text—both spoken and written—such as discussions, notes, essays, and presentations. Each genre carries specific expectations regarding structure, language, and purpose.</p>
                             <p>These transitions involve shifts in mode—from internal thought to external speech, from spoken discussion to written notes, from linguistic to visual communication. Each shift requires students to attend to different aspects of communication, including language structure, visual layout, and multimodal elements that contribute to meaning-making. This complex navigation highlights why a narrow focus on technical skills cannot adequately prepare students for the diverse literacy demands they encounter.</p>
                             <blockquote class="card__quote">
