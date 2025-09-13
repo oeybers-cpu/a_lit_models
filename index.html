@@ -274,7 +274,7 @@
             margin-bottom: 20px; /* Reduced margin */
             border-radius: 0 0 10px 10px;
             overflow: hidden;
-            min-height: 180px; /* Significantly reduced height */
+            min-height: 220px; /* Increased height for larger card */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -361,15 +361,16 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        /* UPDATED: contact-card styles for larger size and bigger font */
         .contact-card {
             background: var(--card-bg);
             border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 11.25px;
-            padding: 15px; /* Reduced padding */
-            max-width: 600px;
-            margin: 15px auto; /* Reduced margin */
+            padding: 25px; /* Increased padding */
+            max-width: 800px; /* Increased max-width */
+            margin: 20px auto; /* Increased margin */
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(207, 64, 255, 0.15);
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.2); /* Enhanced shadow */
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -381,7 +382,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 4px; /* Increased height */
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             transform: scaleX(0);
             transform-origin: left;
@@ -389,26 +390,27 @@
             z-index: 1;
         }
         .contact-card:hover {
-            transform: translateY(-3px); /* Reduced hover effect */
-            box-shadow: 0 5px 20px rgba(207, 64, 255, 0.3);
+            transform: translateY(-5px); /* Enhanced hover effect */
+            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.4);
         }
         .contact-card:hover::before {
             transform: scaleX(1);
         }
         .contact-card h2 {
             color: var(--digital-purple);
-            margin-bottom: 10px; /* Reduced margin */
-            font-size: 1.1rem; /* Reduced font size */
+            margin-bottom: 15px; /* Increased margin */
+            font-size: 1.4rem; /* Increased font size */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px; /* Reduced gap */
+            gap: 10px; /* Increased gap */
             font-family: 'Orbitron', sans-serif;
         }
         .contact-card p {
             color: #ddd;
-            font-size: 0.9rem; /* Reduced font size */
-            line-height: 1.5; /* Reduced line height */
+            font-size: 1.2rem; /* Increased font size */
+            line-height: 1.6; /* Increased line height */
+            font-weight: 500; /* Added font weight */
         }
         /* Card Styles - Updated to BEM convention */
         .articles-container {
@@ -601,7 +603,7 @@
                 font-size: 1.3rem; /* Reduced font size */
             }
             header {
-                min-height: 160px; /* Reduced height */
+                min-height: 200px; /* Adjusted for medium screens */
             }
             .sun-container {
                 width: 180px; /* Reduced size */
@@ -665,7 +667,7 @@
                 box-shadow: 0 0 12px 3px var(--sun-ray-color);
             }
             header {
-                min-height: 140px; /* Reduced height */
+                min-height: 180px; /* Adjusted for small screens */
             }
             .top-header {
                 padding: 10px 8px; /* Reduced padding */
@@ -688,11 +690,14 @@
                 font-size: 0.8rem; /* Reduced font size */
             }
             .contact-card {
-                padding: 12px; /* Reduced padding */
-                margin: 12px auto; /* Reduced margin */
+                padding: 20px; /* Adjusted padding for mobile */
+                margin: 15px auto; /* Adjusted margin for mobile */
             }
             .contact-card h2 {
-                font-size: 1rem; /* Reduced font size */
+                font-size: 1.2rem; /* Adjusted font size for mobile */
+            }
+            .contact-card p {
+                font-size: 1rem; /* Adjusted font size for mobile */
             }
             .section-title {
                 font-size: 1.2rem; /* Reduced font size */
@@ -737,7 +742,10 @@
                 font-size: 0.95rem; /* Reduced font size */
             }
             .contact-card h2 {
-                font-size: 0.9rem; /* Reduced font size */
+                font-size: 1.1rem; /* Further adjustment for very small screens */
+            }
+            .contact-card p {
+                font-size: 0.95rem; /* Further adjustment for very small screens */
             }
         }
         
@@ -840,7 +848,7 @@
             <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
-            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
+            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il_kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Wa Thiong'o and academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
@@ -1018,7 +1026,7 @@
                             <span class="tag">Diversity</span>
                             <span class="tag">Inclusion</span>
                         </div>
-                    </div>
+                        </div>
                     <footer class="card__footer">
                         Academic literacy within diverse global contexts
                     </footer>
@@ -1176,4 +1184,4 @@
     </body>
 </html>
 
-Now when users click on any image in the cards, they'll see a larger version in a modal with a caption indicating it's a larger version of the image they clicked on.
+These changes make the "Key finding" card more prominent and the text more readable while maintaining the overall design aesthetic and ensuring responsiveness across different screen sizes.
