@@ -36,6 +36,8 @@
             /* Header heights for scroll margin */
             --top-header-height: 70px; /* Approximate height on larger screens */
             --top-header-height-sm: 90px; /* Approximate height on small screens */
+            /* Added missing digital purple variable */
+            --digital-purple: #e040fb;
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -90,24 +92,34 @@
             backdrop-filter: blur(10px);
         }
         .top-header h1 {
-            font-size: 1.5rem; /* Reduced font size */
+            font-size: 2rem; /* Increased from 1.5rem */
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
-            letter-spacing: 1px; /* Reduced letter spacing */
-            text-shadow: 0 0 6px rgba(207, 64, 255, 0.6);
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(224, 64, 251, 0.7), 0 0 15px rgba(224, 64, 251, 0.5);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             animation: pulseText 3s infinite alternate;
             text-align: center;
             margin: 0 auto;
-            max-width: 80%; /* Increased max-width */
+            max-width: 80%;
         }
         @keyframes pulseText {
-            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 12px rgba(207, 64, 255, 0.8), 0 0 18px rgba(207, 64, 255, 0.6); }
+            0% {
+                text-shadow: 
+                    0 0 15px rgba(224, 64, 251, 0.7),
+                    0 0 25px rgba(224, 64, 251, 0.5),
+                    0 0 35px rgba(224, 64, 251, 0.3);
+            }
+            100% {
+                text-shadow: 
+                    0 0 20px rgba(224, 64, 251, 0.8),
+                    0 0 30px rgba(224, 64, 251, 0.6),
+                    0 0 40px rgba(224, 64, 251, 0.4);
+            }
         }
        /* Dropdown Styles */
 .dropdown {
@@ -907,7 +919,7 @@
                             <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
                                  alt="Multimodal communication showing integration of different semiotic resources"
                                  class="card__image">
-                            <p>Academic literacy extends beyond language alone; multimodality reveals how meaning is constructed through multiple semiotic resources. In academic settings, visual elements (layout, typography), aural features (tone, pace), gestures, and spatial arrangements all contribute to communication. Each mode provides distinct resources, and effective academic communication strategically integrates them.</p>
+                            <p><a href="https://www.researchgate.net/publication/242352947_Multiliteracies_New_Literacies_New_Learning" target="_blank">Academic literacy</a> extends beyond language alone; multimodality reveals how meaning is constructed through multiple semiotic resources. In academic settings, visual elements (layout, typography), aural features (tone, pace), gestures, and spatial arrangements all contribute to communication. Each mode provides distinct resources, and effective academic communication strategically integrates them.</p>
                             <p>This multimodal approach challenges traditional focus on linguistic elements alone, recognising that contemporary academic discourse relies on the interplay of multiple channels. Understanding this integration is essential for navigating diverse academic contexts and engaging meaningfully in knowledge production.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
