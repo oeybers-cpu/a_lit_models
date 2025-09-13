@@ -36,8 +36,6 @@
             /* Header heights for scroll margin */
             --top-header-height: 70px; /* Approximate height on larger screens */
             --top-header-height-sm: 90px; /* Approximate height on small screens */
-            /* Added missing digital purple variable */
-            --digital-purple: #e040fb;
         }
         body {
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -92,34 +90,24 @@
             backdrop-filter: blur(10px);
         }
         .top-header h1 {
-            font-size: 2rem; /* Increased from 1.5rem */
+            font-size: 1.5rem; /* Reduced font size */
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(224, 64, 251, 0.7), 0 0 15px rgba(224, 64, 251, 0.5);
+            letter-spacing: 1px; /* Reduced letter spacing */
+            text-shadow: 0 0 6px rgba(207, 64, 255, 0.6);
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             animation: pulseText 3s infinite alternate;
             text-align: center;
             margin: 0 auto;
-            max-width: 80%;
+            max-width: 80%; /* Increased max-width */
         }
         @keyframes pulseText {
-            0% {
-                text-shadow: 
-                    0 0 15px rgba(224, 64, 251, 0.7),
-                    0 0 25px rgba(224, 64, 251, 0.5),
-                    0 0 35px rgba(224, 64, 251, 0.3);
-            }
-            100% {
-                text-shadow: 
-                    0 0 20px rgba(224, 64, 251, 0.8),
-                    0 0 30px rgba(224, 64, 251, 0.6),
-                    0 0 40px rgba(224, 64, 251, 0.4);
-            }
+            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 12px rgba(207, 64, 255, 0.8), 0 0 18px rgba(207, 64, 255, 0.6); }
         }
        /* Dropdown Styles */
 .dropdown {
@@ -492,6 +480,7 @@
             margin-bottom: 12px; /* Reduced margin */
             border: 2px solid rgba(207, 64, 255, 0.3);
             transition: transform 0.3s ease;
+            cursor: zoom-in; /* Add zoom cursor */
         }
         .card:hover .card__image {
             transform: scale(1.02); /* Reduced scale */
@@ -751,6 +740,64 @@
                 font-size: 0.9rem; /* Reduced font size */
             }
         }
+        
+        /* Image Modal Styles */
+        .image-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 10000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        #caption {
+            color: #f0f0f0;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            padding: 0 20px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        /* Add caption to images */
+        .card__image-caption {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--lighter-accent);
+            margin-top: 5px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -841,6 +888,7 @@
                             <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true"
                                  alt="Three models of academic literacy showing different approaches to understanding literacy practices"
                                  class="card__image">
+                            <div class="card__image-caption">Click to view larger version</div>
                             <p>Academic literacy is a multifaceted concept that has evolved through three primary theoretical frameworks. The skills-based model treats it as a set of transferable technical abilities. The socialisation approach views it as adaptation to specific academic communities. However, the literacies perspective—central to contemporary scholarship—positions academic literacy as inherently social, cultural, and power-laden, where meaning-making, identity, and authority are central. This understanding forms the foundation for exploring academic literacy's role in diverse educational contexts.</p>
                             <p>Each model presents distinct assumptions about knowledge construction and transmission. Contemporary scholarship increasingly recognises the complex social dimensions of academic communication, emphasising how literacy practices are embedded within cultural and institutional frameworks rather than being mere technical skills.</p>
                             <blockquote class="card__quote">
@@ -867,6 +915,7 @@
                             <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true"
                                  alt="Academic literacies model showing social practice framework"
                                  class="card__image">
+                            <div class="card__image-caption">Click to view larger version</div>
                             <p>Building on the literacies perspective, the Academic Literacies Model conceptualises reading and writing as socially situated practices. These practices vary according to context, culture, and genre, with student writing and learning framed as issues of epistemology and identity rather than mere skill acquisition. Knowledge construction occurs through participation in disciplinary communities, where meaning-making involves negotiating power relations and cultural norms.</p>
                             <p>Students encounter diverse literacy practices across academic settings, each with distinct expectations around structure, voice, evidence, and argumentation. These reflect underlying epistemological assumptions about valid knowledge within disciplines. This understanding challenges simplistic views of academic literacy as a fixed set of skills, emphasising its dynamic, context-dependent nature.</p>
                             <blockquote class="card__quote">
@@ -893,6 +942,7 @@
                             <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true"
                                  alt="Students switching between different communication modes in classroom setting"
                                  class="card__image">
+                            <div class="card__image-caption">Click to view larger version</div>
                             <p>Within the Academic Literacies framework, students navigate vertical knowledge structures—such as essays, presentations, and notes—each with genre-specific conventions. These vertical structures are complemented by horizontal mode shifts: from internal thought to spoken discussion, written notes to visual representations. Each transition demands attention to linguistic, visual, and multimodal elements that shape meaning.</p>
                             <p>This constant switching between modes and genres underscores that academic literacy requires more than technical proficiency. It necessitates an awareness of how different communication forms function within disciplinary contexts, where meaning is constructed through diverse semiotic resources.</p>
                             <blockquote class="card__quote">
@@ -919,7 +969,8 @@
                             <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
                                  alt="Multimodal communication showing integration of different semiotic resources"
                                  class="card__image">
-                            <p><a href="https://www.researchgate.net/publication/242352947_Multiliteracies_New_Literacies_New_Learning" target="_blank">Academic literacy</a> extends beyond language alone; multimodality reveals how meaning is constructed through multiple semiotic resources. In academic settings, visual elements (layout, typography), aural features (tone, pace), gestures, and spatial arrangements all contribute to communication. Each mode provides distinct resources, and effective academic communication strategically integrates them.</p>
+                            <div class="card__image-caption">Click to view larger version</div>
+                            <p>Academic literacy extends beyond language alone; multimodality reveals how meaning is constructed through multiple semiotic resources. In academic settings, visual elements (layout, typography), aural features (tone, pace), gestures, and spatial arrangements all contribute to communication. Each mode provides distinct resources, and effective academic communication strategically integrates them.</p>
                             <p>This multimodal approach challenges traditional focus on linguistic elements alone, recognising that contemporary academic discourse relies on the interplay of multiple channels. Understanding this integration is essential for navigating diverse academic contexts and engaging meaningfully in knowledge production.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
@@ -948,6 +999,7 @@
                         <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
                              alt="Interconnected academic communities representing global knowledge exchange"
                              class="card__image">
+                        <div class="card__image-caption">Click to view larger version</div>
                         <p>Academic literacy is deeply embedded within global cultural and linguistic contexts. Different knowledge traditions offer unique perspectives on meaning-making, argumentation, and knowledge construction. Recognising these variations enriches academic communication by expanding acceptable forms and challenging monolingual assumptions.</p>
                         <p>Global academic discourse benefits from embracing diverse ways of knowing—different narrative structures, argumentation styles, and evidence approaches. This inclusivity fosters communities where varied voices contribute meaningfully to knowledge production. Ultimately, academic literacy thrives when it acknowledges and integrates the rich diversity of global knowledge traditions.</p>
                         <!-- Embedded new image here, centered and 25% smaller -->
@@ -955,6 +1007,7 @@
                             <img src="https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2022/12/Intercultural-dialogue.jpg?w=1024&ssl=1"
                                  alt="Intercultural dialogue illustration"
                                  style="width: 75%; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(207, 64, 255, 0.3);">
+                            <div class="card__image-caption">Click to view larger version</div>
                         </div>
                         <!-- End of new image -->
                         <blockquote class="card__quote">
@@ -986,6 +1039,14 @@
                 </a>
             </div>
         </div>
+        
+        <!-- Image Modal -->
+        <div id="imageModal" class="image-modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <div id="caption"></div>
+        </div>
+        
         <script>
             // Ensure DOM is fully loaded before attaching event handlers
             document.addEventListener('DOMContentLoaded', function() {
@@ -1072,7 +1133,47 @@
                         window.location.reload();
                     }, 300);
                 });
+                
+                // Image Modal Functionality
+                const modal = document.getElementById("imageModal");
+                const modalImg = document.getElementById("modalImage");
+                const captionText = document.getElementById("caption");
+                
+                // Get all images with class "card__image"
+                const images = document.querySelectorAll('.card__image');
+                
+                // Add click event to each image
+                images.forEach(function(image) {
+                    image.addEventListener('click', function() {
+                        modal.style.display = "block";
+                        modalImg.src = this.src;
+                        // Get caption from next element with class "card__image-caption"
+                        const caption = this.nextElementSibling;
+                        if (caption && caption.classList.contains('card__image-caption')) {
+                            captionText.innerHTML = caption.innerHTML;
+                        } else {
+                            captionText.innerHTML = this.alt;
+                        }
+                    });
+                });
+                
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close-modal")[0];
+                
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                  modal.style.display = "none";
+                }
+                
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }
             });
         </script>
     </body>
 </html>
+
+Now when users click on any image in the cards, they'll see a larger version in a modal with a caption indicating it's a larger version of the image they clicked on.
