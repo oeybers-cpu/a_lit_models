@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -408,6 +409,7 @@
             transform-origin: left;
             transition: transform 0.5s ease;
             z-index: 1;
+            border-radius: 11.25px 11.25px 0 0;
         }
         .contact-card:hover {
             transform: translateY(-5px);
@@ -859,6 +861,18 @@
             margin-top: 5px;
             font-style: italic;
         }
+        
+        /* Mobile touch improvements */
+        @media (hover: none) {
+            .back-button-tab, .contact-button-tab {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .dropdown-toggle {
+                padding: 14px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1121,6 +1135,10 @@
     </div>
     
     <script>
+        // Store the previous page URL and scroll position
+        let previousPage = document.referrer;
+        let scrollPosition = 0;
+        
         // Ensure DOM is fully loaded before attaching event handlers
         document.addEventListener('DOMContentLoaded', function() {
             // Dropdown functionality
@@ -1147,22 +1165,48 @@
                 });
             });
             
-            // Back button functionality
+            // Store scroll position when user scrolls
+            window.addEventListener('scroll', function() {
+                scrollPosition = window.scrollY;
+                // Store in sessionStorage for persistence
+                sessionStorage.setItem('scrollPosition', scrollPosition);
+            });
+            
+            // Back button functionality - IMPROVED FOR MOBILE
             const backButton = document.getElementById('backButton');
             if (backButton) {
                 backButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const currentState = {
-                        url: window.location.href,
-                        scrollY: window.scrollY
-                    };
-                    history.replaceState(currentState, document.title);
-                    if (history.length > 1) {
+                    
+                    // Check if we have a valid previous page
+                    if (previousPage && previousPage !== '' && previousPage !== window.location.href) {
+                        // Store the current scroll position before navigating back
+                        sessionStorage.setItem('scrollPosition', window.scrollY);
+                        sessionStorage.setItem('navigatedBack', 'true');
+                        
+                        // Navigate back to the previous page
+                        window.location.href = previousPage;
+                    } else if (history.length > 1) {
+                        // Use browser history if available
                         history.back();
                     } else {
+                        // Fallback to home page
                         window.location.href = '/';
                     }
                 });
+            }
+            
+            // Check if we need to restore scroll position (when returning to this page)
+            if (sessionStorage.getItem('navigatedBack') === 'true') {
+                const savedPosition = sessionStorage.getItem('scrollPosition');
+                if (savedPosition) {
+                    // Small delay to ensure page is fully rendered
+                    setTimeout(() => {
+                        window.scrollTo(0, parseInt(savedPosition));
+                    }, 100);
+                }
+                // Clear the flag
+                sessionStorage.removeItem('navigatedBack');
             }
             
             // Top link functionality
@@ -1175,33 +1219,6 @@
                         behavior: 'smooth'
                     });
                 });
-            }
-            
-            // Store scroll position when navigating away
-            window.addEventListener('beforeunload', function() {
-                const currentState = {
-                    url: window.location.href,
-                    scrollY: window.scrollY
-                };
-                history.replaceState(currentState, document.title);
-            });
-            
-            // Restore scroll position when returning to page
-            window.addEventListener('pageshow', function(event) {
-                if (event.persisted) {
-                    const state = history.state;
-                    if (state && state.scrollY !== undefined) {
-                        window.scrollTo(0, state.scrollY);
-                    }
-                }
-            });
-            
-            // Handle direct navigation to this page
-            if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
-                const state = history.state;
-                if (state && state.scrollY !== undefined) {
-                    window.scrollTo(0, state.scrollY);
-                }
             }
             
             // Handle orientation changes
@@ -1247,6 +1264,19 @@
               if (event.target == modal) {
                 modal.style.display = "none";
               }
+            }
+            
+            // Mobile-specific optimizations
+            if ('ontouchstart' in window) {
+                // Increase touch target sizes for mobile
+                document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab').forEach(el => {
+                    el.style.padding = '12px 15px';
+                });
+                
+                // Prevent zoom on double-tap for interactive elements
+                document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab, .card__image').forEach(el => {
+                    el.style.touchAction = 'manipulation';
+                });
             }
         });
     </script>
