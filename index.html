@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +94,6 @@
             backdrop-filter: blur(10px);
             min-height: var(--top-header-height);
         }
-        
         /* Header title container with pyramids */
         .header-title-container {
             display: flex;
@@ -105,7 +103,6 @@
             width: 100%;
             max-width: 800px;
         }
-        
         /* Pyramid styling */
         .pyramid {
             width: 0;
@@ -116,7 +113,6 @@
             position: relative;
             animation: pyramidGlow 3s infinite alternate;
         }
-        
         .pyramid::before {
             content: '';
             position: absolute;
@@ -128,7 +124,6 @@
             border-right: 12px solid transparent;
             border-bottom: 20px solid rgba(255, 215, 0, 0.7);
         }
-        
         .pyramid::after {
             content: '';
             position: absolute;
@@ -140,7 +135,6 @@
             border-right: 8px solid transparent;
             border-bottom: 15px solid rgba(255, 215, 0, 0.4);
         }
-        
         @keyframes pyramidGlow {
             0% { 
                 filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
@@ -149,7 +143,6 @@
                 filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
             }
         }
-        
         .top-header h1 {
             font-size: 1.5rem;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
@@ -239,7 +232,7 @@
             border: 1px solid var(--royal-blue);
             border-radius: 0 0 8px 8px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            z-index: 1001;
+            z-index: 1002; /* Increased from 1001 to 1002 */
             list-style: none;
             padding: 0;
             margin: 0;
@@ -761,12 +754,10 @@
                 font-size: 0.7rem;
                 padding: 4px 8px;
             }
-            
             /* Adjust header title container for mobile */
             .header-title-container {
                 gap: 15px;
             }
-            
             /* Further reduce pyramid size on mobile */
             .pyramid {
                 border-left: 10px solid transparent;
@@ -787,7 +778,6 @@
                 border-right: 5px solid transparent;
                 border-bottom: 10px solid rgba(255, 215, 0, 0.4);
             }
-            
             /* Left tabs repositioning for mobile */
             .left-tabs-container {
                 top: calc(var(--top-header-height-sm) + 5px);
@@ -800,16 +790,16 @@
                 font-size: 0.65rem;
                 gap: 4px;
             }
-            /* Main container spacing */
+            /* Main container spacing - CRITICAL FIX */
             .main-container {
-                margin-top: calc(var(--top-header-height-sm) + 15px);
+                margin-top: calc(var(--top-header-height-sm) + 55px);
             }
             /* Top navigation spacing - CRUCIAL FIX */
             .top-nav {
                 grid-template-columns: 1fr;
                 gap: 8px;
                 padding: 0 8px;
-                margin-top: 80px; /* Increased to prevent overlap with left tabs */
+                margin-top: 90px; /* Increased from 80px to 90px to prevent overlap */
             }
             .dropdown-toggle {
                 padding: 12px 8px;
@@ -901,10 +891,9 @@
                 font-size: 0.95rem;
             }
             .top-nav {
-                margin-top: 85px; /* Further increased for very small screens */
+                margin-top: 95px; /* Increased from 85px to 95px for very small screens */
             }
         }
-        
         /* Image Modal Styles */
         .image-modal {
             display: none;
@@ -917,7 +906,6 @@
             overflow: auto;
             background-color: rgba(0,0,0,0.9);
         }
-        
         .modal-content {
             margin: auto;
             display: block;
@@ -927,7 +915,6 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        
         #caption {
             color: #f0f0f0;
             text-align: center;
@@ -935,7 +922,6 @@
             font-size: 0.9rem;
             padding: 0 20px;
         }
-        
         .close-modal {
             position: absolute;
             top: 15px;
@@ -946,14 +932,12 @@
             transition: 0.3s;
             cursor: pointer;
         }
-        
         .close-modal:hover,
         .close-modal:focus {
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
         }
-        
         .card__image-caption {
             text-align: center;
             font-size: 0.8rem;
@@ -961,14 +945,12 @@
             margin-top: 5px;
             font-style: italic;
         }
-        
         /* Mobile touch improvements */
         @media (hover: none) {
             .back-button-tab, .contact-button-tab {
                 padding: 8px 12px;
                 font-size: 0.8rem;
             }
-            
             .dropdown-toggle {
                 padding: 14px 10px;
             }
@@ -1041,7 +1023,6 @@
                 </ul>
             </div>
         </div>
-        
         <header>
             <!-- Digital Sun -->
             <div class="sun-container">
@@ -1055,7 +1036,6 @@
                 </div>
             </div>
         </header>
-        
         <div class="content-section">
             <h2 class="section-title">Theoretical Frameworks</h2>
             <div class="articles-container">
@@ -1086,7 +1066,6 @@
                         Understanding foundational perspectives on academic literacy
                     </footer>
                 </div>
-                
                 <!-- Card 2: Academic Literacies Model -->
                 <div class="card">
                     <div class="card__header">
@@ -1114,7 +1093,6 @@
                         Academic literacy as dynamic, context-dependent practice
                     </footer>
                 </div>
-                
                 <!-- Card 3: Genre and Mode Switching -->
                 <div class="card">
                     <div class="card__header">
@@ -1142,7 +1120,6 @@
                         Navigating academic communication transitions
                     </footer>
                 </div>
-                
                 <!-- Card 4: Multimodal Communication -->
                 <div class="card">
                     <div class="card__header">
@@ -1172,7 +1149,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- Centered final card -->
         <div class="centered-card">
             <div class="card">
@@ -1210,7 +1186,6 @@
                 </footer>
             </div>
         </div>
-        
         <!-- Embedded Visitor Counter -->
         <div id="freeCounter">
             <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=98eaca31612f4331b0b8acd08eb43e530eb44597'></script>
@@ -1218,7 +1193,6 @@
             <br>
             <a href='https://www.free-counters.org/'>Rethinking Academic Literacy</a>
         </div>
-        
         <div class="copyright">
             <p>&copy; 2025 Dr Oscar Eybers</p>
             <div class="eybers-footer-links">
@@ -1230,19 +1204,16 @@
             </a>
         </div>
     </div>
-    
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modalImage">
         <div id="caption"></div>
     </div>
-    
     <script>
         // Store the previous page URL and scroll position
         let previousPage = document.referrer;
         let scrollPosition = 0;
-        
         // Ensure DOM is fully loaded before attaching event handlers
         document.addEventListener('DOMContentLoaded', function() {
             // Dropdown functionality
@@ -1261,33 +1232,28 @@
                     dropdown.classList.toggle('active');
                 });
             });
-            
             // Close dropdowns when clicking outside
             document.addEventListener('click', function() {
                 dropdowns.forEach(dropdown => {
                     dropdown.classList.remove('active');
                 });
             });
-            
             // Store scroll position when user scrolls
             window.addEventListener('scroll', function() {
                 scrollPosition = window.scrollY;
                 // Store in sessionStorage for persistence
                 sessionStorage.setItem('scrollPosition', scrollPosition);
             });
-            
             // Back button functionality - IMPROVED FOR MOBILE
             const backButton = document.getElementById('backButton');
             if (backButton) {
                 backButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     // Check if we have a valid previous page
                     if (previousPage && previousPage !== '' && previousPage !== window.location.href) {
                         // Store the current scroll position before navigating back
                         sessionStorage.setItem('scrollPosition', window.scrollY);
                         sessionStorage.setItem('navigatedBack', 'true');
-                        
                         // Navigate back to the previous page
                         window.location.href = previousPage;
                     } else if (history.length > 1) {
@@ -1299,7 +1265,6 @@
                     }
                 });
             }
-            
             // Check if we need to restore scroll position (when returning to this page)
             if (sessionStorage.getItem('navigatedBack') === 'true') {
                 const savedPosition = sessionStorage.getItem('scrollPosition');
@@ -1312,7 +1277,6 @@
                 // Clear the flag
                 sessionStorage.removeItem('navigatedBack');
             }
-            
             // Top link functionality
             const topLink = document.getElementById('topLink');
             if (topLink) {
@@ -1324,22 +1288,18 @@
                     });
                 });
             }
-            
             // Handle orientation changes
             window.addEventListener('orientationchange', function() {
                 setTimeout(function() {
                     window.location.reload();
                 }, 300);
             });
-            
             // Image Modal Functionality
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("caption");
-            
             // Get all images with class "card__image"
             const images = document.querySelectorAll('.card__image');
-            
             // Add click event to each image
             images.forEach(function(image) {
                 image.addEventListener('click', function() {
@@ -1354,29 +1314,24 @@
                     }
                 });
             });
-            
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close-modal")[0];
-            
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() { 
               modal.style.display = "none";
             }
-            
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
               }
             }
-            
             // Mobile-specific optimizations
             if ('ontouchstart' in window) {
                 // Increase touch target sizes for mobile
                 document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab').forEach(el => {
                     el.style.padding = '12px 15px';
                 });
-                
                 // Prevent zoom on double-tap for interactive elements
                 document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab, .card__image').forEach(el => {
                     el.style.touchAction = 'manipulation';
