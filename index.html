@@ -218,10 +218,16 @@
     transition: transform 0.3s ease;
     font-size: 0.8rem; /* Reduced icon size */
 }
-        .back-button-tab {
+        /* FIXED: Left tabs container for back and contact buttons */
+        .left-tabs-container {
             position: fixed;
-            top: 15px; /* Reduced top position */
-            left: 15px; /* Reduced left position */
+            top: 15px;
+            left: 15px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+        .back-button-tab {
             z-index: 1001;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
@@ -246,11 +252,8 @@
             color: var(--light);
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
-        /* NEW: Contact button styling */
+        /* FIXED: Contact button styling - now positioned next to back button */
         .contact-button-tab {
-            position: fixed;
-            top: 15px; /* Reduced top position */
-            right: 15px; /* Reduced right position */
             z-index: 1001;
             background: rgba(20, 20, 30, 0.7);
             border: 1px solid var(--royal-blue);
@@ -325,12 +328,12 @@
             0% { left: -100%; }
             100% { left: 100%; }
         }
-        /* Sun container - Moved behind and reduced size */
+        /* FIXED: Sun container - properly centered */
         .sun-container {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50);
+            transform: translate(-50%, -50%);
             z-index: 0; /* Behind other content */
             width: 200px; /* Reduced size */
             height: 200px; /* Reduced size */
@@ -689,21 +692,16 @@
             body {
                 padding: 12px; /* Reduced padding */
             }
-            /* FIXED: Increased top value to prevent collision with header */
-            .back-button-tab {
+            /* FIXED: Left tabs container for mobile */
+            .left-tabs-container {
                 top: 55px; /* Adjusted top position */
                 left: 12px; /* Reduced left position */
-                padding: 6px 12px; /* Reduced padding */
-                font-size: 0.7rem; /* Reduced font size */
-                z-index: 1002;
+                gap: 8px; /* Reduced gap */
+                flex-direction: column; /* Stack buttons vertically on mobile */
             }
-            /* FIXED: Increased top value to prevent collision with header */
-            .contact-button-tab {
-                top: 55px; /* Adjusted top position */
-                right: 12px; /* Reduced right position */
+            .back-button-tab, .contact-button-tab {
                 padding: 6px 12px; /* Reduced padding */
                 font-size: 0.7rem; /* Reduced font size */
-                z-index: 1002;
             }
             /* Adjust sun for mobile */
             .sun-container {
@@ -877,13 +875,15 @@
             <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-link">Eybers Chapters</a>
         </div>
     </div>
-    <a href="#" class="back-button-tab" id="backButton">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
-    </a>
-    <!-- NEW: Contact button in top right -->
-    <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
-        <i class="fas fa-envelope" aria-hidden="true"></i> Contact
-    </a>
+    <!-- FIXED: Container for left tabs (back and contact) -->
+    <div class="left-tabs-container">
+        <a href="#" class="back-button-tab" id="backButton">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+        </a>
+        <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+        </a>
+    </div>
     <div class="main-container">
        <!-- Top Navigation Links -->
 <div class="top-nav">
@@ -911,7 +911,7 @@
             <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
-            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
+            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il_kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Wa Thiong'o and academic literacy</a></li>
             <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
