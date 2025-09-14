@@ -95,6 +95,61 @@
             backdrop-filter: blur(10px);
             min-height: var(--top-header-height);
         }
+        
+        /* Header title container with pyramids */
+        .header-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        /* Pyramid styling */
+        .pyramid {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid #FFD700;
+            position: relative;
+            animation: pyramidGlow 3s infinite alternate;
+        }
+        
+        .pyramid::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: -12px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid rgba(255, 215, 0, 0.7);
+        }
+        
+        .pyramid::after {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: -8px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 15px solid rgba(255, 215, 0, 0.4);
+        }
+        
+        @keyframes pyramidGlow {
+            0% { 
+                filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+            }
+            100% { 
+                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
+            }
+        }
+        
         .top-header h1 {
             font-size: 1.5rem;
             background: linear-gradient(90deg, var(--primary), var(--digital-purple));
@@ -108,8 +163,6 @@
             font-weight: 700;
             animation: pulseText 3s infinite alternate;
             text-align: center;
-            margin: 0 auto;
-            max-width: 80%;
         }
         @keyframes pulseText {
             0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
@@ -652,6 +705,26 @@
                 width: 180px;
                 height: 180px;
             }
+            /* Reduce pyramid size on tablets */
+            .pyramid {
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 20px solid #FFD700;
+            }
+            .pyramid::before {
+                top: 20px;
+                left: -10px;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 16px solid rgba(255, 215, 0, 0.7);
+            }
+            .pyramid::after {
+                top: 36px;
+                left: -6px;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 12px solid rgba(255, 215, 0, 0.4);
+            }
         }
         @media (max-width: 768px) {
             .top-nav {
@@ -688,6 +761,33 @@
                 font-size: 0.7rem;
                 padding: 4px 8px;
             }
+            
+            /* Adjust header title container for mobile */
+            .header-title-container {
+                gap: 15px;
+            }
+            
+            /* Further reduce pyramid size on mobile */
+            .pyramid {
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 16px solid #FFD700;
+            }
+            .pyramid::before {
+                top: 16px;
+                left: -8px;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 12px solid rgba(255, 215, 0, 0.7);
+            }
+            .pyramid::after {
+                top: 28px;
+                left: -5px;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 10px solid rgba(255, 215, 0, 0.4);
+            }
+            
             /* Left tabs repositioning for mobile */
             .left-tabs-container {
                 top: calc(var(--top-header-height-sm) + 5px);
@@ -877,9 +977,13 @@
 </head>
 <body>
     <div class="grid-lines"></div>
-    <!-- Top header with title -->
+    <!-- Top header with title and pyramids -->
     <div class="top-header">
-        <h1>Academic Literacy Hub</h1>
+        <div class="header-title-container">
+            <div class="pyramid"></div>
+            <h1>Academic Literacy Hub</h1>
+            <div class="pyramid"></div>
+        </div>
         <div class="eybers-header-links">
             <a href="https://oeybers-cpu.github.io/oe_research/" class="eybers-link">Eybers Articles</a>
             <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-link">Eybers Chapters</a>
