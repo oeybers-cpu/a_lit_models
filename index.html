@@ -1,1164 +1,1031 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic literacy is multimodal</title>
-    <meta name="description" content="Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
-    <meta name="keywords" content="Multimodal decolonised academic literacy, ubuntu philosophy in education, educational theory and literacy, multiliteracies, multimodal communication, decolonisation, ubunty philosophy, educational theory, linguistics, language and identity">
-    <meta name="author" content="Dr Oscar Eybers">
-    <!-- Google Search Verification -->
-    <meta name="google-site-verification" content="kuDX9UiSTiWhWM-XVDPqHKPecoWXslWQD5zpKTHmZSg" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --primary: #4fc3f7;
-            --secondary: #29b6f6;
-            --accent: #0288d1;
-            --dark: #0a0a14;
-            --darker: #050508;
-            --light: #f0f0f0;
-            --card-bg: rgba(20, 20, 30, 0.7);
-            --lighter-accent: #81d4fa;
-            --royal-blue: #4169E1;
-            --royal-blue-light: #6c8eff;
-            --aqua-blue: #00FFFF;
-            --card-padding: 20px;
-            --card-gap: 25px;
-            /* Sun variables */
-            --sun-color: #FFC107;
-            --sun-glow: #FFA000;
-            --sun-ray-color: #FFD700;
-            /* Header heights for scroll margin */
-            --top-header-height: 70px; /* Approximate height on larger screens */
-            --top-header-height-sm: 90px; /* Approximate height on small screens */ 
-            --digital-purple: #e040fb;
-        }
-        body {
-            background: linear-gradient(135deg, var(--darker), var(--dark));
-            color: var(--light);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-            font-family: 'Exo 2', sans-serif;
-            line-height: 1.6;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
-            pointer-events: none;
-            z-index: -2;
-        }
-        .grid-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-            z-index: -1;
-        }
-        /* New top header with title - Fixed for mobile */
-        .top-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 20px; /* Reduced padding */
-            background: rgba(10, 10, 20, 0.8);
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        .top-header h1 {
-            font-size: 1.5rem; /* Reduced font size */
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 1px; /* Reduced letter spacing */
-            text-shadow: 0 0 6px rgba(207, 64, 255, 0.6);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            animation: pulseText 3s infinite alternate;
-            text-align: center;
-            margin: 0 auto;
-            max-width: 80%; /* Increased max-width */
-        }
-        @keyframes pulseText {
-            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
-            100% { text-shadow: 0 0 12px rgba(207, 64, 255, 0.8), 0 0 18px rgba(207, 64, 255, 0.6); }
-        }
-       /* Dropdown Styles */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic literacy is multimodal</title>
+    <meta name="description" content="Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
+    <meta name="keywords" content="Multimodal decolonised academic literacy, ubuntu philosophy in education, educational theory and literacy, multiliteracies, multimodal communication, decolonisation, ubunty philosophy, educational theory, linguistics, language and identity">
+    <meta name="author" content="Dr Oscar Eybers">
+        <meta name="google-site-verification" content="kuDX9UiSTiWhWM-XVDPqHKPecoWXslWQD5zpKTHmZSg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #4fc3f7;
+            --secondary: #29b6f6;
+            --accent: #0288d1;
+            --dark: #0a0a14;
+            --darker: #050508;
+            --light: #f0f0f0;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --lighter-accent: #81d4fa;
+            --royal-blue: #4169E1;
+            --royal-blue-light: #6c8eff;
+            --aqua-blue: #00FFFF;
+            --card-padding: 20px;
+            --card-gap: 25px;
+            /* Sun variables */
+            --sun-color: #FFC107;
+            --sun-glow: #FFA000;
+            --sun-ray-color: #FFD700;
+            /* Header heights for scroll margin */
+            --top-header-height: 70px; /* Approximate height on larger screens */
+            --top-header-height-sm: 90px; /* Approximate height on small screens */ 
+            --digital-purple: #e040fb;
+        }
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -2;
+        }
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        /* New top header with title - Fixed for mobile */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px; /* Reduced padding */
+            background: rgba(10, 10, 20, 0.8);
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .top-header h1 {
+            font-size: 1.5rem; /* Reduced font size */
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px; /* Reduced letter spacing */
+            text-shadow: 0 0 6px rgba(207, 64, 255, 0.6);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            animation: pulseText 3s infinite alternate;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 80%; /* Increased max-width */
+        }
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 12px rgba(207, 64, 255, 0.8), 0 0 18px rgba(207, 64, 255, 0.6); }
+        }
+       /* Dropdown Styles */
 .dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 .dropdown-toggle {
-    color: var(--digital-purple);
-    text-decoration: none;
-    padding: 10px 12px; /* Reduced padding */
-    border-radius: 8px;
-    background: rgba(65, 105, 225, 0.1);
-    border: 1px solid var(--royal-blue);
-    transition: all 0.3s ease;
-    font-size: 0.8rem; /* Reduced font size */
-    text-align: center;
-    font-weight: 500;
-    text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer; /* Indicate it's clickable */
-    width: 100%;
-    box-sizing: border-box; /* Include padding/border in width */
+    color: var(--digital-purple);
+    text-decoration: none;
+    padding: 10px 12px; /* Reduced padding */
+    border-radius: 8px;
+    background: rgba(65, 105, 225, 0.1);
+    border: 1px solid var(--royal-blue);
+    transition: all 0.3s ease;
+    font-size: 0.8rem; /* Reduced font size */
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Indicate it's clickable */
+    width: 100%;
+    box-sizing: border-box; /* Include padding/border in width */
 }
 .dropdown-toggle:hover,
 .dropdown.active .dropdown-toggle {
-    background: rgba(65, 105, 225, 0.3);
-    box-shadow: 0 0 12px rgba(65, 105, 225, 0.6);
-    transform: translateY(-2px);
-    color: var(--light);
-    border-color: var(--royal-blue-light);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    background: rgba(65, 105, 225, 0.3);
+    box-shadow: 0 0 12px rgba(65, 105, 225, 0.6);
+    transform: translateY(-2px);
+    color: var(--light);
+    border-color: var(--royal-blue-light);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 .dropdown-menu {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 100%; /* Position below the toggle */
-    left: 0;
-    width: 100%;
-    background: rgba(10, 10, 20, 0.95); /* Slightly darker background */
-    border: 1px solid var(--royal-blue);
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1001; /* Ensure it's above other content */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    backdrop-filter: blur(5px); /* Slight blur for glass effect */
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the toggle */
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 20, 0.95); /* Slightly darker background */
+    border: 1px solid var(--royal-blue);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Ensure it's above other content */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    backdrop-filter: blur(5px); /* Slight blur for glass effect */
 }
 .dropdown-menu li {
-    width: 100%;
+    width: 100%;
 }
 .dropdown-menu a {
-    color: var(--light);
-    text-decoration: none;
-    padding: 8px 12px; /* Reduced padding */
-    display: block;
-    transition: background-color 0.2s ease;
-    font-size: 0.75rem; /* Reduced font size */
-    border-bottom: 1px solid rgba(207, 64, 255, 0.1);
+    color: var(--light);
+    text-decoration: none;
+    padding: 8px 12px; /* Reduced padding */
+    display: block;
+    transition: background-color 0.2s ease;
+    font-size: 0.75rem; /* Reduced font size */
+    border-bottom: 1px solid rgba(207, 64, 255, 0.1);
 }
 .dropdown-menu a:hover {
-    background-color: rgba(65, 105, 225, 0.2);
-    color: var(--light);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    background-color: rgba(65, 105, 225, 0.2);
+    color: var(--light);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 /* Remove border-bottom from the last item */
 .dropdown-menu li:last-child a {
-    border-bottom: none;
+    border-bottom: none;
 }
 /* Show dropdown menu when active */
 .dropdown.active .dropdown-menu {
-    display: block;
+    display: block;
 }
 /* Rotate icon when active */
 .dropdown.active .dropdown-icon {
-    transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 .dropdown-icon {
-    margin-left: 6px; /* Reduced margin */
-    transition: transform 0.3s ease;
-    font-size: 0.8rem; /* Reduced icon size */
+    margin-left: 6px; /* Reduced margin */
+    transition: transform 0.3s ease;
+    font-size: 0.8rem; /* Reduced icon size */
 }
-        .back-button-tab {
-            position: fixed;
-            top: 15px; /* Reduced top position */
-            left: 15px; /* Reduced left position */
-            z-index: 1001;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid var(--royal-blue);
-            color: var(--royal-blue);
-            padding: 8px 15px; /* Reduced padding */
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px; /* Reduced gap */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 12px rgba(65, 105, 225, 0.3);
-            text-decoration: none;
-            font-size: 0.8rem; /* Reduced font size */
-            font-weight: 600;
-        }
-        .back-button-tab:hover {
-            background: rgba(65, 105, 225, 0.2);
-            transform: translateX(-3px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-            color: var(--light);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
-        /* NEW: Contact button styling */
-        .contact-button-tab {
-            position: fixed;
-            top: 15px; /* Reduced top position */
-            right: 15px; /* Reduced right position */
-            z-index: 1001;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid var(--royal-blue);
-            color: var(--royal-blue);
-            padding: 8px 15px; /* Reduced padding */
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px; /* Reduced gap */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 12px rgba(65, 105, 225, 0.3);
-            text-decoration: none;
-            font-size: 0.8rem; /* Reduced font size */
-            font-weight: 600;
-        }
-        .contact-button-tab:hover {
-            background: rgba(65, 105, 225, 0.2);
-            transform: translateX(3px);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-            color: var(--light);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
-        /* Main container */
-        .main-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 70px auto 0; /* Reduced margin for smaller header */
-        }
-        /* Top navigation links */
-        .top-nav {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
-            gap: 12px; /* Reduced gap */
-            margin-bottom: 30px; /* Reduced margin */
-            padding: 0 15px; /* Reduced padding */
-        }
-        /* Header with Sun Integration - Significantly reduced height */
-        header {
-            text-align: center;
-            padding: 10px 0; /* Reduced padding */
-            position: relative;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            margin-bottom: 20px; /* Reduced margin */
-            border-radius: 0 0 10px 10px;
-            overflow: hidden;
-            min-height: 220px; /* Increased height for larger card */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0.7),
-                transparent);
-            animation: headerShine 8s infinite linear;
-            z-index: -1;
-        }
-        @keyframes headerShine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        /* Sun container - Moved behind and reduced size */
-        .sun-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0; /* Behind other content */
-            width: 200px; /* Reduced size */
-            height: 200px; /* Reduced size */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none;
-            opacity: 0.7; /* Slightly transparent */
-        }
-        .sun-core {
-            width: 80px; /* Reduced size */
-            height: 80px; /* Reduced size */
-            background: var(--sun-color);
-            border-radius: 50%;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 0 20px 8px var(--sun-glow);
-            animation: sun-pulse 8s infinite ease-in-out;
-        }
-        .sun-rays {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px; /* Reduced size */
-            height: 200px; /* Reduced size */
-            z-index: 1;
-            background: repeating-conic-gradient(from 0deg, var(--sun-ray-color) 0deg 3deg, transparent 3deg 20deg);
-            border-radius: 50%;
-            opacity: 0.6; /* Reduced opacity */
-            animation: ray-rotate 20s infinite linear, ray-pulse 4s infinite ease-in-out;
-            box-shadow: 0 0 15px 4px var(--sun-ray-color);
-        }
-        @keyframes sun-pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); } /* Reduced pulse */
-            100% { transform: scale(1); }
-        }
-        @keyframes ray-rotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        @keyframes ray-pulse {
-            0% { opacity: 0.6; } /* Adjusted for reduced opacity */
-            50% { opacity: 0.8; }
-            100% { opacity: 0.6; }
-        }
-        /* Header content */
-        .header-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        /* UPDATED: contact-card styles for larger size and bigger font */
-        .contact-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 11.25px;
-            padding: 25px; /* Increased padding */
-            max-width: 800px; /* Increased max-width */
-            margin: 20px auto; /* Increased margin */
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(207, 64, 255, 0.2); /* Enhanced shadow */
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px; /* Increased height */
-            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-            z-index: 1;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px); /* Enhanced hover effect */
-            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.4);
-        }
-        .contact-card:hover::before {
-            transform: scaleX(1);
-        }
-        .contact-card h2 {
-            color: var(--digital-purple);
-            margin-bottom: 15px; /* Increased margin */
-            font-size: 1.4rem; /* Increased font size */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px; /* Increased gap */
-            font-family: 'Orbitron', sans-serif;
-        }
-        .contact-card p {
-            color: #ddd;
-            font-size: 1.2rem; /* Increased font size */
-            line-height: 1.6; /* Increased line height */
-            font-weight: 500; /* Added font weight */
-        }
-        /* Card Styles - Updated to BEM convention */
-        .articles-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--card-gap);
-            margin: 25px 0; /* Reduced margin */
-        }
-        /* Base card styling */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 12px;
-            padding: var(--card-padding);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            min-height: 500px; /* Reduced height */
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--digital-purple), var(--royal-blue));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-            z-index: 1;
-        }
-        .card:hover {
-            transform: translateY(-3px); /* Reduced hover effect */
-            box-shadow: 0 6px 20px rgba(207, 64, 255, 0.3);
-        }
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-        /* Card Header */
-        .card__header {
-            padding-bottom: 8px; /* Reduced padding */
-        }
-        .card__title {
-            color: var(--digital-purple);
-            font-size: 1.2rem; /* Reduced font size */
-            margin-bottom: 12px; /* Reduced margin */
-            display: flex;
-            align-items: center;
-            gap: 8px; /* Reduced gap */
-        }
-        /* Card Body */
-        .card__body {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card__image {
-            width: 100%;
-            height: 200px; /* Reduced height */
-            object-fit: cover;
-            object-position: center 30%;
-            border-radius: 8px;
-            margin-bottom: 12px; /* Reduced margin */
-            border: 2px solid rgba(207, 64, 255, 0.3);
-            transition: transform 0.3s ease;
-            cursor: zoom-in; /* Add zoom cursor */
-        }
-        .card:hover .card__image {
-            transform: scale(1.02); /* Reduced scale */
-        }
-        .card__quote {
-            background: rgba(207, 64, 255, 0.15);
-            color: var(--primary);
-            padding: 10px; /* Reduced padding */
-            border-radius: 8px;
-            font-size: 0.85rem; /* Reduced font size */
-            border: 1px solid rgba(207, 64, 255, 0.3);
-            margin: 12px 0; /* Reduced margin */
-            position: relative;
-            padding-left: 35px; /* Reduced padding */
-        }
-        .card__quote i {
-            position: absolute;
-            left: 10px; /* Reduced left position */
-            top: 10px; /* Reduced top position */
-            color: var(--primary);
-            font-size: 0.9rem; /* Reduced icon size */
-        }
-        /* Card Meta */
-        .card__meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px; /* Reduced gap */
-            margin: 8px 0; /* Reduced margin */
-        }
-        .tag {
-            background: rgba(207, 64, 255, 0.15);
-            color: var(--primary);
-            padding: 4px 8px; /* Reduced padding */
-            border-radius: 15px;
-            font-size: 0.7rem; /* Reduced font size */
-            border: 1px solid rgba(207, 64, 255, 0.3);
-        }
-        /* Card Footer */
-        .card__footer {
-            background: rgba(207, 64, 255, 0.08);
-            border-top: 1px solid rgba(207, 64, 255, 0.2);
-            padding: 10px 12px; /* Reduced padding */
-            border-radius: 0 0 8px 8px;
-            font-size: 0.8rem; /* Reduced font size */
-            color: var(--lighter-accent);
-            margin-top: 12px; /* Reduced margin */
-        }
-        /* Content sections */
-        .content-section {
-            margin-bottom: 30px; /* Reduced margin */
-            /* Default scroll margin for larger screens */
-            scroll-margin-top: calc(var(--top-header-height) + 10px);
-        }
-        .section-title {
-            color: var(--digital-purple);
-            font-size: 1.4rem; /* Reduced font size */
-            margin-bottom: 20px; /* Reduced margin */
-            padding-bottom: 8px; /* Reduced padding */
-            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
-        }
-        .copyright {
-            text-align: center;
-            padding: 25px 0; /* Reduced padding */
-            color: #777;
-            font-size: 0.85rem; /* Reduced font size */
-            border-top: 1px solid rgba(207, 64, 255, 0.2);
-            margin-top: 30px; /* Reduced margin */
-        }
-        .centered-card {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-        }
-        .centered-card > .card {
-            max-width: 700px;
-            width: 100%;
-        }
-        /* Visitor Counter Styles */
-        #freeCounter {
-            text-align: center;
-            padding: 15px 0; /* Reduced padding */
-            margin: 15px auto; /* Reduced margin */
-            max-width: 600px;
-            background: rgba(20, 20, 30, 0.7);
-            border: 1px solid rgba(207, 64, 255, 0.2);
-            border-radius: 8px;
-            box-shadow: 0 0 12px rgba(207, 64, 255, 0.15);
-        }
-        #freeCounter a {
-            color: var(--digital-purple);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 0.85rem; /* Reduced font size */
-        }
-        #freeCounter a:hover {
-            color: var(--light);
-            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
-        }
-        /* Responsive Design Improvements */
-        @media (max-width: 1200px) {
-            .top-nav {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (max-width: 1100px) {
-            .articles-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media (max-width: 900px) {
-            .top-nav {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .top-header h1 {
-                font-size: 1.3rem; /* Reduced font size */
-            }
-            header {
-                min-height: 200px; /* Adjusted for medium screens */
-            }
-            .sun-container {
-                width: 180px; /* Reduced size */
-                height: 180px; /* Reduced size */
-            }
-            .sun-core {
-                width: 70px; /* Reduced size */
-                height: 70px; /* Reduced size */
-            }
-            .sun-rays {
-                width: 180px; /* Reduced size */
-                height: 180px; /* Reduced size */
-            }
-        }
-        @media (max-width: 768px) {
-            .top-nav {
-                gap: 10px; /* Reduced gap */
-            }
-            /* Adjusted dropdown toggle for smaller screens */
-            .dropdown-toggle {
-                padding: 8px 10px; /* Reduced padding */
-                font-size: 0.75rem; /* Reduced font size */
-            }
-            .card__image {
-                 height: 160px; /* Reduced height */
-            }
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 12px; /* Reduced padding */
-            }
-            /* FIXED: Increased top value to prevent collision with header */
-            .back-button-tab {
-                top: 55px; /* Adjusted top position */
-                left: 12px; /* Reduced left position */
-                padding: 6px 12px; /* Reduced padding */
-                font-size: 0.7rem; /* Reduced font size */
-                z-index: 1002;
-            }
-            /* FIXED: Increased top value to prevent collision with header */
-            .contact-button-tab {
-                top: 55px; /* Adjusted top position */
-                right: 12px; /* Reduced right position */
-                padding: 6px 12px; /* Reduced padding */
-                font-size: 0.7rem; /* Reduced font size */
-                z-index: 1002;
-            }
-            /* Adjust sun for mobile */
-            .sun-container {
-                width: 150px; /* Reduced size */
-                height: 150px; /* Reduced size */
-            }
-            .sun-core {
-                width: 60px; /* Reduced size */
-                height: 60px; /* Reduced size */
-                box-shadow: 0 0 15px 6px var(--sun-glow);
-            }
-            .sun-rays {
-                width: 150px; /* Reduced size */
-                height: 150px; /* Reduced size */
-                box-shadow: 0 0 12px 3px var(--sun-ray-color);
-            }
-            header {
-                min-height: 180px; /* Adjusted for small screens */
-            }
-            .top-header {
-                padding: 10px 8px; /* Reduced padding */
-                flex-direction: column;
-                height: auto;
-            }
-            .top-header h1 {
-                font-size: 1.1rem; /* Reduced font size */
-                max-width: 100%;
-                /* Removed padding and margin-top for simpler, more predictable layout */
-            }
-            .top-nav {
-                grid-template-columns: 1fr; /* Stack dropdowns on mobile */
-                gap: 8px; /* Reduced gap */
-                padding: 0 8px; /* Reduced padding */
-            }
-             /* Adjusted dropdown toggle for very small screens */
-            .dropdown-toggle {
-                padding: 10px 8px; /* Reduced padding */
-                font-size: 0.8rem; /* Reduced font size */
-            }
-            .contact-card {
-                padding: 20px; /* Adjusted padding for mobile */
-                margin: 15px auto; /* Adjusted margin for mobile */
-            }
-            .contact-card h2 {
-                font-size: 1.2rem; /* Adjusted font size for mobile */
-            }
-            .contact-card p {
-                font-size: 1rem; /* Adjusted font size for mobile */
-            }
-            .section-title {
-                font-size: 1.2rem; /* Reduced font size */
-            }
-            .card__title {
-                font-size: 1rem; /* Reduced font size */
-            }
-            /* Adjust main container margin for fixed header height on small screens */
-            .main-container {
-                margin: calc(var(--top-header-height-sm) + 15px) auto 0; /* Adjusted margin */
-            }
-            /* Adjust scroll margin for fixed header */
-            .content-section {
-                scroll-margin-top: calc(var(--top-header-height-sm) + 10px); /* Adjusted scroll margin */
-            }
-            #freeCounter {
-                padding: 12px; /* Reduced padding */
-                font-size: 0.8rem; /* Reduced font size */
-            }
-            .card {
-                min-height: 450px; /* Reduced height */
-            }
-            .card__image {
-                height: 140px; /* Reduced height */
-            }
-        }
-        @media (max-width: 480px) {
-            .top-header h1 {
-                font-size: 1rem; /* Further reduced font size */
-            }
-            .back-button-tab, .contact-button-tab {
-                padding: 5px 10px; /* Reduced padding */
-                font-size: 0.65rem; /* Reduced font size */
-            }
-            .card {
-                min-height: 400px; /* Further reduced height */
-            }
-            .card__image {
-                height: 120px; /* Reduced height */
-            }
-            .card__title {
-                font-size: 0.95rem; /* Reduced font size */
-            }
-            .contact-card h2 {
-                font-size: 1.1rem; /* Further adjustment for very small screens */
-            }
-            .contact-card p {
-                font-size: 0.95rem; /* Further adjustment for very small screens */
-            }
-        }
-        /* Image Modal Styles */
-        .image-modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 10000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.9); /* Black background with opacity */
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 80%;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        #caption {
-            color: #f0f0f0;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            padding: 0 20px;
-        }
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        /* Add caption to images */
-        .card__image-caption {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--lighter-accent);
-            margin-top: 5px;
-            font-style: italic;
-        }
-    </style>
+        .back-button-tab {
+            position: fixed;
+            top: 15px; /* Reduced top position */
+            left: 15px; /* Reduced left position */
+            z-index: 1001;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 8px 15px; /* Reduced padding */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reduced gap */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 12px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            font-size: 0.8rem; /* Reduced font size */
+            font-weight: 600;
+        }
+        .back-button-tab:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateX(-3px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        /* NEW: Contact button styling */
+        .contact-button-tab {
+            position: fixed;
+            top: 15px; /* Reduced top position */
+            right: 15px; /* Reduced right position */
+            z-index: 1001;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 8px 15px; /* Reduced padding */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reduced gap */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 12px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            font-size: 0.8rem; /* Reduced font size */
+            font-weight: 600;
+        }
+        .contact-button-tab:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateX(3px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        /* Main container */
+        .main-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 70px auto 0; /* Reduced margin for smaller header */
+        }
+        /* Top navigation links */
+        .top-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
+            gap: 12px; /* Reduced gap */
+            margin-bottom: 30px; /* Reduced margin */
+            padding: 0 15px; /* Reduced padding */
+        }
+        /* Header with Sun Integration - Significantly reduced height */
+        header {
+            text-align: center;
+            padding: 10px 0; /* Reduced padding */
+            position: relative;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            margin-bottom: 20px; /* Reduced margin */
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            min-height: 220px; /* Increased height for larger card */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7),
+                transparent);
+            animation: headerShine 8s infinite linear;
+            z-index: -1;
+        }
+        @keyframes headerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        /* Sun container - Moved behind and reduced size */
+        .sun-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0; /* Behind other content */
+            width: 200px; /* Reduced size */
+            height: 200px; /* Reduced size */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            opacity: 0.7; /* Slightly transparent */
+        }
+        .sun-core {
+            width: 80px; /* Reduced size */
+            height: 80px; /* Reduced size */
+            background: var(--sun-color);
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px 8px var(--sun-glow);
+            animation: sun-pulse 8s infinite ease-in-out;
+        }
+        .sun-rays {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; /* Reduced size */
+            height: 200px; /* Reduced size */
+            z-index: 1;
+            background: repeating-conic-gradient(from 0deg, var(--sun-ray-color) 0deg 3deg, transparent 3deg 20deg);
+            border-radius: 50%;
+            opacity: 0.6; /* Reduced opacity */
+            animation: ray-rotate 20s infinite linear, ray-pulse 4s infinite ease-in-out;
+            box-shadow: 0 0 15px 4px var(--sun-ray-color);
+        }
+        @keyframes sun-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); } /* Reduced pulse */
+            100% { transform: scale(1); }
+        }
+        @keyframes ray-rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes ray-pulse {
+            0% { opacity: 0.6; } /* Adjusted for reduced opacity */
+            50% { opacity: 0.8; }
+            100% { opacity: 0.6; }
+        }
+        /* Header content */
+        .header-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* UPDATED: contact-card styles for larger size and bigger font */
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(207, 64, 255, 0.2);
+            border-radius: 11.25px;
+            padding: 25px; /* Increased padding */
+            max-width: 800px; /* Increased max-width */
+            margin: 20px auto; /* Increased margin */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.2); /* Enhanced shadow */
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px; /* Increased height */
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px); /* Enhanced hover effect */
+            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.4);
+        }
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+        .contact-card h2 {
+            color: var(--digital-purple);
+            margin-bottom: 15px; /* Increased margin */
+            font-size: 1.4rem; /* Increased font size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Increased gap */
+            font-family: 'Orbitron', sans-serif;
+        }
+        .contact-card p {
+            color: #ddd;
+            font-size: 1.2rem; /* Increased font size */
+            line-height: 1.6; /* Increased line height */
+            font-weight: 500; /* Added font weight */
+        }
+        /* Card Styles - Updated to BEM convention */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--card-gap);
+            margin: 25px 0; /* Reduced margin */
+        }
+        /* Base card styling */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(207, 64, 255, 0.2);
+            border-radius: 12px;
+            padding: var(--card-padding);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 500px; /* Reduced height */
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--digital-purple), var(--royal-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+        .card:hover {
+            transform: translateY(-3px); /* Reduced hover effect */
+            box-shadow: 0 6px 20px rgba(207, 64, 255, 0.3);
+        }
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        /* Card Header */
+        .card__header {
+            padding-bottom: 8px; /* Reduced padding */
+        }
+        .card__title {
+            color: var(--digital-purple);
+            font-size: 1.2rem; /* Reduced font size */
+            margin-bottom: 12px; /* Reduced margin */
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reduced gap */
+        }
+        /* Card Body */
+        .card__body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card__image {
+            width: 100%;
+            height: 200px; /* Reduced height */
+            object-fit: cover;
+            object-position: center 30%;
+            border-radius: 8px;
+            margin-bottom: 12px; /* Reduced margin */
+            border: 2px solid rgba(207, 64, 255, 0.3);
+            transition: transform 0.3s ease;
+            cursor: zoom-in; /* Add zoom cursor */
+        }
+        .card:hover .card__image {
+            transform: scale(1.02); /* Reduced scale */
+        }
+        .card__quote {
+            background: rgba(207, 64, 255, 0.15);
+            color: var(--primary);
+            padding: 10px; /* Reduced padding */
+            border-radius: 8px;
+            font-size: 0.85rem; /* Reduced font size */
+            border: 1px solid rgba(207, 64, 255, 0.3);
+            margin: 12px 0; /* Reduced margin */
+            position: relative;
+            padding-left: 35px; /* Reduced padding */
+        }
+        .card__quote i {
+            position: absolute;
+            left: 10px; /* Reduced left position */
+            top: 10px; /* Reduced top position */
+            color: var(--primary);
+            font-size: 0.9rem; /* Reduced icon size */
+        }
+        /* Card Meta */
+        .card__meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px; /* Reduced gap */
+            margin: 8px 0; /* Reduced margin */
+        }
+        .tag {
+            background: rgba(207, 64, 255, 0.15);
+            color: var(--primary);
+            padding: 4px 8px; /* Reduced padding */
+            border-radius: 15px;
+            font-size: 0.7rem; /* Reduced font size */
+            border: 1px solid rgba(207, 64, 255, 0.3);
+        }
+        /* Card Footer */
+        .card__footer {
+            background: rgba(207, 64, 255, 0.08);
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
+            padding: 10px 12px; /* Reduced padding */
+            border-radius: 0 0 8px 8px;
+            font-size: 0.8rem; /* Reduced font size */
+            color: var(--lighter-accent);
+            margin-top: 12px; /* Reduced margin */
+        }
+        /* Content sections */
+        .content-section {
+            margin-bottom: 30px; /* Reduced margin */
+            /* Default scroll margin for larger screens */
+            scroll-margin-top: calc(var(--top-header-height) + 10px);
+        }
+        .section-title {
+            color: var(--digital-purple);
+            font-size: 1.4rem; /* Reduced font size */
+            margin-bottom: 20px; /* Reduced margin */
+            padding-bottom: 8px; /* Reduced padding */
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+        /* NEW Footer Styles */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: rgba(10, 10, 20, 0.5);
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
+            margin-top: 30px;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .copyright {
+            color: #777;
+            font-size: 0.85rem;
+        }
+        .top-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .top-link:hover {
+            color: var(--light);
+            text-shadow: 0 0 8px var(--primary);
+        }
+        .centered-card {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+        }
+        .centered-card > .card {
+            max-width: 700px;
+            width: 100%;
+        }
+        /* Visitor Counter Styles */
+        #freeCounter {
+            text-align: center;
+            padding: 15px 0; /* Reduced padding */
+            margin: 15px auto; /* Reduced margin */
+            max-width: 600px;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid rgba(207, 64, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.15);
+        }
+        #freeCounter a {
+            color: var(--digital-purple);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.85rem; /* Reduced font size */
+        }
+        #freeCounter a:hover {
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+        }
+        /* Responsive Design Improvements */
+        @media (max-width: 1200px) {
+            .top-nav {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            .top-nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .top-header h1 {
+                font-size: 1.3rem; /* Reduced font size */
+            }
+            header {
+                min-height: 200px; /* Adjusted for medium screens */
+            }
+            .sun-container {
+                width: 180px; /* Reduced size */
+                height: 180px; /* Reduced size */
+            }
+            .sun-core {
+                width: 70px; /* Reduced size */
+                height: 70px; /* Reduced size */
+            }
+            .sun-rays {
+                width: 180px; /* Reduced size */
+                height: 180px; /* Reduced size */
+            }
+        }
+        @media (max-width: 768px) {
+            .top-nav {
+                gap: 10px; /* Reduced gap */
+            }
+            /* Adjusted dropdown toggle for smaller screens */
+            .dropdown-toggle {
+                padding: 8px 10px; /* Reduced padding */
+                font-size: 0.75rem; /* Reduced font size */
+            }
+            .card__image {
+                 height: 160px; /* Reduced height */
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 12px; /* Reduced padding */
+            }
+            /* FIXED: Increased top value to prevent collision with header */
+            .back-button-tab {
+                top: 55px; /* Adjusted top position */
+                left: 12px; /* Reduced left position */
+                padding: 6px 12px; /* Reduced padding */
+                font-size: 0.7rem; /* Reduced font size */
+                z-index: 1002;
+            }
+            /* FIXED: Increased top value to prevent collision with header */
+            .contact-button-tab {
+                top: 55px; /* Adjusted top position */
+                right: 12px; /* Reduced right position */
+                padding: 6px 12px; /* Reduced padding */
+                font-size: 0.7rem; /* Reduced font size */
+                z-index: 1002;
+            }
+            /* Adjust sun for mobile */
+            .sun-container {
+                width: 150px; /* Reduced size */
+                height: 150px; /* Reduced size */
+            }
+            .sun-core {
+                width: 60px; /* Reduced size */
+                height: 60px; /* Reduced size */
+                box-shadow: 0 0 15px 6px var(--sun-glow);
+            }
+            .sun-rays {
+                width: 150px; /* Reduced size */
+                height: 150px; /* Reduced size */
+                box-shadow: 0 0 12px 3px var(--sun-ray-color);
+            }
+            header {
+                min-height: 180px; /* Adjusted for small screens */
+            }
+            .top-header {
+                padding: 10px 8px; /* Reduced padding */
+                flex-direction: column;
+                height: auto;
+            }
+            .top-header h1 {
+                font-size: 1.1rem; /* Reduced font size */
+                max-width: 100%;
+                /* Removed padding and margin-top for simpler, more predictable layout */
+            }
+            .top-nav {
+                grid-template-columns: 1fr; /* Stack dropdowns on mobile */
+                gap: 8px; /* Reduced gap */
+                padding: 0 8px; /* Reduced padding */
+            }
+             /* Adjusted dropdown toggle for very small screens */
+            .dropdown-toggle {
+                padding: 10px 8px; /* Reduced padding */
+                font-size: 0.8rem; /* Reduced font size */
+            }
+            .contact-card {
+                padding: 20px; /* Adjusted padding for mobile */
+                margin: 15px auto; /* Adjusted margin for mobile */
+            }
+            .contact-card h2 {
+                font-size: 1.2rem; /* Adjusted font size for mobile */
+            }
+            .contact-card p {
+                font-size: 1rem; /* Adjusted font size for mobile */
+            }
+            .section-title {
+                font-size: 1.2rem; /* Reduced font size */
+            }
+            .card__title {
+                font-size: 1rem; /* Reduced font size */
+            }
+            /* Adjust main container margin for fixed header height on small screens */
+            .main-container {
+                margin: calc(var(--top-header-height-sm) + 15px) auto 0; /* Adjusted margin */
+            }
+            /* Adjust scroll margin for fixed header */
+            .content-section {
+                scroll-margin-top: calc(var(--top-header-height-sm) + 10px); /* Adjusted scroll margin */
+            }
+            #freeCounter {
+                padding: 12px; /* Reduced padding */
+                font-size: 0.8rem; /* Reduced font size */
+            }
+            .card {
+                min-height: 450px; /* Reduced height */
+            }
+            .card__image {
+                height: 140px; /* Reduced height */
+            }
+        }
+        @media (max-width: 480px) {
+            .top-header h1 {
+                font-size: 1rem; /* Further reduced font size */
+            }
+            .back-button-tab, .contact-button-tab {
+                padding: 5px 10px; /* Reduced padding */
+                font-size: 0.65rem; /* Reduced font size */
+            }
+            .card {
+                min-height: 400px; /* Further reduced height */
+            }
+            .card__image {
+                height: 120px; /* Reduced height */
+            }
+            .card__title {
+                font-size: 0.95rem; /* Reduced font size */
+            }
+            .contact-card h2 {
+                font-size: 1.1rem; /* Further adjustment for very small screens */
+            }
+            .contact-card p {
+                font-size: 0.95rem; /* Further adjustment for very small screens */
+            }
+        }
+        /* Image Modal Styles */
+        .image-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 10000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #caption {
+            color: #f0f0f0;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            padding: 0 20px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Add caption to images */
+        .card__image-caption {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--lighter-accent);
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    <div class="grid-lines"></div>
-    <!-- New top header with title -->
-    <div class="top-header">
-        <h1>Academic Literacy Hub</h1>
-    </div>
-    <a href="#" class="back-button-tab" id="backButton">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
-    </a>
-    <!-- NEW: Contact button in top right -->
-    <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
-        <i class="fas fa-envelope" aria-hidden="true"></i> Contact
-    </a>
-    <div class="main-container">
-       <!-- Top Navigation Links -->
-<div class="top-nav">
-    <!-- Dropdown 1: Foundational Models & Theories -->
-    <div class="dropdown">
-        <div class="dropdown-toggle">
-            Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
-        </div>
-        <ul class="dropdown-menu">
-            <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
-            <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
-            <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
-            <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
-        </ul>
-    </div>
-    <!-- Dropdown 2: Indigenous & Cultural Perspectives -->
-    <div class="dropdown">
-        <div class="dropdown-toggle">
-            Indigenous & Cultural Perspectives <i class="fas fa-chevron-down dropdown-icon"></i>
-        </div>
-        <ul class="dropdown-menu">
-            <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
-            <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
-            <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
-            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy" target="_blank">Inclusive African Theory of Academic Literacy</a></li>
-            <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
-            <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
-            <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
-        </ul>
-    </div>
-   <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
-<div class="dropdown">
-    <div class="dropdown-toggle">
-        Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
-    </div>
-    <ul class="dropdown-menu">
-        <li><a href="https://oeybers-cpu.github.io/AL_econ/" target="_blank">Academic literacy and economic empowerment</a></li>
-        <li><a href="https://oeybers-cpu.github.io/knowledge_structures/" target="_blank">Bernstein's Knowledge Structures</a></li>
-    </ul>
+    <div class="grid-lines"></div>
+        <div class="top-header">
+        <h1>Academic Literacy Hub</h1>
+    </div>
+    <a href="#" class="back-button-tab" id="backButton">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+    </a>
+        <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
+        <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+    </a>
+    <div class="main-container">
+       <div class="top-nav">
+        <div class="dropdown">
+        <div class="dropdown-toggle">
+            Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
+            <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
+            <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
+        </ul>
+    </div>
+        <div class="dropdown">
+        <div class="dropdown-toggle">
+            Indigenous & Cultural Perspectives <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
+            <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy" target="_blank">Inclusive African Theory of Academic Literacy</a></li>
+            <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
+        </ul>
+    </div>
+        <div class="dropdown">
+        <div class="dropdown-toggle">
+            AI & Technology <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="https://oeybers-cpu.github.io/AI/" target="_blank">AI and academic literacy</a></li>
+        </ul>
+    </div>
 </div>
-</div>
-        </div>
-        <div class="container">
-            <header>
-                <!-- Digital Sun -->
-                <div class="sun-container">
-                    <div class="sun-core"></div>
-                    <div class="sun-rays"></div>
-                </div>
-                <div class="header-content">
-                    <!-- Removed the subtitle text -->
-                    <div class="contact-card">
-                        <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Key Finding</h2>
-                        <p>"Academic literacies foreground meaning-making, identity, power, and authority in writing, moving beyond skills and socialisation models."</p>
-                    </div>
-                    <!-- Key Readings Card has been removed as requested -->
-                </div>
-            </header>
-            <div class="content-section">
-                <h2 class="section-title">Theoretical Frameworks</h2>
-                <div class="articles-container">
-                    <!-- Card 1: Three Models -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-chart-bar" aria-hidden="true"></i> Three Models of Academic Literacy
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true"
-                                 alt="Three models of academic literacy showing different approaches to understanding literacy practices"
-                                 class="card__image">
-                            <div class="card__image-caption">Click to view larger version</div>
-                            <p>Academic literacy is a multifaceted concept that has evolved through three primary theoretical frameworks. The skills-based model treats it as a set of transferable technical abilities. The socialisation approach views it as adaptation to specific academic communities. However, the literacies perspective—central to contemporary scholarship—positions academic literacy as inherently social, cultural, and power-laden, where meaning-making, identity, and authority are central. This understanding forms the foundation for exploring academic literacy's role in diverse educational contexts.</p>
-                            <p>Each model presents distinct assumptions about knowledge construction and transmission. Contemporary scholarship increasingly recognises the complex social dimensions of academic communication, emphasising how literacy practices are embedded within cultural and institutional frameworks rather than being mere technical skills.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic writing is never merely about skills or socialisation; it always involves questions of power, identity, and access to knowledge communities.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Theory</span>
-                                <span class="tag">Epistemology</span>
-                                <span class="tag">Pedagogy</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Understanding foundational perspectives on academic literacy
-                        </footer>
-                    </div>
-                    <!-- Card 2: Academic Literacies Model -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-book-open" aria-hidden="true"></i> Academic Literacies as Social Practice
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true"
-                                 alt="Academic literacies model showing social practice framework"
-                                 class="card__image">
-                            <div class="card__image-caption">Click to view larger version</div>
-                            <p>Building on the literacies perspective, the Academic Literacies Model conceptualises reading and writing as socially situated practices. These practices vary according to context, culture, and genre, reflecting underlying epistemological assumptions about valid knowledge within disciplines.</p>
-                            <p>Students encounter diverse literacy practices across academic settings, each with distinct expectations around structure, voice, evidence, and argumentation. These reflect underlying epistemological assumptions about valid knowledge within disciplines. This understanding challenges simplistic views of academic literacy as a fixed set of skills, emphasising its dynamic, context-dependent nature.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy is not a static skill set but a dynamic practice shaped by cultural and institutional contexts.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Social Practice</span>
-                                <span class="tag">Epistemology</span>
-                                <span class="tag">Identity</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Academic literacy as dynamic, context-dependent practice
-                        </footer>
-                    </div>
-                    <!-- Card 3: Genre and Mode Switching -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-exchange-alt" aria-hidden="true"></i> Genre and Mode Switching in Academic Literacy
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://th.bing.com/th?id=OVFT.s9KV_MqJKYGU6t4ZJoUS8S&pid=News&w=300&h=186&c=14&rs=2&qlt=90&dpr=1.3"
-                                 alt="Students switching between different communication modes in classroom setting"
-                                 class="card__image">
-                            <div class="card__image-caption">Click to view larger version</div>
-                            <p>Within the Academic Literacies framework, students navigate vertical knowledge structures—such as essays, presentations, and notes—each with genre-specific conventions. These vertical structures are complemented by horizontal mode shifts: from internal thought to spoken discussion, written notes to visual representations. Each transition demands attention to linguistic, visual, and multimodal elements that shape meaning.</p>
-                            <p>This constant switching between modes and genres underscores that academic literacy requires more than technical proficiency. It necessitates an awareness of how different communication forms function within disciplinary contexts, where meaning is constructed through diverse semiotic resources.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Students must develop awareness of genre and mode-specific qualities when navigating academic communication contexts.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Genre</span>
-                                <span class="tag">Mode</span>
-                                <span class="tag">Transformation</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Navigating academic communication transitions
-                        </footer>
-                    </div>
-                    <!-- Card 4: Multimodal Communication -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-project-diagram" aria-hidden="true"></i> Multimodal Communication in Academic Literacy
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
-                                 alt="Multimodal communication showing integration of different semiotic resources"
-                                 class="card__image">
-                            <div class="card__image-caption">Click to view larger version</div>
-                            <p>Academic literacy extends beyond language alone; multimodality reveals how meaning is constructed through multiple semiotic resources. In academic settings, visual elements (layout, typography), aural features (tone, rhythm), and spatial arrangements all contribute to meaning-making.</p>
-                            <p>This multimodal approach challenges traditional focus on linguistic elements alone, recognising that contemporary academic discourse relies on the interplay of multiple channels. Understanding this integration is essential for navigating diverse academic contexts and engaging meaningfully in knowledge production.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
-                            </blockquote>
-                            <div class="card__meta">
-                                <span class="tag">Multimodality</span>
-                                <span class="tag">Semiotics</span>
-                                <span class="tag">Communication</span>
-                            </div>
-                        </div>
-                        <footer class="card__footer">
-                            Integrating multiple communication modes in academic contexts
-                        </footer>
-                    </div>
-                </div>
-            </div>
-            <!-- Centered final card -->
-            <div class="centered-card">
-                <div class="card">
-                    <div class="card__header">
-                        <h2 class="card__title">
-                            <i class="fas fa-globe-africa" aria-hidden="true"></i> Academic Literacy in Global Contexts
-                        </h2>
-                    </div>
-                    <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
-                             alt="Interconnected academic communities representing global knowledge exchange"
-                             class="card__image">
-                        <div class="card__image-caption">Click to view larger version</div>
-                        <p>Academic literacy is deeply embedded within global cultural and linguistic contexts. Different knowledge traditions offer unique perspectives on meaning-making, argumentation, and knowledge construction. Recognising these variations enriches academic communication by expanding acceptable forms and challenging monolingual assumptions.</p>
-                        <p>Global academic discourse benefits from embracing diverse ways of knowing—different narrative structures, argumentation styles, and evidence approaches across cultures.</p>
-                        <!-- Embedded new image here, centered and 25% smaller -->
-                        <div style="text-align: center; margin: 12px 0;"> <!-- Reduced margin -->
-                            <img src="https://theawesomedaily.com/wp-content/uploads/2016/02/qvsBXBC.jpg"
-                                 alt="Intercultural dialogue illustration"
-                                 style="width: 75%; max-width: 100%; height: auto; border-radius: 8px;">
-                            <div class="card__image-caption">Click to view larger version</div>
-                        </div>
-                        <!-- End of new image -->
-                        <blockquote class="card__quote">
-                            <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy is enriched when we recognise and value diverse knowledge traditions and communication practices across cultural contexts.
-                        </blockquote>
-                        <div class="card__meta">
-                            <span class="tag">Global Contexts</span>
-                            <span class="tag">Diversity</span>
-                            <span class="tag">Inclusivity</span>
-                        </div>
-                    </div>
-                    <footer class="card__footer">
-                        Academic literacy within diverse global contexts
-                    </footer>
-                </div>
-          
-            <div class="copyright">
-                <p>&copy; 2025 Dr Oscar Eybers</p>
-                <a href="#" id="topLink" style="display: inline-block; margin-top: 8px; color: var(--digital-purple); text-decoration: none;"> <!-- Reduced margin -->
-                    <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
-                </a>
-            </div>
-        </div>
-        <!-- Image Modal -->
-        <div id="imageModal" class="image-modal">
-            <span class="close-modal">&times;</span>
-            <img class="modal-content" id="modalImage">
-            <div id="caption"></div>
-        </div>
-        <script>
-            // Ensure DOM is fully loaded before attaching event handlers
-            document.addEventListener('DOMContentLoaded', function() {
-                // Dropdown functionality
-                const dropdowns = document.querySelectorAll('.dropdown');
-                dropdowns.forEach(dropdown => {
-                    const toggle = dropdown.querySelector('.dropdown-toggle');
-                    toggle.addEventListener('click', function(e) {
-                        e.stopPropagation(); // Prevent event bubbling
-                        // Close other dropdowns
-                        dropdowns.forEach(d => {
-                            if (d !== dropdown) {
-                                d.classList.remove('active');
-                            }
-                        });
-                        // Toggle current dropdown
-                        dropdown.classList.toggle('active');
-                    });
-                });
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    dropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                });
-                // Back button functionality - IMPROVED
-                const backButton = document.getElementById('backButton');
-                if (backButton) {
-                    backButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        // Store current state with scroll position before navigating
-                        const currentState = {
-                            url: window.location.href,
-                            scrollY: window.scrollY
-                        };
-                        history.replaceState(currentState, document.title);
-                        // Go back in history
-                        if (history.length > 1) {
-                            history.back();
-                        } else {
-                            // Fallback if no history
-                            window.location.href = '/';
-                        }
-                    });
-                }
-                // Top link functionality
-                const topLink = document.getElementById('topLink');
-                if (topLink) {
-                    topLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-                // Store scroll position when navigating away
-                window.addEventListener('beforeunload', function() {
-                    const currentState = {
-                        url: window.location.href,
-                        scrollY: window.scrollY
-                    };
-                    history.replaceState(currentState, document.title);
-                });
-                // Restore scroll position when returning to page
-                window.addEventListener('pageshow', function(event) {
-                    if (event.persisted) {
-                        const state = history.state;
-                        if (state && state.scrollY !== undefined) {
-                            window.scrollTo(0, state.scrollY);
-                        }
-                    }
-                });
-                // Handle direct navigation to this page
-                if (performance.navigation.type === PerformanceNavigation.TYPE_BACK_FORWARD) {
-                    const state = history.state;
-                    if (state && state.scrollY !== undefined) {
-                        window.scrollTo(0, state.scrollY);
-                    }
-                }
-                // Handle orientation changes
-                window.addEventListener('orientationchange', function() {
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 300);
-                });
-                // Image Modal Functionality
-                const modal = document.getElementById("imageModal");
-                const modalImg = document.getElementById("modalImage");
-                const captionText = document.getElementById("caption");
-                // Get all images with class "card__image"
-                const images = document.querySelectorAll('.card__image');
-                // Add click event to each image
-                images.forEach(function(image) {
-                    image.addEventListener('click', function() {
-                        modal.style.display = "block";
-                        modalImg.src = this.src;
-                        // Get caption from next element with class "card__image-caption"
-                        const caption = this.nextElementSibling;
-                        if (caption && caption.classList.contains('card__image-caption')) {
-                            captionText.innerHTML = caption.innerHTML;
-                        } else {
-                            captionText.innerHTML = this.alt;
-                        }
-                    });
-                });
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close-modal")[0];
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() { 
-                  modal.style.display = "none";
-                }
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                  if (event.target == modal) {
-                    modal.style.display = "none";
-                  }
-                }
-            });
-        </script>
-    </body>
+        <header>
+            <div class="sun-container">
+                <div class="sun-core"></div>
+                <div class="sun-rays"></div>
+            </div>
+            <div class="header-content">
+                <div class="contact-card" id="contact">
+                    <h2><i class="fas fa-microscope"></i> Dr Oscar Eybers</h2>
+                    <p>This hub explores the intersection of academic literacy, decolonisation, and multimodal communication. Here, you'll discover foundational theories alongside innovative perspectives from African and indigenous philosophies.</p>
+                </div>
+            </div>
+        </header>
+        <main>
+                        <section id="multimodal" class="content-section">
+                <h2 class="section-title">Multimodal Academic Literacy</h2>
+                <div class="articles-container">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">
+                                <i class="fas fa-book-open"></i> Introduction to a Multimodal Approach to Academic Literacy
+                            </h3>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://oeybers-cpu.github.io/assets/images/academic-literacy-hub/multimodality_image.webp" alt="Abstract image of various symbols and icons representing different modes of communication" class="card__image">
+                            <p class="card__image-caption">Image illustrating the diverse modes of communication in multimodal literacy.</p>
+                            <p>Academic literacy extends beyond written text to include **visuals, audio, and other modes**. This article introduces the core concepts, arguing that effective academic communication requires students to be fluent across multiple modes. You'll learn how this approach fosters a more inclusive and relevant understanding of what it means to be 'academically literate' in the 21st century.</p>
+                        </div>
+                        <div class="card__meta">
+                            <span class="tag">Multimodality</span>
+                            <span class="tag">Communication</span>
+                            <span class="tag">New Literacy Studies</span>
+                        </div>
+                        <a href="https://oeybers-cpu.github.io/multimodal_grammar/" class="card__footer">
+                            Read more about Multimodality &rarr;
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">
+                                <i class="fas fa-university"></i> Decolonising Academic Literacy
+                            </h3>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://oeybers-cpu.github.io/assets/images/academic-literacy-hub/decolonisation_image.webp" alt="Stylised image of a globe surrounded by diverse cultural symbols, representing decolonisation" class="card__image">
+                            <p class="card__image-caption">Image symbolising the intersection of global and local knowledge systems in decolonisation.</p>
+                            <p>This piece challenges the Eurocentric bias in traditional academic literacy, advocating for an inclusive approach that values **indigenous knowledge systems and languages**. It explores how decolonisation in education is not just about changing curricula, but about fundamentally rethinking how we define and teach literacy. We'll delve into the philosophical roots of this movement and its practical implications for pedagogy.</p>
+                        </div>
+                        <div class="card__meta">
+                            <span class="tag">Decolonisation</span>
+                            <span class="tag">Indigenous Knowledge</span>
+                            <span class="tag">Education Theory</span>
+                        </div>
+                        <a href="https://oeybers-cpu.github.io/decolonised_literacy/" class="card__footer">
+                            Read more about Decolonisation &rarr;
+                        </a>
+                    </div>
+                </div>
+            </section>
+                        <section id="ubuntu" class="content-section">
+                <h2 class="section-title">Ubuntu & Academic Literacy</h2>
+                <div class="articles-container centered-card">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">
+                                <i class="fas fa-hand-holding-heart"></i> The Philosophy of Ubuntu as a Framework
+                            </h3>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://oeybers-cpu.github.io/assets/images/academic-literacy-hub/ubuntu_image.webp" alt="Abstract depiction of connected, glowing threads forming a network, representing the philosophy of Ubuntu" class="card__image">
+                            <p class="card__image-caption">Image illustrating the interconnectedness inherent in the Ubuntu philosophy.</p>
+                            <p>This article re-imagines academic literacy through the lens of **Ubuntu**, the African philosophy of interconnectedness. Instead of focusing solely on individual skill acquisition, we explore a framework where literacy is a **communal, dialogical process**. This perspective promotes collaboration, mutual respect, and the co-creation of knowledge, offering a powerful antidote to competitive, individualistic educational models.</p>
+                        </div>
+                        <div class="card__meta">
+                            <span class="tag">Ubuntu</span>
+                            <span class="tag">African Philosophy</span>
+                            <span class="tag">Knowledge Co-creation</span>
+                        </div>
+                        <a href="https://oeybers-cpu.github.io/ubuntu/" class="card__footer">
+                            Read more about Ubuntu &rarr;
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+                <div id="freeCounter" data-freecounter-net="https://www.freecounter.net/counter.php?url=https://oeybers-cpu.github.io">
+            <a href="https://www.freecounter.net/" target="_blank">Free Counter</a>
+        </div>
+    </div>
+        <div id="myModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+        <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const parentDropdown = this.closest('.dropdown');
+                    // Close other open dropdowns
+                    document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+                        if (dropdown !== parentDropdown) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                    // Toggle the clicked dropdown
+                    parentDropdown.classList.toggle('active');
+                });
+            });
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+        // Back button functionality
+        document.getElementById('backButton').addEventListener('click', function() {
+            history.back();
+        });
+        // Image modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImage");
+            var captionText = document.getElementById("caption");
+            var closeBtn = document.getElementsByClassName("close-modal")[0];
+            var images = document.querySelectorAll('.card__image');
+            images.forEach(function(image) {
+                image.onclick = function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.nextElementSibling ? this.nextElementSibling.innerHTML : this.alt;
+                }
+            });
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+        <footer>
+        <div class="footer-content">
+            <p class="copyright">
+                &copy; 2024 Dr Oscar Eybers. All rights reserved.
+            </p>
+            <a href="#" class="top-link">
+                <i class="fas fa-arrow-up"></i> Back to Top
+            </a>
+        </div>
+    </footer>
+</body>
 </html>
-
