@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is academic literacy? Multiple perspectices and theories.</title>
+    <title>What is academic literacy? A theory.</title>
     <meta name="description" content="Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
     <meta name="keywords" content="Multimodal decolonised academic literacy, ubuntu philosophy in education, educational theory and literacy, multiliteracies, multimodal communication, decolonisation, ubunty philosophy, educational theory, linguistics, language and identity">
     <meta name="author" content="Dr Oscar Eybers">
@@ -498,8 +498,7 @@
             box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
             position: relative;
             overflow: hidden;
-            height: 100%;
-            min-height: 500px;
+            height: 500px; /* Fixed height for all cards */
         }
         .card::before {
             content: '';
@@ -534,9 +533,9 @@
         }
         .card__body {
             flex-grow: 1;
+            overflow-y: auto; /* Adds scroll to content if it exceeds card height */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
         .card__image {
             width: 100%;
@@ -848,7 +847,7 @@
                 font-size: 0.8rem;
             }
             .card {
-                min-height: 450px;
+                height: 450px; /* Fixed height for mobile */
             }
             .card__image {
                 height: 140px;
@@ -876,7 +875,7 @@
                 font-size: 0.6rem;
             }
             .card {
-                min-height: 400px;
+                height: 400px; /* Fixed height for very small screens */
             }
             .card__image {
                 height: 120px;
@@ -1014,7 +1013,6 @@
             </div>
           <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
 <div class="dropdown">
-  <div class="dropdown">
     <div class="dropdown-toggle">
         Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
     </div>
