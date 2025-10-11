@@ -956,6 +956,28 @@
                 padding: 14px 10px;
             }
         }
+        
+        /* Dynamic Red Tab - Added here */
+        .try-allchat-tab {
+            position: fixed;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #e74c3c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            z-index: 1003; /* Higher than dropdown-menu z-index */
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: right 0.3s ease;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+        
+        .try-allchat-tab:hover {
+            right: 0;
+        }
     </style>
 </head>
 <body>
@@ -1209,6 +1231,9 @@
             </a>
         </div>
     </div>
+    <!-- Dynamic Red Tab - Added here -->
+    <a href="https://academicliteracy.xyz/" class="try-allchat-tab">Try ALLChat</a>
+    
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
         <span class="close-modal">&times;</span>
