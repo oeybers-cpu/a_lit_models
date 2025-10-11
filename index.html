@@ -188,6 +188,29 @@
             color: #000;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
         }
+        
+        /* === NEW: Prominent ALLChat Tab Styles === */
+        .allchat-header-tab {
+            color: white;
+            background: #e74c3c; /* Bright red */
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 6px 12px;
+            border-radius: 5px;
+            border: 2px solid #fff; /* White border to make it pop */
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-weight: 700; /* Bold */
+            order: -1; /* Place it first in the flex container */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(231, 76, 60, 0.9);
+        }
+        .allchat-header-tab:hover {
+            background: #c0392b; /* Darker red on hover */
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 20px rgba(231, 76, 60, 1.0);
+        }
+        /* ========================================= */
+
        /* Dropdown Styles - Mobile optimized */
         .dropdown {
             position: relative;
@@ -732,6 +755,10 @@
             .card__image {
                  height: 160px;
             }
+            .allchat-header-tab {
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
         }
         @media (max-width: 600px) {
             body {
@@ -752,6 +779,10 @@
                 margin-top: 5px;
             }
             .eybers-link {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+            .allchat-header-tab {
                 font-size: 0.8rem;
                 padding: 4px 8px;
             }
@@ -800,7 +831,7 @@
                 grid-template-columns: 1fr;
                 gap: 8px;
                 padding: 0 8px;
-                margin-top: 90px; /* Increased from 80px to 90px to prevent overlap */
+                margin-top: 90px; /* Space for fixed header and left tabs */
             }
             .dropdown-toggle {
                 padding: 12px 8px;
@@ -872,6 +903,10 @@
                 font-size: 0.75rem;
                 padding: 3px 6px;
             }
+            .allchat-header-tab {
+                font-size: 0.75rem;
+                padding: 3px 6px;
+            }
             .back-button-tab, .contact-button-tab {
                 padding: 4px 6px;
                 font-size: 0.7rem;
@@ -892,7 +927,7 @@
                 font-size: 1.05rem;
             }
             .top-nav {
-                margin-top: 95px; /* Increased from 85px to 95px for very small screens */
+                margin-top: 95px; /* Increased for very small screens */
             }
         }
         /* Image Modal Styles */
@@ -956,45 +991,6 @@
                 padding: 14px 10px;
             }
         }
-        
-        /* Dynamic Red Tab - ADDED FOR ALLCHAT */
-        .try-allchat-tab {
-            position: fixed;
-            right: -100px; /* Start off-screen */
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg); /* Rotate to form a tab */
-            background: #e74c3c; /* Bright red */
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px 4px 0 0; /* Rounded top corners */
-            z-index: 1003; /* Higher than other fixed elements */
-            text-decoration: none;
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.05rem;
-            transition: right 0.3s ease-in-out, box-shadow 0.3s ease;
-            box-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
-            white-space: nowrap; /* Keep text on one line */
-            transform-origin: 100% 100%; /* Rotate from the bottom right corner */
-        }
-        
-        .try-allchat-tab:hover {
-            right: -20px; /* Slide out on hover */
-            box-shadow: 0 0 25px rgba(231, 76, 60, 1.0);
-        }
-        
-        /* Media query for smaller screens to ensure visibility */
-        @media (max-width: 768px) {
-            .try-allchat-tab {
-                right: -110px; /* Adjust starting position for mobile to keep it off-screen but still allow hover/touch */
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
-            .try-allchat-tab:hover {
-                right: -30px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1006,6 +1002,7 @@
             <div class="pyramid"></div>
         </div>
         <div class="eybers-header-links">
+            <a href="https://academicliteracy.xyz/" class="allchat-header-tab">Try ALL Chat</a>
             <a href="https://oeybers-cpu.github.io/oe_research/" class="eybers-link">Eybers Articles</a>
             <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-link">Eybers Chapters</a>
         </div>
@@ -1234,7 +1231,6 @@
             </a>
         </div>
     </div>
-    <a href="https://academicliteracy.xyz/" class="try-allchat-tab">Try ALLChat</a>
     
     <div id="imageModal" class="image-modal">
         <span class="close-modal">&times;</span>
