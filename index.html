@@ -957,32 +957,48 @@
             }
         }
         
-        /* Dynamic Red Tab - Added here */
+        /* Dynamic Red Tab - ADDED FOR ALLCHAT */
         .try-allchat-tab {
             position: fixed;
-            right: -60px;
+            right: -100px; /* Start off-screen */
             top: 50%;
-            transform: translateY(-50%);
-            background: #e74c3c;
+            transform: translateY(-50%) rotate(-90deg); /* Rotate to form a tab */
+            background: #e74c3c; /* Bright red */
             color: white;
             padding: 0.5rem 1rem;
-            border-radius: 4px;
-            z-index: 1003; /* Higher than dropdown-menu z-index */
+            border-radius: 4px 4px 0 0; /* Rounded top corners */
+            z-index: 1003; /* Higher than other fixed elements */
             text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            transition: right 0.3s ease;
-            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.05rem;
+            transition: right 0.3s ease-in-out, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
+            white-space: nowrap; /* Keep text on one line */
+            transform-origin: 100% 100%; /* Rotate from the bottom right corner */
         }
         
         .try-allchat-tab:hover {
-            right: 0;
+            right: -20px; /* Slide out on hover */
+            box-shadow: 0 0 25px rgba(231, 76, 60, 1.0);
+        }
+        
+        /* Media query for smaller screens to ensure visibility */
+        @media (max-width: 768px) {
+            .try-allchat-tab {
+                right: -110px; /* Adjust starting position for mobile to keep it off-screen but still allow hover/touch */
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .try-allchat-tab:hover {
+                right: -30px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="grid-lines"></div>
-    <!-- Top header with title and pyramids -->
     <div class="top-header">
         <div class="header-title-container">
             <div class="pyramid"></div>
@@ -994,7 +1010,6 @@
             <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-link">Eybers Chapters</a>
         </div>
     </div>
-    <!-- Container for left tabs (back and contact) -->
     <div class="left-tabs-container">
         <a href="#" class="back-button-tab" id="backButton">
             <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
@@ -1004,9 +1019,7 @@
         </a>
     </div>
     <div class="main-container">
-       <!-- Top Navigation Links -->
-        <div class="top-nav">
-            <!-- Dropdown 1: Foundational Models & Theories -->
+       <div class="top-nav">
             <div class="dropdown">
                 <div class="dropdown-toggle">
                     Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
@@ -1019,7 +1032,6 @@
                     <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
                 </ul>
             </div>
-            <!-- Dropdown 2: Indigenous & Cultural Perspectives -->
             <div class="dropdown">
                 <div class="dropdown-toggle">
                     Indigenous & Cultural Perspectives <i class="fas fa-chevron-down dropdown-icon"></i>
@@ -1034,8 +1046,7 @@
                     <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
                 </ul>
             </div>
-          <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
-<div class="dropdown">
+          <div class="dropdown">
     <div class="dropdown-toggle">
         Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
     </div>
@@ -1051,7 +1062,6 @@
 </div>
         </div>
         <header>
-            <!-- Digital Sun -->
             <div class="sun-container">
                 <div class="sun-core"></div>
                 <div class="sun-rays"></div>
@@ -1066,7 +1076,6 @@
         <div class="content-section">
             <h2 class="section-title">Theoretical Frameworks</h2>
             <div class="articles-container">
-                <!-- Card 1: Three Models -->
                 <div class="card">
                     <div class="card__header">
                         <h2 class="card__title">
@@ -1093,7 +1102,6 @@
                         Understanding foundational perspectives on academic literacy
                     </footer>
                 </div>
-                <!-- Card 2: Academic Literacies Model -->
                 <div class="card">
                     <div class="card__header">
                         <h2 class="card__title">
@@ -1120,7 +1128,6 @@
                         Academic literacy as dynamic, context-dependent practice
                     </footer>
                 </div>
-                <!-- Card 3: Genre and Mode Switching -->
                 <div class="card">
                     <div class="card__header">
                         <h2 class="card__title">
@@ -1147,7 +1154,6 @@
                         Navigating academic communication transitions
                     </footer>
                 </div>
-                <!-- Card 4: Multimodal Communication -->
                 <div class="card">
                     <div class="card__header">
                         <h2 class="card__title">
@@ -1176,7 +1182,6 @@
                 </div>
             </div>
         </div>
-        <!-- Centered final card -->
         <div class="centered-card">
             <div class="card">
                 <div class="card__header">
@@ -1191,7 +1196,6 @@
                     <div class="card__image-caption">Click to view larger version</div>
                     <p>Academic literacy is deeply embedded within global cultural and linguistic contexts. Different knowledge traditions offer unique perspectives on meaning-making, argumentation, and knowledge construction. Recognising these variations enriches academic communication by expanding acceptable forms and challenging monolingual assumptions.</p>
                     <p>Global academic discourse benefits from embracing diverse ways of knowing—different narrative structures, argumentation styles, and evidence approaches. This inclusivity fosters communities where varied voices contribute meaningfully to knowledge production. Ultimately, academic literacy thrives when it acknowledges and integrates the rich diversity of global knowledge traditions.</p>
-                    <!-- Embedded new image here, centered and 25% smaller -->
                     <div style="text-align: center; margin: 12px 0;">
                         <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/cultural%20diversity.png?raw=true"
                              alt="Intercultural dialogue illustration"
@@ -1213,7 +1217,6 @@
                 </footer>
             </div>
         </div>
-        <!-- Embedded Visitor Counter -->
         <div id="freeCounter">
             <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=98eaca31612f4331b0b8acd08eb43e530eb44597'></script>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1386787/t/5"></script>
@@ -1231,10 +1234,8 @@
             </a>
         </div>
     </div>
-    <!-- Dynamic Red Tab - Added here -->
     <a href="https://academicliteracy.xyz/" class="try-allchat-tab">Try ALLChat</a>
     
-    <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modalImage">
