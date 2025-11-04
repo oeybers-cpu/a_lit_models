@@ -235,7 +235,7 @@
         /* Top navigation */
         .top-nav {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin-bottom: 40px;
             padding: 0 15px;
@@ -661,21 +661,24 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .top-nav {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
         @media (max-width: 1100px) {
             .articles-container {
                 grid-template-columns: 1fr;
             }
+            .top-nav {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         @media (max-width: 900px) {
             .top-nav {
                 grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 70px;
-            padding: 0 10px;
-            margin-bottom: 30px;
+                gap: 12px;
+                margin-top: 70px;
+                padding: 0 10px;
+                margin-bottom: 30px;
             }
             .top-header h1 {
                 font-size: 1.3rem;
@@ -903,6 +906,21 @@
                     <li><a href="https://oeybers-cpu.github.io/knowledge_structure_theory/" target="_blank">Bernstein's Knowledge Structures</a></li>
                     <li><a href="https://oeybers-cpu.github.io/whatisacademicliteracy-/" target="_blank">Academic literacy as ontology</a></li>
                     <li><a href="https://oeybers-cpu.github.io/AL_critical-thinking/" target="_blank">Academic literacy and critical thinking</a></li>
+                </ul>
+            </div>
+            <!-- NEW DROPDOWN: Academic literacy blogs -->
+            <div class="dropdown">
+                <div class="dropdown-toggle">
+                    Academic Literacy Blogs 
+                    <svg class="fa-icon dropdown-icon" aria-hidden="true" focusable="false">
+                        <use xlink:href="#icon-chevron-down"></use>
+                    </svg>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://oeybers-cpu.github.io/origins_AL/" target="_blank">Origins of academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/identity/" target="_blank">Academic literacy and identity</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/power/" target="_blank">Academic literacy and power</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/meaning-making/" target="_blank">Academic literacy and meaning-making</a></li>
                 </ul>
             </div>
         </div>
@@ -1139,7 +1157,7 @@
             <path d="M384 320H256c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32zM192 32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v128c0 17.67 14.33 32 32 32h95.72l73.16 128.04C211.98 300.98 232.4 288 256 288h.28L192 175.51V128h224V64H192V32zM608 0H480c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32z"/>
         </symbol>
         <symbol id="icon-globe-africa" viewBox="0 0 496 512">
-            <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm-25.6 15.8c-2.1 7.7-9.5 13.4-17.5 13.4-9.3 0-17.6-7.2-19.3-16.6-1.7-9.4 4.5-18.4 13.8-20.1 9.3-1.7 18.4 4.5 20.1 13.8.4 2.2.6 4.4.6 6.6 0 3-.9 5.9-2.5 8.5zm61.9 56.6c-21 5.2-40.7 9.1-60.3 11.5 1.2 2.5 2.4 5 3.5 7.5 3.9-1.3 7.8-2.5 11.8-3.6-3.1 9.3-6.3 18.5-9.4 27.8-10.7-10.2-21.3-20.4-32-30.6 8.8-2.7 17.5-5.8 26.2-9 1.9 12.9 3.1 25.9 3.6 38.9-9.8-1.4-19.6-2.1-29.4-2.1-7.5 0-15 .4-22.5 1.1 1.4-7.4 3.3-14.8 5.5-22.1 11.8 10.7 23.6 21.4 35.4 32.1-4.1-14.2-7.3-28.5-9.6-42.9-8.6 2-17.1 4.3-25.6 6.7-2.8-10.2-5.6-20.3-8.4-30.5 9.4-2.2 18.8-4.1 28.3-5.8 2.8 10.2 5.6 20.4 8.4 30.6 10.8-2.4 21.6-4.4 32.5-6.1-1.3-6.7-2.8-13.4-4.5-20 8.4-1.3 16.8-2.3 25.3-3.1-3.3 9.8-6.5 19.6-9.6 29.5 9.8 1.7 19.6 2.8 29.4 3.4-3.4-9.8-7-19.6-10.7-29.4 9.1 2 18.2 4.3 27.3 6.8-1.8-6.8-3.8-13.5-6-20.2-8.6 3.1-17.2 6.5-25.7 10.1-3.9-12.9-8.3-25.8-13.1-38.5zm-101.9 50.1c-7.8 13.5-15.6 27-23.3 40.6-6.5-13.4-12.1-27.3-16.8-41.5 4.3-2.5 8.7-4.8 13.2-7 4.3 2.6 8.7 5.1 13.2 7.4 4.4-2.4 8.8-4.9 13.2-7.3-1.3 2.7-2.5 5.4-3.5 8.1zM248 432c-60.6 0-134.5-38.3-143.8-93.3-2.2-12.9-3.4-26.1-3.4-39.5 0-8.6.7-17.2 2.1-25.6 6.9 5.6 27.6 20.9 44.3 25.9 42.2 12.6 97.1 25.7 134 25.7 25.6 0 65.3-6.2 112.9-21.9 5.1-1.7 10.1-3.5 15.1-5.4 2.6 12.5 4 25.4 4 38.4 0 74.8-67.7 124-164.2 124z"/>
+            <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm-25.6 15.8c-2.1 7.7-9.5 13.4-17.5 13.4c-9.3 0-17.6-7.2-19.3-16.6c-1.7-9.4 4.5-18.4 13.8-20.1c9.3-1.7 18.4 4.5 20.1 13.8c.4 2.2.6 4.4.6 6.6c0 3-.9 5.9-2.5 8.5zm61.9 56.6c-21 5.2-40.7 9.1-60.3 11.5 1.2 2.5 2.4 5 3.5 7.5 3.9-1.3 7.8-2.5 11.8-3.6-3.1 9.3-6.3 18.5-9.4 27.8-10.7-10.2-21.3-20.4-32-30.6 8.8-2.7 17.5-5.8 26.2-9 1.9 12.9 3.1 25.9 3.6 38.9-9.8-1.4-19.6-2.1-29.4-2.1-7.5 0-15 .4-22.5 1.1 1.4-7.4 3.3-14.8 5.5-22.1 11.8 10.7 23.6 21.4 35.4 32.1-4.1-14.2-7.3-28.5-9.6-42.9-8.6 2-17.1 4.3-25.6 6.7-2.8-10.2-5.6-20.3-8.4-30.5 9.4-2.2 18.8-4.1 28.3-5.8 2.8 10.2 5.6 20.4 8.4 30.6 10.8-2.4 21.6-4.4 32.5-6.1-1.3-6.7-2.8-13.4-4.5-20 8.4-1.3 16.8-2.3 25.3-3.1-3.3 9.8-6.5 19.6-9.6 29.5 9.8 1.7 19.6 2.8 29.4 3.4-3.4-9.8-7-19.6-10.7-29.4 9.1 2 18.2 4.3 27.3 6.8-1.8-6.8-3.8-13.5-6-20.2-8.6 3.1-17.2 6.5-25.7 10.1-3.9-12.9-8.3-25.8-13.1-38.5zm-101.9 50.1c-7.8 13.5-15.6 27-23.3 40.6-6.5-13.4-12.1-27.3-16.8-41.5 4.3-2.5 8.7-4.8 13.2-7 4.3 2.6 8.7 5.1 13.2 7.4 4.4-2.4 8.8-4.9 13.2-7.3-1.3 2.7-2.5 5.4-3.5 8.1zM248 432c-60.6 0-134.5-38.3-143.8-93.3-2.2-12.9-3.4-26.1-3.4-39.5 0-8.6.7-17.2 2.1-25.6 6.9 5.6 27.6 20.9 44.3 25.9 42.2 12.6 97.1 25.7 134 25.7 25.6 0 65.3-6.2 112.9-21.9 5.1-1.7 10.1-3.5 15.1-5.4 2.6 12.5 4 25.4 4 38.4 0 74.8-67.7 124-164.2 124z"/>
         </symbol>
         <symbol id="icon-quote-left" viewBox="0 0 512 512">
             <path d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>
@@ -1259,3 +1277,4 @@
     </script>
 </body>
 </html>
+The navigation maintains its responsive design and all existing functionality while providing access to the new "Origins of academic literacy" page.
