@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is academic literacy? A theory.</title>
-    <meta name="description" content="What is academic literacy? A theory. A definition. An approach. Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
-    <meta name="keywords" content="Multimodal inclusive academic literacy, ubuntu philosophy in education, educational theory and literacy, multiliteracies, multimodal communication, decolonisation, ubunty philosophy, educational theory, linguistics, language and identity">
+    <title>African Knowledge Systems: History, Culture & Philosophy</title>
+    <meta name="description" content="Exploring African history, culture, epistemology, ontology and philosophy through indigenous knowledge systems, Ubuntu philosophy, and decolonial perspectives.">
+    <meta name="keywords" content="African philosophy, Ubuntu, African epistemology, African ontology, indigenous knowledge systems, decolonisation, African history, African culture">
     <meta name="author" content="Dr Oscar Eybers">
     
     <!-- Inline Font Awesome icons as SVG -->
@@ -45,7 +45,7 @@
         }
     </style>
     
-    <!-- Main CSS (same as before but now fully inline) -->
+    <!-- Main CSS (updated for African knowledge focus) -->
     <style>
         * {
             margin: 0;
@@ -53,14 +53,14 @@
             box-sizing: border-box;
         }
         :root {
-            --primary: #3a86ff;
-            --secondary: #4361ee;
-            --accent: #7209b7;
+            --primary: #e9b826;
+            --secondary: #d4a017;
+            --accent: #8b4513;
             --dark: #0f1419;
             --darker: #0a0d10;
             --light: #f8f9fa;
             --card-bg: rgba(25, 30, 40, 0.8);
-            --lighter-accent: #90e0ef;
+            --lighter-accent: #f5d76e;
             --royal-blue: #4361ee;
             --royal-blue-light: #4895ef;
             --text-gray: #adb5bd;
@@ -90,8 +90,8 @@
             width: 100%;
             height: 100%;
             background:
-                radial-gradient(circle at 10% 20%, rgba(58, 134, 255, 0.03) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(67, 97, 238, 0.03) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(233, 184, 38, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 20%);
             pointer-events: none;
             z-index: -2;
         }
@@ -102,8 +102,8 @@
             width: 100%;
             height: 100%;
             background-image:
-                linear-gradient(rgba(58, 134, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(58, 134, 255, 0.02) 1px, transparent 1px);
+                linear-gradient(rgba(233, 184, 38, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(233, 184, 38, 0.02) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: -1;
@@ -136,7 +136,7 @@
             align-items: center;
             padding: 15px 20px;
             background: rgba(15, 20, 25, 0.95);
-            border-bottom: 1px solid rgba(114, 9, 183, 0.2);
+            border-bottom: 1px solid rgba(233, 184, 38, 0.2);
             z-index: 1000;
             backdrop-filter: blur(10px);
             min-height: var(--top-header-height);
@@ -182,16 +182,16 @@
             font-size: 0.85rem;
             padding: 6px 12px;
             border-radius: 6px;
-            background: rgba(58, 134, 255, 0.1);
-            border: 1px solid rgba(58, 134, 255, 0.3);
+            background: rgba(233, 184, 38, 0.1);
+            border: 1px solid rgba(233, 184, 38, 0.3);
             transition: all 0.3s ease;
             white-space: nowrap;
             font-weight: 500;
         }
         .eybers-link:hover {
-            background: rgba(58, 134, 255, 0.2);
+            background: rgba(233, 184, 38, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(58, 134, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(233, 184, 38, 0.2);
         }
         /* Left tabs */
         .left-tabs-container {
@@ -205,7 +205,7 @@
         .back-button-tab, .contact-button-tab {
             z-index: 1001;
             background: rgba(25, 30, 40, 0.9);
-            border: 1px solid var(--royal-blue);
+            border: 1px solid var(--primary);
             color: var(--light);
             padding: 8px 14px;
             border-radius: var(--border-radius);
@@ -222,9 +222,9 @@
             white-space: nowrap;
         }
         .back-button-tab:hover, .contact-button-tab:hover {
-            background: rgba(67, 97, 238, 0.2);
+            background: rgba(233, 184, 38, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(67, 97, 238, 0.2);
+            box-shadow: 0 6px 16px rgba(233, 184, 38, 0.2);
         }
         /* Main container */
         .main-container {
@@ -246,7 +246,7 @@
             padding: 30px 0;
             position: relative;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
-            border-bottom: 1px solid rgba(114, 9, 183, 0.2);
+            border-bottom: 1px solid rgba(233, 184, 38, 0.2);
             margin-bottom: 30px;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             overflow: hidden;
@@ -274,10 +274,10 @@
         .hexagon {
             width: 100px;
             height: 100px;
-            background: rgba(58, 134, 255, 0.1);
+            background: rgba(233, 184, 38, 0.1);
             position: relative;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            border: 1px solid rgba(58, 134, 255, 0.3);
+            border: 1px solid rgba(233, 184, 38, 0.3);
             animation: subtle-rotate 20s infinite linear;
         }
         @keyframes subtle-rotate {
@@ -295,7 +295,7 @@
         /* Contact card */
         .contact-card {
             background: var(--card-bg);
-            border: 1px solid rgba(114, 9, 183, 0.2);
+            border: 1px solid rgba(233, 184, 38, 0.2);
             border-radius: var(--border-radius);
             padding: 30px;
             max-width: 800px;
@@ -348,7 +348,7 @@
         }
         .card {
             background: var(--card-bg);
-            border: 1px solid rgba(114, 9, 183, 0.1);
+            border: 1px solid rgba(233, 184, 38, 0.1);
             border-radius: var(--border-radius);
             padding: var(--card-padding);
             display: flex;
@@ -372,7 +372,7 @@
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            border-color: rgba(114, 9, 183, 0.2);
+            border-color: rgba(233, 184, 38, 0.2);
         }
         .card__header {
             padding-bottom: 12px;
@@ -402,7 +402,7 @@
             object-position: center 30%;
             border-radius: 8px;
             margin-bottom: 15px;
-            border: 1px solid rgba(114, 9, 183, 0.2);
+            border: 1px solid rgba(233, 184, 38, 0.2);
             transition: transform 0.3s ease;
             cursor: zoom-in;
         }
@@ -410,7 +410,7 @@
             transform: scale(1.02);
         }
         .card__quote {
-            background: rgba(114, 9, 183, 0.1);
+            background: rgba(233, 184, 38, 0.1);
             color: var(--light);
             padding: 15px;
             border-radius: 8px;
@@ -434,17 +434,17 @@
             margin: 15px 0;
         }
         .tag {
-            background: rgba(58, 134, 255, 0.1);
+            background: rgba(233, 184, 38, 0.1);
             color: var(--primary);
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
-            border: 1px solid rgba(58, 134, 255, 0.2);
+            border: 1px solid rgba(233, 184, 38, 0.2);
             font-weight: 500;
         }
         .card__footer {
-            background: rgba(114, 9, 183, 0.05);
-            border-top: 1px solid rgba(114, 9, 183, 0.1);
+            background: rgba(233, 184, 38, 0.05);
+            border-top: 1px solid rgba(233, 184, 38, 0.1);
             padding: 12px 15px;
             border-radius: 0 0 8px 8px;
             font-size: 0.9rem;
@@ -460,7 +460,7 @@
             font-size: 1.6rem;
             margin-bottom: 25px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(114, 9, 183, 0.2);
+            border-bottom: 1px solid rgba(233, 184, 38, 0.2);
             font-family: 'Orbitron', sans-serif, monospace;
             text-align: center;
             font-weight: 600;
@@ -470,7 +470,7 @@
             padding: 30px 0;
             color: var(--text-gray);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(114, 9, 183, 0.1);
+            border-top: 1px solid rgba(233, 184, 38, 0.1);
             margin-top: 40px;
         }
         .centered-card {
@@ -488,7 +488,7 @@
             margin: 20px auto;
             max-width: 600px;
             background: rgba(25, 30, 40, 0.7);
-            border: 1px solid rgba(114, 9, 183, 0.1);
+            border: 1px solid rgba(233, 184, 38, 0.1);
             border-radius: var(--border-radius);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
@@ -514,13 +514,13 @@
             font-size: 0.9rem;
             padding: 6px 12px;
             border-radius: 6px;
-            background: rgba(58, 134, 255, 0.1);
-            border: 1px solid rgba(58, 134, 255, 0.3);
+            background: rgba(233, 184, 38, 0.1);
+            border: 1px solid rgba(233, 184, 38, 0.3);
             transition: all 0.3s ease;
             font-weight: 500;
         }
         .eybers-footer-link:hover {
-            background: rgba(58, 134, 255, 0.2);
+            background: rgba(233, 184, 38, 0.2);
             transform: translateY(-2px);
         }
         /* Dropdown Styles */
@@ -535,7 +535,7 @@
             padding: 15px;
             border-radius: var(--border-radius);
             background: rgba(25, 30, 40, 0.8);
-            border: 1px solid rgba(114, 9, 183, 0.2);
+            border: 1px solid rgba(233, 184, 38, 0.2);
             transition: all 0.3s ease;
             font-size: 0.9rem;
             text-align: center;
@@ -551,10 +551,10 @@
         }
         .dropdown-toggle:hover,
         .dropdown.active .dropdown-toggle {
-            background: rgba(114, 9, 183, 0.1);
-            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.2);
+            background: rgba(233, 184, 38, 0.1);
+            box-shadow: 0 5px 15px rgba(233, 184, 38, 0.2);
             transform: translateY(-2px);
-            border-color: rgba(114, 9, 183, 0.4);
+            border-color: rgba(233, 184, 38, 0.4);
         }
         .dropdown-menu {
             display: none;
@@ -563,7 +563,7 @@
             left: 0;
             width: 100%;
             background: rgba(25, 30, 40, 0.95);
-            border: 1px solid rgba(114, 9, 183, 0.2);
+            border: 1px solid rgba(233, 184, 38, 0.2);
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             z-index: 1002;
@@ -584,13 +584,13 @@
             display: block;
             transition: background-color 0.2s ease;
             font-size: 0.85rem;
-            border-bottom: 1px solid rgba(114, 9, 183, 0.1);
+            border-bottom: 1px solid rgba(233, 184, 38, 0.1);
             line-height: 1.4;
             word-wrap: break-word;
             font-weight: 400;
         }
         .dropdown-menu a:hover {
-            background-color: rgba(114, 9, 183, 0.1);
+            background-color: rgba(233, 184, 38, 0.1);
             color: var(--light);
         }
         .dropdown-menu li:last-child a {
@@ -658,6 +658,39 @@
             margin-top: 5px;
             font-style: italic;
         }
+        
+        /* Table Styles */
+        .concepts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .concepts-table th {
+            background-color: rgba(233, 184, 38, 0.2);
+            color: var(--primary);
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(233, 184, 38, 0.3);
+        }
+        .concepts-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .concepts-table tr:last-child td {
+            border-bottom: none;
+        }
+        .concepts-table tr:nth-child(even) {
+            background-color: rgba(233, 184, 38, 0.05);
+        }
+        .concepts-table tr:hover {
+            background-color: rgba(233, 184, 38, 0.1);
+        }
+        
         /* Responsive Design */
         @media (max-width: 1200px) {
             .top-nav {
@@ -724,6 +757,9 @@
             }
             .contact-card p {
                 font-size: 1.1rem;
+            }
+            .concepts-table {
+                font-size: 0.8rem;
             }
         }
         @media (max-width: 600px) {
@@ -792,6 +828,12 @@
                 align-items: center;
                 gap: 10px;
             }
+            .concepts-table {
+                font-size: 0.75rem;
+            }
+            .concepts-table th, .concepts-table td {
+                padding: 8px 10px;
+            }
         }
         @media (max-width: 480px) {
             body {
@@ -835,7 +877,7 @@
     <div class="top-header">
         <div class="header-title-container">
             <div class="pyramid"></div>
-            <h1>Academic Literacy Hub</h1>
+            <h1>African Knowledge Systems</h1>
             <div class="pyramid"></div>
         </div>
         <div class="eybers-header-links">
@@ -860,64 +902,57 @@
         <div class="top-nav">
             <div class="dropdown">
                 <div class="dropdown-toggle">
-                    Foundational Models & Theories 
+                    African Philosophy & Epistemology
                     <svg class="fa-icon dropdown-icon" aria-hidden="true" focusable="false">
                         <use xlink:href="#icon-chevron-down"></use>
                     </svg>
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/sociocultural/" target="_blank">Sociocultural academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Ubuntu_2/" target="_blank">Ubuntu Philosophy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/african_epistemology/" target="_blank">African Epistemology</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/african_ontology/" target="_blank">African Ontology</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/indigenous_knowledge/" target="_blank">Indigenous Knowledge Systems</a></li>
                 </ul>
             </div>
             <div class="dropdown">
                 <div class="dropdown-toggle">
-                    Indigenous & Cultural Perspectives 
+                    History & Cultural Heritage 
                     <svg class="fa-icon dropdown-icon" aria-hidden="true" focusable="false">
                         <use xlink:href="#icon-chevron-down"></use>
                     </svg>
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
-                    <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il_kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Wa Thiong'o and academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial African Civilizations</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and Ancient Knowledge</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing Systems</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African Art and Semiotics</a></li>
                 </ul>
             </div>
             <div class="dropdown">
                 <div class="dropdown-toggle">
-                    Applications & Interdisciplinary Connections 
+                    Decolonial Perspectives 
                     <svg class="fa-icon dropdown-icon" aria-hidden="true" focusable="false">
                         <use xlink:href="#icon-chevron-down"></use>
                     </svg>
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a href="https://oeybers-cpu.github.io/epist_onto_ID/" target="_blank">Epistemology, ontology, and academic literacy</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/MCQ_alternatives/" target="_blank">Alternatives to MCQ literacy assessment</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/AL_econ/" target="_blank">Academic literacy and economic empowerment</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/SDG_AL/" target="_blank">Academic literacy and Sustainability</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/ALiteracy_peace/" target="_blank">Academic literacy and peace development</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/knowledge_structure_theory/" target="_blank">Bernstein's Knowledge Structures</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/whatisacademicliteracy-/" target="_blank">Academic literacy as ontology</a></li>
-                    <li><a href="https://oeybers-cpu.github.io/AL_critical-thinking/" target="_blank">Academic literacy and critical thinking</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Chinua Achebe</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Ngũgĩ wa Thiong'o</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/decolonial_thought/" target="_blank">Decolonial Thought</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/knowledge_justice/" target="_blank">Knowledge Justice</a></li>
                 </ul>
             </div>
-            <!-- NEW DROPDOWN: Academic literacy blogs -->
             <div class="dropdown">
                 <div class="dropdown-toggle">
-                    Academic Literacy Blogs 
+                    Contemporary Applications 
                     <svg class="fa-icon dropdown-icon" aria-hidden="true" focusable="false">
                         <use xlink:href="#icon-chevron-down"></use>
                     </svg>
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a href="https://oeybers-cpu.github.io/origins_AL/" target="_blank">Origins of academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ubuntu_education/" target="_blank">Ubuntu in Education</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/african_futurism/" target="_blank">African Futurism</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/knowledge_structure_theory/" target="_blank">Knowledge Structures</a></li>
                 </ul>
             </div>
         </div>
@@ -926,40 +961,80 @@
                 <div class="hexagon"></div>
             </div>
             <div class="header-content">
-                <!-- Key Finding card has been removed -->
+                <div class="contact-card">
+                    <h2>
+                        <svg class="fa-icon" aria-hidden="true" focusable="false">
+                            <use xlink:href="#icon-graduation-cap"></use>
+                        </svg> African Knowledge Systems
+                    </h2>
+                    <p>Exploring the rich tapestry of African history, culture, epistemology, ontology, and philosophy through indigenous knowledge systems and decolonial perspectives.</p>
+                </div>
             </div>
         </header>
         <div class="content-section">
-            <h2 class="section-title">Theoretical Frameworks</h2>
+            <h2 class="section-title">Foundations of African Knowledge</h2>
             <div class="articles-container">
                 <div class="card">
                     <div class="card__header">
                         <h2 class="card__title">
                             <svg class="fa-icon" aria-hidden="true" focusable="false">
-                                <use xlink:href="#icon-chart-bar"></use>
-                            </svg> Foundations of Academic Literacy
+                                <use xlink:href="#icon-globe-africa"></use>
+                            </svg> Ubuntu Philosophy: I Am Because We Are
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/1756310906.png?raw=true"
-                             alt="Three models of academic literacy showing different approaches to understanding literacy practices"
+                        <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
+                             alt="Ubuntu philosophy illustration showing interconnected community"
                              class="card__image">
                         <div class="card__image-caption">Click to view larger version</div>
-                        <p>Academic literacy is a multifaceted concept that has evolved through three primary theoretical frameworks. The skills-based model treats it as a set of transferable technical abilities. The socialisation approach views it as adaptation to specific academic communities. However, the literacies perspective—central to contemporary scholarship—positions academic literacy as inherently social, cultural, and power-laden, where meaning-making, identity, and authority are central. This understanding forms the foundation for exploring academic literacy's role in diverse educational contexts.</p>
-                        <p>Each model presents distinct assumptions about knowledge construction and transmission. Contemporary scholarship increasingly recognises the complex social dimensions of academic communication, emphasising how literacy practices are embedded within cultural and institutional frameworks rather than being mere technical skills.</p>
+                        <p>Ubuntu is a Nguni Bantu term meaning "humanity" often translated as "I am because we are," or "a person is a person through other people." This African philosophical concept emphasizes community, interconnectedness, and mutual caring for all. Ubuntu represents a worldview that sees humanity as an interconnected web of relationships rather than a collection of isolated individuals.</p>
+                        <p>In epistemological terms, Ubuntu challenges Western individualistic notions of knowledge production, emphasizing instead that knowledge emerges through communal dialogue, shared experience, and collective wisdom. This perspective has profound implications for education, governance, and social organization.</p>
                         <blockquote class="card__quote">
                             <svg class="fa-icon" aria-hidden="true" focusable="false">
                                 <use xlink:href="#icon-quote-left"></use>
-                            </svg> Academic writing is never merely about skills or socialisation; it always involves questions of power, identity, and access to knowledge communities.
+                            </svg> A person with Ubuntu is open and available to others, affirming of others, does not feel threatened that others are able and good.
                         </blockquote>
+                        
+                        <table class="concepts-table">
+                            <thead>
+                                <tr>
+                                    <th>Concept</th>
+                                    <th>Description</th>
+                                    <th>Significance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ubuntu</td>
+                                    <td>"I am because we are" - interconnected humanity</td>
+                                    <td>Foundation for African communitarian ethics</td>
+                                </tr>
+                                <tr>
+                                    <td>Botho</td>
+                                    <td>Sotho equivalent emphasizing humaneness</td>
+                                    <td>Moral philosophy guiding social relations</td>
+                                </tr>
+                                <tr>
+                                    <td>Ujamaa</td>
+                                    <td>Familyhood or cooperative economics</td>
+                                    <td>Economic application of communal principles</td>
+                                </tr>
+                                <tr>
+                                    <td>Harambee</td>
+                                    <td>"Let's pull together" - collective action</td>
+                                    <td>Practical implementation of communal work</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
                         <div class="card__meta">
-                            <span class="tag">Theory</span>
-                            <span class="tag">Epistemology</span>
-                            <span class="tag">Pedagogy</span>
+                            <span class="tag">Philosophy</span>
+                            <span class="tag">Ethics</span>
+                            <span class="tag">Community</span>
                         </div>
                     </div>
                     <footer class="card__footer">
-                        Understanding foundational perspectives on academic literacy
+                        Ubuntu as foundational African philosophy
                     </footer>
                 </div>
                 <div class="card">
@@ -967,59 +1042,62 @@
                         <h2 class="card__title">
                             <svg class="fa-icon" aria-hidden="true" focusable="false">
                                 <use xlink:href="#icon-book-open"></use>
-                            </svg> Academic Literacies as Social Practice
+                            </svg> African Epistemology: Ways of Knowing
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/acadlit_apartheid/blob/main/new%20al%202.png?raw=true"
-                             alt="Academic literacies model showing social practice framework"
+                        <img src="https://github.com/oeybers-cpu/african_epistemology/blob/main/epistemic_justice.png?raw=true"
+                             alt="African epistemology showing diverse ways of knowing"
                              class="card__image">
                         <div class="card__image-caption">Click to view larger version</div>
-                        <p>Building on the literacies perspective, the Academic Literacies Model conceptualises reading and writing as socially situated practices. These practices vary according to context, culture, and genre, with student writing and learning framed as issues of epistemology and identity rather than mere skill acquisition. Knowledge construction occurs through participation in disciplinary communities, where meaning-making involves negotiating power relations and cultural norms.</p>
-                        <p>Students encounter diverse literacy practices across academic settings, each with distinct expectations around structure, voice, evidence, and argumentation. These reflect underlying epistemological assumptions about valid knowledge within disciplines. This understanding challenges simplistic views of academic literacy as a fixed set of skills, emphasising its dynamic, context-dependent nature.</p>
+                        <p>African epistemology encompasses diverse ways of knowing that have been systematically marginalized by Western epistemological frameworks. It recognizes multiple sources of knowledge including ancestral wisdom, oral traditions, spiritual insights, and embodied knowledge. Unlike Cartesian dualism that separates mind from body, African epistemology often views knowledge as holistic and integrated with lived experience.</p>
+                        <p>This epistemological stance challenges the hegemony of Western scientific rationalism as the sole valid form of knowledge. It opens space for recognizing the validity of indigenous knowledge systems that have sustained African communities for millennia while offering alternative approaches to contemporary challenges.</p>
                         <blockquote class="card__quote">
                             <svg class="fa-icon" aria-hidden="true" focusable="false">
                                 <use xlink:href="#icon-quote-left"></use>
-                            </svg> Academic literacy practices are diverse, contested, and situated within specific social contexts that shape how knowledge is constructed and communicated.
+                            </svg> Until the lions have their own historians, the history of the hunt will always glorify the hunter.
                         </blockquote>
+                        
+                        <table class="concepts-table">
+                            <thead>
+                                <tr>
+                                    <th>Concept</th>
+                                    <th>Description</th>
+                                    <th>Application</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sankofa</td>
+                                    <td>Learning from the past to build the future</td>
+                                    <td>Historical consciousness in knowledge production</td>
+                                </tr>
+                                <tr>
+                                    <td>Orality</td>
+                                    <td>Knowledge transmission through spoken word</td>
+                                    <td>Preserves cultural memory and wisdom</td>
+                                </tr>
+                                <tr>
+                                    <td>Embodied Knowledge</td>
+                                    <td>Knowledge held in the body and practice</td>
+                                    <td>Dance, ritual, and craft as knowledge forms</td>
+                                </tr>
+                                <tr>
+                                    <td>Relational Knowing</td>
+                                    <td>Knowledge emerges through relationships</td>
+                                    <td>Community as site of knowledge production</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
                         <div class="card__meta">
-                            <span class="tag">Social Practice</span>
                             <span class="tag">Epistemology</span>
-                            <span class="tag">Identity</span>
+                            <span class="tag">Knowledge</span>
+                            <span class="tag">Indigenous</span>
                         </div>
                     </div>
                     <footer class="card__footer">
-                        Academic literacy as dynamic, context-dependent practice
-                    </footer>
-                </div>
-                <div class="card">
-                    <div class="card__header">
-                        <h2 class="card__title">
-                            <svg class="fa-icon" aria-hidden="true" focusable="false">
-                                <use xlink:href="#icon-exchange-alt"></use>
-                            </svg> Genre and Mode Switching in Academic Literacy
-                        </h2>
-                    </div>
-                    <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/al%20class.png?raw=true"
-                             alt="Students switching between different communication modes in classroom setting"
-                             class="card__image">
-                        <div class="card__image-caption">Click to view larger version</div>
-                        <p>Within the Academic Literacies framework, students navigate vertical knowledge structures—such as essays, presentations, and notes—each with genre-specific conventions. These vertical structures are complemented by horizontal mode shifts: from internal thought to spoken discussion, written notes to visual representations. Each transition demands attention to linguistic, visual, and multimodal elements that shape meaning.</p>
-                        <p>This constant switching between modes and genres underscores that academic literacy requires more than technical proficiency. It necessitates an awareness of how different communication forms function within disciplinary contexts, where meaning is constructed through diverse semiotic resources.</p>
-                        <blockquote class="card__quote">
-                            <svg class="fa-icon" aria-hidden="true" focusable="false">
-                                <use xlink:href="#icon-quote-left"></use>
-                            </svg> Students must develop awareness of genre and mode-specific qualities when navigating academic communication contexts.
-                        </blockquote>
-                        <div class="card__meta">
-                            <span class="tag">Genre</span>
-                            <span class="tag">Mode</span>
-                            <span class="tag">Transformation</span>
-                        </div>
-                    </div>
-                    <footer class="card__footer">
-                        Navigating academic communication transitions
+                        Diverse African ways of knowing and knowledge production
                     </footer>
                 </div>
                 <div class="card">
@@ -1027,29 +1105,125 @@
                         <h2 class="card__title">
                             <svg class="fa-icon" aria-hidden="true" focusable="false">
                                 <use xlink:href="#icon-project-diagram"></use>
-                            </svg> Multimodal Communication in Academic Literacy
+                            </svg> African Ontology: Conceptions of Being
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="https://github.com/oeybers-cpu/multimodal_grammar/blob/main/digital_communication_africa.png?raw=true"
-                             alt="Multimodal communication showing integration of different semiotic resources"
+                        <img src="https://github.com/oeybers-cpu/african_ontology/blob/main/cosmic_interconnectedness.png?raw=true"
+                             alt="African ontology showing interconnected realms of existence"
                              class="card__image">
                         <div class="card__image-caption">Click to view larger version</div>
-                        <p>Academic literacy extends beyond language alone; multimodality reveals how meaning is constructed through multiple semiotic resources. In academic settings, visual elements (layout, typography), aural features (tone, pace), gestures, and spatial arrangements all contribute to communication. Each mode provides distinct resources, and effective academic communication strategically integrates them.</p>
-                        <p>This multimodal approach challenges traditional focus on linguistic elements alone, recognising that contemporary academic discourse relies on the interplay of multiple channels. Understanding this integration is essential for navigating diverse academic contexts and engaging meaningfully in knowledge production.</p>
+                        <p>African ontological frameworks typically present a holistic universe where the spiritual and material realms are interconnected. Unlike Western dualisms that separate mind from body or nature from culture, African ontology often views reality as a continuous whole. This includes the living, the ancestors, those yet to be born, and the natural world all participating in a dynamic cosmic order.</p>
+                        <p>This ontological perspective has profound implications for ethics, environmental relationships, and social organization. It fosters a sense of responsibility toward community, ancestors, and future generations, challenging individualistic and extractive approaches to human existence.</p>
                         <blockquote class="card__quote">
                             <svg class="fa-icon" aria-hidden="true" focusable="false">
                                 <use xlink:href="#icon-quote-left"></use>
-                            </svg> Meaning is constructed through the integration of multiple semiotic resources, each contributing uniquely to the overall message in academic communication.
+                            </svg> The world is not something to be conquered but a community of beings to which humans belong.
                         </blockquote>
+                        
+                        <table class="concepts-table">
+                            <thead>
+                                <tr>
+                                    <th>Concept</th>
+                                    <th>Description</th>
+                                    <th>Implication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Vital Force</td>
+                                    <td>Life energy that permeates all existence</td>
+                                    <td>Ethical responsibility to enhance life</td>
+                                </tr>
+                                <tr>
+                                    <td>Ancestral Realm</td>
+                                    <td>Continuous relationship with ancestors</td>
+                                    <td>Historical continuity and moral guidance</td>
+                                </tr>
+                                <tr>
+                                    <td>Cosmic Interconnectedness</td>
+                                    <td>All elements of universe in relationship</td>
+                                    <td>Holistic environmental ethics</td>
+                                </tr>
+                                <tr>
+                                    <td>Communal Selfhood</td>
+                                    <td>Personhood defined through community</td>
+                                    <td>Social responsibility over individualism</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
                         <div class="card__meta">
-                            <span class="tag">Multimodality</span>
-                            <span class="tag">Semiotics</span>
-                            <span class="tag">Communication</span>
+                            <span class="tag">Ontology</span>
+                            <span class="tag">Being</span>
+                            <span class="tag">Cosmology</span>
                         </div>
                     </div>
                     <footer class="card__footer">
-                        Integrating multiple communication modes in academic contexts
+                        African conceptions of reality, being, and existence
+                    </footer>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <svg class="fa-icon" aria-hidden="true" focusable="false">
+                                <use xlink:href="#icon-exchange-alt"></use>
+                            </svg> Pre-colonial Knowledge Systems
+                        </h2>
+                    </div>
+                    <div class="card__body">
+                        <img src="https://github.com/oeybers-cpu/pre_colonial/blob/main/timbuktu_manuscripts.png?raw=true"
+                             alt="Ancient African manuscripts and knowledge systems"
+                             class="card__image">
+                        <div class="card__image-caption">Click to view larger version</div>
+                        <p>Contrary to colonial narratives of Africa as a continent without history or writing, pre-colonial African societies developed sophisticated knowledge systems across multiple domains. From the mathematical precision of Egyptian architecture to the astronomical knowledge of Dogon people, from the medical expertise of Yoruba healers to the legal systems of the Ashanti kingdom, African civilizations produced complex epistemic traditions.</p>
+                        <p>These knowledge systems were often integrated with spiritual and practical dimensions of life, refusing the separation between "pure" and "applied" knowledge that characterizes Western epistemology. Understanding these pre-colonial systems is essential for decolonizing contemporary knowledge production and recognizing Africa's intellectual heritage.</p>
+                        <blockquote class="card__quote">
+                            <svg class="fa-icon" aria-hidden="true" focusable="false">
+                                <use xlink:href="#icon-quote-left"></use>
+                            </svg> Africa has a history and this history is part of the history of humanity.
+                        </blockquote>
+                        
+                        <table class="concepts-table">
+                            <thead>
+                                <tr>
+                                    <th>Civilization</th>
+                                    <th>Contribution</th>
+                                    <th>Knowledge Domain</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ancient Egypt</td>
+                                    <td>Mathematics, medicine, architecture</td>
+                                    <td>Science and technology</td>
+                                </tr>
+                                <tr>
+                                    <td>Mali Empire</td>
+                                    <td>Timbuktu manuscripts, university system</td>
+                                    <td>Education and scholarship</td>
+                                </tr>
+                                <tr>
+                                    <td>Great Zimbabwe</td>
+                                    <td>Architecture, urban planning</td>
+                                    <td>Engineering and design</td>
+                                </tr>
+                                <tr>
+                                    <td>Yoruba Kingdoms</td>
+                                    <td>Ifá divination system, metallurgy</td>
+                                    <td>Philosophy and technology</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="card__meta">
+                            <span class="tag">History</span>
+                            <span class="tag">Civilization</span>
+                            <span class="tag">Knowledge</span>
+                        </div>
+                    </div>
+                    <footer class="card__footer">
+                        Sophisticated knowledge systems of pre-colonial Africa
                     </footer>
                 </div>
             </div>
@@ -1059,37 +1233,70 @@
                 <div class="card__header">
                     <h2 class="card__title">
                         <svg class="fa-icon" aria-hidden="true" focusable="false">
-                            <use xlink:href="#icon-globe-africa"></use>
-                        </svg> Academic Literacy in Global Contexts
+                            <use xlink:href="#icon-chart-bar"></use>
+                        </svg> Decolonial Thought and Knowledge Justice
                     </h2>
                 </div>
                 <div class="card__body">
-                    <img src="https://github.com/oeybers-cpu/Ubuntu_2/blob/main/ubuntu.png?raw=true"
-                         alt="Interconnected academic communities representing global knowledge exchange"
+                    <img src="https://github.com/oeybers-cpu/decolonial_thought/blob/main/knowledge_justice.png?raw=true"
+                         alt="Decolonial thought and knowledge justice illustration"
                          class="card__image">
                     <div class="card__image-caption">Click to view larger version</div>
-                    <p>Academic literacy is deeply embedded within global cultural and linguistic contexts. Different knowledge traditions offer unique perspectives on meaning-making, argumentation, and knowledge construction. Recognising these variations enriches academic communication by expanding acceptable forms and challenging monolingual assumptions.</p>
-                    <p>Global academic discourse benefits from embracing diverse ways of knowing—different narrative structures, argumentation styles, and evidence approaches. This inclusivity fosters communities where varied voices contribute meaningfully to knowledge production. Ultimately, academic literacy thrives when it acknowledges and integrates the rich diversity of global knowledge traditions.</p>
+                    <p>Decolonial thought challenges the ongoing effects of colonialism in knowledge production, representation, and epistemic authority. It questions the universal claims of Western knowledge systems while affirming the validity and importance of marginalized knowledge traditions. Knowledge justice seeks to redress epistemic violence—the systematic erasure, distortion, or devaluation of certain ways of knowing.</p>
+                    <p>African philosophers and thinkers have been at the forefront of decolonial thought, from Frantz Fanon's analysis of colonial psychology to Ngũgĩ wa Thiong'o's advocacy for linguistic decolonization. Contemporary decolonial projects seek to recover indigenous knowledge, challenge Eurocentric curricula, and create spaces for diverse epistemic traditions to flourish.</p>
                     <div style="text-align: center; margin: 15px 0;">
-                        <img src="https://github.com/oeybers-cpu/a_lit_models/blob/main/cultural%20diversity.png?raw=true"
-                             alt="Intercultural dialogue illustration"
+                        <img src="https://github.com/oeybers-cpu/knowledge_justice/blob/main/epistemic_resistance.png?raw=true"
+                             alt="Epistemic resistance and decolonial praxis"
                              class="card__image"
-                             style="width: 75%; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(114, 9, 183, 0.2);">
+                             style="width: 75%; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(233, 184, 38, 0.2);">
                         <div class="card__image-caption">Click to view larger version</div>
                     </div>
                     <blockquote class="card__quote">
                         <svg class="fa-icon" aria-hidden="true" focusable="false">
                             <use xlink:href="#icon-quote-left"></use>
-                        </svg> Academic literacy is enriched when we recognise and value diverse knowledge traditions and communication practices across cultural contexts.
+                        </svg> Decolonization is the process of revealing and dismantling colonialist power in all its forms, including epistemic violence.
                     </blockquote>
+                    
+                    <table class="concepts-table">
+                        <thead>
+                            <tr>
+                                <th>Concept</th>
+                                <th>Thinker</th>
+                                <th>Key Contribution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Coloniality of Power</td>
+                                <td>Aníbal Quijano</td>
+                                <td>Analysis of ongoing colonial structures</td>
+                            </tr>
+                            <tr>
+                                <td>Epistemic Disobedience</td>
+                                <td>Walter Mignolo</td>
+                                <td>Challenging Western epistemic dominance</td>
+                            </tr>
+                            <tr>
+                                <td>Linguistic Decolonization</td>
+                                <td>Ngũgĩ wa Thiong'o</td>
+                                <td>Reclaiming African languages in literature</td>
+                            </tr>
+                            <tr>
+                                <td>Postcolonial Theory</td>
+                                <td>Chinua Achebe</td>
+                                <td>African perspectives on history and identity</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
                     <div class="card__meta">
-                        <span class="tag">Global Contexts</span>
-                        <span class="tag">Diversity</span>
-                        <span class="tag">Inclusion</span>
+                        <span class="tag">Decolonial</span>
+                        <span class="tag">Justice</span>
+                        <span class="tag">Epistemology</span>
                     </div>
                 </div>
                 <footer class="card__footer">
-                    Academic literacy within diverse global contexts
+                    Challenging colonial knowledge hierarchies and affirming African epistemic traditions
                 </footer>
             </div>
         </div>
@@ -1097,7 +1304,7 @@
             <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=98eaca31612f4331b0b8acd08eb43e530eb44597'></script>
             <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1386787/t/5"></script>
             <br>
-            <a href='https://www.free-counters.org/'>Rethinking Academic Literacy</a>
+            <a href='https://www.free-counters.org/'>African Knowledge Systems</a>
         </div>
         <div class="copyright">
             <p>&copy; 2025 Dr Oscar Eybers</p>
